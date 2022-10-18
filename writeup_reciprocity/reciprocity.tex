@@ -1,0 +1,367 @@
+\documentclass[12pt, reqno]{amsart}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{lineno}
+\usepackage[margin=3cm]{geometry}
+\usepackage[all,cmtip, color,matrix,arrow]{xy}
+
+%\usepackage{natbib}
+%\usepackage{graphicx}
+\usepackage{amsmath}%To use \text 
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+%\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage[capitalize]{cleveref}  
+\crefname{thm}{Theorem}{Theorems}
+\usepackage{bbold}
+\usepackage[export]{adjustbox}
+%\usepackage{tikz-cd}
+%\usepackage{xr}
+%\usetikzlibrary{babel}
+\usepackage{todonotes}
+\usepackage{bm}
+\usepackage{wrapfig}
+\usepackage{bbold}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{aliascnt}
+\newaliascnt{eqfloat}{equation}
+\newfloat{eqfloat}{h}{eqflts}
+\floatname{eqfloat}{Equation}
+\usepackage{dirtytalk}
+
+\newcommand*{\ORGeqfloat}{}
+\let\ORGeqfloat\eqfloat
+\def\eqfloat{%
+  \let\ORIGINALcaption\caption
+  \def\caption{%
+    \addtocounter{equation}{-1}%
+    \ORIGINALcaption
+  }%
+  \ORGeqfloat
+}
+\newcommand{\raul}[1]{\todo[color=green!30,inline]{CH, #1}}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lm}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem{defin}[thm]{Definition}
+\newtheorem{smpl}[thm]{Example}
+\newtheorem{quest}[thm]{Question}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{rem}[thm]{Remark}
+\crefname{lm}{Lemma}{Lemmas}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{prop}{Proposition}{Propositions}
+\crefname{defin}{Definition}{Definitions}
+\crefname{rem}{Remark}{Remarks}
+
+\newcommand{\oPi}{\mathbf{C}}
+\newcommand{\opi}{\vec{\boldsymbol{\pi}}}
+\newcommand{\otau}{\vec{\boldsymbol{\tau}}}
+\newcommand{\olambda}{\vec{\boldsymbol{\gamma}}}
+\newcommand{\msum}{\sideset{^M}{}\sum}
+\newcommand{\nestohedra}{nestohThisedra}
+\newcommand{\gpHa}{\mathbf{GP}}
+\newcommand{\gHa}{\mathbf{G}}
+\newcommand{\citestan}{\cite[Proposition 3.2]{gebhard99}}
+\newcommand{\parpi}{\boldsymbol{\pi}}
+\newcommand{\partau}{\boldsymbol{\tau}}
+\newcommand{\makepar}{\boldsymbol{\lambda}}
+\newcommand{\uhsm}{\boldsymbol{\Psi}}
+\newcommand{\uHsm}{\boldsymbol{\Psi}}
+\newcommand{\sqbinom}{\genfrac{[}{]}{0pt}{}}
+
+
+\newcommand{\bfpsigrf}{$\mathbf{\Psi}_{\mathbf{Q}}$}
+
+\newcommand{\pper}{marked permutation }
+\newcommand{\ppers}{marked permutations }
+\newcommand{\pperp}{marked permutation.}
+\newcommand{\ppersp}{marked permutations.}
+
+\newcommand{\stirling}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}%binomial coefficients
+\newcommand{\III}{\vec{\mathbf{I}}}
+\newcommand{\JJJ}{\vec{\mathbf{J}}}
+
+
+\DeclareMathOperator{\w}{\mathcal{W}}
+\DeclareMathOperator{\pos}{\mathrm{pos}}
+\DeclareMathOperator{\s}{\mathrm{mset}}
+\DeclareMathOperator{\ms}{\mathrm{mset}}
+\DeclareMathOperator{\Alg}{\mathrm{Alg}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\comu}{comu}
+\DeclareMathOperator{\rest}{\mathbf{res}}
+\DeclareMathOperator{\Orth}{Orth}
+\DeclareMathOperator{\cano}{cano}
+\DeclareMathOperator{\Ppatp}{\mathbf{Ppat}^*}
+\DeclareMathOperator{\dpt}{\mathbf{depth}}
+\DeclareMathOperator{\pat}{\mathbf{pat}}
+\DeclareMathOperator{\Pat}{\mathrm{Pat}}
+\DeclareMathOperator{\Func}{\mathrm{Func}}
+\DeclareMathOperator{\spn}{\mathrm{span}}
+\DeclareMathOperator{\inc}{\mathrm{inc}}
+\DeclareMathOperator{\Ch}{\mathrm{Ch}}
+\DeclareMathOperator{\tvs}{\textvisiblespace}
+\DeclareMathOperator{\sFunc}{\mathrm{SurFunc}}
+%\usepackage{lipsum}
+
+\newcommand{\bfa}{\mathbf{a}}
+
+%combinatorial concepts
+\newcommand{\Sr}{\mathrm{S}} %symmetric group
+\newcommand{\opp}[1]{\overline{#1}} %for opposite
+\newcommand{\len}{l} % for length (degree) of a composition or partition
+%\newcommand{\maxflat}{\hat{1}}
+\newcommand{\maxflat}{\widehat{I}}
+\newcommand{\minflat}{\{I\}}
+\newcommand{\ifac}{
+\begin{picture}(3,5)(0,0)
+\put(0,0){\textup{!}}\put(1.5,4.8){\circle{3}}
+\end{picture}
+} %cyclic factorial
+\newcommand{\acyc}[1]{#1 !} %acyclic orientations
+
+%linear operators
+
+
+%categories
+\newcommand{\Fset}{\mathsf{Set^{\times}}}
+\newcommand{\Veck}{\mathsf{Vec}_\Kb} 
+\newcommand{\Vect}{\mathsf{Vect}} 
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\Ss}{\mathsf{Sp}} % set species
+\newcommand{\Ssk}{\mathsf{Sp}_\Kb} %vector species
+\newcommand{\Spr}{\mathsf{Spr}} % set species with restrictions
+
+\newcommand{\Mo}[1]{\mathsf{Mon}(#1)} %monoids
+\newcommand{\Co}[1]{\mathsf{Comon}(#1)} %comonoids
+\newcommand{\Bo}[1]{\mathsf{Bimon}(#1)} %bimonoids
+\newcommand{\Kb}{\mathbb{K}} 
+
+
+
+%generic set species
+\newcommand{\rP}{\mathrm{P}}
+\newcommand{\rQ}{\mathrm{Q}}
+\newcommand{\rH}{\mathrm{H}}
+\newcommand{\rR}{\mathrm{R}}
+
+
+%generic species with restrictions
+\newcommand{\prP}{\mathtt{P}}
+\newcommand{\prQ}{\mathtt{Q}}
+\newcommand{\prH}{\mathtt{H}}
+\newcommand{\prR}{\mathtt{R}}
+
+
+%set species
+\newcommand{\rE}{\mathrm{E}}
+\newcommand{\rL}{\mathrm{L}}
+%\newcommand{\rX}{\mathrm{X}}
+\let\rPi=\Pi %flats
+\let\rSig=\Sigma
+\newcommand{\rSigh}{\widehat{\rSig}} %decompositions = weak compositions
+\newcommand{\rG}{\mathrm{G}} %graphs
+\newcommand{\rGP}{\mathrm{GP}} %generalized permutahedra
+\newcommand{\SP}{\mathfrak{p}} %standard permutahedron
+
+%generic species
+\newcommand{\thh}{\mathbf{h}} 
+\newcommand{\tg}{\mathbf{g}}
+\newcommand{\tk}{\mathbf{k}}
+\newcommand{\tp}{\mathbf{p}} 
+\newcommand{\tq}{\mathbf{q}}
+\newcommand{\tr}{\mathbf{r}}
+\newcommand{\ta}{\mathbf{a}}
+\newcommand{\tb}{\mathbf{b}} 
+\newcommand{\tc}{\mathbf{c}}
+\newcommand{\td}{\mathbf{d}}
+\newcommand{\trr}{\mathbf{r}} 
+\newcommand{\tm}{\mathbf{m}} %module
+\newcommand{\brac}{\nu} %Lie bracket
+
+%examples of species
+\newcommand{\tone}{\mathbf{1}}
+\newcommand{\wU}{\mathbf{U}}
+\newcommand{\wX}{\mathbf{X}}
+\newcommand{\wE}{\mathbf{E}} %exponential species
+\newcommand{\wL}{\mathbf{L}} %linear orders
+\newcommand{\wI}{\mathbf{I}}%used in macro \tLL
+\newcommand{\tLL}{\wI\hspace*{-2pt}\wL} %pairs of chambers
+\newcommand{\tLie}{\mathbf{Lie}} %Lie species
+\newcommand{\tPi}{\mathbf{\Pi}} %flats
+\newcommand{\tSig}{\mathbf{\Sigma}} %faces
+\newcommand{\tSigh}{\mathbf{\widehat{\Sigma}}} % decompositions
+\newcommand{\te}{\mathbf{e}} %elements
+\newcommand{\tG}{\mathbf{G}} %graphs
+\newcommand{\tcG}{\mathbf{cG}} %connected graphs
+\newcommand{\tGP}{\mathbf{GP}} 
+
+%some isomorphisms
+\let\isoflat=\psi
+\let\isolinear=\psi
+\let\isograph=\varphi
+
+
+%Fock functors
+\newcommand{\contra}[1]{#1^{\vee}} 
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Kcb}{\overline{\Kc}}
+\newcommand{\cKc}{\contra{\Kc}}
+\newcommand{\cKcb}{\contra{\Kcb}}
+
+%functors
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Tcq}{\Tc_q}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Pc}{\mathcal{P}} %primitive element functor
+\newcommand{\Qc}{\mathcal{Q}} %indecomposables
+\newcommand{\Uc}{\mathcal{U}} %universal enveloping algebra
+
+
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+
+%\usepackage[backend=bibtex]{biblatex}
+%\addbibresource{biblio.bib}
+
+\usepackage{amsaddr}
+
+\begin{document}
+
+%% Title, authors and addresses
+\title{Antipode formulas for pattern Hopf algebras} % Subtitle
+
+
+%\author{Raul Penaguiao\footnote{\href{mailto:raulpenaguiao@sfsu.edu}{raulpenaguiao@sfsu.edu}}\footnote{Institute of Mathematics, University of Zurich, Winterthurerstrasse 190, Zurich, CH - 8057.}\footnote{{\bf Keywords:} marked permutations, presheaves, species, Hopf algebras, free algebras}\footnote{2010 AMS Mathematics Subject Classification 2010: 05E05, 16T05, 18D10}}
+
+\author{Raul Penaguiao, Yannic Vargas}
+\email{raulpenaguiao@sfsu.edu}
+\email{vargas@wias-berlin.de}
+\address{San Francisco State University}
+\address{Weierstrass Institute for Applied Analysis and Stochastics}
+\keywords{permutations, presheaves, species, Hopf algebras, free algebras, antipode}
+\subjclass[2010]{05E05, 16T05, 18D10}
+\date{\today} % Date
+
+\begin{abstract}
+The permutation pattern Hopf algebra is a commutative filtered and connected Hopf algebra.
+Its product structure stems from counting patterns of a permutation, and the Hopf algebra was shown to be free and to fit into a general framework of pattern Hopf algebras.
+
+In this paper we discuss a polynomial invariant on permutations that arises from this Hopf algebra structure.
+Because this Hopf algebra is not graded, a ready made polynomial invariant does not arise from the work of Aguar, Bergeron and Sotille.
+We are still however able to obtain this polynomail invariant in full generality for pattern Hopf algebras.
+
+Leveraging the motivating work on pattern Hopf algebras, the resulting polynomial invariant is a Hopf algebra morphism.
+On the particular case of permutations, we explore the consequences of the recently discovered cancellation-free and grouping-free antipode formula to obtain reciprocity results.
+\end{abstract}
+
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+
+\begin{defin}[Polynomial invariant on a species with restrictions $\mathtt{h}$]
+Let $\mathrm{y}$ be an object in the species with restrictions $\mathtt{h}$.
+Then we define the following invariant on $\mathtt{h}$: let $\mathrm{x}$ be an object, then
+$$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
+\end{defin}
+
+\section{Properties of the invariant}
+
+\begin{lm}[Coefficients]
+Let $x$ be an object in $\mathrm{x}$ with factorization into irreducibles $\mathrm{x} = x_1 \star \dots \star x_m$.
+For a composition $\alpha \models m$
+
+\end{lm}
+
+\begin{thm}
+Let $\mathtt{h}$ be a associative species with restrictions, and $\mathrm{x}$ an object in it.
+Then the following defines a Hopf algebra morphism $\chi^{\mathrm{x}}: \mathcal{A}(\mathtt{h}) \to \mathbb{K}[n]$:
+$$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
+\end{thm}
+
+
+
+\begin{lm}
+In the polynomial Hopf algebra $\mathbb{K}[x]$, one has
+$$\Delta \binom{x}{l} = \sum_{a+b=l} \binom{x}{a}\otimes \binom{x}{b}\, .$$
+\end{lm}
+
+\begin{proof}
+We recall that we have $\Delta x = 1 \otimes x + x \otimes 1$.
+We act by strong induction, with the base case $l = 0$ being dealt by the reader.
+
+Then
+\begin{equation*}
+\begin{split}
+\Delta \binom{x}{l+1}&= \Delta \binom{x}{l} \frac{x-l-1}{l+1}\\
+                     &= \left(\sum_{a+b=l} \binom{x}{a}\otimes \binom{x}{b}\right) \Delta \frac{x-l-1}{l+1}\\
+                     &= \sum_{a+b=l} \binom{x}{a}\otimes \binom{x}{b}\left(\frac{1}{l+1}(1\otimes x + x\otimes 1) - 1\otimes 1\right)\\
+                     &= \sum_{a+b=l} 
+\end{split}
+\end{equation*}
+
+\end{proof}
+
+\begin{proof}
+We need to show that $\chi^{\mathrm{x}}$ is a polynomial, that it preserves products and coproducts.
+We start with the polynomiality, by describing 
+
+For that, we appeal to the following 
+
+
+
+Furthermore, we need to show that $\chi$ preserves the product structure.
+Indeed, for each $n$, we have that
+\end{proof}
+
+
+\section{Reciprocity results}
+
+In this section we answer the following question:
+What is the combinatorial interpretation of $\chi^{\tau}_{\pi}(-1)$?
+
+\bibliographystyle{alpha}
+\bibliography{Bibliography}
+
+
+
+\end{document}
