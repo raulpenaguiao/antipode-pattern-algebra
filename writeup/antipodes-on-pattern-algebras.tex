@@ -964,7 +964,7 @@ If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\p
 \section{Examples of species with restrictions \label{sec:species_restrictions}}
 
 
-\subsection{Species on permutations}
+\subsection{Species on permutations\label{sec:speciespermutation}}
 
 To fit the framework of species with restrictions, we use a rather unusual definition of permutations introduced in \cite{albert2020two}.
 There, a permutation on a set $I$ is seen as a pair of orders in $I$.
@@ -1087,7 +1087,7 @@ This notion of species with restrictions will recover a notion of patterns in pa
 \
 
 Specifically, if $I$ is a set of size $n$, we label a Dyck path $\mathcal D$ on an $n\times n$ diagram by a function $f$ that assigns unique values on the set $I$ to each of the \textbf{up} segments of the Dyck path.
-If we enrich $I$ with a total order $\prec$, Bergeron et.al. construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec) $.
+If we enrich $I$ with a total order $\prec$ in such a way that each \textbf{up} sequence of segments, the labels arise in \textbf{increasing} order, Bergeron et.al. construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec) $.
 We recover here such construction, adapted to the language presented here, for convenience.
 
 \
@@ -1119,10 +1119,10 @@ In the example in \cref{fig:construction_parking}, for instance, we notice that 
 \subsection{Species on parking functions}
 
 This forms the species of \textbf{parking functions}, $\mathtt{PF}$, by letting $\mathtt{PF}[I]$ be the collection of all parking functions $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec)$, that is Dyck paths $\mathcal D$ in an $|I|\times |I|$ diagram, labelled by elements of $I$ along with an order $\prec$ of $I$.
-We can give it a notion of species with restrictions by defining: for each injective function $\iota : I \hookrightarrow J $ and a labelled Dyck path $(J, \mathcal D, f, \prec)$ on $J$, the restriction $\mathtt{PF}[\iota](J, \mathcal D, f, \prec) = (I, \mathcal D|_I, f|_I, \prec|_I)$ has an intuitive, except perhaps for
-$\mathcal D|_I$.
+We can give it a notion of species with restrictions: for each inclusion $\iota : I \hookrightarrow J $ and a labelled Dyck path $(J, \mathcal D, f, \prec)$ on $J$, the restriction $\mathtt{PF}[\iota](J, \mathcal D, f, \prec) = (I, \mathcal D|_I, f|_I, \prec|_I)$ has an intuitive meaning, except perhaps for
+$\mathcal D|_I$, which we clarify in the following.
 This is done via a notion of \textbf{tunnels}, introduced by Elizalde in \cite{elizalde2003simple}.
-Specifically, the corresponding Dyck path is defined to be the restricted Dyck path by taking the \textbf{tunnels} labelled by elements in $I$.
+Specifically, the corresponding Dyck path is defined to be the restricted Dyck path by taking the \textbf{tunnels} labelled by elements in $I$, relabelling sequences of \textbf{up} segments if necessary to preserve the increasing property.
 One can see in \cref{fig:construction_parking} how this works on the example given above, as well as the corresponding parking function.
 
 
@@ -1136,44 +1136,65 @@ One can see in \cref{fig:construction_parking} how this works on the example giv
 
 
 
-
+The following claim is self evident and can be established by the same methods presented in \cite{Penaguiao2020}.
 
 \begin{prop}[Species with restrictions on parking functions]
 This forms a species with restrictions structure.
+Furthermore, the diagonal sum $\oplus $ endows $\mathtt{PF}$ with a monoid structure.
 \end{prop}
 
-\
+\begin{smpl}
+The five smallest parking functions are $\emptyset, 1, 11, 12$ and $21$.
+The sixteen parking functions of size three are displayed in \cref{fig:PF3}, along with its corresponding labelled Dyck paths.
+
+One can see that for any parking function $\mathfrak p$ of size three, on can see that $\pat_{\emptyset}(\mathfrak p) = 1$, $\pat_1(\mathfrak p) = 3$ and the values of each parking function of size three in pattern functions of size two are represented below in \cref{tab:PF3}.
+There one can also easily check the relation $\pat_1^2 = \pat_1 + 2(\pat_{11} + \pat_{12} + \pat_{21})$, predicted from \eqref{eq:prodrule}.
+\end{smpl}
+\begin{table}
+\begin{tabular}{ c |  c c c c c c c c c c c c c c c c}
+ 0  & \small{111} & \small{112} & \small{121} & \small{211} & \small{113} & \small{131} & \small{311} & \small{122} & \small{212} & \small{221} & \small{123} & \small{132} & \small{213} & \small{312} & \small{231} & \small{321}\\ 
+ 11 & 3 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+ 12 & 0 & 1 & 0 & 0 & 2 & 1 & 0 & 2 & 1 & 0 & 3 & 2 & 2 & 1 & 1 & 0 \\  
+ 21 & 0 & 0 & 1 & 1 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 1 & 2 & 2 & 3 \end{tabular}
+\caption{\label{tab:PF3}Pattern functions evaluated at parking functions of length three.}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{images/parking_functions_3}
+\caption{\label{fig:PF3}}
+\end{figure}
+
 
 
 
 \section{The pattern Hopf algebra \label{sec:pattern_algebra_contruction}}
 
+In this section we will recover from \cite{Penaguiao2020} the most important constructions on pattern Hopf algebras.
+We recall here the definition of a species with restrictions:
 
-\begin{defin}[Combinatorial presheaves]
-A \textit{combinatorial presheaf} (or a \textit{presheaf}, for short) is a contravariant functor from $\mathtt{Set}_{\hookrightarrow}$ to $\mathtt{Set}$.
-A morphism of combinatorial presheaves is simply a natural transformation of functors.
-In this way, we have the category $\mathtt{CPSh}$ of combinatorial presheaves.
+\begin{defin}[Species with restrictions]
+A \textit{species with restrictions} is a contravariant functor from $\mathtt{Set}_{\hookrightarrow}$ to $\mathtt{Set}$.
+A morphism of species with restrictions is simply a natural transformation of functors.
+In this way, we have the category $\mathtt{CPSh}$ of species with restrictions.
 This was introduced in \cite[Section 8.7.8.]{aguiar10}.
 \end{defin}
 
 In this form, a presheaf is simply a species enriched with restriction maps $\rest_J : h[I] \to h[J] $ for each inclusion $J\hookrightarrow I$ is a way that is functorial, that is if $J_1\subseteq J_2$, then $\rest_{J_2} \circ \rest_{J_1} = \rest_{J_1}$.
-The notion of \textbf{presheaves} has been around in category theory and geometry for some time, where it generally refers to contravariant functors from the category of open sets of a topology with inclusions as morphisms.
-The main examples of combinatorial presheaves are graphs, set compositions, and permutations; see \cref{smpl:permpresheaf}.
+
 In general, any combinatorial object that admits a notion of restriction admits a presheaf structure.
 
-The category $\mathtt{CPSh}$ and monoidal and bimonoidal structures thereof have been studied in \cite{aguiar10}. 
-We will explain the connections between this prior work and our results in \cref{rem:aguiar}.
 
-In presheaves, two objects $a\in h[I], b\in h[J]$ are said to be \textit{isomorphic objects}, or $a\sim b$, if there is a bijection $f:I\to J$ such that $h[f](b)=a$.
-The set of equivalence classes in $h[I]$ is denoted $h[I]_{\sim}$.
-Let $h[n]$ denote the objects of type $h$ on the set $[n] = \{1, \dots , n\}$.
-The collection of equivalence classes of a presheaf $h$ is denoted by $\mathcal{G}(h) = \bigcup_{n\geq 0 } h[n]_{\sim }$.
-In this way, the set $\mathcal G(h) $ is the collection of all the $h$-objects up to isomorphism.
+In a species with restrictions $\mathtt{h}$, two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$ are said to be \textit{isomorphic objects}, or $a\sim b$, if there is a bijection $f:I\to J$ such that $\mathtt{h}[f](b)=a$.
+The set of equivalence classes in $\mathtt{h}[I]$ is denoted $\mathtt{h}[I]_{\sim}$.
+Let $\mathtt{h}[n]$ denote the objects of type $\mathtt{h}$ on the set $[n] = \{1, \dots , n\}$.
+The collection of equivalence classes of a species with restrictions $\mathtt{h}$ is denoted by $\mathcal{G}(\mathtt{h}) = \bigcup_{n\geq 0 } \mathtt{h}[n]_{\sim }$.
+In this way, the set $\mathcal G(\mathtt{h}) $ is the collection of all the $\mathtt{h}$-objects up to isomorphism.
 
-If $b \in h[I]$ and $J \subseteq I$, we denote $b|_J$ for $h[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
+If $b \in \mathtt{h}[I]$ and $J \subseteq I$, we denote $b|_J$ for $\mathtt{h}[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
 
-\begin{defin}[Patterns in presheaves]\label{defin:pattern}
-Let $h$ be a presheaf, and consider two objects $a\in h[I], b\in h[J]$.
+\begin{defin}[Patterns functions]\label{defin:pattern}
+Let $\mathtt{h}$ be a species with restrictions, and consider two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$.
 We say that $J'\subseteq J $ is a \textit{pattern} of $a$ in $b$ if $b|_{J'} \sim a$.
 We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J \text{ such that } \rest_{J'}(b) \sim a \} \right| \,  . $$
 
@@ -1182,57 +1203,41 @@ We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J
 Fix a field $k$ with characteristic zero.
 Denote the family of functions $A \to B$ by $\mathcal{F} (A, B)$.
 
-This definition only depends on the isomorphism classes of $a$ and $b$; see \cref{prop:welldef}.
-Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(h)}$ as a family of functions from $\mathcal{G}(h)$ to $k$, indexed by $\mathcal{G}(h)$.
-In \cref{smpl:permpresheaf}, we see an example of a presheaf structure on permutations.
+This definition of pattern functions only depends on the isomorphism classes of $a$ and $b$; see \cite{Penaguiao2020}.
+Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\mathtt{h})}$ as a family of functions from $\mathcal{G}(\mathtt{h})$ to $k$, indexed by $\mathcal{G}(\mathtt{h})$.
+In \cref{sec:speciespermutation}, we see an example of a species with restrictions structure on permutations.
 
+If $\mathtt{h}$ is a species with restriction, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(\mathtt{h}) \subseteq \mathcal{F}(\mathcal{G}(\mathtt{h}) , k) $ of the space of functions $\mathcal{G}(\mathtt{h}) \to k$.
+The following was proven in \cite{Penaguiao2020}.
 
-In the following we will be using the field of rational numbers, but to the goals of this paper it is only relevant to pick a field $\mathbb{k}$ that has characteristic zero.
-
-If $h$ is a combinatorial presheaf, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(h) \subseteq \mathcal{F}(\mathcal{G}(h) , \mathbb{Q}) $ of the space of functions $\mathcal{G}(h) \to \mathbb{Q}$.
-
-\begin{thm}\label{thm:algfunctor}
-The vector space $\mathcal{A}(h)$ is closed under pointwise multiplication and has a unit.
+\begin{thm}
+The vector space $\mathcal{A}(\mathtt{h})$ is closed under pointwise multiplication and has a unit.
 It forms an algebra, called the \textit{pattern algebra}.
-More precisely, if $a, b \in \mathcal G(h)$,
+More precisely, if $a, b \in \mathcal G(\mathtt{h})$,
 \begin{equation}\label{eq:prodrule}
 \pat_ a   \pat_b = \sum_c \binom{c}{a, b} \pat_c \, ,
 \end{equation}
-where the coefficients $\binom{c}{a, b}$ are the number of ``quasi-shuffles'' of $a, b$ that result in $c$, specifically, if we take $c\in h[C]$ to be a representative of the equivalence class $c$, then:
+where the coefficients $\binom{c}{a, b}$ are the number of ``quasi-shuffles'' of $a, b$ that result in $c$, specifically, if we take $c\in \mathtt{h}[C]$ to be a representative of the equivalence class $c$, then:
 $$ \binom{c}{a, b} = \left| \{(I, J) \, \text{ such that } \, \,  I \cup J = C \, ,\, \, c|_{I} \sim a, \, c|_{J} \sim b \} \right| \, .  $$
 \end{thm} 
 
-Quasi-shuffles of objects have been studied in several contexts as a notion of merging objects together.
 For details on quasi-shuffles of combinatorial objects, the interested reader can see \cite{hoffman00,aguiar10,foissy16}.
 
 
-\bigskip
-
-
-We introduce now the \textit{Cauchy product} $\odot $ on the category of combinatorial presheaves, which associates to two combinatorial presheaves $h$ and $ j$ the combinatorial presheaf 
-$$h \odot j : I \mapsto \biguplus_{A\uplus B = I} h[A] \times j[B] \, . $$
-The unit for this product is the unique presheaf that satisfies $\mathcal{E}[A] = \emptyset$ for $A \neq \emptyset$, and $\mathcal{E}[\emptyset] = \{ \diamond \} $.
-If $f:h_1 \Rightarrow h_2$ and $ g: j_1 \Rightarrow j_2 $ are natural transformations of presheaves, then $f\odot g$ is a natural transformation such that $(f\odot g)_I$ is the natural mapping from $h_1[A]\times j_1[B]$ to $h_2[A] \times j_2[B]$, for each decomposition $A\uplus B = I$.
-
-Product structures on categories were examined in \cite{maclane63}.
-There, it was shown that the Cauchy product gives the category of presheaves a monoidal structure. We call an object in this monoidal category an \emph{associative presheaf}.
-
-This is a triple $(h, \ast, 1)$, where $h$ is a combinatorial presheaf, $\ast $ is a natural transformation $h\odot h \Rightarrow h$, and $1 \in h[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
-We explain the details further in \cref{sec:prel} below.
-
-Examples of associative operations on combinatorial presheaves are the disjoint union of graphs and the direct sum of permutations.
-Another less standard example, which we study in this paper, is the inflation of marked permutations, defined below.
+We introduce now an associative product structure on a species with restrictions:
+This is a triple $(\mathtt{h}, \ast, 1)$, where $\mathtt{h}$ is a combinatorial presheaf, $\ast $ is a natural transformation $\mathtt{h}\odot \mathtt{h} \Rightarrow \mathtt{h}$, and $1 \in \mathtt{h}[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
+Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above.
 
 Observe that the associative product $\ast $ in our combinatorial objects is a natural transformation.
-This means that the product is stable with respect to relabelings and restrictions, so we can also define the corresponding product on $\mathcal{G}(h)$, which we denote by $\cdot $ for the sake of distinction; see \cref{defin:prodonG}.
-With this, we introduce the following coproduct in the pattern algebra $\mathcal A (h)$:
+This means that the product is stable with respect to relabellings and restrictions, so we can also define the corresponding product on $\mathcal{G}(\mathtt{h})$, which we denote by $\cdot $ for the sake of distinction; see \cref{defin:prodonG}.
+With this, we introduce the following coproduct in the pattern algebra $\mathcal A (\mathtt{h})$:
 \begin{equation}\label{eq:coprodformula}
-\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (h) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
+\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (\mathtt{h}) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
 \end{equation}
 where the sum runs over coinvariants $b, c$ such that $a = b \cdot c$.
-The main property that motivates this operation in $\mathcal{A}(h)$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (h), \mathbb Q)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (h) \times \mathcal G (h), \mathbb Q) $, we have
+The main property that motivates this operation in $\mathcal{A}(\mathtt{h})$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\mathtt{h}), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\mathtt{h}) \times \mathcal G (\mathtt{h}), k) $, we have
 \begin{equation}\label{eq:coproddefin}
- \Delta \pat_a (b,  c) =  \pat_a (b \cdot c) \, .
+ \Delta \pat_a (b,  c) \coloneqq  \pat_a (b \cdot c) \, .
 \end{equation}
 This is shown in \cref{thm:conHopfalgebra}.
 The relation \eqref{eq:coproddefin} is central in establishing that the coproduct $\Delta $ is compatible with the product in $\mathcal A (h)$.
