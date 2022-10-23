@@ -49,6 +49,7 @@
 }
 \newcommand{\raul}[1]{\todo[color=green!30,inline]{CH, #1}}
 
+\newcommand{\yannic}[1]{\todo[color=violet!30,inline]{YV, #1}}
 
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}[section]
@@ -273,24 +274,24 @@
 
 \author{Raul Penaguiao, Yannic Vargas}
 \email{raulpenaguiao@sfsu.edu}
-\email{vargas@wias-berlin.de}
+\email{yvargaslozada@tugraz.at}
 \address{San Francisco State University}
-\address{Weierstrass Institute for Applied Analysis and Stochastics}
+\address{Technische Universit\"at Graz}
 \keywords{permutations, presheaves, species with restrictions, species, Hopf algebras, free algebras, antipode, cancellation-free, chromatic, reciprocity}
 \subjclass[2010]{05E05, 16T05, 18D10}
 \date{\today} % Date
 
 \begin{abstract}
 The permutation pattern Hopf algebra is a commutative filtered and connected Hopf algebra.
-Its product structure stems from counting patterns of a permutation, and the Hopf algebra was shown to be free and to fit into a general framework of pattern Hopf algebras.
+Its product structure stems from counting patterns of a permutation, interpreting the coefficients as permutation quasi-shuffles.
+The Hopf algebra was shown to be a free commutative algebra and to fit into a general framework of pattern Hopf algebras, via species with restrictions.
 
-In this paper we introduce the cancellation-free and grouping-free formula for the antipode of the permutation pattern Hopf algebra, interpreting the coefficients as permutation quasi-shuffles.
+In this paper we introduce the cancellation-free and grouping-free formula for the antipode of the permutation pattern Hopf algebra.
 To obtain this formula, we use the popular sign-reversing involution method, by Benedetti and Sagan.
 This formula has applications on polynomial invariants on permutations, in particular for obtaining reciprocity theorems.
 On our way, we also introduce the packed words patterns Hopf algebra, and present a formula for its antipode.
 
-Other pattern algebras are discussed here, notably on parking functions.
-The last one recover notions recently studied by Adeniran and Pudwell.
+Other pattern algebras are discussed here, notably on parking functions, which recovers notions recently studied by Adeniran and Pudwell, and by Qiu and Remmel.
 \end{abstract}
 
 
@@ -300,70 +301,96 @@ The last one recover notions recently studied by Adeniran and Pudwell.
 
 \section{Introduction}
 
-In \cite{Takeuchi1971}, Takeuchi obtained a quite general formula for the antipode of a Hopf algebra. 
-This is an antipode formula for any filtered Hopf algebra, which can be applied in much more generality and fits, for instance, the framework of pattern Hopf algebras. 
+In his now celebrated  ``Lemma 14'', Takeuchi (see \cite{Takeuchi1971}, Lemma 14) obtained a quite general formula for the antipode of a Hopf algebra. 
+This is an antipode formula for any filtered Hopf algebra, which can be applied in much more generality and fits the framework of \textbf{pattern Hopf algebras}, which we introduce below.
 However, it has been observed that it is not the most economical formula, as it leaves some cancellations to be made.
 
+\
+
 Economical formulas for Hopf algebras in combinatorics have played an important role in extracting old and new formulas for the objects at study, see \cite{Schmitt1993, humpert2012incidence, BS2017, aguiar2017hopf, xu2022cancellation}.
-In particular, Humpert and Martin were able to explain, in \cite{humpert2012incidence}, an elusive \textit{reciprocity relation} first presented by Stanley in \cite{stanley1975combinatorial}.
+In particular, Humpert and Martin were able to explain, in \cite{humpert2012incidence}, an elusive \textit{reciprocity relation} on graphs first presented by Stanley in \cite{stanley1975combinatorial}.
+
+\
 
 We will introduce the reciprocity relation now.
-On a graph $G$, we can define the chromatic function by counting, for each $n\geq 0$, the number of \textit{stable colourings} of the vertices such that each edge is monochromatic.
+On a graph $G$, we can define the chromatic function by counting, for each $n\geq 0$, the number of \textit{stable colourings} of its vertices, that is, colourings such that each edge is monochromatic.
 This function, $\chi_G$, turns out to be a polynomial, and its degree is the number of vertices of $G$.
-It makes sense to explore the evaluation $\chi_G(-1)$, and Stanley proved that this counts the \textit{acyclic orientations} of a graph.
+It makes sense to explore the evaluation $\chi_G(-1)$, and Stanley proved that this counts the \textit{acyclic orientations} of $G$.
 The observation of Humpert and Martin is that $\chi$ is in fact a Hopf algebra morphism from the \textbf{incidence Hopf algebra on graphs} to the polynomial Hopf algebra, so it commutes with the antipodes of each Hopf algebra.
-The antipode of the polynomial Hopf algebra is $S(x) = -x$, so the chromatic polynomial of negative numbers becomes easier to compute:
+The antipode of the polynomial Hopf algebra is $S(x) = -x$, so the chromatic polynomial of negative numbers becomes easier to compute, via
 $$\chi_G(-x) = \chi_{S(G)}(x)\, .$$
 
 A simple formula for the antipode $S(G)$ on the incidence Hopf algebra on graphs was also presented by Humpert and Martin, where the number of acyclic orientations plays a role and explains the previous result from Stanley.
 It was also used to obtain new formulas involving the Tutte polynomial.
 
+\
+
 A method for obtaining a cancellation-free formula that seem to work with a large family of Hopf algebras was brought forth by Sagan and Benedetti in \cite{BS2017}, called \textit{sign-reversing involution method}.
 This is a classical method in enumerative combinatorics, that has found applications in fields as far as number theory. 
-E.g. in \cite{zagier2009one} the well known fact that $x^2+y^2 = p$ has integer solutions for $p$ prime whenever $p\equiv_4 1$.
+E.g. in \cite{zagier2009one} a new proof of the well known fact that $x^2+y^2 = p$ has integer solutions for $p$ prime whenever $p\equiv_4 1$ was presented.
+
+\
 
 In Hopf algebras, this method requires careful treatment of the antipode formula of Takeuchi.
 However, it varies widely depending on the combinatorial Hopf algebra at hand.
-Therefore, for each Hopf algebra a new and original application of the method is needed.
-Notwithstanding, this has been shown to work in the incidence Hopf algebra on graphs and in the Malvenuto–Reutenauer Hopf algebra (see \cite{MalvenutoReutenauer}), among many others.
+Therefore, for each Hopf algebra, a new and original application of the method is needed.
+Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs and the Hopf algebras of quasisymmetric functions and multi-quasisymmetricfunctions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions to find cancellative-free formulas for the antipode of others classical Hopf algebras.  \footnote{In \cite{MalvenutoReutenauer}, the antipode of the Malvenuto–Reutenauer Hopf algebra was partially computed}
+
+
+\
 
 In \cite{aguiar2017hopf}, a cancellation-free antipode formula for a Hopf structure on generalized permutahedra was found. 
 This has striking consequences, because several interesting combinatorial structures can be embedded in the Hopf algebra of the generalized permutahedra.
 Specific examples are graphs, matroids, posets and set partitions.
 Thus, this allows us to readily determine a cancellation-free formula for all these Hopf algebras.
 
+\
+
 Parallel to this development is the study of permutation patterns.
 This is a study with roots in computer science, pioneered by Knuth in \cite{Knuth}, where a description for the \textit{stack sortable} permutations was presented via permutation patterns.
 In the meantime, permutation patterns has become a well established area of expertise in combinatorics, see \cite{linton2010permutation}.
 
+\
+
 The second author, in \cite{Vargas}, introduced yet another tool to study permutation patterns, by building the permutation pattern Hopf algebra.
-Specifically, if we consider finite sums of functions of the form $\pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}$, the central functions in the study of permutation patterns, we span a vector space that is closed for pointwise product.
+Specifically, if we consider finite sums of functions of the form 
+$$ \binom{\sigma}{\pi} \coloneqq \pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}\, ,$$
+the central functions in the study of permutation patterns, we span a vector space that is closed for pointwise product, specifically see \eqref{eq:prodperm}.
 The algebra corresponding to this pointwise product is the \textbf{permutation pattern Hopf algebra} $\mathcal{A}(\mathtt{Per})$, and is shown to be free in \cite{Vargas}.
+
+\
 
 The construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, as long as there is a notion of restrictions, for instance graphs or marked permutations.
 The resulting structures are called \textbf{pattern Hopf algebras}.
 It is conjectured that all pattern Hopf algebras are free.
 
-In this paper we prove a cancellation-free and grouping-free antipode formula for the pattern Hopf algebras on permutations and on packed words.
+\
+
+In this paper we provide a cancellation-free and grouping-free antipode formula for the pattern Hopf algebras on permutations and on packed words.
 This is an application of the sign-reversing involution method.
 
-In this paper we also present an original species with restrictions structure on parking functions.
+\
+
+We also present an original species with restrictions structure on parking functions.
 This is part of a project to interpret common combinatorial objects as species with restrictions.
 Crucially, objects that do not have an inherent labelling are not amenable to an interpretation as species, so this codifies an important step in this project.
 The extra step here is done with a help of a new bijection between labelled Dyck paths and parking functions, introduced in \cite{BGLPV2021}.
 
+\
+
 The notion of patterns in parking functions here presented recovers the one presented recently in \cite{adeniran2022pattern}.
 There, the authors study the number of parking functions that avoid a set of five parking functions of size three, recovering sequences like the Catalan numbers.
 The original introduction of patterns in parking functions hearkens back to \cite{qiu2018patterns}.
-Parking functions themselves are a new endeavor in cobinatorics, being introdiced by \cite{konheim1966occupancy}, where it was shown that there are $(n+1)^{n-1}$ parking functions of length $n$.
+Parking functions themselves are a recent endeavour in combinatorics, being introduced by \cite{konheim1966occupancy}, where it was shown that there are $(n+1)^{n-1}$ parking functions of length $n$.
 
+\
 
 In \cref{sec:antipode_computing}, we present an example of an application of the sign-reversing involution formula.
 We also present some examples where we compute some antipodes via \textit{ad hoc} methods.
-In \cref{sec:species} we present the algebra and category theory background to pattern Hopf algebras, and to clarify the reader with the relevant Fock functors involved.
-In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also the two original ones of this paper: the species with restrictions on Dyck paths and on parking functions.
-In \cref{sec:pattern_algebra_contruction}, we recall the pattern Hopf algebra construction from a species with restriction, so that this article is self contained.
-We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
+In \cref{sec:species} we present the algebra and category theory background to pattern Hopf algebras, and clarify the reader with the relevant Fock functors involved.
+In \cref{sec:pattern_algebra_contruction}, we recall the pattern Hopf algebra construction, along with its product and coproduct structure, from a species with restrictions, so that this article is self contained.
+In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
+%We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
 In \cref{sec:formula_general,sec:formula_packed,sec:formula_permutation}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed words and in $\mathcal{A}(\mathtt{Per})$.
 %In this section we start by describing the sign-reversing involution method to obtain a cancellation-free formula for the antipode of a Hopf algebra.
 %Then we present the main result of this section in \cref{thm:antipode_perms_intro}, a cancellation-free formula for the antipode of $\mathcal{A}(\mathtt{Per})$.
@@ -371,47 +398,62 @@ In \cref{sec:formula_general,sec:formula_packed,sec:formula_permutation}, we pre
 
 \subsection{The permutation pattern Hopf algebra and the main result}
 
-In this section we will introduce the Hopf algebra structure on permutation patterns, and present the main result on this paper.
+In this section we introduce the Hopf algebra structure on permutation patterns, and present the main result on this paper.
+
+\
 
 Let $\pat_{\pi}$ be a function on permutations, so that $\pat_{\pi}(\sigma)$ counts the number of restrictions of the permutation $\sigma$ that fit the pattern $\pi$.
 In this way, the collection of permutation pattern functions $\{\pat_{\pi}\}$ is linearly independent, so it is a basis of a vector space $\mathcal A (\mathtt{Per})$.
 However, in \cite{Vargas}, it was shown that the pointwise product of two such functions can be expressed as a sum of other permutation pattern functions:
-$$\pat_{\pi_1} \pat_{\pi_2} = \sum_{\sigma} \binom{\sigma}{\pi_1, \pi_2} \pat_{\sigma} \, .$$
+\begin{equation}\label{eq:prodperm}
+\pat_{\pi_1} \pat_{\pi_2} = \sum_{\sigma} \binom{\sigma}{\pi_1, \pi_2} \pat_{\sigma} \, .
+\end{equation}
 
 The coefficients $\binom{\sigma}{\pi_1, \pi_2}$ that arise in this product formula count the so called \textbf{quasi-shuffle signatures}, or \textbf{QSS}, of $\sigma$ from $\pi_1, \pi_2$.
-That is, counts the pairs $(I, J)$ of sets that cover $\sigma$ such that $\sigma|_I = \pi_1$ and $\sigma|_J = \pi_2$.
+That is, $\binom{\sigma}{\pi_1, \pi_2}$ counts the pairs $(I, J)$ of sets that cover \yannic{Definition of ``covering''?} $\sigma$ such that $\sigma|_I = \pi_1$ and $\sigma|_J = \pi_2$.
 In general, $\binom{\sigma}{\pi_1, \dots, \pi_n}$, the coefficient that arises in the iterated product of $n$ elements, counts the number of ways of covering $\sigma$ with $n$ permutations, each fitting the patterns $\pi_1, \dots, \pi_n$.
 
+\
+
 This algebra $\mathcal A(\mathtt{Per})$ can be endowed with a Hopf algebra structure with the help of the diagonal sum of permutations, $\oplus$, also called shifted concatenation of permutations.
-If one lets $\pi = \pi_1 \oplus \dots \oplus \pi_n$ be the decomposition of $\pi$ into $\oplus$-indecomposable permutations under the $\oplus$ product, we define
+If one lets $\pi = \pi_1 \oplus \dots \oplus \pi_n$ be the decomposition of $\pi$ into $\oplus$-indecomposable permutations under the $\oplus$ product, we define the shifted deconcatenation coproduct
 $$\Delta \pat_{\pi} = \sum_{k=0}^n \pat_{\pi_1\oplus \dots \oplus \pi_k} \otimes \pat_{\pi_{k+1}\oplus \dots \oplus \pi_n} \in \mathcal A (\mathtt{Per}) \otimes \mathcal A (\mathtt{Per})\, .$$
 
 \begin{thm}[Antipode formula for Permutation pattern Hopf algebra]\label{thm:antipode_perms_intro}
-Let $\pi = \pi_1\oplus \dots \oplus \pi_n$ be a decomposition of a permutation $\pi$ into indecomposable permutations.
+Let $\pi = \pi_1\oplus \dots \oplus \pi_n$ be a decomposition of a permutation $\pi$ into $\oplus$-indecomposable permutations.
 Then, we have the following formula for the antipode of $\pat_{\pi}$:
 
 $$S(\pat_{\pi}) = (-1)^n \sum_{\sigma} \bigl[\!\begin{smallmatrix} \omega \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr] \pat_{\sigma}\, ,$$
 where the sum runs over all permutations $\sigma$, and the coefficients count the number of \textbf{interlacing QSS} of $\sigma$ from $\pi_1, \dots, \pi_n$.
 \end{thm}
 
+As in the case of graphs, this antipode formula has consequences in polynomial invariants.
+These are discussed in \cite{Penaguiao2020}.
+
+\
+
 We present a definition of interlacing QSS below, along with some examples that help discern this notion.
-We also present an antipode formula for the packed words pattern Hopf algebra, which a similar characterization.
+We also present an antipode formula for the packed words pattern Hopf algebra, with a similar characterization. \yannic{In the following, the definition of QSS is presented, inside an example. Should it be in an independent Definition?}
+
+\
 
 \begin{smpl}[Interlacing QSS]
-As above, a QSS of $\sigma $ from $\pi_1, \dots, \pi_n$ is a sequence of sets $\III = (I_1, \dots, I_n)$ that cover $\sigma$ such that $\sigma|_{I_i} = \pi_i$.
+A quasi-shuffle signature, or a QSS, of $\sigma $ from $\pi_1, \dots, \pi_n$ is a sequence of sets $\III = (I_1, \dots, I_n)$ that cover $\sigma$ such that $\sigma|_{I_i} = \pi_i$.
 This QSS is said to be \textbf{non-interlacing} if there is some $i=1, \dots, n-1$ such that $I_i < I_{i+1}$ and $\sigma(I_i) < \sigma(I_{i+1})$.
-Otherwise, we say that the QSS is \textbf{interlacing}.
+Otherwise, we say that the QSS is \textbf{interlacing}. 
 \begin{figure}[h]
     \centering
     \includegraphics{images/interlacing_25314.pdf}
-    \caption{\textbf{Left:} the permutation 2314, along with a labelling of two of its QSS from $21, 1, 1, 1$. In orange the two sets that do not interlace. \textbf{Right:} the permutation 123, along with two interlacing QSS from $1, 12$.\label{fig:interlacingQSSsmpl}}
+    \caption{\textbf{Left:} the permutation 2314, along with a labelling of two of its QSS from $21, 1, 1, 1$. In orange the two sets that do not interlace. \textbf{Right:} the permutation 123, along with its two interlacing QSS from $1, 12$.\label{fig:interlacingQSSsmpl}}
 \end{figure}
 
-So for instance the permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13, 2, 1)$ and $(1, 13, 4, 2)$, but from these two, only the first is interlacing.
+\
+
+So the permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13, 2, 1)$ and $(1, 13, 4, 2)$, but from these two, only the first is interlacing.
 In \cref{fig:interlacingQSSsmpl}, one can see these two QSS.
 Further computations can show that $\binom{2314}{1, 21, 1, 1} = 36$ and $\bigl[\!\begin{smallmatrix} 2314 \\ 1, 21, 1, 1 \end{smallmatrix}\!\bigr] = 8$.
 
-One can observe that there are three QSS of $123$ from $1$, $12$, but one of them is non-interlacing, so
+One can observe that there are three QSS of $123$ from $1$, $12$, but one of them is non-interlacing (the QSS $(1,23)$), so
 $\bigl[\!\begin{smallmatrix} 123 \\ 1, 21 \end{smallmatrix}\!\bigr] = 2$.
 In \cref{fig:interlacingQSSsmpl}, one can see these two interlacing QSS.
 \end{smpl}
@@ -420,14 +462,16 @@ In \cref{fig:interlacingQSSsmpl}, one can see these two interlacing QSS.
 \section{Computing the antipode\label{sec:antipode_computing}}
 
 We will now explore the classical methods to obtain the antipode, using basic axioms and the Takeuchi formula, on the polynomial algebra and on the permutation pattern Hopf algebra.
+These methods fail to give a cancellation-free and grouping-free formula for the antipode.
 
 We start by recalling Takeuchi's formula, in the form that is presented in \cite{GrinbergReiner}.
 %This is the beginning of any cancellation-free formula.
+
 Let us define the $\star$ notation on maps $a, b: C \to A$, whenever $A$ is an algebra, and $C$ is a coalgebra, we define:
 $$a \star b \coloneqq \mu_A \circ (a \otimes b) \circ \Delta_C\, ,$$
-which also defines a star operator in $\End(H)$.
+which defines an associative and unitary product on linear maps from $C$ to $A$. We will be focused on the case when $C=A=H$ is a Hopf algebra, so this defines an operation on $\End(H)$.
 
-\begin{prop}[Takeuchi's formula]\label{lm:takeuchi}
+\begin{prop}[Takeuchi's formula, Lemma 14]\label{lm:takeuchi}
 If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(\epsilon\circ \iota - \id_H)$ is $\star$-nilpotent, then 
 \begin{equation}\label{eq:eq1}
 S = \sum_{k\geq 0 }  ( \iota  \circ\epsilon- \id_H)^{\star k} = \sum_{k\geq 0} (-1)^k \mu^{\circ (k-1)} \circ (\id_{H} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ (k-1)}\, .
@@ -438,7 +482,9 @@ We use the convention that $\Delta^{\circ (-1)} = \epsilon $ and $\mu^{\circ (-1
 
 Note that, for any filtered Hopf algebra, $( \iota \circ \epsilon - \id_H)$ is $\star$-nilpotent.
 Therefore, for any pattern algebra, Takeuchi's formula holds.
+This is summarized in \cref{thm:conHopfalgebra}.
 
+\
 
 In the Hopf algebra of polynomials, this gives us the following:
 $$S(x^3) = \underbrace{0}_{k = 0} - \underbrace{x^3}_{k = 1} + \underbrace{3 x^2 \cdot x + 3 x \cdot x^2}_{k=2} - \underbrace{6 x \cdot x \cdot x}_{k = 3} = - x^3 \, .$$
@@ -446,8 +492,6 @@ $$S(x^3) = \underbrace{0}_{k = 0} - \underbrace{x^3}_{k = 1} + \underbrace{3 x^2
 
 We now present another example, this time on the permutation pattern Hopf algebra $\mathcal A(\mathtt{Per})$.
 Consider $\pi = 132 = 1 \oplus 21$. Then Takeuchi's formula gives us:
-
-
 \begin{align*}
 S(\pat_{132}) =& \sum_{k=0}^2 (-1)^k \mu^{\circ k-1} \circ (\id_{\mathcal A(\mathtt{Per})} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ k-1}(\pat_{132})\\
 =& -(\id_{\mathbb{K}[x]} - \iota \circ \epsilon)(\pat_{132}) + \mu \circ (\id_{\mathbb{K}[x]} - \iota\circ\epsilon)^{\otimes 2}(\pat_1 \otimes \pat_{12}) \\
@@ -455,7 +499,9 @@ S(\pat_{132}) =& \sum_{k=0}^2 (-1)^k \mu^{\circ k-1} \circ (\id_{\mathcal A(\mat
 =& 3 \pat_{321} + 2 \pat_{231} + 2 \pat_{312} + \pat_{213} + 2 \pat_{21} \, .
 \end{align*}
 
-From \cref{thm:antipode_perms_intro}, these coefficients can be seen as enumerating quasi-shuffle signatures of $132$ from $1$ and $12$ that are \textbf{interlacing}.
+\
+
+These coefficients can be seen as enumerating quasi-shuffle signatures of $132$ from $1$ and $12$ that are \textbf{interlacing}, according to \cref{thm:antipode_perms_intro}.
 
 
 
@@ -469,10 +515,14 @@ It starts in the formula given by Takeuchi, and keeps track of all the terms to 
 Thus, the sum obtained runs over a collection of objects, say $\mathcal O$, that is partitioned into families indexed by compositions.
 These compositions play an important role in the sum, as their length determines the sign of the corresponding objects.
 
-Recall that an involution $\zeta $ is a map such that $\zeta \circ \zeta$ is the identity.
+\
+
+Recall that an involution $\zeta $ is an endomorphism such that $\zeta \circ \zeta$ is the identity.
 We describe an involution in $\mathcal O$, call it $\zeta $, in such a way that if $\zeta(x) \neq x$, then $x$ and $\zeta(x)$ contribute with opposite signs to the antipode.
 As a consequence, when applying Takeuchi's formula, we can cancel terms that are not fixed points of $\zeta$.
 We give an example of how this method is applied in the Hopf algebra $\mathbb{K}[x]$.
+
+\
 
 The following is a computation from \cite{BS2017}.
 We would like to point out that there are easier ways to obtain an antipode formula for the polynomial Hopf algebra: the interested reader can find some for instance in \cite{GrinbergReiner}.
@@ -487,6 +537,9 @@ $$ S(x^n) =(-x)^n\, . $$
 To prove this formula, we first introduce \textit{weak compositions}.
 A \textbf{weak composition} $\alpha$ of an integer $n$ is a list of non-negative integers $\alpha = (\alpha_1, \dots , \alpha_l)$ such that $\sum_i \alpha_i = n$.
 We denote the length of the weak composition by $l = l(\alpha)$, and use the shorthand notation $\alpha \models^0 n$.
+If $\alpha $ has no zero entries, we say that $\alpha$ is a \textbf{composition}, and write $\alpha \in \mathcal C_n$.
+
+\
 
 A \textbf{weak set composition} $\opi$ of a set $A$ is a list of sets $\opi = (A_1, \dots , A_l)$ such that $\biguplus_i A_i = A$.
 Note that some sets may be empty.
@@ -497,12 +550,13 @@ Let $\mathbf{C}_A$ be the collection of set composition of $A$.
 We abbreviate to $\mathbf{C}_n$ when $A = [n]$.
 
 \begin{proof}[Proof of \cref{thm:polyHA}]
-We use Takeuchi formula, given in \eqref{eq:eq1}, which holds for graded Hopf algebras, as established in \cref{lm:takeuchi}:
+We use Takeuchi formula, given in \eqref{eq:eq1}, which holds for graded Hopf algebras,
 $$S(x^n) = \sum_{k = 0} (-1)^k \mu^{\circ (k-1)} \circ (\id_{\mathbb K[x]} - \iota \circ \epsilon )^{\otimes k} \circ \Delta^{\circ (k-1)} (x^n) \, .$$
 
-The key observation on the sign-reversing involution method is to reshuffle this sum using the following simple known fact from the polynomial Hopf algebra:
+The key observation on the sign-reversing involution method is to reshuffle this sum using:
 $$ \Delta^{\circ (k-1) } (x^n) = \sum_{(A_1, \dots , A_k) \models^0 [n] } x^{|A_1|} \otimes \dots \otimes x^{|A_k|} \, ,$$
 where the sum runs over weak set compositions of the set $[n]$ with size $k$.
+This can be shown with easy induction on $n$.
 Thus, the antipode formula can be rewritten as
 
 \begin{align*}
@@ -513,28 +567,29 @@ S(x^n)&= \sum_{k=0}^n(-1)^k \sum_{(A_1, \dots , A_k) \models^0 [n]} \mu^{\circ (
 \end{align*}
 
 Consider the following involution $\zeta: \oPi_{n} \to \oPi_{n} $.
-For $\opi = (A_1, \dots , A_k) $, let $j_{\opi}$ be the smallest index such that $|A_{j_{\opi}}| \neq 1$ or $\max A_{j_{\opi}} < \max A_{j_{\opi}+1} $.
+For $\opi = (A_1, \dots , A_k) $, let $j_{\opi}$ be the smallest index such that $|A_{j_{\opi}}| \neq 1$ or $\max A_{j_{\opi}} > \max A_{j_{\opi}+1} $.
 Then, there are three cases:
 
 \begin{enumerate}
 
-\item The set $A_{j_{\opi}} $ is a singleton with $j\leq k-1$, then let $\zeta(\opi ) $ be the set composition resulting from merging $A_j $ and $A_{j+1}$.
+\item The set $A_{j_{\opi}} $ is a singleton with $j\leq k-1$, then let $\zeta(\opi ) $ be the set composition resulting from merging $A_{j_{\opi}} $ and $A_{j_{\opi}+1}$.
+Note how, in this case, $\max A_{j_{\opi}} \cup A_{j_{\opi} + 1} $ is the only element in $A_{j_{\opi}}$.
 
-\item The set $A_{j_{\opi}} $ is not a singleton, then we define $\zeta(\opi ) $ to be the set composition resulting from splitting $A_j $ into $\{ \max A_j \} $ and $A_j \setminus \{\max A_j \}$, in this order.
+\item The set $A_{j_{\opi}} $ is not a singleton, then we define $\zeta(\opi ) $ to be the set composition resulting from splitting $A_{j_{\opi}} $ into $\{ \max A_{j_{\opi}} \} $ and $A_{j_{\opi}} \setminus \{\max A_{j_{\opi}} \}$, in this order.
 
-\item There is no such $j_{\opi}$. Then $\opi = (\{n\}, \dots , \{1\})$ and we define $\zeta(\opi )= \opi $.
+\item There is no such $j_{\opi}$. Then $\opi = (\{1\}, \dots , \{n\})$ and we define $\zeta(\opi )= \opi $.
 
 \end{enumerate}
 
 It is a direct observation that $\zeta $ is an involution.
-In fact, the only fixed point is $\opi = (\{n\}, \dots , \{1\})$, and for any other set composition $\opi$, whenever the index $j_{\opi}$ in $\opi $ behaves as described in case 1, then the index $j_{\zeta(\opi)}$ in $\zeta ( \opi ) $ behaves as described in case 2, in which case we have $l(\opi) = 1+l(\zeta (\opi))$ and we can easily see that $\zeta(\zeta(\opi )) = \opi$.
-We also have the converse statement.
-
-Thus, we have that $x^n \sum_{\opi \in \oPi_n} (-1)^{l(\opi)} = x^n (-1)^{l(\{n\}, \dots, \{1\} )}= (-x)^n$, as desired.
+In fact, the only fixed point is $\opi = (\{1\}, \dots , \{n\})$, and for any other set composition $\opi$, whenever the index $j_{\opi}$ in $\opi $ behaves as described in case 1, then the index $j_{\zeta(\opi)}$ in $\zeta ( \opi ) $ behaves as described in case 2, in which case we have $l(\opi) = 1+l(\zeta (\opi))$ and we can easily see that $\zeta(\zeta(\opi )) = \opi$.
+We also have the converse statement. Thus, we have that 
+\[x^n \sum_{\opi \in \oPi_n} (-1)^{l(\opi)} = x^n (-1)^{l(\{1\}, \dots, \{n\} )}= (-x)^n,\] 
+as desired.
 \end{proof}
 
 
-In this way we see that a formula for the antipode depends simply on a well understanding of the structure of the length of set compositions of $[n]$.
+In this way we see that a formula for the antipode depends simply on an understanding of the structure of the length of compositions of $[n]$.
 This is a general feature whenever we apply Takeuchi's formula.
 
 
@@ -729,6 +784,8 @@ Let $(\tp, \mu, \iota)$ be a comonoid. Dually to the case of monoids, every deco
 called the {\bf higher coproduct map} of $\tp$, obtained by iterating the coproducts map $\Delta_{S,T}$. 
 This is well defined because of \cref{eq:coaxiomii}.
 çwe extend this definition to $k=1$ as the identity of $\tp[I]$ and for $k=0$, this map is the counit map $\varepsilon_\emptyset$.
+
+\
 
 Comonoids are closed under the Cauchy product. 
 If $(\tp, \Delta, \varepsilon)$ is a comonoid, then $\tp[\emptyset]$ is a coalgebra with coproduct $\Delta_{\emptyset, \emptyset}$ and counit $\varepsilon_\emptyset$ (see \cite{AM2013}, section 2.4).
@@ -958,11 +1015,107 @@ There is an equivalence between the category of monoids in $(\Spr, \cdot)$ and t
 If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\prP$ is a Hopf monoid in vector species
 \end{thm}
 
+\section{The pattern Hopf algebra \label{sec:pattern_algebra_contruction}}
+
+In this section we will recover from \cite{Penaguiao2020} the most important constructions on pattern Hopf algebras.
+We recall here the definition of a species with restrictions:
+
+\begin{defin}[Species with restrictions]
+A \textit{species with restrictions} is a contravariant functor from $\mathtt{Set}_{\hookrightarrow}$ to $\mathtt{Set}$.
+A morphism of species with restrictions is simply a natural transformation of functors.
+In this way, we have the category $\mathtt{CPSh}$ of species with restrictions.
+\end{defin}
+
+In this form, a species with restrictions is simply a species enriched with restriction maps $\rest_J : h[I] \to h[J] $ for each inclusion $J\hookrightarrow I$ is a way that is:
+\begin{itemize}
+\item \textbf{Functorial}, that is if $J_1\subseteq J_2$, then $\rest_{J_2} \circ \rest_{J_1} = \rest_{J_1}$
+
+\item \textbf{Coherent with relabelings}, that is if $J\subseteq I$ and $\sigma $ is a bijection in $I$, then $\rest_{\sigma(J)} \circ \sigma = \sigma|_{\sigma(J)} \circ \rest_J$.
+\end{itemize}
+
+In general, any combinatorial object that admits a notion of restriction admits a presheaf structure.
+
+
+In a species with restrictions $\mathtt{h}$, two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$ are said to be \textit{isomorphic objects}, or $a\sim b$, if there is a bijection $f:I\to J$ such that $\mathtt{h}[f](b)=a$.
+The set of equivalence classes in $\mathtt{h}[I]$ is denoted $\mathtt{h}[I]_{\sim}$.
+Let $\mathtt{h}[n]$ denote the objects of type $\mathtt{h}$ on the set $[n] = \{1, \dots , n\}$.
+The collection of equivalence classes of a species with restrictions $\mathtt{h}$ is denoted by $\mathcal{G}(\mathtt{h}) = \bigcup_{n\geq 0 } \mathtt{h}[n]_{\sim }$.
+In this way, the set $\mathcal G(\mathtt{h}) $ is the collection of all the $\mathtt{h}$-objects up to isomorphism.
+
+If $b \in \mathtt{h}[I]$ and $J \subseteq I$, we denote $b|_J$ for $\mathtt{h}[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
+
+\begin{defin}[Patterns functions]\label{defin:pattern}
+Let $\mathtt{h}$ be a species with restrictions, and consider two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$.
+We say that $J'\subseteq J $ is a \textit{pattern} of $a$ in $b$ if $b|_{J'} \sim a$.
+We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J \text{ such that } \rest_{J'}(b) \sim a \} \right| \,  . $$
+
+\end{defin}
+
+
+
+This definition of pattern functions only depends on the isomorphism classes of $a$ and $b$; see \cite{Penaguiao2020}.
+Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\mathtt{h})}$ as a family of functions from $\mathcal{G}(\mathtt{h})$ to $k$, indexed by $\mathcal{G}(\mathtt{h})$.
+In \cref{sec:speciespermutation}, we see an example of a species with restrictions structure on permutations.
+
+Denote the family of functions $A \to B$ by $\mathcal{F} (A, B)$.
+If $\mathtt{h}$ is a species with restriction, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(\mathtt{h}) \subseteq \mathcal{F}(\mathcal{G}(\mathtt{h}) , k) $ of the space of functions $\mathcal{G}(\mathtt{h}) \to k$.
+The following was proven in \cite{Penaguiao2020}.
+
+\begin{thm}
+The vector space $\mathcal{A}(\mathtt{h})$ is closed under pointwise multiplication and has a unit.
+It forms an algebra, called the \textit{pattern algebra}.
+More precisely, if $a, b \in \mathcal G(\mathtt{h})$,
+\begin{equation}\label{eq:prodrule}
+\pat_ a   \pat_b = \sum_c \binom{c}{a, b} \pat_c \, ,
+\end{equation}
+where the coefficients $\binom{c}{a, b}$ are the number of ``quasi-shuffles'' of $a, b$ that result in $c$, specifically, if we take $c\in \mathtt{h}[C]$ to be a representative of the equivalence class $c$, then:
+$$ \binom{c}{a, b} = \left| \{(I, J) \, \text{ such that } \, \,  I \cup J = C \, ,\, \, c|_{I} \sim a, \, c|_{J} \sim b \} \right| \, .  $$
+\end{thm} 
+
+%For details on quasi-shuffles of combinatorial objects, the interested reader can see \cite{hoffman00,aguiar10,foissy16}.
+
+
+We introduce now an associative product structure on a species with restrictions:
+This is a triple $(\mathtt{h}, \ast, 1)$, where $\mathtt{h}$ is a species with restrictions, $\ast $ is a natural transformation $\mathtt{h}\odot \mathtt{h} \Rightarrow \mathtt{h}$, and $1 \in \mathtt{h}[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
+Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above.
+
+Observe that the associative product $\ast $ in our combinatorial objects is a natural transformation.
+This means that the product is stable with respect to relabellings and restrictions, so we can also define the corresponding product on $\mathcal{G}(\mathtt{h})$, which we denote by $\cdot $ for the sake of distinction.
+With this, we introduce the following coproduct in the pattern algebra $\mathcal A (\mathtt{h})$:
+\begin{equation}\label{eq:coprodformula}
+\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (\mathtt{h}) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
+\end{equation}
+where the sum runs over coinvariants $b, c$ such that $a = b \cdot c$.
+The main property that motivates this operation in $\mathcal{A}(\mathtt{h})$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\mathtt{h}), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\mathtt{h}) \times \mathcal G (\mathtt{h}), k) $, we have
+\begin{equation}\label{eq:coproddefin}
+ \Delta \pat_a (b \otimes  c) \coloneqq  \pat_a (b \cdot c) \, .
+\end{equation}
+This is shown in \cref{thm:conHopfalgebra}.
+The relation \eqref{eq:coproddefin} is central in establishing that the coproduct $\Delta $ is compatible with the product in $\mathcal A (h)$.
+
+
+\begin{thm}\label{thm:conHopfalgebra}
+Let $(h, \ast, 1) $ be an associative species with restrictions.
+Then the pattern algebra of $h$ together with this coproduct, and a natural choice of counit, forms a bialgebra.
+If additionally $| h[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
+\end{thm}
+
+%Presheaves that satisfy $|h[\emptyset ]| = 1$ are called \textit{connected}.
+%Connected algebraic structures are a classical resource in graded Hopf algebras, as in this way we can find an antipode through the so called \textit{Takeuchi formula}, introduced in \cite{takeuchi71}.
+
+Some known Hopf algebras can be constructed as the pattern algebra of a species with restrictions.
+An example is $Sym$, the Hopf algebra of \textit{symmetric functions}.
+This Hopf algebra has a basis indexed by partitions, and corresponds to the pattern Hopf algebra of the species on set partitions.
+%The pattern Hopf algebra corresponding to the presheaf on permutations described above was introduced by Vargas in \cite{vargas14}.
+%Some other Hopf algebras constructed here, like the ones on graphs and on marked permutations below, are new, and some we conjecture are isomorphic to known Hopf algebras like the pattern Hopf algebra on set compositions, which may be simply the Hopf algebra of quasi-symmetric functions; see \cref{conj:QSym} below.
 
 \
 
 \section{Examples of species with restrictions \label{sec:species_restrictions}}
 
+\subsection{Species on linear orders \label{sec:specieslinearorders}}
+
+\raul{We need to introduce this here}
 
 \subsection{Species on permutations\label{sec:speciespermutation}}
 
@@ -1016,7 +1169,7 @@ We abuse notation and also call the integer $m$ the rank of the order $\leq$.
 	\caption{The Hasse diagram of the linear order inherited by the map $f$. \label{fig:packedWordOrder}}
 \end{figure}
 
-For instance, if $f = \{ 1\mapsto 3, 2\mapsto 1, 3\mapsto 3, 4\mapsto 2\}$ is a surjective map $[4]\to[3]$, the inherited order is $\{2 < 4 < 1, 3\}$ and has rank three.
+For instance, if $f = \{ 1\mapsto 3, 2\mapsto 1, 3\mapsto 3, 4\mapsto 2\}$ is a surjective map $[4]\to[3]$, the inherited order is $\{2 < 4 < \{1, 3  \}\}$ and has rank three.
 Its Hasse diagram is presented in \cref{fig:packedWordOrder}.
 In this way, a packed word $\mathfrak{p}$ on $I$ is a pair of orders $(\leq_P, \leq_V)$ where $\leq_P$ is a total order in $I$, and $\leq_V$ is a linear partial order on $I$.
 In particular, note that any permutation on $I$ can be seen as a packed word on $I$, as any total order is a partial linear order.
@@ -1038,7 +1191,7 @@ The resulting species with restriction structure is denoted by $\mathtt{PWo}$.
 \
 
 It will be useful to represent packed words $\omega $ in $I$ as \textbf{rectangle diagrams labeled by $I$}.
-This is done in the following way: let $1\leq m \leq |I|$ be the rank of $\omega$, we place the elements of $I$ in an $|I| \times |m|$ grid so that the elements are placed horizontally according to the $\leq_P$ order, and vertically according to the $\leq_V$ order.
+This is done in the following way: let $1\leq m \leq |I|$ be the rank of $\omega$, we place the elements of $I$ in an $m \times |I|$ grid so that the elements are placed horizontally according to the $\leq_P$ order, and vertically according to the $\leq_V$ order.
 For instance, the packed word $\omega_1 = 13123 = ( d > e > c > a > b, \{b, e\} > \{a\} > \{d, c\})$ in $\{a, b, c, d, e\}$ can be represented as 
 \begin{equation}
 \begin{array}{|c|c|c|c|c|}
@@ -1076,42 +1229,43 @@ A parking function $\mathfrak{p} = a_1 \dots a_n$ is a sequence of integers in $
 Examples of parking functions are $12$, $131$ and $3114$.
 
 \begin{defin}[Dyck path]
-Given an $n\times n$ square, a \textbf{Dyck path} on this square is an edge path that is always above the main diagonal.
+Given an $n\times n$ square grid, a \textbf{Dyck path} on this square is an edge path that is always above the main diagonal.
 It is a classical result that the number of Dyck paths of size $n$ is enumerated by Catalan numbers.
 \end{defin}
 
 
 To describe species on parking functions we need to use the construction of parking functions as labelled Dyck paths (see for instance \cite{Loehr}).
-This notion of species with restrictions will recover a notion of patterns in parking functions obtained in \cite{adeniran2022pattern}.
+This notion of species with restrictions will recover a notion of patterns in parking functions studied in \cite{adeniran2022pattern}.
 
 \
 
-Specifically, if $I$ is a set of size $n$, we label a Dyck path $\mathcal D$ on an $n\times n$ diagram by a function $f$ that assigns unique values on the set $I$ to each of the \textbf{up} segments of the Dyck path.
-If we enrich $I$ with a total order $\prec$ in such a way that each \textbf{up} sequence of segments, the labels arise in \textbf{increasing} order, Bergeron et.al. construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec) $.
+Specifically, if $I$ is a set of size $n$, we label a Dyck path $\mathcal D$ on an $n\times n$ square grid by a function $f$ that assigns unique values on the set $I$ to each of the \textbf{up} segments of the Dyck path.
+If we enrich $I$ with a total order $\prec$ in such a way that in each sequence of \textbf{up} segments, the labels arise in \textbf{increasing} order, Bergeron et.al. construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec) $.
 We recover here such construction, adapted to the language presented here, for convenience.
 
 \
 
 There are two steps in this construction.
 The first is to realize the labelled Dyck path as a weak set composition $\opi$ of $I$ in $|I|$ parts. The second is to translate the weak set composition $\opi$ and the order $\prec $ in $I$ as a parking function.
-We will use an example on $I = \{1, 2, 3, 4, 5\}$ to help us highlight the most important details of this construction we present \cref{fig:construction_parking}.
+We will use an example on $I = \{1, 2, 3, 4, 5\}$ to help us highlight the most important details of this construction, presented in \cref{fig:construction_parking}.
 There, we have a Dyck path $\mathcal D$ and a corresponding assignment $f$ to each \textbf{up} segment.
 We assume that this labeling set is enriched with the order $1 \prec 2 \prec 3 \prec 4 \prec 5$.
 
 \
 
 \textbf{In the first step} we group each of the labels that occur on the $i$-th vertical line in the $i$-th block of $\opi$.
-Notice that this gives us an ordered set partition with exactly $n$ parts, of a set with $n$ elements.
+This gives us a set composition with exactly $n$ parts, of a set with $n$ elements.
 Notice as well that it is possible that there are some parts that are empty sets, as it happens in the example given in \cref{fig:construction_parking}.
 
 \textbf{In the second step} we read off the position of each of the labels of $I$, writing down in which part these occur.
 Bergeron et. al. proved in \cite{BGLPV2021} that the resulting sequence is a parking function of size $n$.
 In the example in \cref{fig:construction_parking}, for instance, we notice that there are no entries in the second block, so $2$ does not occur in the corresponding parking function.
+Because there are three elements in the first block, namely $245$, in the parking function $\mathfrak p $ the character $1$ arises three times, on the second, fourth and fifth position.
 
 \begin{figure}
     \centering
     \includegraphics{images/correspondence_parking.pdf}
-    \caption{This is an example of a labelled Dyck path on $I =\{1, 2, 3, 4, 5\}$. We enrich this set with the usual order.}
+    \caption{This is an example of a Dyck path labelled by the set $I =\{1, 2, 3, 4, 5\}$. We enrich this set with the usual order on the integers.}
     \label{fig:construction_parking}
 \end{figure}
 
@@ -1168,95 +1322,6 @@ There one can also easily check the relation $\pat_1^2 = \pat_1 + 2(\pat_{11} + 
 
 
 
-\section{The pattern Hopf algebra \label{sec:pattern_algebra_contruction}}
-
-In this section we will recover from \cite{Penaguiao2020} the most important constructions on pattern Hopf algebras.
-We recall here the definition of a species with restrictions:
-
-\begin{defin}[Species with restrictions]
-A \textit{species with restrictions} is a contravariant functor from $\mathtt{Set}_{\hookrightarrow}$ to $\mathtt{Set}$.
-A morphism of species with restrictions is simply a natural transformation of functors.
-In this way, we have the category $\mathtt{CPSh}$ of species with restrictions.
-This was introduced in \cite[Section 8.7.8.]{aguiar10}.
-\end{defin}
-
-In this form, a presheaf is simply a species enriched with restriction maps $\rest_J : h[I] \to h[J] $ for each inclusion $J\hookrightarrow I$ is a way that is functorial, that is if $J_1\subseteq J_2$, then $\rest_{J_2} \circ \rest_{J_1} = \rest_{J_1}$.
-
-In general, any combinatorial object that admits a notion of restriction admits a presheaf structure.
-
-
-In a species with restrictions $\mathtt{h}$, two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$ are said to be \textit{isomorphic objects}, or $a\sim b$, if there is a bijection $f:I\to J$ such that $\mathtt{h}[f](b)=a$.
-The set of equivalence classes in $\mathtt{h}[I]$ is denoted $\mathtt{h}[I]_{\sim}$.
-Let $\mathtt{h}[n]$ denote the objects of type $\mathtt{h}$ on the set $[n] = \{1, \dots , n\}$.
-The collection of equivalence classes of a species with restrictions $\mathtt{h}$ is denoted by $\mathcal{G}(\mathtt{h}) = \bigcup_{n\geq 0 } \mathtt{h}[n]_{\sim }$.
-In this way, the set $\mathcal G(\mathtt{h}) $ is the collection of all the $\mathtt{h}$-objects up to isomorphism.
-
-If $b \in \mathtt{h}[I]$ and $J \subseteq I$, we denote $b|_J$ for $\mathtt{h}[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
-
-\begin{defin}[Patterns functions]\label{defin:pattern}
-Let $\mathtt{h}$ be a species with restrictions, and consider two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$.
-We say that $J'\subseteq J $ is a \textit{pattern} of $a$ in $b$ if $b|_{J'} \sim a$.
-We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J \text{ such that } \rest_{J'}(b) \sim a \} \right| \,  . $$
-
-\end{defin}
-
-Fix a field $k$ with characteristic zero.
-Denote the family of functions $A \to B$ by $\mathcal{F} (A, B)$.
-
-This definition of pattern functions only depends on the isomorphism classes of $a$ and $b$; see \cite{Penaguiao2020}.
-Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\mathtt{h})}$ as a family of functions from $\mathcal{G}(\mathtt{h})$ to $k$, indexed by $\mathcal{G}(\mathtt{h})$.
-In \cref{sec:speciespermutation}, we see an example of a species with restrictions structure on permutations.
-
-If $\mathtt{h}$ is a species with restriction, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(\mathtt{h}) \subseteq \mathcal{F}(\mathcal{G}(\mathtt{h}) , k) $ of the space of functions $\mathcal{G}(\mathtt{h}) \to k$.
-The following was proven in \cite{Penaguiao2020}.
-
-\begin{thm}
-The vector space $\mathcal{A}(\mathtt{h})$ is closed under pointwise multiplication and has a unit.
-It forms an algebra, called the \textit{pattern algebra}.
-More precisely, if $a, b \in \mathcal G(\mathtt{h})$,
-\begin{equation}\label{eq:prodrule}
-\pat_ a   \pat_b = \sum_c \binom{c}{a, b} \pat_c \, ,
-\end{equation}
-where the coefficients $\binom{c}{a, b}$ are the number of ``quasi-shuffles'' of $a, b$ that result in $c$, specifically, if we take $c\in \mathtt{h}[C]$ to be a representative of the equivalence class $c$, then:
-$$ \binom{c}{a, b} = \left| \{(I, J) \, \text{ such that } \, \,  I \cup J = C \, ,\, \, c|_{I} \sim a, \, c|_{J} \sim b \} \right| \, .  $$
-\end{thm} 
-
-For details on quasi-shuffles of combinatorial objects, the interested reader can see \cite{hoffman00,aguiar10,foissy16}.
-
-
-We introduce now an associative product structure on a species with restrictions:
-This is a triple $(\mathtt{h}, \ast, 1)$, where $\mathtt{h}$ is a combinatorial presheaf, $\ast $ is a natural transformation $\mathtt{h}\odot \mathtt{h} \Rightarrow \mathtt{h}$, and $1 \in \mathtt{h}[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
-Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above.
-
-Observe that the associative product $\ast $ in our combinatorial objects is a natural transformation.
-This means that the product is stable with respect to relabellings and restrictions, so we can also define the corresponding product on $\mathcal{G}(\mathtt{h})$, which we denote by $\cdot $ for the sake of distinction; see \cref{defin:prodonG}.
-With this, we introduce the following coproduct in the pattern algebra $\mathcal A (\mathtt{h})$:
-\begin{equation}\label{eq:coprodformula}
-\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (\mathtt{h}) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
-\end{equation}
-where the sum runs over coinvariants $b, c$ such that $a = b \cdot c$.
-The main property that motivates this operation in $\mathcal{A}(\mathtt{h})$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\mathtt{h}), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\mathtt{h}) \times \mathcal G (\mathtt{h}), k) $, we have
-\begin{equation}\label{eq:coproddefin}
- \Delta \pat_a (b,  c) \coloneqq  \pat_a (b \cdot c) \, .
-\end{equation}
-This is shown in \cref{thm:conHopfalgebra}.
-The relation \eqref{eq:coproddefin} is central in establishing that the coproduct $\Delta $ is compatible with the product in $\mathcal A (h)$.
-
-
-\begin{thm}\label{thm:conHopfalgebra}
-Let $(h, \ast, 1) $ be an associative presheaf.
-Then the pattern algebra of $h$ together with this coproduct, and a natural choice of counit, forms a bialgebra.
-If additionally $| h[\emptyset ] | = 1 $, the pattern algebra forms a Hopf algebra.
-\end{thm}
-
-Presheaves that satisfy $|h[\emptyset ]| = 1$ are called \textit{connected}.
-Connected algebraic structures are a classical resource in graded Hopf algebras, as in this way we can find an antipode through the so called \textit{Takeuchi formula}, introduced in \cite{takeuchi71}.
-
-Some known Hopf algebras can be constructed as the pattern algebra of a combinatorial presheaf.
-An example is $Sym$, the Hopf algebra of \textit{symmetric functions}.
-This Hopf algebra has a basis indexed by partitions, and corresponds to the pattern Hopf algebra of the presheaf on set partitions (see details in \cref{sec:spartpatalg}).
-The pattern Hopf algebra corresponding to the presheaf on permutations described above was introduced by Vargas in \cite{vargas14}.
-Some other Hopf algebras constructed here, like the ones on graphs and on marked permutations below, are new, and some we conjecture are isomorphic to known Hopf algebras like the pattern Hopf algebra on set compositions, which may be simply the Hopf algebra of quasi-symmetric functions; see \cref{conj:QSym} below.
 
 \
 
