@@ -1117,6 +1117,13 @@ This Hopf algebra has a basis indexed by partitions, and corresponds to the patt
 
 \raul{We need to introduce this here}
 
+The first relevant species with restriction to define is the series of linear orders $\mathtt{L}$.
+
+
+\begin{prop}\label{prop:linorderideals}
+If $\mathbb{X}(l) = I$, then $I$ is an order ideal in $l_1 \ast l_2$.
+\end{prop}
+
 \subsection{Species on permutations\label{sec:speciespermutation}}
 
 To fit the framework of species with restrictions, we use a rather unusual definition of permutations introduced in \cite{albert2020two}.
@@ -1294,15 +1301,19 @@ The following claim is self evident and can be established by the same methods p
 
 \begin{prop}[Species with restrictions on parking functions]
 This forms a species with restrictions structure.
-Furthermore, the diagonal sum $\oplus $ endows $\mathtt{PF}$ with a monoid structure.
+Furthermore, the diagonal sum $\oplus $ endows $\mathtt{PF}$ with a monoid structure, and the resulting Hopf algebra $\mathcal A(\mathtt{PF})$ is free.
 \end{prop}
+
+The proof is immediate.
+For the last part, we observe that because $\mathtt{PF}$ is NCF (see below in \cref{defin:ncf}), we have from \cite{Vargas} that this algebra is free.
 
 \begin{smpl}
 The five smallest parking functions are $\emptyset, 1, 11, 12$ and $21$.
 The sixteen parking functions of size three are displayed in \cref{fig:PF3}, along with its corresponding labelled Dyck paths.
 
-One can see that for any parking function $\mathfrak p$ of size three, on can see that $\pat_{\emptyset}(\mathfrak p) = 1$, $\pat_1(\mathfrak p) = 3$ and the values of each parking function of size three in pattern functions of size two are represented below in \cref{tab:PF3}.
-There one can also easily check the relation $\pat_1^2 = \pat_1 + 2(\pat_{11} + \pat_{12} + \pat_{21})$, predicted from \eqref{eq:prodrule}.
+For any parking function $\mathfrak p$ of size three, we have $\pat_{\emptyset}(\mathfrak p) = 1$ and $\pat_1(\mathfrak p) = 3$.
+The values of $\pat_{11}, \pat{12}$ and $\pat{21}$ in pattern functions of size three are represented below in \cref{tab:PF3}.
+There, one can also easily check the relation $\pat_1^2 = \pat_1 + 2(\pat_{11} + \pat_{12} + \pat_{21})$, predicted from \eqref{eq:prodrule}.
 \end{smpl}
 \begin{table}
 \begin{tabular}{ c |  c c c c c c c c c c c c c c c c}
@@ -1332,12 +1343,12 @@ In this section we give a general formula for the antipode of a pattern algebra,
 
 \
 
-The formula obtained is not cancellation free, but it servers as a starting platform to explore the cancellation free formulas for the cases presented above: permutations, packed words and parking functions. The requirement that our species with restrictions is divisible by $L$ explains why there are no cancellation free formulas for other species with restrictions, like marked permutations, introduced in \cite{Penaguiao2020}.
+The formula obtained is not cancellation free, but it servers as a starting platform to explore the cancellation free formulas for the cases presented above: permutations, packed words and parking functions. The requirement that our species with restrictions is divisible by $L$ explains why no cancellation free formulas for other species with restrictions, for instance in marked permutations, introduced in \cite{Penaguiao2020}, were found.
 
 \
 
 We start by recalling Takeuchi's formula, from above in \cref{lm:takeuchi}.
-If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(\epsilon\circ \iota - \id_H)$ is $\star$-nilpotent, then 
+If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(  \iota  \circ\epsilon - \id_H)$ is $\star$-nilpotent, then 
 $$S = \sum_{k\geq 0 }  ( \iota  \circ\epsilon- \id_H)^{\star k}\, . $$
 
 Recall that for a filtered Hopf algebra $H$, and so for any pattern Hopf algebra $\mathcal A (\mathtt{h})$, $(\epsilon\circ \iota - \id_H)$ is $\star$-nilpotent. 
@@ -1347,129 +1358,149 @@ Recall that for a filtered Hopf algebra $H$, and so for any pattern Hopf algebra
 \subsection{$L\times -$ species with restrictions}
 
 
-In \cite[Corollary 3.4.]{Penaguiao2020} it was shown that in species with restrictions $\mathtt{h}$, any factorization into irreducibles is unique up to order.
-In some species with restrictions, we can also drop the ``up to order'' adjective, as there is exactly one factorization into irreducibles full stop. We precise this in the following definition.
+In \cite[Corollary 3.4.]{Penaguiao2020} it was shown that in species with restrictions $\mathtt{h}$, any factorization into $\ast$-indecomposibles is unique up to order.
+In some species with restrictions, we can also drop the ``up to order'' adjective, as there is exactly one factorization into $\ast$-indecomposibles full stop. We precise this in the following definition.
+Before that, we want to precise our notation.
+We will be using $\star$ for the operation on $\End (H)$ and we will be using $\ast $ for the associative structure on a species.
 
-\
 
-\begin{defin}[Non-Commuting Factorization on pattern Hopf algebras]
-A monoidal species with restrictions is called a \textbf{non-commuting factorization} species, or simply an NCF species, if any element $x$ has a unique factorization into irreducibles elements $x = x_1 \star \dots \star x_n$.
+
+\begin{defin}[Non-Commuting Factorization on pattern Hopf algebras]\label{defin:ncf}
+A monoidal species with restrictions is called a \textbf{non-commuting factorization} species, or simply an NCF species, if any element $x$ has a unique factorization into $\ast$-indecomposibles elements $x = x_1 \ast \dots \ast x_n$.
 \end{defin}
 
-\
 
-\begin{lm}[Linear species with restrictions has NCF]
+\begin{lm}[Linear species with restrictions have NCF]
 Let $\mathtt{h}$ be a connected species with restrictions.
 Then $L \times \mathtt{h}$ has NCF.
 \end{lm}
 
 \begin{proof}
-Let $x = x_1 \star \dots \star x_k $ and $ y =  y_1 \star \dots \star y_n$ such that $x \sim y$.
+Let $x = x_1 \ast \dots \ast x_k $ and $ y =  y_1 \ast \dots \ast y_n$ such that $x \sim y$.
 From \cite[Corollary 3.4.]{Penaguiao2020}, we know that $k = n$ and the multisets $\{x_i\}_{i=1}^k,  \{y_i\}_{i=1}^n$ are the same.
 It remains to show that the factorizations order coincide and that we have $x_i \sim y_i$ for $i = 1, \dots , n$.
 To that effect we act by induction, where $n = 1$ is trivial.
 
-\
+%\
 
-For the induction step, let us consider the bijection $\sigma:[n] \to [n]$ such that $y_{\sigma(i)} \sim x_i$ given by \cite[Corollary 3.4.]{Penaguiao2020}.
+%For the induction step, let us consider the bijection $\sigma:[n] \to [n]$ such that $y_{\sigma(i)} \sim x_i$ given by \cite[Corollary 3.4.]{Penaguiao2020}.
 We write $x_i = (l_i, p_i)\in (L\times \mathtt{h})[I_i]$ and $y_i = (m_i, q_i)\in (L\times \mathtt{h})[J_i]$.
 Finally, write $x = (l, p) \in (L\times \mathtt{h})[I] $ and $y = (m, q) \in (L\times \mathtt{h})[J]$.
 By hypothesis, we have that $x \sim y$, so there exists some bijection $\phi: J \to I$ such that $ (L\times \mathtt{h})[\phi](x) = y$.
-This bijection yields a correspondence between two linear orders $L [\phi] (l_1 \star \dots \star l_n) = m_1\star \dots \star m_n $.
-Observe that $I_1$ and $J_1$ are ideals in these linear orders, respectively, as seen in \cref{obs:linorders_ideals}.
-So either  $\phi (I_1)\subsetneq J_1 $, $\phi (I_1)= J_1 $ or $\phi (I_1)\supsetneq J_1 $.
-There are three cases:
-\begin{itemize}
-    \item $|I_1| > |J_1|$.
-    
-Consider the following factorization of $x_1 $:
+This bijection yields a correspondence between two linear orders $L [\phi] (l_1 \ast \dots \ast l_n) = m_1\ast \dots \ast m_n $.
+Observe that $I_1$ and $J_1$ are ideals in $l1\ast \dots \ast l_n$ and $m_1 \ast \dots \ast m_n$, respectively, as seen in \cref{prop:linorderideals}.
+So either $\phi (I_1)= J_1 $ or $\phi (I_1)\supsetneq J_1 $.
+Assume wlog that $|I_1 | \geq	 |J_1|$ and assume for sake of contradiction that $|I_1| > |J_1|$, and consider the following factorization of $x_1 $:
 \begin{equation}\label{eq:linearpats:non_trivial_fact}
-x_1 = x|_{I_1} \sim y|_{\phi(I_1)} = y_1|_{\phi(I_1) \cap J_1} \star (y_2 \star \dots \star y_n)|_{(J\setminus J_1) \cap \phi(I_1)}\, . 
+x_1 = x|_{I_1} \sim y|_{\phi(I_1)} = y_1|_{\phi(I_1) \cap J_1} \ast (y_2 \ast \dots \ast y_n)|_{(J\setminus J_1) \cap \phi(I_1)}\, . 
 \end{equation}
-
 
 Now, because $|I_1| > |J_1|$ and that $\phi $ is a bijection, we have that $| (J\setminus J_1) | + | \phi(I_1) | = n - |J_1| + |I_1| > n$, so the intersection $(J\setminus J_1) \cap \phi(I_1)$ is non-empty.
 on the other hand, $\phi(I_1) \cap J_1 = J_1$.
 
-Going back to \eqref{eq:linearpats:non_trivial_fact}, we get a non-trivial factorization of $x_1$, which contradicts the fact that we started with a factorization into irreducibles.
+Going back to \eqref{eq:linearpats:non_trivial_fact}, we get a non-trivial factorization of $x_1$, which contradicts the fact that we started with a factorization into indecomposibles.
 
-    \item $|I_1| < |J_1|$
-
-This case is an analogue from the previous one, by exchanging the roles of $x$ and $y$, which can be done without loss of generality.
-    
-    \item $|I_1| = |J_1|$
-
-In this case, we argue as in the first case to show that $\phi(I_1) = J_1$.
-Therefore,  $\phi(I\setminus I_1) = J \setminus  J_1$, $ \mathtt{h}[\phi] (p|_{I_1}) = q|_{J_1} $ and $ \mathtt{h}[\phi] (p|_{II \setminus_1}) = q|_{J \setminus J_1} $.
-\end{itemize}
+This is a contradiction, thus $|I_1 | = |J_1|$, which shows that $\phi(I_1) = J_1$.
+Therefore,  $\phi(I\setminus I_1) = J \setminus  J_1$, $ \mathtt{h}[\phi] (p|_{I_1}) = q|_{J_1} $ and $ \mathtt{h}[\phi] (p|_{I \setminus I_1}) = q|_{J \setminus J_1} $.
 
 \
 
-In conclusion, we get that $x_1 \sim y_1$ and $x_2 \star \cdots \star x_n \sim y_2 \star \cdots \star y_n$, via $\phi$.
+In conclusion, we get that $x_1 \sim y_1$ and $x_2 \ast \cdots \ast x_n \sim y_2 \ast \cdots \ast y_n$, via $\phi$.
 By induction hypothesis, this tells us that $x_2 \sim y_2, \cdots , x_n \sim y_n$, as desired.
 \end{proof}
 
+
+\begin{cor}
+If $\mathtt{h} = \mathtt{L} \times \mathtt{h}'$, then $\mathcal A(\mathtt{h})$ is free.
+\end{cor}
+This follows from \cite{Vargas}, after we recognize that $\mathtt{L} \times \mathtt{h}'$ has NCF.
+
 \
 
-The pattern Hopf algebra on permutations, on packed words, on Dyck paths and on parking functions all satisfy the NCF property.
-In fact, permutations, packed words and Dyck paths all are of the fomr $L \times \mathtt{h}$.
-This property allows for an easy manipulation of the coproduct, and results in a more tracktable appreach to the antipode formula.
+The pattern Hopf algebra on permutations, on packed words and on parking functions all satisfy the NCF property.
+In fact, permutations, packed words and parking functions are of the form $\mathtt{L} \times \mathtt{h}$.
+This property allows for an easy manipulation of the coproduct, and results in a more tractable approach to the antipode formula.
+
+\begin{defin}[Composition poset and cumulative sum]
+Recall that we write $\mathcal C_n$ for the set of compositions of size $n$.
+We will define $\mathbf{CS}$, a bijection between $\mathcal C_n $ and $2^{[n-1]}$, as follows.
+If $\alpha =(\alpha_1, \dots, \alpha_{\ell} ) \in \mathcal C_n$, define $f_i = \sum_{j=1}^i$ and 
+$$\mathbf{CS}(\alpha) = \{f_i | i = 1, \dots, \ell - 1\} \, .$$
+
+This bijection allows us to define an order $\leq $ in $\mathcal C_n$, via the pullback from the boolean poset in $2^{[n-1]}$.
+This order can be defined as well as follows: we say that $\alpha \leq \beta$ if $\alpha$ arises from $\beta $ after merging and adding consecutive entries.
+\end{defin}
 
 \
 Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in L\times \mathtt{h}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} = x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$.
 
 \begin{defin}[Compositions and QSS]
-Let $x \in (L\times \mathtt{h})[J], y \in (L\times \mathtt{h})[I]$, and $x = x_1\star \dots \star x_n$ is the unique factorization of $x$ into irreducibles.
-Further say that $y = (m, \iota)$, where $m$ is a linear order in $I$.
+Let $x \in (L\times \mathtt{h})[J], y \in (L\times \mathtt{h})[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorization of $x$ into indecomposibles.
+Further say that $y = (<_y, \iota)$, where $<_y$ is a linear order in $I$.
 Let $\III = (I_1, \dots , I_n)$ be a QSS of $y$ from $x_1, \dots, x_n$ and consider a composition $\alpha \models n$.
 
 \
 
 Suppose that $ \mathbf{CS} (\alpha) = \{f_1, \dots, f_{\ell(\alpha) - 1} \}$ and use the convention that $f_0 = 0$ and $f_{\ell(\alpha)} = n$. 
 Then we define for $i = 1, \dots, \ell(\alpha)$:
-\[I^{\alpha}_i := I_{f_{i-1} + 1} \cup \dots \cup I_{f_i} \quad , \quad x^{\alpha}_i := x_{f_{i-1} + 1} \star \dots \star x_{f_i}.\]
+\[I^{\alpha}_i := I_{f_{i-1} + 1} \cup \dots \cup I_{f_i} \quad , \quad x^{\alpha}_i := x_{f_{i-1} + 1} \ast \dots \ast x_{f_i}.\]
 
 \
 
 Two indices $i< j$ are said to be \textbf{merged} by $\alpha$ if there is some $k$ in $\{1, \dots, n\}$ such that $ f_{k-1} < i < j \leq f_k$.
-We say that a QSS $\III$ of $y$ from $x_1, \dots , x_n$ is $\alpha $-stable if $(I^{\alpha}_i)_i \text{ is a QSS of $y$ from } (x^{\alpha}_i)_i$ and, whenever $x_i \sim x_j$ and $i < j$ are merged with $\alpha $, then $I_i < I_j$ with respect to the linear order $m$.
+We say that a QSS $\III$ of $y$ from $x_1, \dots , x_n$ is $\alpha $-stable if $(I^{\alpha}_i)_i \text{ is a QSS of $y$ from } (x^{\alpha}_i)_i$ and, whenever $x_i \sim x_j$ and $i < j$ are merged with $\alpha $, then $I_i <_y I_j$ with respect to the linear order $m$.
 
 \
 
 Finally, we define 
-$$\mathcal I^{x, y}_{\III} \coloneqq \{ \alpha \models n | (I_i)_i \text{ is an $\alpha$-stable QSS of $y$ from } (x_i)_i \} \, .$$
+$$\mathcal I^{x, y}_{\III} \coloneqq \left\{ \alpha \models n \Big| \III \text{ is an $\alpha$-stable QSS of $y$ from } (x_i)_i \right\} \, .$$
 
 \end{defin}
 
 \
 
 \begin{smpl}[$\alpha$-stable QSS on $\mathtt{PWo}$]
-Consider the packed word $\omega = 21 \oplus 111 = 21333 = (1 < 2 < 3 < 4 < 5, 2 < 1 < 3 = 4 = 5)$ on the set $[5]$.
-This packed word has three QSS from $12, 1, 11$, precisely $\III_1 =(12, 3, 45)$, $\III_2 =(12, 4, 35)$ and $\III_3 =(12, 5, 34)$.
-All of there are $(1, 1, 1)$-stable.
+Consider the packed word $\omega = 21 \oplus 111 = 21333 = (1 < 2 < 3 < 4 < 5, 2 < 1 < \{3, 4, 5\})$ on the set $[5]$.
+This packed word has three QSS from $21, 1, 11$, precisely $\III_1 =(12, 3, 45)$, $\III_2 =(12, 4, 35)$ and $\III_3 =(12, 5, 34)$.
+All three are $(1, 1, 1)$-stable.
 
-We now observe that $\III_1, \III_2$ and $\III_3$ are $(2, 1)$-stable, but not $(1, 2)$-stable.
+We now observe that $\III_1, \III_2$ and $\III_3$ are $(2, 1)$-stable, but neither $(1, 2)$-stable nor $(3)$-stable.
 Indeed, $\III_1^{(1, 2)} = \III_2^{(1, 2)} = \III_3^{(1, 2)} = (12, 345)$, and $\omega|_{345} = 111$ is not $\omega|_{I_2} \oplus \omega|_{I_3}$ for any of the QSS.
 On the other hand, $\III_1^{(2, 1)} = (123, 45)$, $\III_2^{(2, 1)} = (124, 35)$ and $\III_3^{(2, 1)} = (125, 34)$, in each case is easy to note that $\omega|_{I_1^{(2, 1)}} = 21\oplus 1$ and $\omega|_{I_2^{(2, 1)}} = 11$ for each of the QSS.
 
 Therefore, in each case we get
-$$\mathcal I_{\III}^{21, 1, 11, 21333} = \{(1, 1, 1), (2, 1)\}\, . $$
-
-In general, it is easy to see that $\III $ is $(\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$-stable if and only if $I_i < I_{i+1}$ on both orders of $\omega$.
+$$\mathcal I_{\III}^{21\oplus 1\oplus 11, 21333} = \{(1, 1, 1), (2, 1)\}\, . $$
 \end{smpl}
+
+
+The following example portrays the significance of adding the additional requirement that $I_i < I_j$ whenever $x_i \sim x_j$ and $i, j$ are merged by $\alpha$, in the context of packed words.
+
+\begin{smpl}[$\alpha$-stable when $x_i \sim x_j$]
+\raul{belabour example, on the notes from Raul}
+$\omega =2133$ with QSS $(13, 2, 4)$ and $(13, 4, 2)$, these are QSS of $\omega $ from $ 12, 1, 1$.
+First is $(1, 2)$-stable, whereas second is not $(1, 2)$-stable.
+\end{smpl}
+
+
+A simple method to check when a given QSS is $ælpha$-stable is the following.
+
+\begin{obs}\label{obs:pwords-characterisation}
+In general, it is easy to see that $\III $ is $(\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$-stable if and only if $I_i < I_{i+1}$ on both orders of $\omega$.
+\end{obs}
 
 \
 
 
 \begin{obs}
-Let $\mathtt{h}$ be a species with restrictions, $y, x_1, \dots, x_n \in \mathcal G(h)$ and $\III$ a QSS of $y$ from $x_1\dots, x_n$.
-Then, $\mathcal I^{x, y}_{\III}$ has a unique maximal element, $\mathbb{1}$, and it is an ideal on the poset of compositions $\mathcal C_n$.
+Let $\mathtt{h}$ be a species with restrictions, $y, x_1, \dots, x_n \in \mathcal G(\mathtt{h})$ and $\III$ a QSS of $y$ from $x_1\dots, x_n$.
+Call $x \coloneqq x_1 \ast \dots \ast x_n$.
+Then, $\mathcal I^{x, y}_{\III}$ has a unique maximal element, $\mathbb{1}$.
 \end{obs}
 
 The following is the main theorem in this section
 
 \begin{thm}\label{thm:general_antipode}
-For a connected NCF species with restrictions $\mathtt{h}$, and an element $x$, along with its factorization $x=x_1 \star \dots \star x_n$, we have the following antipode formula in $\mathcal A (\mathtt{h})$:
+For a species with restrictions $\mathtt{h}$ that is a multiple of $\mathtt{L}$, and an element $x$, along with its factorization $x=x_1 \ast \dots \ast x_n$, we have the following antipode formula in $\mathcal A (\mathtt{h})$:
 
 $$S(\pat_x) = \sum_y \pat_y \sum_{\substack{\III \text{ QSS of $y$}\\ \text{from }x_1, \dots , x_n}}  \sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell ( \alpha)} \, .$$
 \end{thm}
@@ -1477,48 +1508,48 @@ $$S(\pat_x) = \sum_y \pat_y \sum_{\substack{\III \text{ QSS of $y$}\\ \text{from
 \begin{proof}
 \begin{align*}
 \Delta^{\circ (k-1)} (\pat_x)
-    =& \sum_{x = \chi_1 \star \dots \star \chi_k} \pat_{\chi_1}\otimes \dots \otimes \pat_{\chi_k}
+    =& \sum_{x = \chi_1 \ast \dots \ast \chi_k} \pat_{\chi_1}\otimes \dots \otimes \pat_{\chi_k}
 \end{align*}
-Because the species with restrictions $\mathtt{h}$ has NCF, the only ways to factorize $x$ into $k$ factors is to start from the original factorization $x = x_1 \star \dots \star x_n$ and collapse these factors into $k$ blocks, possibly empty.
-Therefore, we can enumerate these factorizations using compositions with zero as follows:
+Because the species with restrictions $\mathtt{h}$ has NCF, the only ways to factorize $x$ into $k$ factors is to start from the original factorization $x = x_1 \ast \dots \ast x_n$ and bracket these factors, possibly empty, into $k$ blocks.
+Therefore, we can enumerate these factorizations using weak compositions, as follows:
 
 \begin{align*}
-(\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{h})})^{*k} (\pat_x)
-    =& (-1)^k  \mu^{(k-1)}( \id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon)^{\otimes k} \Delta^{(k-1)} (\pat_x)\\
-    =& (-1)^k  \mu^{(k-1)}( \id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon)^{\otimes k}\left(\sum_{\substack{\alpha\models^0 n \\ \ell(\alpha) = k}} \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k} \right) \\
-    =&  (-1)^k  \mu^{(k-1)} \sum_{\substack{\alpha\models n \\ \ell(\alpha) = k}}  \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k}\\
-    =&  (-1)^k \sum_{\substack{\alpha\models n \\ \ell(\alpha) = k}}  \pat_{x^{\alpha}_1}  \dots \pat_{x^{\alpha}_k}
+(\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{h})})^{\star k} (\pat_x)
+    =& (-1)^k  \mu^{\circ(k-1)}( \id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon)^{\otimes k} \Delta^{\circ(k-1)} (\pat_x)\\
+    =& (-1)^k  \mu^{\circ(k-1)}( \id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon)^{\otimes k}\left(\sum_{\substack{\alpha\models^0 n \\ \ell(\alpha) = k}} \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k} \right) \\
+    =&  (-1)^k  \mu^{\circ(k-1)} \sum_{\substack{\alpha\models n \\ \ell(\alpha) = k}}  \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k}\\
+    =&  (-1)^k \sum_{\substack{\alpha\models n \\ \ell(\alpha) = k}}  \pat_{x^{\alpha}_1}  \cdots \pat_{x^{\alpha}_k}
 \end{align*}
 
 Note how we used that $(\id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon ) (\pat_x) = \mathbb{1}[x \neq 1]\pat_x$.
 Thus, the theorem follows from Takeuchi's formula (\cref{lm:takeuchi}) after some clever rearrangements:
 
 \begin{align*}
-S(\pat_x)&= \sum_{k\geq 0 } (\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{h})})^{*k} (\pat_x) \\
-         &= \sum_{\alpha \models n} (-1)^{\ell(\alpha)} \pat_{x^{\alpha}_1} \dots \pat_{x^{\alpha}_{\ell(\alpha)}}\\
-         &= \sum_{\alpha \models n } (-1)^{\ell(\alpha)} \sum_y \pat_y \binom{y}{x^{\alpha}_1 \dots x^{\alpha}_{\ell(\alpha)}}\\
-         &= \sum_y \pat_y \sum_{\alpha \models n} \sum_{  \substack{\III \text{ QSS of $y$}\\ \text{from }x^{\alpha}_1 \dots x^{\alpha}_{\ell(\alpha)} }} (-1)^{\ell(\alpha)}\\
-         &= \sum_y \pat_y \sum_{  \substack{\III \text{ QSS of $y$}\\ \text{from }x_1 \dots x_n }} \sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)}.
+S(\pat_x)&= \sum_{k\geq 0 } (\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{h})})^{\star k} (\pat_x) \\
+         &= \sum_{\alpha \models n} (-1)^{\ell(\alpha)} \pat_{x^{\alpha}_1} \cdots \pat_{x^{\alpha}_{\ell(\alpha)}}\\
+         &= \sum_{\alpha \models n } (-1)^{\ell(\alpha)} \sum_y \pat_y \binom{y}{x^{\alpha}_1,  \dots , x^{\alpha}_{\ell(\alpha)}}\\
+         &= \sum_y \pat_y \sum_{\alpha \models n} \sum_{  \substack{\III \text{ QSS of $y$}\\ \text{from }x^{\alpha}_1,  \dots , x^{\alpha}_{\ell(\alpha)} }} (-1)^{\ell(\alpha)}\\
+         &= \sum_y \pat_y \sum_{  \substack{\III \text{ QSS of $y$}\\ \text{from }x_1 , \dots ,  x_n }} \sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)}.
 \end{align*}
 
 All equalities but the last one are simple rearrangements.
 To motivate the last equality, we will construct a series of bijections, for each composition $\alpha \models n$:
 \begin{align*}
-    \Phi_{\alpha}^{x, y} = \Phi_{\alpha} : \left\{ \JJJ \text{ QSS of $y$ from $x^{\alpha}_1, \dots, x^{\alpha}_{\ell(\alpha)}$}\right\} &\to \left\{ \JJJ \text{ $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$}\right\}\, , \\
+    \Phi_{\alpha}^{x, y} = \Phi_{\alpha} : \left\{ \JJJ \text{ QSS of $y$ from $x^{\alpha}_1, \dots, x^{\alpha}_{\ell(\alpha)}$}\right\} &\to \left\{ \III \text{ $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$}\right\}\, , \\
     (J_1, \dots, J_{\ell(\alpha)} ) &\mapsto (I_1, \dots , I_n).
 \end{align*}
 
 \
 
-Recall that $y = (m, \iota)$ induces a linear order $m$ in $I$.
-The sets $(I_i)_i$ are defined so that $J_s = I_{f_{s-1}+1} \uplus \dots \uplus I_{f_s}$, that $|I_i | = |x_i|$ and that $I_i < I_j $ with respect to the order $m$ whenever $f_{s-1} < i < j \leq f_{s}$.
+Recall that $y = (<_y, \iota)$ induces a linear order $m$ in $I$.
+The sets $(I_i)_i$ are defined so that $J_s = I_{f_{s-1}+1} \uplus \dots \uplus I_{f_s}$, that $|I_i | = |x_i|$ and that $I_i <_y I_j $ whenever $f_{s-1} < i < j \leq f_{s}$.
 This is easily seen to be an $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$.
 
 \
 
 Inversely, we define:
 \begin{align*}
-    \Psi_{\alpha}^{x, y} = \Psi_{\alpha}  : \left\{ \JJJ \text{ $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$}\right\} &\to \left\{ \JJJ \text{ QSS of $y$ from $x^{\alpha}_1, \dots, x^{\alpha}_{\ell(\alpha)}$}\right\} \, , \\
+    \Psi_{\alpha}^{x, y} = \Psi_{\alpha}  : \left\{ \III \text{ $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$}\right\} &\to \left\{ \JJJ \text{ QSS of $y$ from $x^{\alpha}_1, \dots, x^{\alpha}_{\ell(\alpha)}$}\right\} \, , \\
     (I_1, \dots , I_n) &\mapsto (I_1^{\alpha}, \dots, I^{\alpha}_{\ell(\alpha)} ),
 \end{align*}
 where we recall that $I^{\alpha}_i = I_{f_{s-1}+1} \cup \dots  \cup I_{f_s}$.
@@ -1530,28 +1561,25 @@ The maps $\Psi_{\alpha}$ and $\Phi_{\alpha}$ are easily seen to be inverses of e
 
 \
 
-\begin{smpl}[Example in permutation patterns]
-Consider $\sigma = 312$ and $\pi = 123 = 1\oplus 1 \oplus 1$.
-We will compute the antipode of $\pat_{\sigma}$ using this formula, by computing $\mathcal I^{\sigma, \pi}_{\III}$ for each QSS $\III$.
-
-\end{smpl}
+%\begin{smpl}[Example in permutation patterns]
+%Consider $\sigma = 312$ and $\pi = 123 = 1\oplus 1 \oplus 1$.
+%We will compute the antipode of $\pat_{\sigma}$ using this formula, by computing $\mathcal I^{\sigma, \pi}_{\III}$ for each QSS $\III$.
+%
+%\end{smpl}
 
 \begin{prop}[Filtered structure of $\mathcal I$]\label{prop:filter_structure_I}
-For a connected NCF species with restrictions $\mathtt{h}$, and elements $x\in (L\times \mathtt{h})[J], y\in (L\times \mathtt{h})[I]$, along with a factorization into irreducibles $x = x_1 \star \dots \star x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{y, x}_{\III}$ is a filter.
+For a species with restrictions $\mathtt{h}$ that is a multiple of $\mathtt{L}$, and an elements $x\in  \mathtt{h}[J], y\in \mathtt{h}[I]$, along with a factorization into $\ast$-indecomposibles $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
+That is, if $\alpha \in \mathcal I^{ x, y}_{\III}$ and $\beta \geq \alpha$ then $\beta \in \mathcal I^{ x, y}_{\III}$.
 
 \
-
-That is, if $\alpha \in \mathcal I^{y, x}_{\III}$ and $\beta \geq \alpha$ then $\beta \in \mathcal I^{y, x}_{\III}$.
-
-\
-
-If $\mathcal I^{y, x}_{\III}$ has a unique minimal element distinct from $\mathbb{1}$, then
-$$\sum_{\alpha \in \mathcal I^{y, x}_{\III}} (-1)^{\ell(\alpha)} = 0 \, .$$
+Furthermore, if $\mathcal I^{ x, y}_{\III}$ has a unique minimal element distinct from $\mathbb{1}$, then
+$$\sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)} = 0 \, .$$
 \end{prop}
 
 \begin{proof}
+To establish the first fact, assume that $\alpha \in \mathcal I^{x, y}_{\III}$ and let $\beta \geq \alpha $.
 Because $\beta \geq \alpha$, if $\beta $ merges $i < j$ then $\alpha $ merges $i < j$, thus we have that $I_i < I_j$ with respect to the order of $y$.
-It remains then to show that $(I^{\beta}_i)_i$ is a QSS of $y$ from $(x^{\beta}_i )_i$, or equivalent that $y|_{I_i^{\beta}} \sim x_i^{\alpha}$.
+It remains then to show that $(I^{\beta}_i)_i$ is a QSS of $y$ from $(x^{\beta}_i )_i$, or equivalent that $y|_{I_i^{\beta}} \sim x_i^{\beta}$.
 
 \
 
@@ -1562,21 +1590,29 @@ However, because $\beta \geq \alpha$, for each $i$ we have $I^{\beta}_i \subsete
 
 For the concluding part, we simply observe that if $\mathcal I^{x, y}_{\III}$ has a unique minimal element $\mathbb{0}$, then it is the interval of a boolean poset $\mathcal I^{x, y}_{\III} = [\mathbb{0}, \mathbb{1}]$.
 Furthermore, we have that $\mathbb{0} \neq \mathbb{1}$.
-We use the bijection $\mathbf{CS}$ between compositions and subsets of $\{1, \dots , n-1\}$ to compute the following sum.
-Let $X \coloneqq \mathbf{CS}(\mathbb{0} )$, then 
+Let $\mathcal K $ be the collection of sets $A \subseteq [n-1]$ that contain $X \coloneqq \mathbf{CS}(\mathbb{0})$.
 
-\begin{align*}
-\sum_{\alpha \in \mathcal I^{y, x}_{\III}} (-1)^{\ell(\alpha)} &= \sum_{X \subseteq Y \subseteq [n-1]} (-1)^{|Y| +1} = \sum_{k = |X|}^{n-1} \sum_{\substack{X \subseteq Y \subseteq [n-1]\\ |Y| = k}} (-1)^{k +1} \\
-&= \sum_{k = |X|}^{n-1}\binom{n-|X| - 1}{k - |X|} (-1)^{k +1} = \sum_{k = 0}^{n- |X|-1}\binom{n-|X| - 1}{k} (-1)^{k + |X| +1}  \\
-&= (1 -1)^{n - |X| - 1 + |X| +1} = 0 \, .\\
-\end{align*}
-
-\
-
-Notice that because $X \neq [n-1]$, we can use the Newton identity with exponent $n-|X| - 1$.
+Consider $\zeta: \mathcal K \to \mathcal K$.
+Choose $\chi \in [n-1] \setminus X$, if $X \neq [n-1]$, and define $\zeta (A) = A \Delta \{ \chi \}$.
+If no such $\chi $ exists, define $\zeta(A) = A$.
+This is an involution on subsets of $[n-1]$ that contain $X$, which corresponds to an involution in compositions in $[\mathbb{0} , \mathbb{1}]$.
+It can be seen that this is indeed sign-reversing, so we conclude that 
+$$\sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)} =  \mathbb{1}[[n-1] \setminus X \text{ is empty } ] = \mathbb{1}[\mathbb{1} = \mathbb{0}] \, .$$
 \end{proof}
 
-The consequence of this is that, for each of the example pattern algebras, we simply need to find that any QSS $\III$ of $y$ from irreducible elements has a unique minimal element, and the antipode formula reduces to counting how many of these minimal elements is the composition $\mathbb{1}$.
+%We use the bijection $\mathbf{CS}$ between compositions and subsets of $\{1, \dots , n-1\}$ to compute the following sum.
+%Let $X \coloneqq \mathbf{CS}(\mathbb{0} )$, then we can consider $\zeta : \mathcal K \to \mathcal K$
+
+%\begin{align*}
+%\sum_{\alpha \in \mathcal I^{y, x}_{\III}} (-1)^{\ell(\alpha)} &= \sum_{X \subseteq Y \subseteq [n-1]} (-1)^{|Y| +1} = \sum_{k = |X|}^{n-1} \sum_{\substack{X \subseteq Y \subseteq [n-1]\\ |Y| = k}} (-1)^{k +1} \\
+%&= \sum_{k = |X|}^{n-1}\binom{n-|X| - 1}{k - |X|} (-1)^{k +1} = \sum_{k = 0}^{n- |X|-1}\binom{n-|X| - 1}{k} (-1)^{k + |X| +1}  \\
+%&= (1 -1)^{n - |X| - 1 + |X| +1} = 0 \, .\\
+%\end{align*}
+
+%Notice that because $X \neq [n-1]$, we can use the Newton identity with exponent $n-|X| - 1$.
+
+The consequence is, for pattern algebras, that computing the antipode corresponds to find which$ \mathcal I_{\III}^{x, y}$ have a unique minimal element.
+In this case, the antipode formula reduces to counting how many of these minimal elements is the composition $\mathbb{1}$.
 These will contribute with $(-1)^n$ to the total coefficient of $\pat_y$.
 
 \section{The antipode formula for the pattern algebra on packed words \label{sec:formula_packed}}
