@@ -437,18 +437,20 @@ We also present an antipode formula for the packed words pattern Hopf algebra, w
 
 \
 
-\begin{smpl}[Interlacing QSS]
+\begin{defin}[QSS and interlacing QSS]
 A quasi-shuffle signature, or a QSS, of $\sigma $ from $\pi_1, \dots, \pi_n$ is a sequence of sets $\III = (I_1, \dots, I_n)$ that cover $\sigma$ such that $\sigma|_{I_i} = \pi_i$.
 This QSS is said to be \textbf{non-interlacing} if there is some $i=1, \dots, n-1$ such that $I_i < I_{i+1}$ and $\sigma(I_i) < \sigma(I_{i+1})$.
 Otherwise, we say that the QSS is \textbf{interlacing}. 
+\end{defin}
+
 \begin{figure}[h]
     \centering
     \includegraphics{images/interlacing_25314.pdf}
     \caption{\textbf{Left:} the permutation 2314, along with a labelling of two of its QSS from $21, 1, 1, 1$. In orange the two sets that do not interlace. \textbf{Right:} the permutation 123, along with its two interlacing QSS from $1, 12$.\label{fig:interlacingQSSsmpl}}
 \end{figure}
 
-\
 
+\begin{smpl}[Interlacing QSS]
 So the permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13, 2, 1)$ and $(1, 13, 4, 2)$, but from these two, only the first is interlacing.
 In \cref{fig:interlacingQSSsmpl}, one can see these two QSS.
 Further computations can show that $\binom{2314}{1, 21, 1, 1} = 36$ and $\bigl[\!\begin{smallmatrix} 2314 \\ 1, 21, 1, 1 \end{smallmatrix}\!\bigr] = 8$.
@@ -1095,9 +1097,9 @@ The relation \eqref{eq:coproddefin} is central in establishing that the coproduc
 
 
 \begin{thm}\label{thm:conHopfalgebra}
-Let $(h, \ast, 1) $ be an associative species with restrictions.
+Let $(\mathtt{h}, \ast, 1) $ be an associative species with restrictions.
 Then the pattern algebra of $h$ together with this coproduct, and a natural choice of counit, forms a bialgebra.
-If additionally $| h[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
+If additionally $| \mathtt{h}[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
 \end{thm}
 
 %Presheaves that satisfy $|h[\emptyset ]| = 1$ are called \textit{connected}.
@@ -1113,7 +1115,7 @@ This Hopf algebra has a basis indexed by partitions, and corresponds to the patt
 
 \section{Examples of species with restrictions \label{sec:species_restrictions}}
 
-\subsection{Species on linear orders \label{sec:specieslinearorders}}
+\subsection{Species on linear orders.\label{sec:specieslinearorders}}
 
 \raul{We need to introduce this here}
 
@@ -1598,6 +1600,7 @@ If no such $\chi $ exists, define $\zeta(A) = A$.
 This is an involution on subsets of $[n-1]$ that contain $X$, which corresponds to an involution in compositions in $[\mathbb{0} , \mathbb{1}]$.
 It can be seen that this is indeed sign-reversing, so we conclude that 
 $$\sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)} =  \mathbb{1}[[n-1] \setminus X \text{ is empty } ] = \mathbb{1}[\mathbb{1} = \mathbb{0}] \, .$$
+This concludes the proof.
 \end{proof}
 
 %We use the bijection $\mathbf{CS}$ between compositions and subsets of $\{1, \dots , n-1\}$ to compute the following sum.
@@ -1618,9 +1621,9 @@ These will contribute with $(-1)^n$ to the total coefficient of $\pat_y$.
 \section{The antipode formula for the pattern algebra on packed words \label{sec:formula_packed}}
 
 \begin{defin}[Interlacing QSS on packed words]
-Let $\rho, \omega_1, \dots, \omega_n$ be packed words, where $\rho = (<_P, <_V)$ is a packed word on $I$.
-Let $\III = (I_1, \dots, I_n)$ be a QSS.
-We say that this QSS is \textbf{interlacing} if for any $i = 1, \dots, n-1$, either $I_i \not<_P I_{i+1}$ or $I_i \not<_V I_{i+1}$.
+Let $\rho, \omega_1, \dots, \omega_n$ be packed words, where $\rho = (\leq_P, \leq_V)$ is a packed word on $I$.
+Let $\III = (I_1, \dots, I_n)$ be a QSS of $\rho$ from $\omega_1, \dots, \omega_n$.
+We say that this QSS is \textbf{interlacing} if there exists some $i = 1, \dots, n-1$ such that no $I_i \not\leq_P I_{i+1}$ or $I_i \not\leq_V I_{i+1}$.
 
 Additionally, let $ \bigl[\!\begin{smallmatrix} \rho  \\ \omega_1, \dots, \omega_n \end{smallmatrix}\!\bigr]$ be the number of interlacing QSS of $\rho$ from $\omega_1, \dots, \omega_n$.
 \end{defin}
