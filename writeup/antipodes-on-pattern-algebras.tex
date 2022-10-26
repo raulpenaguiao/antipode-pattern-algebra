@@ -144,7 +144,8 @@
 %categories
 \newcommand{\Fset}{\mathsf{Set^{\times}}}
 \newcommand{\Veck}{\mathsf{Vec}_\Kb} 
-\newcommand{\Vect}{\mathsf{Vect}} 
+\newcommand{\Vect}{\mathsf{Vect}}
+\newcommand{\gVec}{\mathsf{gVec}}
 \newcommand{\Set}{\mathsf{Set}}
 \newcommand{\Ss}{\mathsf{Sp}} % set species
 \newcommand{\Ssk}{\mathsf{Sp}_\Kb} %vector species
@@ -915,19 +916,43 @@ for any disjoint sets $S_1, S_2$, for elements $x \in \rH[S_1]$, $y\in \rH[S_2]$
 A {\bf Hopf monoid} in $(\Ss, \cdot)$ $\rH$ is a bimonoid in set species such that the monoid $\rH[\emptyset]$ is a group. Its antipode is the map $s_\emptyset: \rH[\emptyset]\to \rH[\emptyset]$ given by $s_\emptyset(x):=x^{-1}$.
 This allows us to define an antipode map $s: H\to H$ via the Takeuchi formula, adapted to set species.
 
+
 \
+
+\subsection{Fock functor}
+In \cite{AM2010} (Part III), a construction is presented allowing to produce a (graded) Hopf algebra from a Hopf monoid. This is a categorical approach of a construction due to Stover (\cite{Stover}, Section 14), studied later by Patras, Schocker and Reutenauer in \cite{PR2004}, \cite{PS2006} and \cite{PS2008}.
+
+\
+
+We recall briefly this construction. Let $\mathbb{K}$ be a field of characteristic zero. If $\tp \in \Ssk$, then there is an action of the symmetric group $\mathfrak{S}_n$ on $\tp[n]$ by relabeling, for each $n \geq 0$. We denotes by $\tp[n]_{\mathfrak{S}_n}$ the \emph{space of $\mathfrak{S}_n$-coinvariants of $\tp[n]$}:
+\begin{equation}
+  \tp[n]_{\mathfrak{S}_n}:=\tp[n]/\left\langle \, x- \tp[\alpha](x) \, | \, \alpha \in \mathfrak{S}_n, x\in \tp[n] \,\right\rangle.
+\end{equation}
+
+\
+
+
+Consider $\gVec$ be the category of graded vector spaces over $\mathbb{K}$. The functors $\Kc, \Kcb: \Ssk \to \gVec$ given by 
+\begin{equation}
+    \Kc(\tp):=\bigoplus_{n \geq 0}\tp[n] \qquad , \qquad \Kcb(\tp):= \bigoplus_{n \geq 0}\tp[n]_{\mathfrak{S}_n}
+\end{equation}
+are referred in \cite{AM2010} as \emph{full Fock funtor} and \emph{bosonic Fock functor}, respectively.
+
+\
+
+\section{The pattern Hopf algebra \label{sec:pattern_algebra_contruction}}
 
 \subsection{Species with restriction}
 The general setting for our approach to pattern is given by the notion of \emph{species with restrictions}, a terminology due to Schmitt (see \cite{Schmitt1993}) and used by the first author in \cite{Penaguiao2020}, where these were called combinatorial presheaves.
 
 \
 
-Let $\Fset_{\!\!\!\!\!\hookrightarrow}$ be the category of finite sets with injections as morphisms. A (set) {\bf species with restriction} is a contravariant functor $\prR:\Fset_{\!\!\!\!\!\hookrightarrow} \to \Set$. Given a species with restrictions $\prR$, a finite set $I$ and a subset $J$, the {\bf restriction map} $\text{res}_{I,J}$ is the image under the functor $\prR$ of the inclusion $J \hookrightarrow I$:
+Let $\Fset_{\!\!\!\!\!\hookrightarrow}$ be the category of finite sets with injections as morphisms. A (set) {\bf species with restriction} is a contravariant functor $\prR:\Fset_{\!\!\!\!\!\hookrightarrow} \to \Set$. Given a species with restrictions $\prR$ and a couple of finite sets $I,J$ such that $J \subseteq I$, the {\bf restriction map} $\text{res}_{I,J}:=\text{res}[\hookrightarrow]$ is the image under the functor $\prR$ of the inclusion $J \hookrightarrow I$:
 \[\text{res}_{I,J}: \prR[I]\to \prR[J].\]
 
-These maps satisfy the contravariant axioms
+By functoriality, these maps satisfy the contravariant axioms
 \begin{equation}\label{Axrestr}
-    \text{res}_{J,K}\circ\text{res}_{I,J}=\text{res}_{I,K} \qquad , \qquad \text{res}_{I,I}=\text{id}_{\rP[I]},
+    \text{res}_{J,K}\circ\text{res}_{I,J}=\text{res}_{I,K} \qquad , \qquad \text{res}_{I,I}=\text{id}_{\prR[I]},
 \end{equation}
 
 for any finite sets $I \supseteq J \supseteq K$. 
@@ -1014,42 +1039,24 @@ There is an equivalence between the category of monoids in $(\Spr, \cdot)$ and t
 
 
 \begin{thm}
-If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\prP$ is a Hopf monoid in vector species
+If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\prP$ is a Hopf monoid in vector species.
 \end{thm}
 
-\section{The pattern Hopf algebra \label{sec:pattern_algebra_contruction}}
+\
 
-\raul{adapt notation}
-
-In this section we will recover from \cite{Penaguiao2020} the most important constructions on pattern Hopf algebras.
-We recall here the definition of a species with restrictions:
-
-\begin{defin}[Species with restrictions]
-A \textit{species with restrictions} is a contravariant functor from $\mathtt{Set}_{\hookrightarrow}$ to $\mathtt{Set}$.
-A morphism of species with restrictions is simply a natural transformation of functors.
-In this way, we have the category $\mathtt{CPSh}$ of species with restrictions.
-\end{defin}
-
-In this form, a species with restrictions is simply a species enriched with restriction maps $\rest_J : h[I] \to h[J] $ for each inclusion $J\hookrightarrow I$ is a way that is:
-\begin{itemize}
-\item \textbf{Functorial}, that is if $J_1\subseteq J_2$, then $\rest_{J_2} \circ \rest_{J_1} = \rest_{J_1}$
-
-\item \textbf{Coherent with relabelings}, that is if $J\subseteq I$ and $\sigma $ is a bijection in $I$, then $\rest_{\sigma(J)} \circ \sigma = \sigma|_{\sigma(J)} \circ \rest_J$.
-\end{itemize}
-
-In general, any combinatorial object that admits a notion of restriction admits a presheaf structure.
+\subsection{Pattern functions and the pattern Hopf algebra}
 
 
-In a species with restrictions $\mathtt{h}$, two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$ are said to be \textit{isomorphic objects}, or $a\sim b$, if there is a bijection $f:I\to J$ such that $\mathtt{h}[f](b)=a$.
-The set of equivalence classes in $\mathtt{h}[I]$ is denoted $\mathtt{h}[I]_{\sim}$.
-Let $\mathtt{h}[n]$ denote the objects of type $\mathtt{h}$ on the set $[n] = \{1, \dots , n\}$.
-The collection of equivalence classes of a species with restrictions $\mathtt{h}$ is denoted by $\mathcal{G}(\mathtt{h}) = \bigcup_{n\geq 0 } \mathtt{h}[n]_{\sim }$.
-In this way, the set $\mathcal G(\mathtt{h}) $ is the collection of all the $\mathtt{h}$-objects up to isomorphism.
+Given a species with restrictions $\prR$ and two finite sets $I$ and $J$, two objects $a\in \prR[I], b\in \prR[J]$ are said to be {\bf isomorphic objects}, or $a\sim b$, if there is a bijection $f:I\to J$ such that $\prR[f](b)=a$.
+The set of equivalence classes in $\prR[I]$ is denoted $\prR[I]_{\sim}$.
+Let $\prR[n]$ denote the objects of type $\prR$ on the set $[n] = \{1, \dots , n\}$.
+The collection of equivalence classes of a species with restrictions $\prR$ is denoted by $\mathcal{G}(\prR) = \bigcup_{n\geq 0 } \prR[n]_{\sim }$.
+In this way, the set $\mathcal G(\prR) $ is the collection of all the $\prR$-objects up to isomorphism.
 
-If $b \in \mathtt{h}[I]$ and $J \subseteq I$, we denote $b|_J$ for $\mathtt{h}[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
+If $b \in \prR[I]$ and $J \subseteq I$, we denote $b|_J$ for $\prR[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
 
 \begin{defin}[Patterns functions]\label{defin:pattern}
-Let $\mathtt{h}$ be a species with restrictions, and consider two objects $a\in \mathtt{h}[I], b\in \mathtt{h}[J]$.
+Let $\prR$ be a species with restrictions, and consider two objects $a\in \prR[I], b\in \prR[J]$.
 We say that $J'\subseteq J $ is a \textit{pattern} of $a$ in $b$ if $b|_{J'} \sim a$.
 We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J \text{ such that } \rest_{J'}(b) \sim a \} \right| \,  . $$
 
@@ -1058,21 +1065,21 @@ We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J
 
 
 This definition of pattern functions only depends on the isomorphism classes of $a$ and $b$; see \cite{Penaguiao2020}.
-Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\mathtt{h})}$ as a family of functions from $\mathcal{G}(\mathtt{h})$ to $k$, indexed by $\mathcal{G}(\mathtt{h})$.
+Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\prR)}$ as a family of functions from $\mathcal{G}(\prR)$ to $k$, indexed by $\mathcal{G}(\prR)$.
 In \cref{sec:speciespermutation}, we see an example of a species with restrictions structure on permutations.
 
 Denote the family of functions $A \to B$ by $\mathcal{F} (A, B)$.
-If $\mathtt{h}$ is a species with restriction, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(\mathtt{h}) \subseteq \mathcal{F}(\mathcal{G}(\mathtt{h}) , k) $ of the space of functions $\mathcal{G}(\mathtt{h}) \to k$.
+If $\prR$ is a species with restriction, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(\prR) \subseteq \mathcal{F}(\mathcal{G}(\prR) , k) $ of the space of functions $\mathcal{G}(\prR) \to k$.
 The following was proven in \cite{Penaguiao2020}.
 
 \begin{thm}
-The vector space $\mathcal{A}(\mathtt{h})$ is closed under pointwise multiplication and has a unit.
+The vector space $\mathcal{A}(\prR)$ is closed under pointwise multiplication and has a unit.
 It forms an algebra, called the \textit{pattern algebra}.
-More precisely, if $a, b \in \mathcal G(\mathtt{h})$,
+More precisely, if $a, b \in \mathcal G(\prR)$,
 \begin{equation}\label{eq:prodrule}
 \pat_ a   \pat_b = \sum_c \binom{c}{a, b} \pat_c \, ,
 \end{equation}
-where the coefficients $\binom{c}{a, b}$ are the number of ``quasi-shuffles'' of $a, b$ that result in $c$, specifically, if we take $c\in \mathtt{h}[C]$ to be a representative of the equivalence class $c$, then:
+where the coefficients $\binom{c}{a, b}$ are the number of ``quasi-shuffles'' of $a, b$ that result in $c$, specifically, if we take $c\in \prR[C]$ to be a representative of the equivalence class $c$, then:
 $$ \binom{c}{a, b} = \left| \{(I, J) \, \text{ such that } \, \,  I \cup J = C \, ,\, \, c|_{I} \sim a, \, c|_{J} \sim b \} \right| \, .  $$
 \end{thm} 
 
@@ -1080,17 +1087,17 @@ $$ \binom{c}{a, b} = \left| \{(I, J) \, \text{ such that } \, \,  I \cup J = C \
 
 
 We introduce now an associative product structure on a species with restrictions:
-This is a triple $(\mathtt{h}, \ast, 1)$, where $\mathtt{h}$ is a species with restrictions, $\ast $ is a natural transformation $\mathtt{h}\odot \mathtt{h} \Rightarrow \mathtt{h}$, and $1 \in \mathtt{h}[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
+This is a triple $(\prR, \ast, 1)$, where $\prR$ is a species with restrictions, $\ast $ is a natural transformation $\prR\odot \prR \Rightarrow \prR$, and $1 \in \prR[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
 Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above.
 
 Observe that the associative product $\ast $ in our combinatorial objects is a natural transformation.
-This means that the product is stable with respect to relabellings and restrictions, so we can also define the corresponding product on $\mathcal{G}(\mathtt{h})$, which we denote by $\cdot $ for the sake of distinction.
-With this, we introduce the following coproduct in the pattern algebra $\mathcal A (\mathtt{h})$:
+This means that the product is stable with respect to relabellings and restrictions, so we can also define the corresponding product on $\mathcal{G}(\prR)$, which we denote by $\cdot $ for the sake of distinction.
+With this, we introduce the following coproduct in the pattern algebra $\mathcal A (\prR)$:
 \begin{equation}\label{eq:coprodformula}
-\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (\mathtt{h}) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
+\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (\prR) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
 \end{equation}
 where the sum runs over coinvariants $b, c$ such that $a = b \cdot c$.
-The main property that motivates this operation in $\mathcal{A}(\mathtt{h})$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\mathtt{h}), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\mathtt{h}) \times \mathcal G (\mathtt{h}), k) $, we have
+The main property that motivates this operation in $\mathcal{A}(\prR)$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\prR), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\prR) \times \mathcal G (\prR), k) $, we have
 \begin{equation}\label{eq:coproddefin}
  \Delta \pat_a (b \otimes  c) \coloneqq  \pat_a (b \cdot c) \, .
 \end{equation}
@@ -1099,9 +1106,9 @@ The relation \eqref{eq:coproddefin} is central in establishing that the coproduc
 
 
 \begin{thm}\label{thm:conHopfalgebra}
-Let $(\mathtt{h}, \ast, 1) $ be an associative species with restrictions.
+Let $(\prR, \ast, 1) $ be an associative species with restrictions.
 Then the pattern algebra of $h$ together with this coproduct, and a natural choice of counit, forms a bialgebra.
-If additionally $| \mathtt{h}[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
+If additionally $| \prR[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
 \end{thm}
 
 %Presheaves that satisfy $|h[\emptyset ]| = 1$ are called \textit{connected}.
