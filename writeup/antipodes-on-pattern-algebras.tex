@@ -388,7 +388,9 @@ Parking functions themselves are a recent endeavour in combinatorics, being intr
 In \cref{sec:antipode_computing}, we present an example of an application of the sign-reversing involution formula.
 We also present some examples of some antipode computations via \textit{ad hoc} methods.
 In \cref{sec:species} we present the algebra and category theory background to pattern Hopf algebras, and clarify the reader with the relevant Fock functors involved.
-In \cref{sec:pattern_algebra_contruction}, we recall the pattern Hopf algebra construction, along with its product and coproduct structure, from a species with restrictions, so that this article is self contained.
+In \cref{sec:pattern_algebra_contruction}, we recall 
+
+the pattern Hopf algebra construction, along with its product and coproduct structure, from a species with restrictions, so that this article is self contained.
 In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
 %We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
 In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed words and in $\mathcal{A}(\mathtt{Per})$.
@@ -411,7 +413,7 @@ However, in \cite{Vargas}, it was shown that the pointwise product of two such f
 
 The coefficients $\binom{\sigma}{\pi_1, \pi_2}$ that arise in this product formula count the so called \textbf{quasi-shuffle signatures}, or \textbf{QSS}, of $\sigma$ from $\pi_1, \pi_2$.
 
-\begin{defin}[A QSS on permutations]
+\begin{defin}[QSS on permutations]
 A QSS of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set and that the restricted permutation $\sigma|_{I_i}$ is exactly a pattern of $\pi_i$.
 
 Note how any reordering of a QSS is also a QSS.
@@ -425,11 +427,11 @@ If one lets $\pi = \pi_1 \oplus \dots \oplus \pi_n$ be the decomposition of $\pi
 $$\Delta \pat_{\pi} = \sum_{k=0}^n \pat_{\pi_1\oplus \dots \oplus \pi_k} \otimes \pat_{\pi_{k+1}\oplus \dots \oplus \pi_n} \in \mathcal A (\mathtt{Per}) \otimes \mathcal A (\mathtt{Per})\, .$$
 
 To present the antipode formula we need to refine the notion of QSS.
-\begin{defin}[Interlacing QSS]
+\begin{defin}[Interlacing QSS on permutations]
 A QSS $\III = (I_1, \dots, I_n)$ is said to be \textbf{non-interlacing} if there is some $i=1, \dots, n-1$ such that $I_i < I_{i+1}$ and $\sigma(I_i) < \sigma(I_{i+1})$.
 Otherwise, we say that the QSS is \textbf{interlacing}. 
 
-Note that, unlike usual QSS, reordering an interlacing QSS does not in general give an interlacing QSS.
+Note that, unlike the case on QSS, reordering an interlacing QSS does not in general give an interlacing QSS.
 \end{defin}
 
 
@@ -446,8 +448,8 @@ These are discussed in \cite{penaguiao2023polynomial}.
 
 \
 
-We present a definition of interlacing QSS below, along with some examples that help discern this notion.
-We also present an antipode formula for the packed words pattern Hopf algebra, with a similar characterization. \yannic{In the following, the definition of QSS is presented, inside an example. Should it be in an independent Definition?}
+In the following we present some examples that help discern QSS and interlacing QSS.
+We also present an antipode formula for the packed words pattern Hopf algebra, with a similar characterization.
 
 \
 
@@ -460,7 +462,7 @@ We also present an antipode formula for the packed words pattern Hopf algebra, w
 
 
 \begin{smpl}[Interlacing QSS]
-So the permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13, 2, 1)$ and $(1, 13, 4, 2)$, but from these two, only the first is interlacing.
+The permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13, 2, 1)$ and $(1, 13, 4, 2)$, but from these two, only the first is interlacing.
 In \cref{fig:interlacingQSSsmpl}, one can see these two QSS.
 Further computations can show that $\binom{2314}{1, 21, 1, 1} = 36$ and $\bigl[\!\begin{smallmatrix} 2314 \\ 1, 21, 1, 1 \end{smallmatrix}\!\bigr] = 8$.
 
@@ -472,18 +474,20 @@ In \cref{fig:interlacingQSSsmpl}, one can see these two interlacing QSS.
 
 \section{Computing the antipode\label{sec:antipode_computing}}
 
-We will now explore the classical methods to obtain the antipode, using basic axioms and the Takeuchi formula, on the polynomial algebra and on the permutation pattern Hopf algebra.
+In this section we will now explore the \textit{ad hoc} methods to obtain the antipode, using basic axioms and the Takeuchi formula, on the polynomial algebra and on the permutation pattern Hopf algebra.
 These methods fail to give a cancellation-free and grouping-free formula for the antipode.
+Afterwards we employ the sign-reversing involution method to compute the antipode on the polynomial Hopf algebra.
+This serves as a display of how the method works.
 
-We start by recalling Takeuchi's formula, in the form that is presented in \cite{GrinbergReiner}.
+\subsection{\textit{ad hoc} methods}
+We start by recalling Takeuchi's formula, in the form that is presented in \cite{GrinbergReiner}, as well as some convenient notation.
 %This is the beginning of any cancellation-free formula.
-
 Let us define the $\star$ notation on maps $a, b: C \to A$, whenever $A$ is an algebra, and $C$ is a coalgebra, we define:
 $$a \star b \coloneqq \mu_A \circ (a \otimes b) \circ \Delta_C\, ,$$
 which defines an associative and unitary product on linear maps from $C$ to $A$. We will be focused on the case when $C=A=H$ is a Hopf algebra, so this defines a convolution operation on $\End(H)$.
 
 \begin{prop}[Takeuchi's formula, Lemma 14]\label{lm:takeuchi}
-If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(\epsilon\circ \iota - \id_H)$ is $\star$-nilpotent, then 
+If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(\iota\circ \epsilon - \id_H)$ is $\star$-nilpotent, then 
 \begin{equation}\label{eq:eq1}
 S = \sum_{k\geq 0 }  ( \iota  \circ\epsilon- \id_H)^{\star k} = \sum_{k\geq 0} (-1)^k \mu^{\circ (k-1)} \circ (\id_{H} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ (k-1)}\, .
 \end{equation}
@@ -493,7 +497,7 @@ We use the convention that $\Delta^{\circ (-1)} = \epsilon $ and $\mu^{\circ (-1
 
 Note that, for any filtered Hopf algebra, $( \iota \circ \epsilon - \id_H)$ is $\star$-nilpotent.
 Therefore, for any pattern algebra, Takeuchi's formula holds.
-This is summarized in \cref{thm:conHopfalgebra}.
+%This is summarized in \cref{thm:conHopfalgebra}.
 
 \
 
@@ -506,7 +510,7 @@ Consider $\pi = 132 = 1 \oplus 21$. Then Takeuchi's formula gives us:
 \begin{align*}
 S(\pat_{132}) =& \sum_{k=0}^2 (-1)^k \mu^{\circ k-1} \circ (\id_{\mathcal A(\mathtt{Per})} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ k-1}(\pat_{132})\\
 =& -(\id_{\mathbb{K}[x]} - \iota \circ \epsilon)(\pat_{132}) + \mu \circ (\id_{\mathbb{K}[x]} - \iota\circ\epsilon)^{\otimes 2}(\pat_1 \otimes \pat_{12}) \\
-=& \underbrace{0}_{k = 0} - \underbrace{\pat_{132}}_{k=1} + \underbrace{\pat_1 \pat_{21}}_{k=2} \\
+=& - \underbrace{\pat_{132}}_{k=1} + \underbrace{\pat_1 \pat_{21}}_{k=2} \\
 =& 3 \pat_{321} + 2 \pat_{231} + 2 \pat_{312} + \pat_{213} + 2 \pat_{21} \, .
 \end{align*}
 
@@ -531,7 +535,7 @@ These compositions play an important role in the sum, as their length determines
 Recall that an involution $\zeta $ is an endomorphism such that $\zeta \circ \zeta$ is the identity.
 We describe an involution in $\mathcal O$, call it $\zeta $, in such a way that if $\zeta(x) \neq x$, then $x$ and $\zeta(x)$ contribute with opposite signs to the antipode.
 As a consequence, when applying Takeuchi's formula, we can cancel terms that are not fixed points of $\zeta$.
-We give an example of how this method is applied in the Hopf algebra $\mathbb{K}[x]$.
+We give an example of how this method is applied in the Hopf algebra $\mathbb{k}[x]$.
 
 \
 
@@ -541,7 +545,7 @@ However, it shows the power of Takeuchi’s formula, as the whole process can be
 
 
 \begin{thm}[The antipode formula for the polynomial Hopf algebra]\label{thm:polyHA}
-The antipode $S$ for $\mathbb{K}[x] $ is 
+The antipode $S$ for $\mathbb{k}[x] $ is 
 $$ S(x^n) =(-x)^n\, . $$
 \end{thm}
 
@@ -552,10 +556,10 @@ If $\alpha $ has no zero entries, we say that $\alpha$ is a \textbf{composition}
 
 \
 
-A \textbf{weak set composition} $\opi$ of a set $A$ is a list of sets $\opi = (A_1, \dots , A_l)$ such that $\biguplus_i A_i = A$.
+A \textbf{weak set composition} $\opi$ of a set $A$ is a list of pairwise disjoint sets $\opi = (A_1, \dots , A_l)$ such that $\bigcup_i A_i = A$.
 Note that some sets may be empty.
-We denote the length of the weak composition by $l= l(\opi)$, and use the shorthand notation $\opi \models^0 A$.
-If the weak set composition does not contain any empty set, we say that is a \textbf{set composition}, and we denote $\opi \models A$.
+We denote the length of the weak composition by $l= l(\opi)$, and use the shorthand notation $\opi \models^0 A$ to indicate that $\opi$ is a weak set composition of the set $A$.
+If the weak set composition does not contain any empty set, we say that this is a \textbf{set composition}, and we denote $\opi \models A$ to indicate that $\opi$ is a set composition of the set $A$.
 There are finitely many set compositions of a given set $A$, whereas there are infinitely many weak set compositions of $A$.
 Let $\mathbf{C}_A$ be the collection of set composition of $A$.
 We abbreviate to $\mathbf{C}_n$ when $A = [n]$.
@@ -564,9 +568,9 @@ We abbreviate to $\mathbf{C}_n$ when $A = [n]$.
 We use Takeuchi formula, given in \eqref{eq:eq1}, which holds for graded Hopf algebras,
 $$S(x^n) = \sum_{k = 0} (-1)^k \mu^{\circ (k-1)} \circ (\id_{\mathbb K[x]} - \iota \circ \epsilon )^{\otimes k} \circ \Delta^{\circ (k-1)} (x^n) \, .$$
 
-The key observation on the sign-reversing involution method is to reshuffle this sum using:
+The key is use:
 $$ \Delta^{\circ (k-1) } (x^n) = \sum_{(A_1, \dots , A_k) \models^0 [n] } x^{|A_1|} \otimes \dots \otimes x^{|A_k|} \, ,$$
-where the sum runs over weak set compositions of the set $[n]$ with size $k$.
+where the sum runs over weak set compositions of the set $[n]$ with lenght $k$.
 This can be shown with easy induction on $n$.
 Thus, the antipode formula can be rewritten as
 
@@ -583,8 +587,8 @@ Then, there are three cases:
 
 \begin{enumerate}
 
-\item The set $A_{j_{\opi}} $ is a singleton with $j\leq k-1$, then let $\zeta(\opi ) $ be the set composition resulting from merging $A_{j_{\opi}} $ and $A_{j_{\opi}+1}$.
-Note how, in this case, $\max A_{j_{\opi}} \cup A_{j_{\opi} + 1} $ is the only element in $A_{j_{\opi}}$.
+\item The set $A_{j_{\opi}} $ is a singleton with $j_{\opi}\leq k-1$, then let $\zeta(\opi ) $ be the set composition resulting from merging $A_{j_{\opi}} $ and $A_{j_{\opi}+1}$.
+Note how, in this case, $\max ( A_{j_{\opi}} \cup A_{j_{\opi} + 1} ) $ is the only element in $A_{j_{\opi}}$.
 
 \item The set $A_{j_{\opi}} $ is not a singleton, then we define $\zeta(\opi ) $ to be the set composition resulting from splitting $A_{j_{\opi}} $ into $\{ \max A_{j_{\opi}} \} $ and $A_{j_{\opi}} \setminus \{\max A_{j_{\opi}} \}$, in this order.
 
@@ -594,7 +598,8 @@ Note how, in this case, $\max A_{j_{\opi}} \cup A_{j_{\opi} + 1} $ is the only e
 
 It is a direct observation that $\zeta $ is an involution.
 In fact, the only fixed point is $\opi = (\{1\}, \dots , \{n\})$, and for any other set composition $\opi$, whenever the index $j_{\opi}$ in $\opi $ behaves as described in case 1, then the index $j_{\zeta(\opi)}$ in $\zeta ( \opi ) $ behaves as described in case 2, in which case we have $l(\opi) = 1+l(\zeta (\opi))$ and we can easily see that $\zeta(\zeta(\opi )) = \opi$.
-We also have the converse statement. Thus, we have that 
+%We also have the converse statement. 
+Thus, we have that 
 \[x^n \sum_{\opi \in \oPi_n} (-1)^{l(\opi)} = x^n (-1)^{l(\{1\}, \dots, \{n\} )}= (-x)^n,\] 
 as desired.
 \end{proof}
@@ -609,7 +614,7 @@ This is a general feature whenever we apply Takeuchi's formula.
 
 \
 
-\section{Species, species with restrictions\label{sec:species}}
+\section{Combinatorial species\label{sec:species}}
 
 
 In this section we will give the preliminaries of monoids in species.
@@ -1055,25 +1060,35 @@ If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\p
 \subsection{Pattern functions and the pattern Hopf algebra}
 
 
-Given a species with restrictions $\prR$ and two finite sets $I$ and $J$, two objects $a\in \prR[I], b\in \prR[J]$ are said to be {\bf isomorphic objects}, or $a\sim b$, if there is a bijection $\sigma:I\to J$ such that $\prR[\sigma](b)=a$. If $|I|=n$, the set of equivalence classes in $\prR[I]$ is $\prR[n]$.
-Let $\prR[n]$ denote the objects of type $\prR$ on the set $[n] = \{1, \dots , n\}$.
-The collection of equivalence classes of a species with restrictions $\prR$ is denoted by $\mathcal{G}(\prR) = \bigcup_{n\geq 0 } \prR[n]_{\sim }$.
-In this way, the set $\mathcal G(\prR) $ is the collection of all the $\prR$-objects up to isomorphism.
+Given a species with restrictions $\prR$ and two finite sets $I$ and $J$, two objects $a\in \prR[I], b\in \prR[J]$ are said to be {\bf isomorphic objects}, or $a\sim b$, if there is a bijection $\sigma:I\to J$ such that $\prR[\sigma](b)=a$. 
+The collection of equivalence classes of a species with restrictions $\prR$ is denoted by \begin{equation}
+\mathcal{G}(\prR) := \bigcup_{n\geq 0 } \prR[n]_{\mathfrak{S}_n}.
+\end{equation}
+In this way, the set $\mathcal G(\prR) $ is the collection of all the $\prR$-objects up to isomorphism. It is straightforward to show that $\mathcal{G}(\prR)$ is a basis for the vector space $\Kcb(\prR)$.
 
-If $b \in \prR[I]$ and $J \subseteq I$, we denote $b|_J$ for $\prR[\mathrm{inc}](b)$, where $\mathrm{inc}: J \hookrightarrow I$ is the natural inclusion map.
+\
+
+Recall that for every couple of finite set $I,J$ such that $J \subseteq I$, there is a restriction map 
+\[\text{res}_{I,J}: \prR[I] \to \prR[J]\]
+defined as the image by $\prR$ of the injection map $J \hookrightarrow I$. If $b \in \prR[I]$, we denote $b|_J$ for $\text{res}_{I,J}(b)$.
 
 \begin{defin}[Patterns functions]\label{defin:pattern}
-Let $\prR$ be a species with restrictions, and consider two objects $a\in \prR[I], b\in \prR[J]$.
-We say that $J'\subseteq J $ is a \textit{pattern} of $a$ in $b$ if $b|_{J'} \sim a$.
-We define the \textit{pattern function} $$\pat_a( b) : = \left| \{J' \subseteq J \text{ such that } \rest_{J'}(b) \sim a \} \right| \,  . $$
+Let $\prR$ be a species with restrictions. Given two finite sets $I,J$ such that $J \subseteq I$ and two objects $b\in \prR[I], a\in \prR[J]$,
+we say that the subset $J \subseteq I$ is a {\bf pattern} of $a$ in $b$ if $b|_{J} \sim a$. More precisely, $J \subseteq I$ is a pattern of $a$ in $b$ if there exists a bijection $\sigma: J \to J$ such that
+\[\prR[\sigma](a)=\text{res}_{I,J}(b).\]
+
+We define the {\bf pattern coefficient} of $a$ in $b$ as
+\begin{equation}
+    \pat_a( b) : = \left| \{J' \subseteq J \text{ such that } \rest_{J'}(b) \sim a \} \right| \, .
+\end{equation}
 
 \end{defin}
 
 
-
-This definition of pattern functions only depends on the isomorphism classes of $a$ and $b$; see \cite{Penaguiao2020}.
-Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\prR)}$ as a family of functions from $\mathcal{G}(\prR)$ to $k$, indexed by $\mathcal{G}(\prR)$.
+This definition only depends on the isomorphism classes of $a$ and $b$; see \cite{Penaguiao2020}. Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\prR)}$ as a family of functions from $\mathcal{G}(\prR)$ to $\mathbb{K}$, indexed by $\mathcal{G}(\prR)$.
 In \cref{sec:speciespermutation}, we see an example of a species with restrictions structure on permutations.
+
+\
 
 Denote the family of functions $A \to B$ by $\mathcal{F} (A, B)$.
 If $\prR$ is a species with restriction, then the linear span of the pattern functions  is a linear subspace $\mathcal{A}(\prR) \subseteq \mathcal{F}(\mathcal{G}(\prR) , k) $ of the space of functions $\mathcal{G}(\prR) \to k$.
@@ -1128,6 +1143,7 @@ This Hopf algebra has a basis indexed by partitions, and corresponds to the patt
 %Some other Hopf algebras constructed here, like the ones on graphs and on marked permutations below, are new, and some we conjecture are isomorphic to known Hopf algebras like the pattern Hopf algebra on set compositions, which may be simply the Hopf algebra of quasi-symmetric functions; see \cref{conj:QSym} below.
 
 \
+
 We end this section with a relevant theorem on functors of species with restrictions.
 
 \begin{thm}[Theorem 3.8. in \cite{Penaguiao2020}]\label{thm:functoriality}
@@ -1138,10 +1154,15 @@ We end this section with a relevant theorem on functors of species with restrict
 
 \subsection{Species on linear orders.\label{sec:specieslinearorders}}
 
-\raul{We need to introduce this here}
+The first relevant species with restriction to define is the species of total orders $\mathtt{L}$.
+This has $\mathtt{L}[I] = \{\text{ total orders in $I$ }\}$, a set with $|I|!$ total orders.
+The restriction of an order $\leq \in \mathtt{L}[I]$ to a subset $J$ is the induced order, which is a total order.
+This defines a species with restrictions.
 
-The first relevant species with restriction to define is the series of linear orders $\mathtt{L}$.
-
+We also define an associative structure on $\mathtt{L}$.
+If $\leq$ is a total order in $I$ and $\prec$ is a total order in $J$, and if $I, J$ are disjoint, then we can define $\leq \ast \prec$ a total order on $I \sqcup J$ by extending both order, setting $a \leq \ast \prec b $ whenever $a \in I, b\in B$.
+This is invariant up to restrictions and relabellings, so this builds a connected associative species with restrictions. 
+The following fact is an immediate observation.
 
 \begin{prop}\label{prop:linorderideals}
 If $\mathbb{X}(l) = I$, then $I$ is an order ideal in $l_1 \ast l_2$.
