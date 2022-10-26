@@ -1366,12 +1366,11 @@ Recall that for a filtered Hopf algebra $H$, and so for any pattern Hopf algebra
 
 \
 
-\subsection{$L\times -$ species with restrictions}
+\subsection{$\mathtt{L}\times -$ species with restrictions}
 
 
 In \cite[Corollary 3.4.]{Penaguiao2020} it was shown that in species with restrictions $\mathtt{h}$, any factorization into $\ast$-indecomposibles is unique up to order.
-In some species with restrictions, we can also drop the ``up to order'' adjective, as there is exactly one factorization into $\ast$-indecomposibles full stop. We precise this in the following definition.
-Before that, we want to precise our notation.
+In some species with restrictions, we can also drop the ``up to order'' adjective, as there is exactly one factorization into $\ast$-indecomposibles full stop. We precise this in the \textit{non-commuting factorization} definition.
 We will be using $\star$ for the operation on $\End (H)$ and we will be using $\ast $ for the associative structure on a species.
 
 
@@ -1383,8 +1382,11 @@ A monoidal species with restrictions is called a \textbf{non-commuting factoriza
 
 \begin{lm}[Linear species with restrictions have NCF]
 Let $\mathtt{h}$ be a connected species with restrictions.
-Then $L \times \mathtt{h}$ has NCF.
+Then $\mathtt{L} \times \mathtt{h}$ has NCF.
 \end{lm}
+
+In the following, we will refer to species of the form $\mathtt{L} \times \mathtt{h}$ as \textbf{ordered species with restrictions}.
+It is understood that this is an associative species.
 
 \begin{proof}
 Let $x = x_1 \ast \dots \ast x_k $ and $ y =  y_1 \ast \dots \ast y_n$ such that $x \sim y$.
@@ -1395,10 +1397,10 @@ To that effect we act by induction, where $n = 1$ is trivial.
 %\
 
 %For the induction step, let us consider the bijection $\sigma:[n] \to [n]$ such that $y_{\sigma(i)} \sim x_i$ given by \cite[Corollary 3.4.]{Penaguiao2020}.
-We write $x_i = (l_i, p_i)\in (L\times \mathtt{h})[I_i]$ and $y_i = (m_i, q_i)\in (L\times \mathtt{h})[J_i]$.
-Finally, write $x = (l, p) \in (L\times \mathtt{h})[I] $ and $y = (m, q) \in (L\times \mathtt{h})[J]$.
-By hypothesis, we have that $x \sim y$, so there exists some bijection $\phi: J \to I$ such that $ (L\times \mathtt{h})[\phi](x) = y$.
-This bijection yields a correspondence between two linear orders $L [\phi] (l_1 \ast \dots \ast l_n) = m_1\ast \dots \ast m_n $.
+We write $x_i = (l_i, p_i)\in (\mathtt{L}\times \mathtt{h})[I_i]$ and $y_i = (m_i, q_i)\in (\mathtt{L}\times \mathtt{h})[J_i]$.
+Finally, write $x = (l, p) \in (\mathtt{L}\times \mathtt{h})[I] $ and $y = (m, q) \in (\mathtt{L}\times \mathtt{h})[J]$.
+By hypothesis, we have that $x \sim y$, so there exists some bijection $\phi: J \to I$ such that $ (\mathtt{L}\times \mathtt{h})[\phi](x) = y$.
+This bijection yields a correspondence between two linear orders $\mathtt{L} [\phi] (l_1 \ast \dots \ast l_n) = m_1\ast \dots \ast m_n $.
 Observe that $I_1$ and $J_1$ are ideals in $l1\ast \dots \ast l_n$ and $m_1 \ast \dots \ast m_n$, respectively, as seen in \cref{prop:linorderideals}.
 So either $\phi (I_1)= J_1 $ or $\phi (I_1)\supsetneq J_1 $.
 Assume wlog that $|I_1 | \geq	 |J_1|$ and assume for sake of contradiction that $|I_1| > |J_1|$, and consider the following factorization of $x_1 $:
@@ -1422,7 +1424,7 @@ By induction hypothesis, this tells us that $x_2 \sim y_2, \cdots , x_n \sim y_n
 
 
 \begin{cor}
-If $\mathtt{h} = \mathtt{L} \times \mathtt{h}'$, then $\mathcal A(\mathtt{h})$ is free.
+If $\mathtt{h}$ is an ordered species with restriction, then $\mathcal A(\mathtt{h})$ is free.
 \end{cor}
 This follows from \cite{Vargas}, after we recognize that $\mathtt{L} \times \mathtt{h}'$ has NCF.
 
@@ -1443,11 +1445,12 @@ This order can be defined as well as follows: we say that $\alpha \leq \beta$ if
 \end{defin}
 
 \
-Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in L\times \mathtt{h}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} = x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$.
+Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in \mathtt{h}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} = x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$.
 
 \begin{defin}[Compositions and QSS]
-Let $x \in (L\times \mathtt{h})[J], y \in (L\times \mathtt{h})[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorization of $x$ into indecomposibles.
-Further say that $y = (\leq_y, \iota)$, where $<_y$ is a linear order in $I$.
+Consider again $\mathtt{h}$ an ordered species with restriction.
+Let $x \in \mathtt{h}[J], y \in  \mathtt{h}[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorization of $x$ into indecomposibles.
+Further say that $y = (\leq_y, \iota)$, where $\leq_y$ is a linear order in $I$.
 Let $\III = (I_1, \dots , I_n)$ be a QSS of $y$ from $x_1, \dots, x_n$ and consider a composition $\alpha \models n$.
 
 \
@@ -1455,6 +1458,10 @@ Let $\III = (I_1, \dots , I_n)$ be a QSS of $y$ from $x_1, \dots, x_n$ and consi
 Suppose that $ \mathbf{CS} (\alpha) = \{f_1, \dots, f_{\ell(\alpha) - 1} \}$ and use the convention that $f_0 = 0$ and $f_{\ell(\alpha)} = n$. 
 Then we define for $i = 1, \dots, \ell(\alpha)$:
 \[I^{\alpha}_i := I_{f_{i-1} + 1} \cup \dots \cup I_{f_i} \quad , \quad x^{\alpha}_i := x_{f_{i-1} + 1} \ast \dots \ast x_{f_i}.\]
+
+\
+
+For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, we say that $A \lneq B$ if $a \lneq b$ for any $a \in A$ and $b \in B$.
 
 \
 
@@ -1471,13 +1478,13 @@ $$\mathcal I^{x, y}_{\III} \coloneqq \left\{ \alpha \models n \Big| \III \text{ 
 \
 
 \begin{smpl}[$\alpha$-stable QSS on $\mathtt{PWo}$]
-Consider the packed word $\omega = 21 \oplus 111 = 21333 = (1 < 2 < 3 < 4 < 5, 2 < 1 < \{3, 4, 5\})$ on the set $[5]$.
+Consider the packed word $\rho = 21 \oplus 111 = 21333 = (1 < 2 < 3 < 4 < 5, 2 < 1 < \{3, 4, 5\})$ on the set $[5]$.
 This packed word has three QSS from $21, 1, 11$, precisely $\III_1 =(12, 3, 45)$, $\III_2 =(12, 4, 35)$ and $\III_3 =(12, 5, 34)$.
 All three are $(1, 1, 1)$-stable.
 
 We now observe that $\III_1, \III_2$ and $\III_3$ are $(2, 1)$-stable, but neither $(1, 2)$-stable nor $(3)$-stable.
-Indeed, $\III_1^{(1, 2)} = \III_2^{(1, 2)} = \III_3^{(1, 2)} = (12, 345)$, and $\omega|_{345} = 111$ is not $\omega|_{I_2} \oplus \omega|_{I_3}$ for any of the QSS.
-On the other hand, $\III_1^{(2, 1)} = (123, 45)$, $\III_2^{(2, 1)} = (124, 35)$ and $\III_3^{(2, 1)} = (125, 34)$, in each case is easy to note that $\omega|_{I_1^{(2, 1)}} = 21\oplus 1$ and $\omega|_{I_2^{(2, 1)}} = 11$ for each of the QSS.
+Indeed, $\III_1^{(1, 2)} = \III_2^{(1, 2)} = \III_3^{(1, 2)} = (12, 345)$, and $\rho|_{345} = 111$ is not $\rho|_{I_2} \oplus \rho|_{I_3}$ for any of the QSS.
+On the other hand, $\III_1^{(2, 1)} = (123, 45)$, $\III_2^{(2, 1)} = (124, 35)$ and $\III_3^{(2, 1)} = (125, 34)$, in each case is easy to note that $\rho|_{I_1^{(2, 1)}} = 21\oplus 1$ and $\rho|_{I_2^{(2, 1)}} = 11$ for each of the QSS.
 
 Therefore, in each case we get
 $$\mathcal I_{\III}^{21\oplus 1\oplus 11, 21333} = \{(1, 1, 1), (2, 1)\}\, . $$
@@ -1486,18 +1493,40 @@ $$\mathcal I_{\III}^{21\oplus 1\oplus 11, 21333} = \{(1, 1, 1), (2, 1)\}\, . $$
 
 The following example portrays the significance of adding the additional requirement that $I_i < I_j$ whenever $x_i \sim x_j$ and $i, j$ are merged by $\alpha$, in the context of packed words.
 
-\begin{smpl}[$\alpha$-stable when $x_i \sim x_j$]
-\raul{belabour example, on the notes from Raul}
-$\omega =2133$ with QSS $(13, 2, 4)$ and $(13, 4, 2)$, these are QSS of $\omega $ from $ 12, 1, 1$.
-First is $(1, 2)$-stable, whereas second is not $(1, 2)$-stable.
+\begin{smpl}[$\alpha$-stable on $\mathtt{PWo}$, with $x_i \sim x_j$]
+Let us consider now the packed word $\rho = 2133 = (1 < 2 < 3 <4, 2 < 1 < \{3, 4\} )$, we will be considering QSS of $\rho$ from $\omega_1 = 12, \omega_2 = 1, \omega_3 = 1$.
+Namely, $\III_1 = (13, 2, 4)$ and $\III_2 = (13, 4, 2)$.
+We have that $\rho|_{I_2 \cup I_3} = \rho|_{I_2} \oplus \rho|_{I_3} = 1 \oplus 1$ in either of the cases.
+However, note that $\omega_2 \sim \omega_3$, and the composition $(1, 2)$ merges $2$ and $3$, so $(1, 2)$-stability requires $I_2 \lneq_P I_3$.
+Indeed, because $2 < 4$, we have that $\III_1$ is $(1, 2)$-stable, whereas $\III_2$ is not $(1, 2)$-stable.
 \end{smpl}
 
 
-A simple method to check when a given QSS is $\alpha$-stable is the following.
+Define the composition $\mu_i \coloneqq (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$.
+Then a QSS $\III = (I_1, \dots, I_n)$ is $\mu_i$-stable if $y|_{I_1 \cup I_{i+1}} = y|_{I_i} \ast y|_{I_{i+1}}$.
+This motivates the following lemma:
 
-\begin{obs}\label{obs:pwords-characterisation}
-In packed words, a QSS $\III $ of $\rho = (\leq_P, \leq_V)$ is $(\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$-stable if and only if $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$ and, if $x_i \sim x_{i+1}$, 
-\end{obs}
+\begin{lm}\label{obs:pwords-characterisation}
+Let $\mathtt{h}$ be an ordered species with restriction.
+Consider $x, y$ objects in $\mathtt{h}$, such that $y = (\leq_y, m)$ and $x = x_1\ast \dots \ast x_n$ is its factorization into indecomposibles.
+If $\III = (I_1, \dots, I_n)$ is a QSS of $y$ from $x_1, \dots x_n$ that is $\mu_i$-stable, then $I_i \lneq_y I_{i+1}$.
+\end{lm}
+
+
+We will observe latter that in the case of packed words, a stronger claim can be used to compute $\alpha$-stability.
+See \cref{lm:QSSpackedWords}.
+
+\begin{proof}
+If $x_i \sim x_{i+1}$, the $\mu_i$ stability implies that $I_i \lneq_y I_{i+1}$, because $\mu_i$ merges $i$ and $i+1$.
+We can now assume that $x_i \not\sim x_{i+1}$.
+Let $X_j = \mathbb{X}(x_j)$ for $j = i, i+1$.
+Note that because $y|_{I_j} \sim x_j$, we have that $|X_j| = |I_j|$.
+The stability condition further gives us that $y|_{I_i \cup I_{i+1}} \sim x_i \ast x_{i+1}$.
+Let $\phi : X_i \sqcup X_{i+1} \to  I_i \cup I_{i+1}$ be bijection such that $\mathtt{h}[\phi](x|_{ I_i \cup I_{i+1}}) = x_i \ast x_{i+1}$.
+
+Because $\phi$ is a bijection, and $|X_j| = |I_j|$, this clarifies that $I_i, I_{i+1}$ are disjoint.
+
+\end{proof}
 
 \
 
@@ -1630,7 +1659,7 @@ These will contribute with $(-1)^n$ to the total coefficient of $\pat_y$.
 \section{The antipode formula for the pattern algebra on packed words \label{sec:formula_packed}}
 
 %Let $\rho = (\leq_P, \leq_V)$ be a packed word.
-For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, we say that $A \lneq B$ if $a \lneq b$ for any $a \in A$ and $b \in B$.
+For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, recall that we say that $A \lneq B$ if $a \lneq b$ for any $a \in A$ and $b \in B$.
 We recall the definition of non-interlacing QSS on packed words.
 
 
@@ -1644,6 +1673,18 @@ Additionally, let $ \bigl[\!\begin{smallmatrix} \rho  \\ \omega_1, \dots, \omega
 \end{defin}
 
 \
+
+Recall that we write the composition $\mu_i = (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$.
+
+\begin{lm}\label{lm:QSSpackedWords}
+Let $\omega, \rho = (\leq_P, \leq_V)$ be packed words, such that $\omega = \omega_1 \oplus \dots \oplus \omega_n$ is its factorization into $\oplus$-indecomposibles.
+Then $\III$ is $\mu_i$-stable if and only if $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
+\end{lm}
+
+
+\begin{proof}
+
+\end{proof}
 
 \begin{lm}\label{lm:minpacked}
 Let $\omega$ be  packed word, along with $\omega = \omega_1 \oplus \dots \oplus \omega_n$, its unique factorization into $\oplus$-indecomposible packed words.
