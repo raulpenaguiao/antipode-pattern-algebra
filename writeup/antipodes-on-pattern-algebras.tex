@@ -236,6 +236,7 @@
 \newcommand{\Qc}{\mathcal{Q}} %indecomposables
 \newcommand{\Uc}{\mathcal{U}} %universal enveloping algebra
 
+\newcommand{\sq}{{{\scriptstyle{\square}}}}
 
 
 %% natbib.sty is loaded by default. However, natbib options can be
@@ -312,6 +313,8 @@ Economical formulas for antipodes in Hopf algebras in combinatorics have played 
 In particular, Humpert and Martin were able to explain, in \cite{humpert2012incidence}, an elusive \textit{reciprocity relation} on graphs first presented by Stanley in \cite{stanley1975combinatorial}.
 We will introduce the reciprocity relation now.
 
+\
+
 On a graph $G$, we define the chromatic function by counting, for each $n\geq 0$, the number of \textit{stable colourings} of its vertices, that is, colourings such that each edge is monochromatic.
 This function, $\chi_G$, turns out to be a polynomial, and its degree is the number of vertices of $G$.
 It makes sense to explore the evaluation $\chi_G(-1)$, and Stanley proved that this counts the \textit{acyclic orientations} of $G$.
@@ -374,7 +377,7 @@ This is an application of the sign-reversing involution method.
 We also present an original species with restrictions structure on parking functions.
 This is part of a project to interpret common combinatorial objects as species with restrictions.
 Crucially, objects that do not have an inherent labelling are not amenable to an interpretation as species, so this codifies an important step in this project.
-The extra step here is done with a help of a new bijection between labelled Dyck paths and parking functions, introduced in \cite{BGLPV2021}.
+The extra step here is done with a help of a bijection between labelled Dyck paths and parking functions.
 
 \
 
@@ -411,6 +414,8 @@ Let us precise this definition:
 \begin{defin}[QSS on permutations]
 A QSS of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set and that the restricted permutation $\sigma|_{I_i}$ is exactly a pattern of $\pi_i$.
 
+\
+
 Note how any reordering of a QSS is also a QSS.
 It was shown in \cite{Penaguiao2020} that $\binom{\sigma}{\pi_1, \dots, \pi_n}$, the coefficient that arises in the iterated product of $n$ elements, counts the number of ways of covering $\sigma$ with $n$ permutations, each fitting the patterns $\pi_1, \dots, \pi_n$.
 \end{defin}
@@ -426,6 +431,8 @@ To present the antipode formula we need to refine the notion of QSS.
 A QSS $\III = (I_1, \dots, I_n)$ is said to be \textbf{non-interlacing} if there is some $i=1, \dots, n-1$ such that $I_i < I_{i+1}$ and $\sigma(I_i) < \sigma(I_{i+1})$.
 Otherwise, we say that the QSS is \textbf{interlacing}. 
 
+\
+
 Note that, unlike the case on QSS, reordering an interlacing QSS does not in general give an interlacing QSS.
 \end{defin}
 
@@ -438,8 +445,11 @@ $$S(\pat_{\pi}) = (-1)^n \sum_{\sigma} \bigl[\!\begin{smallmatrix} \sigma \\ \pi
 where the sum runs over all permutations $\sigma$, and the coefficients count the number of \textbf{interlacing QSS} of $\sigma$ from $\pi_1, \dots, \pi_n$.
 \end{thm}
 
-As in the case of graphs, this antipode formula has consequences in polynomial invariants.
+As in the case of graphs, this antipode formula has consequences in polynomial invariants. Also, the notion of \emph{bialgebra in cointeraction} (c.f. \cite{Foissy}) can be used to obtain antipode formulas for the pattern Hopf algebra.
 These are discussed in \cite{penaguiao2023polynomial}.
+
+\
+
 In the following we present some examples that help discern QSS and interlacing QSS.
 %We also present an antipode formula for the packed words pattern Hopf algebra, with a similar characterization.
 
@@ -458,6 +468,8 @@ The permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13,
 In \cref{fig:interlacingQSSsmpl}, one can see these two QSS.
 Further computations can show that $\binom{2314}{1, 21, 1, 1} = 36$ and $\bigl[\!\begin{smallmatrix} 2314 \\ 1, 21, 1, 1 \end{smallmatrix}\!\bigr] = 8$.
 
+\
+
 One can observe that there are three QSS of $123$ from $1$, $12$, but one of them is non-interlacing (the QSS $(1,23)$), so
 $\bigl[\!\begin{smallmatrix} 123 \\ 1, 21 \end{smallmatrix}\!\bigr] = 2$.
 In \cref{fig:interlacingQSSsmpl}, one can see these two interlacing QSS.
@@ -471,7 +483,7 @@ These methods fail to give a cancellation-free and grouping-free formula for the
 Afterwards we employ the sign-reversing involution method to compute the antipode on the polynomial Hopf algebra.
 This serves as a display of how the method works.
 
-\subsection{\textit{ad hoc} methods}
+\subsection{\textit{Ad hoc} methods}
 We start by recalling Takeuchi's formula, in the form that is presented in \cite{GrinbergReiner}, as well as some convenient notation.
 %This is the beginning of any cancellation-free formula.
 Let us define the $\star$ notation on maps $a, b: C \to A$, whenever $A$ is an algebra, and $C$ is a coalgebra, we define:
@@ -929,7 +941,7 @@ In \cite{AM2010} (Part III), a construction is presented allowing to produce a (
 
 \
 
-We recall briefly this construction. Let $\mathbb{K}$ be a field of characteristic zero. If $\tp \in \Ssk$, then there is an action of the symmetric group $\mathfrak{S}_n$ on $\tp[n]$ by relabeling, for each $n \geq 0$. We denotes by $\tp[n]_{\mathfrak{S}_n}$ the \emph{space of $\mathfrak{S}_n$-coinvariants of $\tp[n]$}:
+We recall briefly this construction. Let $\mathbb{K}$ be a field of characteristic zero. If $\tp \in \Ssk$, then there is an action of the symmetric group $\mathfrak{S}_n$ on $\tp[n]$ by relabeling, for each $n \geq 0$. We denote by $\tp[n]_{\mathfrak{S}_n}$ the \emph{space of $\mathfrak{S}_n$-coinvariants of $\tp[n]$}:
 \begin{equation}
   \tp[n]_{\mathfrak{S}_n}:=\tp[n]/\left\langle \, x- \tp[\alpha](x) \, | \, \alpha \in \mathfrak{S}_n, x\in \tp[n] \,\right\rangle.
 \end{equation}
@@ -941,7 +953,7 @@ Consider $\gVec$ be the category of graded vector spaces over $\mathbb{K}$. The 
 \begin{equation}
     \Kc(\tp):=\bigoplus_{n \geq 0}\tp[n] \qquad , \qquad \Kcb(\tp):= \bigoplus_{n \geq 0}\tp[n]_{\mathfrak{S}_n}
 \end{equation}
-are referred in \cite{AM2010} as \emph{full Fock funtor} and \emph{bosonic Fock functor}, respectively.
+are referred in \cite{AM2010} as \emph{full Fock funtor} and \emph{bosonic Fock functor}, respectively. From any monoid (resp. comonoid, Hopf monoid) $\tp$, it is possible to obtain algebras (resp. coalgebras, Hopf algebras) $\Kc(\tp)$ and $\Kcb(\tp)$ from those of $\tp$, together with certain canonical transformations (see \cite{AM2010}, section 15.2).
 
 \
 
@@ -981,7 +993,9 @@ Given a species with restrictions $\prR$, we can constructs a linearized comonoi
 \Delta_{S,T}: \trr[I]\to \trr[S] \otimes \trr[T]
 \]
 given by
-\[\Delta_{S,T}(x):=\text{res}_{I,S}(x)\otimes \text{res}_{I,T}(x),\]
+\begin{equation}\label{CoprodRestr}
+\Delta_{S,T}(x):=\text{res}_{I,S}(x)\otimes \text{res}_{I,T}(x),
+\end{equation}
 
 for any $x \in \prR[I]$. Let $\epsilon_\emptyset: \trr[\emptyset]\to \mathbb{K}$ the linear extension of the map sending every element of $\prR[\emptyset]$ to $1$. Hence, we have the following result.
 
@@ -1038,12 +1052,12 @@ Given a monoid $\prP$ in the monoidal category of species with restrictions $(\S
 By \cref{thm:swr_lcc}, $\tp$ is a cocommutative comonoid. Since $\prP$ is a monoid, then $\tp$ is a monoid in the category of vector species. Moreover, the above diagram implies that the product and coproduct of $\prP$ are compatible, meaning that $\prP$ is a cocommutative bimonoid. 
 This proves the following:
 
-\begin{thm}
+\begin{thm}\label{MonRestr1}
 There is an equivalence between the category of monoids in $(\Spr, \cdot)$ and the category of linearized cocommutative bimonoids.
 \end{thm}
 
 
-\begin{thm}
+\begin{thm}\label{MonRestr2}
 If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\prP$ is a Hopf monoid in vector species.
 \end{thm}
 
@@ -1092,32 +1106,22 @@ given by
 for all $b \in \mathcal{G}(\prR)$.
 \end{defin}
 
-Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\prR)}$ as a family of functions from $\mathcal{G}(\prR)$ to $\mathbb{K}$, indexed by $\mathcal{G}(\prR)$.
+By definition $\pat_a \in \mathcal{F}(\mathcal{G}(\prR), \mathbb{K})$, where $\mathcal{F}(\mathcal{G}(\prR), \mathbb{K})$ denotes the set of functions from $\mathcal{G}(\prR)$ to $\mathbb{K}$. Without loss of generality, we denotes by $\pat_a$ the linear extension of the pattern function associated to $a$. Hence, we can consider $\{ \pat_a \}_{a\in \mathcal{G}(\prR)}$ as a family of linear functions from $\Kcb(\prR)$ to $\mathbb{K}$, indexed by $\mathcal{G}(\prR)$.
 In \cref{sec:speciespermutation}, we see an example of a species with restrictions structure on permutations.
 
 \
-
-Denote the family of functions $A \to B$ by $\mathcal{F} (A, B)$.
-
 
 \begin{defin}[Patterns space]
 If $\prR$ is a species with restriction, then the linear span of the pattern functions is denoted by
 \begin{equation}
     \mathcal{A}(\prR):=\mathbb{K}\{\pat_a \, : \, a\in \mathcal{G}(\prR)\}.
 \end{equation}
-
-
-
-is a linear subspace $\mathcal{A}(\prR) \subseteq \mathcal{F}(\mathcal{G}(\prR) , \mathbb{K}) $ of the space of functions $\mathcal{G}(\prR) \to \mathbb{K}$.
 \end{defin}
 
-
-
-
-The following was proven in \cite{Penaguiao2020}.
+By definition, $\mathcal{A}(\prR)$ is a linear subspace of the space of linear functions $\Kcb(\prR)^*$ from $\Kcb(\prR)$ to $\mathbb{K}$. The following was proven in \cite{Penaguiao2020}.
 
 \begin{thm}
-The vector space $\mathcal{A}(\prR)$ is closed under pointwise multiplication and has a unit.
+The subspace $\mathcal{A}(\prR)$ of $\Kcb(\prR)^*$ is closed under pointwise multiplication and has a unit.
 It forms an algebra, called the {\bf pattern algebra associated to} $\prR$.
 More precisely, if $a, b \in \mathcal G(\prR)$,
 \begin{equation}\label{eq:prodrule}
@@ -1129,29 +1133,26 @@ $$ \binom{c}{a, b}_{\!\prR} = \left| \{(I, J) \, \text{ such that } \, \,  I \cu
 
 %For details on quasi-shuffles of combinatorial objects, the interested reader can see \cite{hoffman00,aguiar10,foissy16}.
 
+Consider now a positive species with restriction $\prR$ endowed with an associative product $(\prR, \sq)$. Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above. Recall by Theorem \eqref{MonRestr2} that 
+$(\prR, \sq)$ is equivalent to the linearized cocommutative Hopf monoid $(\trr, \sq, \Delta)$, where $\trr=\mathbb{K}\prR$ and $\Delta$ is defined as in \eqref{CoprodRestr}. If $*$ denotes the pointwise product in $\Kcb(\trr^*)$, then the space of pattern function $\mathcal{A}(\prR)$ is a subalgebra of $\Kcb(\trr^*, *, \Delta_{\sq})$, where $\Delta_{\sq}$ denotes the dual map of $\sq$.
 
-We introduce now an associative product structure on a species with restrictions:
-This is a triple $(\prR, \ast, 1)$, where $\prR$ is a species with restrictions, $\ast $ is a natural transformation $\prR\odot \prR \Rightarrow \prR$, and $1 \in \prR[\emptyset ] $ a unit that satisfy classical axioms of associativity and unit. 
-Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above.
+\
 
-Observe that the associative product $\ast $ in our combinatorial objects is a natural transformation.
-This means that the product is stable with respect to relabellings and restrictions, so we can also define the corresponding product on $\mathcal{G}(\prR)$, which we denote by $\cdot $ for the sake of distinction.
-With this, we introduce the following coproduct in the pattern algebra $\mathcal A (\prR)$:
-\begin{equation}\label{eq:coprodformula}
-\Delta \pat_ a = \sum_{\substack{ b, c\in \mathcal G (\prR) \\ a = b \cdot c}} \pat_b \otimes \pat_c \, .
-\end{equation}
-where the sum runs over coinvariants $b, c$ such that $a = b \cdot c$.
-The main property that motivates this operation in $\mathcal{A}(\prR)$ is that, under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\prR), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\prR) \times \mathcal G (\prR), k) $, we have
+Under the natural identification of the function algebra $\mathcal{F}(\mathcal G (\prR), k)^{\otimes 2} $ as a subspace of $\mathcal{F}(\mathcal G (\prR) \times \mathcal G (\prR), k) $, we have
 \begin{equation}\label{eq:coproddefin}
- \Delta \pat_a (b \otimes  c) \coloneqq  \pat_a (b \cdot c) \, .
+ \Delta_{\sq} \pat_a (b \otimes  c) =  \pat_a (b \,\sq\, c) \, .
 \end{equation}
-This is shown in \cref{thm:conHopfalgebra}.
-The relation \eqref{eq:coproddefin} is central in establishing that the coproduct $\Delta $ is compatible with the product in $\mathcal A (h)$.
+This is shown in \cref{thm:conHopfalgebra}. Therefore, we have the following coproduct in the pattern algebra $\mathcal A (\prR)$:
+\begin{equation}\label{eq:coprodformula}
+\Delta_{\sq} \pat_ a = \sum_{\substack{ b, c \, \in \, \mathcal G (\prR) \\ a = b \, \sq \, c}} \pat_b \otimes \pat_c \, .
+\end{equation}
+where the sum runs over coinvariants $b, c$ such that $a = b \,\sq \,c$. 
+The relation \eqref{eq:coproddefin} is central in establishing that the coproduct $\Delta_{\sq} $ is compatible with the product in $\mathcal A (h)$.
 
 
 \begin{thm}\label{thm:conHopfalgebra}
-Let $(\prR, \ast, 1) $ be an associative species with restrictions.
-Then the pattern algebra of $h$ together with this coproduct, and a natural choice of counit, forms a bialgebra.
+Let $(\prR, \sq, 1) $ be an associative species with restrictions.
+Then the pattern algebra of $\prR$ together with the coproduct $\Delta_{\sq}$, and a natural choice of counit, forms a bialgebra.
 If additionally $| \prR[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
 \end{thm}
 
@@ -1169,7 +1170,7 @@ This Hopf algebra has a basis indexed by partitions, and corresponds to the patt
 We end this section with a relevant theorem on functors of species with restrictions.
 
 \begin{thm}[Theorem 3.8. in \cite{Penaguiao2020}]\label{thm:functoriality}
-    If $\mathtt{f} :\mathtt{h} \Rightarrow \mathtt{g}$ is a morphism of associative species with restrictions, between connected species, then $\mathcal A(\mathtt{f})$ is a Hopf algebra morphism that maps $\mathcal A(\mathtt{g}) \to \mathcal A(\mathtt{h})$.
+    If $\mathtt{f} : \prR \Rightarrow \mathtt{S}$ is a morphism of associative species with restrictions, between connected species, then $\mathcal A(\mathtt{f})$ is a Hopf algebra morphism that maps $\mathcal A(\mathtt{S}) \to \mathcal A(\mathtt{R})$.
 \end{thm}
 
 \section{Examples of species with restrictions \label{sec:species_restrictions}}
@@ -1180,6 +1181,8 @@ The first relevant species with restriction to define is the species of total or
 This has $\mathtt{L}[I] = \{\text{ total orders in $I$ }\}$, a set with $|I|!$ total orders.
 The restriction of an order $\leq \in \mathtt{L}[I]$ to a subset $J$ is the induced order, which is a total order.
 This defines a species with restrictions.
+
+\
 
 We also define an associative structure on $\mathtt{L}$.
 If $\mathsf{p}$ is a total order in $I$ and $\mathsf{r}$ is a total order in $J$, and if $I, J$ are disjoint, then we can define $\mathsf{p} \ast\mathsf{r}$ a total order on $I \sqcup J$ as:
@@ -1192,20 +1195,26 @@ If $\mathsf{p}$ is a total order in $I$ and $\mathsf{r}$ is a total order in $J$
 \item if $a \in I$ and $b \in J$, then $a \, \mathsf{p} \ast \mathsf{r} \, b$.
 \end{itemize}
 This is invariant up to restrictions and relabellings, so this builds a connected associative species with restrictions. 
+
+\
+
+If $\mathsf{p} \in \mathtt{L}[I]$, we write $\mathbb{X}(\mathsf{p}) = I$.
 The following fact is an immediate observation.
 
 \begin{prop}\label{prop:linorderideals}
 If $\mathbb{X}(\mathsf{p}) = I$, then $I$ is an order ideal in $\mathsf{p} \ast \mathsf{r}$.
 \end{prop}
 
+\
+
 \subsection{Species on permutations\label{sec:speciespermutation}}
 
 To fit the framework of species with restrictions, we use a rather unusual definition of permutations introduced in \cite{albert2020two}.
-There, a permutation on a set $I$ is seen as a pair of orders in $I$.
-This relates to the usual notion of a permutation as bijections in the following way: if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \} = \{ b_1 \leq_V \dots \leq_V b_k \}$, then this defines a bijection via $a_i \mapsto b_i $ in $I$.
+There, a permutation on a set $I$ is seen as a pair of total orders in $I$.
+This relates to the usual notion of a permutation a bijection in the following way: if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \} = \{ b_1 \leq_V \dots \leq_V b_k \}$, then this defines a bijection via $a_i \mapsto b_i $ in $I$.
 Conversely, for any bijection $f$ on $I$, there are several pairs of orders $(\leq_P, \leq_V)$ that correspond to the bijection $f$, all of which are isomorphic.
 If $I \hookrightarrow J$, by restricting the orders on $I$ to orders on $J$ via the injective map $\hookrightarrow $, we obtain a restriction to a permutation on $J$.
-The resulting species with restriction structure is denoted by $\mathtt{Per}$.
+The resulting species with restrictions structure is denoted by $\mathtt{Per}$.
 
 \
 
@@ -1231,9 +1240,13 @@ Thus, $\mathcal{G}(\mathtt{Per})$, the set of objects up to isomorphism, has $n!
 If we consider a permutation $\pi$ on a set $I$, that is, a pair $(\leq_P, \leq_V) $ of total orders in $I$, we write $\mathbb{X}(\pi) = I$.
 If $f:J \to I $ is an injective map, the preimage of each order $\leq_P, \leq_V$ is well defined and is also a total order in $J$.
 This defines the permutation $\mathtt{Per}[f](\pi )$.
-If $f$ is the inclusion map, this notion recovers the usual concept of permutation pattern already present in the literature.
+If $f$ is the inclusion map, this notion recovers the usual concept of a permutation pattern already present in the literature.
 
+\
 
+The $\ast $ operation on orders can be extended to a \textbf{diagonal sum} operation $\oplus $ on permutations.
+This is usually referred as the shifted concatenation of permutations.
+This endows $\mathtt{PWo}$ with an  associative species with restrictions structure.
 
 
 
@@ -1250,9 +1263,9 @@ We abuse notation and also call the integer $m$ the rank of the order $\leq$.
 	\caption{\textbf{Left:} The description of the function $f$. \textbf{Right:} The Hasse diagram of the linear order inherited by $f$. \label{fig:packedWordOrder}}
 \end{figure}
 
-For instance, if $f = \{ 1\mapsto 3, 2\mapsto 1, 3\mapsto 3, 4\mapsto 2\}$ is a surjective map $[4]\to[3]$, the inherited order is $\{2 < 4 < \{1, 3  \}\}$ and has rank three.
+For instance, if $f = \{ a\mapsto 3, b\mapsto 1, c\mapsto 3, d\mapsto 2\}$ is a surjective map $\{a, b, c, d\}\to[3]$, the inherited order is $\{b < d < \{a, c \}\}$ and has rank three.
 Its Hasse diagram is presented in \cref{fig:packedWordOrder}.
-In this way, a packed word $\mathfrak{p}$ on $I$ is a pair of orders $(\leq_P, \leq_V)$ where $\leq_P$ is a total order in $I$, and $\leq_V$ is a linear partial order on $I$.
+In this way, a packed word $\omega$ on $I$ is a pair of orders $(\leq_P, \leq_V)$ where $\leq_P$ is a total order in $I$, and $\leq_V$ is a linear partial order on $I$.
 In particular, note that any permutation on $I$ can be seen as a packed word on $I$, as any total order is a partial linear order.
 This relates to the usual notion of packed words as a word in $[m]$ in the following way:
 if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \}$, then the corresponding packed word is 
@@ -1266,12 +1279,12 @@ Consider for instance the packed words $\omega_1 = 13123$ and $\omega_2 = 32413$
 These correspond to packed words on $\{a, b, c, d, e\}$, for instance $\omega_1$ corresponds to $(a > b > c > d > e, \{b, e\} > d > \{a, c\})$ and $\omega_2$ corresponds to $(a > b > c > d > e, c > \{a, e\} >  b > d)$.
 
 
-If $I \hookrightarrow J$, by restricting the orders on $I$ to orders on $J$ via the injective map $\hookrightarrow $, we obtain a restriction to a packed word on $J$.
-The resulting species with restriction structure is denoted by $\mathtt{PWo}$.
+If $I \hookrightarrow J$, by restricting the orders on $I$ to orders on $J$, we obtain a restriction to a packed word on $J$.
+The resulting species with restrictions structure is denoted by $\mathtt{PWo}$.
 
 \
 
-It will be useful to represent packed words $\omega $ in $I$ as \textbf{rectangle diagrams labeled by $I$}.
+It will be useful to represent packed words $\omega $ in $I$ as rectangle diagrams labeled by $I$.
 This is done in the following way: let $1\leq m \leq |I|$ be the rank of $\omega$, we place the elements of $I$ in an $m \times |I|$ grid so that the elements are placed horizontally according to the $\leq_P$ order, and vertically according to the $\leq_V$ order.
 For instance, the packed word $\omega_1 = 13123 = ( d > e > c > a > b, \{b, e\} > \{a\} > \{d, c\})$ in $\{a, b, c, d, e\}$ can be represented as 
 \begin{equation}
@@ -1287,21 +1300,24 @@ For instance, the packed word $\omega_1 = 13123 = ( d > e > c > a > b, \{b, e\} 
 
 
 In this way, there are $(n!) \times \sum_{m = 1}^n \sFunc(I, [m])$ elements in $\mathtt{PWo}[I]$, where $n = |I|$ and $\sFunc(A, B)$ counts the surjective functions from $A$ to $B$.
-Because each packed word $\omega $ has an isomorphism class of size $n!$, we conclude that there are $ \sum_{m = 1}^n \sFunc(I, [m])$ many packed words, which is expected.
+Because each packed word $\omega $ has an isomorphism class of size $n!$, there are $ \sum_{m = 1}^n \sFunc(I, [m])$ many packed words, which is expected.
 
 \
 
 \label{defin:pwo}
-If we consider a packed word $\omega$ on a set $I$, that is, a pair $(\leq_P, \leq_V) $ of orders in $I$, we write $\mathbb{X}(\omega) = I$.
+If we consider a packed word $\omega = (\leq_P, \leq_V) $ on a set $I$, we write $\mathbb{X}(\omega) = I$.
 If $f:J \to I $ is an injective map, the preimage of each order $\leq_P, \leq_V$ is well defined.
 Furthermore, the preimage of $\leq_P$ is a total order on $J$, whereas the preimage of $\leq_V$ is a linear order on $J$.
 Thus, this defines the packed word $\mathtt{PWo}[f](\omega )$.
+The $\ast $ operation on orders can be extended to a \textbf{diagonal sum} operation $\oplus $ on packed words.
+This is usually referred to the shifted concatenation of packed words.
+This endows $\mathtt{PWo}$ with an  associative species with restrictions structure.
 
 \
 
 \subsection{Relation between parking functions and labelled Dyck paths}
 
-Let us first recall the definition of a parking function and of  Dyck path.
+Let us first recall the definition of a parking function and of a Dyck path.
 
 \begin{defin}[Parking function]
 A parking function $\mathfrak{p} = a_1 \dots a_n$ is a sequence of integers in $[n]$ such that, after reordering $a^{(1)} \leq a^{(2)} \leq \dots \leq a^{(n)}$, we have $a^{(i)} \leq i$ for all $i$.
@@ -1310,7 +1326,7 @@ A parking function $\mathfrak{p} = a_1 \dots a_n$ is a sequence of integers in $
 Examples of parking functions are $12$, $131$ and $3114$.
 
 \begin{defin}[Dyck path]
-Given an $n\times n$ square grid, a \textbf{Dyck path} on this square is an edge path that is always above the main diagonal.
+Given an $n\times n$ square grid, a \textbf{Dyck path} on this square is an edge path, from the lower left corner to the upper right corner, that is always above the main diagonal.
 It is a classical result that the number of Dyck paths of size $n$ is enumerated by Catalan numbers.
 \end{defin}
 
@@ -1321,25 +1337,24 @@ This notion of species with restrictions will recover a notion of patterns in pa
 \
 
 Specifically, if $I$ is a set of size $n$, we label a Dyck path $\mathcal D$ on an $n\times n$ square grid by a function $f$ that assigns unique values on the set $I$ to each of the \textbf{up} segments of the Dyck path.
-If we enrich $I$ with a total order $\prec$ in such a way that in each sequence of \textbf{up} segments, the labels arise in \textbf{increasing} order, Bergeron et.al. construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec) $.
-We recover here such construction, adapted to the language presented here, for convenience.
+If we enrich $I$ with a total order $\leq$ in such a way that in each sequence of \textbf{up} segments, the labels arise in \textbf{increasing} order, Bergeron et.al. construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \leq) $.
+We recover here such construction, adapted to the language in this article, for convenience.
 
 \
 
 There are two steps in this construction.
-The first is to realize the labelled Dyck path as a weak set composition $\opi$ of $I$ in $|I|$ parts. The second is to translate the weak set composition $\opi$ and the order $\prec $ in $I$ as a parking function.
+The first is to realize the labelled Dyck path as a weak set composition $\opi$ of $I$ in $|I|$ parts. The second is to translate the weak set composition $\opi$ and the order $\leq $ in $I$ as a parking function.
 We will use an example on $I = \{1, 2, 3, 4, 5\}$ to help us highlight the most important details of this construction, presented in \cref{fig:construction_parking}.
 There, we have a Dyck path $\mathcal D$ and a corresponding assignment $f$ to each \textbf{up} segment.
-We assume that this labeling set is enriched with the order $1 \prec 2 \prec 3 \prec 4 \prec 5$.
+We assume the usual integer order on $I$.
 
 \
 
 \textbf{In the first step} we group each of the labels that occur on the $i$-th vertical line in the $i$-th block of $\opi$.
-This gives us a set composition with exactly $n$ parts, of a set with $n$ elements.
-Notice as well that it is possible that there are some parts that are empty sets, as it happens in the example given in \cref{fig:construction_parking}.
+This gives us a weak set composition of $I$ with exactly $|I|$ parts.
+Notice that some parts may be empty sets, as it happens in the example given in \cref{fig:construction_parking}.
 
-\textbf{In the second step} we read off the position of each of the labels of $I$, writing down in which part these occur.
-Bergeron et. al. proved in \cite{BGLPV2021} that the resulting sequence is a parking function of size $n$.
+\textbf{In the second step} we read off the position of each of the labels of $I$, writing down in which part these occur. The resulting sequence is a parking function of size $|I|$ (see, for example, \cite{BGLPV2021}).
 In the example in \cref{fig:construction_parking}, for instance, we notice that there are no entries in the second block, so $2$ does not occur in the corresponding parking function.
 Because there are three elements in the first block, namely $245$, in the parking function $\mathfrak p $ the character $1$ arises three times, on the second, fourth and fifth position.
 
@@ -1353,12 +1368,12 @@ Because there are three elements in the first block, namely $245$, in the parkin
 
 \subsection{Species on parking functions}
 
-This forms the species of \textbf{parking functions}, $\mathtt{PF}$, by letting $\mathtt{PF}[I]$ be the collection of all parking functions $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \prec)$, that is Dyck paths $\mathcal D$ in an $|I|\times |I|$ diagram, labelled by elements of $I$ along with an order $\prec$ of $I$.
-We can give it a notion of species with restrictions: for each inclusion $\iota : I \hookrightarrow J $ and a labelled Dyck path $(J, \mathcal D, f, \prec)$ on $J$, the restriction $\mathtt{PF}[\iota](J, \mathcal D, f, \prec) = (I, \mathcal D|_I, f|_I, \prec|_I)$ has an intuitive meaning, except perhaps for
+This forms the species of \textbf{parking functions}, $\mathtt{PF}$, by letting $\mathtt{PF}[I]$ be the collection of all parking functions $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \leq)$, that is Dyck paths $\mathcal D$ in an $|I|\times |I|$ grid, labelled by elements of $I$ along with an order $\leq$ of $I$.
+We can give it a notion of species with restrictions: for each inclusion $\iota : I \hookrightarrow J $ and a labelled Dyck path $(J, \mathcal D, f, \leq)$ on $J$, the restriction $\mathtt{PF}[\iota](J, \mathcal D, f, \leq) = (I, \mathcal D|_I, f|_I, \leq|_I)$ has an intuitive meaning, except perhaps for
 $\mathcal D|_I$, which we clarify in the following.
-This is done via a notion of \textbf{tunnels}, introduced by Elizalde in \cite{elizalde2003simple}.
+This is done via a notion of \textbf{tunnels}, introduced by Deutsch and Elizalde in \cite{elizalde2003simple}.
 Specifically, the corresponding Dyck path is defined to be the restricted Dyck path by taking the \textbf{tunnels} labelled by elements in $I$, relabelling sequences of \textbf{up} segments if necessary to preserve the increasing property.
-One can see in \cref{fig:construction_parking} how this works on the example given above, as well as the corresponding parking function.
+One can see in \cref{fig:restriction_parking} how this works on the example given above, as well as the corresponding parking function.
 
 
 \begin{figure}[h]
@@ -1369,25 +1384,27 @@ One can see in \cref{fig:construction_parking} how this works on the example giv
     \caption{\label{fig:restriction_parking}}%
 \end{figure}
 
+\
 
-
+One defines a shifted shuffle $\oplus$ on parking functions, that results from a diagonal sum of its orders and Dyck paths.
 The following claim is self evident and can be established by the same methods presented in \cite{Penaguiao2020}.
 
 \begin{prop}[Species with restrictions on parking functions]
 This forms a species with restrictions structure.
-Furthermore, the diagonal sum $\oplus $ endows $\mathtt{PF}$ with a monoid structure, and the resulting Hopf algebra $\mathcal A(\mathtt{PF})$ is free.
+Furthermore, the shifted shuffle $\oplus $ endows $\mathtt{PF}$ with a monoid structure, and the resulting Hopf algebra $\mathcal A(\mathtt{PF})$ is free.
 \end{prop}
 
-The proof is immediate.
-For the last part, we observe that because $\mathtt{PF}$ is NCF (see below in \cref{defin:ncf}), we have from \cite{Vargas} that this algebra is free.
+For the last part, we observe that because $\mathtt{PF}$ is NCF (see below in \cref{defin:ncf}), we have from \cref{cor:freeNCF} that this algebra is free.
 
 \begin{smpl}
 The five smallest parking functions are $\emptyset, 1, 11, 12$ and $21$.
 The sixteen parking functions of size three are displayed in \cref{fig:PF3}, along with its corresponding labelled Dyck paths.
 
 For any parking function $\mathfrak p$ of size three, we have $\pat_{\emptyset}(\mathfrak p) = 1$ and $\pat_1(\mathfrak p) = 3$.
-The values of $\pat_{11}, \pat{12}$ and $\pat{21}$ in pattern functions of size three are represented below in \cref{tab:PF3}.
-There, one can also easily check the relation $\pat_1^2 = \pat_1 + 2(\pat_{11} + \pat_{12} + \pat_{21})$, predicted from \eqref{eq:prodrule}.
+The values of $\pat_{11}, \pat_{12}$ and $\pat_{21}$ in pattern functions of size three are represented below in \cref{tab:PF3}.
+There, one can also check the relation 
+\[\pat_1^2 = \pat_1 + 2(\pat_{11} + \pat_{12} + \pat_{21}),\] 
+predicted from \eqref{eq:prodrule}.
 \end{smpl}
 \begin{table}
 \begin{tabular}{ c |  c c c c c c c c c c c c c c c c}
@@ -1413,19 +1430,19 @@ There, one can also easily check the relation $\pat_1^2 = \pat_1 + 2(\pat_{11} +
 \section{The antipode formula for the pattern algebras \label{sec:formula_general}}
 \
 
-In this section we give a general formula for the antipode of a pattern algebra, whenever our connected species with restrictions is of the form $L \times \mathtt{h}$. This antipode formula is a dual analogue of the antipode formula in \cite{BergeronBenedetti}, where a similar formula was obtained for linearized Hopf species.
+In this section we give a general formula for the antipode of a pattern algebra, whenever our connected species with restrictions is of the form $\mathtt{L} \times \mathtt{R}$. This antipode formula is a dual analogue of the antipode formula in \cite{BergeronBenedetti}, where a similar formula was obtained for linearized Hopf species.
 
 \
 
-The formula obtained is not cancellation free, but it servers as a starting platform to explore the cancellation free formulas for the cases presented above: permutations, packed words and parking functions. The requirement that our species with restrictions is divisible by $L$ explains why no cancellation free formulas for other species with restrictions, for instance in marked permutations, introduced in \cite{Penaguiao2020}, were found.
+The formula obtained is not cancellation free, but it servers as a starting platform to explore the cancellation free formulas for the cases presented above: permutations, packed words and parking functions. The requirement that our species with restrictions is divisible by $\mathtt{L}$ explains why no cancellation free formulas for other species with restrictions, for instance in marked permutations, introduced in \cite{Penaguiao2020}, were found.
 
 \
 
 We start by recalling Takeuchi's formula, from above in \cref{lm:takeuchi}.
-If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(  \iota  \circ\epsilon - \id_H)$ is $\star$-nilpotent, then 
+If $H$ is a Hopf algebra such that $(  \iota  \circ\epsilon - \id_H)$ is $\star$-nilpotent, then 
 $$S = \sum_{k\geq 0 }  ( \iota  \circ\epsilon- \id_H)^{\star k}\, . $$
 
-Recall that for a filtered Hopf algebra $H$, and so for any pattern Hopf algebra $\mathcal A (\mathtt{h})$, $(\epsilon\circ \iota - \id_H)$ is $\star$-nilpotent. 
+Recall that for any pattern Hopf algebra $\mathcal A (\mathtt{h})$, $(\iota\circ \epsilon - \id_H)$ is $\star$-nilpotent. 
 
 \
 
@@ -1444,11 +1461,11 @@ A monoidal species with restrictions is called a \textbf{non-commuting factoriza
 
 
 \begin{lm}[Linear species with restrictions have NCF]
-Let $\mathtt{h}$ be a connected species with restrictions.
-Then $\mathtt{L} \times \mathtt{h}$ has NCF.
+Let $\mathtt{R}$ be a connected species with restrictions.
+Then $\mathtt{L} \times \mathtt{R}$ has NCF.
 \end{lm}
 
-In the following, we will refer to associative and connected species of the form $\mathtt{L} \times \mathtt{h}$ as \textbf{ordered species with restrictions}.
+In the following, we will refer to associative and connected species of the form $\mathtt{L} \times \mathtt{R}$ as \textbf{ordered species with restrictions}.
 
 \begin{proof}
 Let $x = x_1 \ast \dots \ast x_k $ and $ y =  y_1 \ast \dots \ast y_n$ such that $x \sim y$.
@@ -1456,62 +1473,64 @@ From \cite[Corollary 3.4.]{Penaguiao2020}, we know that $k = n$ and the multiset
 It remains to show that the factorizations order coincide and that we have $x_i \sim y_i$ for $i = 1, \dots , n$.
 To that effect we act by induction, where $n = 1$ is trivial.
 
-%\
+\
 
 %For the induction step, let us consider the bijection $\sigma:[n] \to [n]$ such that $y_{\sigma(i)} \sim x_i$ given by \cite[Corollary 3.4.]{Penaguiao2020}.
-We write $x_i = (l_i, p_i)\in (\mathtt{L}\times \mathtt{h})[I_i]$ and $y_i = (m_i, q_i)\in (\mathtt{L}\times \mathtt{h})[J_i]$.
-Finally, write $x = (l, p) \in (\mathtt{L}\times \mathtt{h})[I] $ and $y = (m, q) \in (\mathtt{L}\times \mathtt{h})[J]$.
-By hypothesis, we have that $x \sim y$, so there exists some bijection $\phi: J \to I$ such that $ (\mathtt{L}\times \mathtt{h})[\phi](x) = y$.
+We write $x_i = (l_i, p_i)\in (\mathtt{L}\times \mathtt{R})[I_i]$ and $y_i = (m_i, q_i)\in (\mathtt{L}\times \mathtt{R})[J_i]$.
+Write $x = (l, p) \in (\mathtt{L}\times \mathtt{R})[I] $ and $y = (m, q) \in (\mathtt{L}\times \mathtt{R})[J]$.
+Assume wlog that $|I_1 | \geq |J_1|$.
+
+\
+
+By hypothesis, we have that $x \sim y$, so there exists some bijection $\phi: J \to I$ such that $ (\mathtt{L}\times \mathtt{R})[\phi](x) = y$.
 This bijection yields a correspondence between two linear orders $\mathtt{L} [\phi] (l_1 \ast \dots \ast l_n) = m_1\ast \dots \ast m_n $.
-Observe that $I_1$ and $J_1$ are ideals in $l1\ast \dots \ast l_n$ and $m_1 \ast \dots \ast m_n$, respectively, as seen in \cref{prop:linorderideals}.
-So either $\phi (I_1)= J_1 $ or $\phi (I_1)\supsetneq J_1 $.
-Assume wlog that $|I_1 | \geq	 |J_1|$ and assume for sake of contradiction that $|I_1| > |J_1|$, and consider the following factorization of $x_1 $:
+Observe that $I_1$ and $J_1$ are ideals in $l_1 \ast \dots \ast l_n$ and $m_1 \ast \dots \ast m_n$, respectively, as seen in \cref{prop:linorderideals}.
+So either $J_1 = \phi (I_1)$ or $J_1 \subsetneq  \phi(I_1) $.
+Assume for sake of contradiction that $J_1 \subsetneq  \phi(I_1)$, and consider the following factorization of $x_1 $:
 \begin{equation}\label{eq:linearpats:non_trivial_fact}
 x_1 = x|_{I_1} \sim y|_{\phi(I_1)} = y_1|_{\phi(I_1) \cap J_1} \ast (y_2 \ast \dots \ast y_n)|_{(J\setminus J_1) \cap \phi(I_1)}\, . 
 \end{equation}
 
-Now, because $|I_1| > |J_1|$ and that $\phi $ is a bijection, we have that $| (J\setminus J_1) | + | \phi(I_1) | = n - |J_1| + |I_1| > n$, so the intersection $(J\setminus J_1) \cap \phi(I_1)$ is non-empty.
-on the other hand, $\phi(I_1) \cap J_1 = J_1$.
-
-Going back to \eqref{eq:linearpats:non_trivial_fact}, we get a non-trivial factorization of $x_1$, which contradicts the fact that we started with a factorization into indecomposibles.
-
-This is a contradiction, thus $|I_1 | = |J_1|$, which shows that $\phi(I_1) = J_1$.
-Therefore,  $\phi(I\setminus I_1) = J \setminus  J_1$, $ \mathtt{h}[\phi] (p|_{I_1}) = q|_{J_1} $ and $ \mathtt{h}[\phi] (p|_{I \setminus I_1}) = q|_{J \setminus J_1} $.
+From $|I_1| > |J_1|$ and $\phi $ is a bijection, we have that $| (J\setminus J_1) | + | \phi(I_1) | = |J| - |J_1| + |I_1| > |J|$, so the intersection $(J\setminus J_1) \cap \phi(I_1)$ is non-empty.
+On the other hand, $\phi(I_1) \cap J_1 = J_1$ is also non-empty.
 
 \
 
-In conclusion, we get that $x_1 \sim y_1$ and $x_2 \ast \cdots \ast x_n \sim y_2 \ast \cdots \ast y_n$, via $\phi$.
+Going back to \eqref{eq:linearpats:non_trivial_fact}, we get a non-trivial factorization of $x_1$, which contradicts the fact that we started with a factorization into indecomposables. Thus $|I_1 | = |J_1|$, which shows that $\phi(I_1) = J_1$.
+Therefore,  $\phi(I\setminus I_1) = J \setminus  J_1$, $ \mathtt{R}[\phi] (p|_{I_1}) = q|_{J_1} $ and $ \mathtt{R}[\phi] (p|_{I \setminus I_1}) = q|_{J \setminus J_1} $.
+We get that $x_1 \sim y_1$ and $x_2 \ast \cdots \ast x_n \sim y_2 \ast \cdots \ast y_n$, via $\phi$.
 By induction hypothesis, this tells us that $x_2 \sim y_2, \cdots , x_n \sim y_n$, as desired.
 \end{proof}
 
 
-\begin{cor}
-If $\mathtt{h}$ is an ordered species with restriction, then $\mathcal A(\mathtt{h})$ is free.
+\begin{cor}\label{cor:freeNCF}
+If $\mathtt{R}$ is an ordered species with restriction, then $\mathcal A(\mathtt{R})$ is free.
 \end{cor}
-This follows from \cite{Vargas}, after we recognize that $\mathtt{L} \times \mathtt{h}'$ has NCF.
+This follows from \cite{Vargas}, after we recognize that $\mathtt{L} \times \mathtt{R}'$ has NCF from above.
 
 \
 
 The pattern Hopf algebra on permutations, on packed words and on parking functions all satisfy the NCF property.
-In fact, permutations, packed words and parking functions are of the form $\mathtt{L} \times \mathtt{h}$.
+In fact, permutations, packed words and parking functions are of the form $\mathtt{L} \times \mathtt{R}$.
 This property allows for an easy manipulation of the coproduct, and results in a more tractable approach to the antipode formula.
 
 \begin{defin}[Composition poset and cumulative sum]
 Recall that we write $\mathcal C_n$ for the set of compositions of size $n$.
 We will define $\mathbf{CS}$, a bijection between $\mathcal C_n $ and $2^{[n-1]}$, as follows.
-If $\alpha =(\alpha_1, \dots, \alpha_{\ell} ) \in \mathcal C_n$, define $f_i = \sum_{j=1}^i$ and 
-$$\mathbf{CS}(\alpha) = \{f_i | i = 1, \dots, \ell - 1\} \, .$$
-
+If $\alpha =(\alpha_1, \dots, \alpha_{\ell} ) \in \mathcal C_n$, define $f_i = \sum_{j=1}^i \alpha_j$ and 
+\begin{equation}
+    \mathbf{CS}(\alpha) \coloneqq \{f_i\, | \, i = 1, \dots, \ell - 1\} \, .
+\end{equation}
 This bijection allows us to define an order $\leq $ in $\mathcal C_n$, via the pullback from the boolean poset in $2^{[n-1]}$.
 This order can be defined as well as follows: we say that $\alpha \leq \beta$ if $\alpha$ arises from $\beta $ after merging and adding consecutive entries.
 \end{defin}
 
 \
-Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in \mathtt{h}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} = x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$.
+Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in \mathtt{R}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} = x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$.
 
 \begin{defin}[Compositions and QSS]
-Consider again $\mathtt{h}$ an ordered species with restriction.
-Let $x \in \mathtt{h}[J], y \in  \mathtt{h}[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorization of $x$ into indecomposibles.
+Consider again $\mathtt{R}$ an ordered species with restrictions.
+Let $x \in \mathtt{R}[J], y \in  \mathtt{R}[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorization of $x$ into indecomposables.
 Further say that $y = (\leq_y, \iota)$, where $\leq_y$ is a linear order in $I$.
 Let $\III = (I_1, \dots , I_n)$ be a QSS of $y$ from $x_1, \dots, x_n$ and consider a composition $\alpha \models n$.
 
@@ -1523,7 +1542,7 @@ Then we define for $i = 1, \dots, \ell(\alpha)$:
 
 \
 
-For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, we say that $A \lneq B$ if $a \lneq b$ for any $a \in A$ and $b \in B$.
+For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, we say that $A \lneq B$ if $A, B$ are disjoint and $a \leq b$ for any $a \in A$ and $b \in B$.
 
 \
 
@@ -1533,8 +1552,9 @@ We say that a QSS $\III$ of $y$ from $x_1, \dots , x_n$ is $\alpha $-stable if $
 \
 
 Finally, we define 
-$$\mathcal I^{x, y}_{\III} \coloneqq \left\{ \alpha \models n \Big| \III \text{ is an $\alpha$-stable QSS of $y$ from } (x_i)_i \right\} \, .$$
-
+\begin{equation}
+   \mathcal I^{x, y}_{\III} \coloneqq \left\{ \alpha \models n \,\Big| \,\III \text{ is an $\alpha$-stable QSS of $y$ from } (x_i)_i \right\} \, . 
+\end{equation}
 \end{defin}
 
 \
@@ -1543,6 +1563,8 @@ $$\mathcal I^{x, y}_{\III} \coloneqq \left\{ \alpha \models n \Big| \III \text{ 
 Consider the packed word $\rho = 21 \oplus 111 = 21333 = (1 < 2 < 3 < 4 < 5, 2 < 1 < \{3, 4, 5\})$ on the set $[5]$.
 This packed word has three QSS from $21, 1, 11$, precisely $\III_1 =(12, 3, 45)$, $\III_2 =(12, 4, 35)$ and $\III_3 =(12, 5, 34)$.
 All three are $(1, 1, 1)$-stable.
+
+\
 
 We now observe that $\III_1, \III_2$ and $\III_3$ are $(2, 1)$-stable, but neither $(1, 2)$-stable nor $(3)$-stable.
 Indeed, $\III_1^{(1, 2)} = \III_2^{(1, 2)} = \III_3^{(1, 2)} = (12, 345)$, and $\rho|_{345} = 111$ is not $\rho|_{I_2} \oplus \rho|_{I_3}$ for any of the QSS.
@@ -1553,24 +1575,24 @@ $$\mathcal I_{\III}^{21\oplus 1\oplus 11, 21333} = \{(1, 1, 1), (2, 1)\}\, . $$
 \end{smpl}
 
 
-The following example portrays the significance of adding the additional requirement that $I_i < I_j$ whenever $x_i \sim x_j$ and $i, j$ are merged by $\alpha$, in the context of packed words.
+The following example portrays the significance of additional requirement that $I_i \lneq_y I_j$ whenever $x_i \sim x_j$ and $i, j$ are merged by $\alpha$, in the context of packed words.
 
 \begin{smpl}[$\alpha$-stable on $\mathtt{PWo}$, with $x_i \sim x_j$]
-Let us consider now the packed word $\rho = 2133 = (1 < 2 < 3 <4, 2 < 1 < \{3, 4\} )$, we will be considering QSS of $\rho$ from $\omega_1 = 12, \omega_2 = 1, \omega_3 = 1$.
+Let us consider now the packed word $\rho = 2133 = (1 \leq_P 2 \leq_P 3 \leq_P 4, 2 \leq_V 1 \leq_V \{3, 4\} )$, we will be considering QSS of $\rho$ from $\omega_1 = 12, \omega_2 = 1, \omega_3 = 1$.
 Namely, $\III_1 = (13, 2, 4)$ and $\III_2 = (13, 4, 2)$.
 We have that $\rho|_{I_2 \cup I_3} = \rho|_{I_2} \oplus \rho|_{I_3} = 1 \oplus 1$ in either of the cases.
 However, note that $\omega_2 \sim \omega_3$, and the composition $(1, 2)$ merges $2$ and $3$, so $(1, 2)$-stability requires $I_2 \lneq_P I_3$.
-Indeed, because $2 < 4$, we have that $\III_1$ is $(1, 2)$-stable, whereas $\III_2$ is not $(1, 2)$-stable.
+Indeed, because $2 \leq_P 4$, we have that $\III_1$ is $(1, 2)$-stable, whereas $\III_2$ is not $(1, 2)$-stable.
 \end{smpl}
 
 
 Define the composition $\mu_i \coloneqq (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$.
-Then a QSS $\III = (I_1, \dots, I_n)$ is $\mu_i$-stable if $y|_{I_1 \cup I_{i+1}} = y|_{I_i} \ast y|_{I_{i+1}}$.
+If $\III = (I_1, \dots, I_n)$  is a $\mu_i$-stable QSS, then $y|_{I_1 \cup I_{i+1}} = y|_{I_i} \ast y|_{I_{i+1}}$.
 This motivates the following lemma:
 
 \begin{lm}\label{obs:pwords-characterisation}
-Let $\mathtt{h}$ be an ordered species with restriction.
-Consider $x, y$ objects in $\mathtt{h}$, such that $y = (\leq_y, m)$ and $x = x_1\ast \dots \ast x_n$ is its factorization into indecomposibles.
+Let $\mathtt{R}$ be an ordered species with restriction.
+Consider $x, y$ objects in $\mathtt{R}$, such that $y = (\leq_y, m)$ and $x = x_1\ast \dots \ast x_n$ a factorization into indecomposibles.
 If $\III = (I_1, \dots, I_n)$ is a QSS of $y$ from $x_1, \dots x_n$ that is $\mu_i$-stable, then $I_i \lneq_y I_{i+1}$.
 \end{lm}
 
@@ -1584,46 +1606,54 @@ We can now assume that $x_i \not\sim x_{i+1}$.
 Let $X_j = \mathbb{X}(x_j)$ for $j = i, i+1$.
 Note that because $y|_{I_j} \sim x_j$, we have that $|X_j| = |I_j|$.
 The stability condition further gives us that $y|_{I_i \cup I_{i+1}} \sim x_i \ast x_{i+1}$.
-Let $\phi : X_i \sqcup X_{i+1} \to  I_i \cup I_{i+1}$ be bijection such that $\mathtt{h}[\phi](y|_{ I_i \cup I_{i+1}}) = x_i \ast x_{i+1}$.
+Let $\phi : X_i \sqcup X_{i+1} \to  I_i \cup I_{i+1}$ be bijection such that $\mathtt{R}[\phi](y|_{ I_i \cup I_{i+1}}) = x_i \ast x_{i+1}$.
+
+\
 
 Because $\phi$ is a bijection, and $|X_j| = |I_j|$, this means that $I_i, I_{i+1}$ are disjoint.
 We will consider the case that $|I_i| \geq |I_{i+1}|$ here.
-The proof of $|I_i| \leq |I_{i+1}|$ case can be done in a similar way.
+The proof on the $|I_i| \leq |I_{i+1}|$ case can be done in a similar way.
+
+\
 
 Let $\inc $ be the injection $I_i \to I_i \cup I_{i+1}$.
 Observe that
 \begin{equation}\label{eq:lmonPWo}
     \begin{split}
-        \mathtt{h}[\inc \circ \phi](y|_{I_i \cup I_{i+1}}) =& (x_i \ast x_{i+1})|_{\phi^{-1}(I_i)}\\
+        \mathtt{h}[\phi \circ \inc](y|_{I_i \cup I_{i+1}}) =& (x_i \ast x_{i+1})|_{\phi^{-1}(I_i)}\\
         \mathtt{h}[\phi](y|_{I_i}) =& (x_i)|_{X_i \cap \phi^{-1}(I_i)} \ast (x_{i+1})|_{X_{i+1} \cap \phi^{-1}(I_i)}\, .
     \end{split}
 \end{equation}
 
-However, $\mathtt{h}[\phi](y|_{I_i}) \sim y|_{I_i} \sim x_i$, which is $\ast$-indecomposible, we conclude that either $|X_i \cap \phi^{-1}(I_i)| = 0 $ or $|X_{i+1} \cap \phi^{-1}(I_i)| = 0$.
+However, $\mathtt{R}[\phi](y|_{I_i}) \sim y|_{I_i} \sim x_i$, which is $\ast$-indecomposible, we conclude that either $|X_i \cap \phi^{-1}(I_i)| = 0 $ or $|X_{i+1} \cap \phi^{-1}(I_i)| = 0$.
 Assume the first for sake of contradiction, and because $\phi^{-1}(I_i) \subseteq X_i \cap X_{i+1}$, we have that $\phi^{-1}(I_i) \subseteq X_{i+1}$.
 But $|\phi^{-1}(I_i)| = |I_i| \geq |I_{i+1}| = |X_{i+1}|$, therefore we have equality, that is $\phi^{-1}(I_i) = X_{i+1}$
 
-This together with \eqref{eq:lmonPWo} and connectedness of $\mathtt{h}$ yields $\mathtt{h}[\phi](y|_{I_i}) = x_{i+1}$, which implies $x_i \sim x_{i+1}$, a contradiction.
+\
+
+This together with \eqref{eq:lmonPWo} and connectedness of $\mathtt{R}$ yields $\mathtt{h}[\phi](y|_{I_i}) = x_{i+1}$, which implies $x_i \sim x_{i+1}$, a contradiction.
 We conclude that $|X_{i+1} \cap \phi^{-1}(I_i)| = 0$, and so $\phi^{-1}(I_i) = X_i$.
 Because $I_i$ and $I_{i+1}$ are disjoint, it follows that $\phi^{-1}(I_{i+1}) = X_{i+1}$.
 
+\
+
 If we write $y = (\leq_y, m)$ and $x_i \ast x_{i+1} = (\leq_x, n)$, then $X_i \lneq_x X_{i+1}$ from \cref{prop:linorderideals}.
-Because $\mathtt{h}[\phi^{-1}](x_i \ast x_{i+1}) = y|_{I_i \cup I_{i+1}}$, this gives us $\phi(X_i) \lneq_y \phi(X_{i+1})$, as desired.
+Because $\mathtt{R}[\phi^{-1}](x_i \ast x_{i+1}) = y|_{I_i \cup I_{i+1}}$, this gives us $\phi(X_i) \lneq_y \phi(X_{i+1})$, as desired.
 \end{proof}
 
 \
 
 
 \begin{obs}
-Let $\mathtt{h}$ be a species with restrictions, $y, x_1, \dots, x_n \in \mathcal G(\mathtt{h})$ and $\III$ a QSS of $y$ from $x_1\dots, x_n$.
+Let $\mathtt{R}$ be a species with restrictions, $y, x_1, \dots, x_n \in \mathcal G(\mathtt{R})$ and $\III$ a QSS of $y$ from $x_1\dots, x_n$.
 Call $x \coloneqq x_1 \ast \dots \ast x_n$.
-Then, $\mathcal I^{x, y}_{\III}$ has a unique maximal element, $\mathbb{1}$.
+Then, $\mathcal I^{x, y}_{\III}$ has a unique maximal element, $\mathbb{1} = (1, \dots, 1)$.
 \end{obs}
 
 The following is the main theorem in this section
 
 \begin{thm}\label{thm:general_antipode}
-For a species with restrictions $\mathtt{h}$ that is a multiple of $\mathtt{L}$, and an element $x$, along with its factorization $x=x_1 \ast \dots \ast x_n$, we have the following antipode formula in $\mathcal A (\mathtt{h})$:
+For a species with restrictions $\mathtt{R}$ that is a multiple of $\mathtt{L}$, and an element $x$, along with its factorization $x=x_1 \ast \dots \ast x_n$, we have the following antipode formula in $\mathcal A (\mathtt{R})$:
 
 $$S(\pat_x) = \sum_y \pat_y \sum_{\substack{\III \text{ QSS of $y$}\\ \text{from }x_1, \dots , x_n}}  \sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell ( \alpha)} \, .$$
 \end{thm}
@@ -1633,22 +1663,23 @@ $$S(\pat_x) = \sum_y \pat_y \sum_{\substack{\III \text{ QSS of $y$}\\ \text{from
 \Delta^{\circ (k-1)} (\pat_x)
     =& \sum_{x = \chi_1 \ast \dots \ast \chi_k} \pat_{\chi_1}\otimes \dots \otimes \pat_{\chi_k}
 \end{align*}
-Because the species with restrictions $\mathtt{h}$ has NCF, the only ways to factorize $x$ into $k$ factors is to start from the original factorization $x = x_1 \ast \dots \ast x_n$ and bracket these factors, possibly empty, into $k$ blocks.
+Because the species with restrictions $\mathtt{R}$ has NCF, the only ways to factorize $x$ into $k$ factors is to start from the original factorization $x = x_1 \ast \dots \ast x_n$ and bracket these factors into $k$ blocks, possibly empty, of $n$.
 Therefore, we can enumerate these factorizations using weak compositions, as follows:
 
 \begin{align*}
-(\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{h})})^{\star k} (\pat_x)
-    =& (-1)^k  \mu^{\circ(k-1)}( \id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon)^{\otimes k} \Delta^{\circ(k-1)} (\pat_x)\\
-    =& (-1)^k  \mu^{\circ(k-1)}( \id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon)^{\otimes k}\left(\sum_{\substack{\alpha\models^0 n \\ \ell(\alpha) = k}} \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k} \right) \\
+(\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{R})})^{\star k} (\pat_x)
+    =& (-1)^k  \mu^{\circ(k-1)}( \id_{\mathcal A (\mathtt{R})} - \iota \circ \epsilon)^{\otimes k} \Delta^{\circ(k-1)} (\pat_x)\\
+    =& (-1)^k  \mu^{\circ(k-1)}( \id_{\mathcal A (\mathtt{R})} - \iota \circ \epsilon)^{\otimes k}\left(\sum_{\substack{\alpha\models^0 n \\ \ell(\alpha) = k}} \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k} \right) \\
     =&  (-1)^k  \mu^{\circ(k-1)} \sum_{\substack{\alpha\models n \\ \ell(\alpha) = k}}  \pat_{x^{\alpha}_1} \otimes \dots \otimes \pat_{x^{\alpha}_k}\\
     =&  (-1)^k \sum_{\substack{\alpha\models n \\ \ell(\alpha) = k}}  \pat_{x^{\alpha}_1}  \cdots \pat_{x^{\alpha}_k}
 \end{align*}
 
-Note how we used that $(\id_{\mathcal A (\mathtt{h})} - \iota \circ \epsilon ) (\pat_x) = \mathbb{1}[x \neq 1]\pat_x$.
-Thus, the theorem follows from Takeuchi's formula (\cref{lm:takeuchi}) after some clever rearrangements:
+Note how we used that $(\id_{\mathcal A (\mathtt{R})} - \iota \circ \epsilon ) (\pat_x) = \mathbb{1}[x \neq 1]\pat_x$.
+Takeuchi's formula gives:
+%Thus, the theorem follows from Takeuchi's formula (\cref{lm:takeuchi}) after some clever rearrangements:
 
 \begin{align*}
-S(\pat_x)&= \sum_{k\geq 0 } (\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{h})})^{\star k} (\pat_x) \\
+S(\pat_x)&= \sum_{k\geq 0 } (\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{R})})^{\star k} (\pat_x) \\
          &= \sum_{\alpha \models n} (-1)^{\ell(\alpha)} \pat_{x^{\alpha}_1} \cdots \pat_{x^{\alpha}_{\ell(\alpha)}}\\
          &= \sum_{\alpha \models n } (-1)^{\ell(\alpha)} \sum_y \pat_y \binom{y}{x^{\alpha}_1,  \dots , x^{\alpha}_{\ell(\alpha)}}\\
          &= \sum_y \pat_y \sum_{\alpha \models n} \sum_{  \substack{\III \text{ QSS of $y$}\\ \text{from }x^{\alpha}_1,  \dots , x^{\alpha}_{\ell(\alpha)} }} (-1)^{\ell(\alpha)}\\
@@ -1664,8 +1695,9 @@ To motivate the last equality, we will construct a series of bijections, for eac
 
 \
 
-Recall that $y = (<_y, \iota)$ induces a linear order $m$ in $I$.
-The sets $(I_i)_i$ are defined so that $J_s = I_{f_{s-1}+1} \uplus \dots \uplus I_{f_s}$, that $|I_i | = |x_i|$ and that $I_i <_y I_j $ whenever $f_{s-1} < i < j \leq f_{s}$.
+Recall that $y = (\leq_y, \iota)$ induces a linear order $m$ in $I$.
+The sets $(I_i)_i$ are defined so that $J_s = I_{f_{s-1}+1} \uplus \dots \uplus I_{f_s}$, that $|I_i | = |x_i|$ and that $I_i \lneq_y I_j $ whenever $f_{s-1} < i < j \leq f_{s}$.
+There is clearly a unique way to choose such $(I_i)_i$.
 This is easily seen to be an $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$.
 
 \
@@ -1691,7 +1723,7 @@ The maps $\Psi_{\alpha}$ and $\Phi_{\alpha}$ are easily seen to be inverses of e
 %\end{smpl}
 
 \begin{prop}[Filtered structure of $\mathcal I$]\label{prop:filter_structure_I}
-For a species with restrictions $\mathtt{h}$ that is a multiple of $\mathtt{L}$, and an elements $x\in  \mathtt{h}[J], y\in \mathtt{h}[I]$, along with a factorization into $\ast$-indecomposibles $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
+For an ordered species with restrictions $\mathtt{R}$, and an elements $x\in  \mathtt{R}[J], y\in \mathtt{R}[I]$, along with a factorization into $\ast$-indecomposibles $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
 That is, if $\alpha \in \mathcal I^{ x, y}_{\III}$ and $\beta \geq \alpha$ then $\beta \in \mathcal I^{ x, y}_{\III}$.
 
 \
@@ -1700,9 +1732,10 @@ $$\sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)} = 0 \, .$$
 \end{prop}
 
 \begin{proof}
+Say that $y = (\leq_y, \iota)$.
 To establish the first fact, assume that $\alpha \in \mathcal I^{x, y}_{\III}$ and let $\beta \geq \alpha $.
-Because $\beta \geq \alpha$, if $\beta $ merges $i < j$ then $\alpha $ merges $i < j$, thus we have that $I_i < I_j$ with respect to the order of $y$.
-It remains then to show that $(I^{\beta}_i)_i$ is a QSS of $y$ from $(x^{\beta}_i )_i$, or equivalent that $y|_{I_i^{\beta}} \sim x_i^{\beta}$.
+Because $\beta \geq \alpha$, if $\beta $ merges $i < j$ then $\alpha $ merges $i < j$, thus we have that $I_i \lneq_y I_j$.
+It remains to show that $(I^{\beta}_i)_i$ is a QSS of $y$ from $(x^{\beta}_i )_i$, or equivalent that $y|_{I_i^{\beta}} \sim x_i^{\beta}$.
 
 \
 
@@ -1712,14 +1745,19 @@ However, because $\beta \geq \alpha$, for each $i$ we have $I^{\beta}_i \subsete
 \
 
 For the concluding part, we simply observe that if $\mathcal I^{x, y}_{\III}$ has a unique minimal element $\mathbb{0}$, then it is the interval of a boolean poset $\mathcal I^{x, y}_{\III} = [\mathbb{0}, \mathbb{1}]$.
-Furthermore, we have that $\mathbb{0} \neq \mathbb{1}$.
-Let $\mathcal K $ be the collection of sets $A \subseteq [n-1]$ that contain $X \coloneqq \mathbf{CS}(\mathbb{0})$.
+%Furthermore, we have that $\mathbb{0} \neq \mathbb{1}$.
+Let $K $ be the collection of sets $A \subseteq [n-1]$ that contain $X \coloneqq \mathbf{CS}(\mathbb{0})$.
 
-Consider $\zeta: \mathcal K \to \mathcal K$.
-Choose $\chi \in [n-1] \setminus X$, if $X \neq [n-1]$, and define $\zeta (A) = A \Delta \{ \chi \}$.
+\
+
+Consider $\zeta: K \to K$.
+Choose $\chi \in [n-1] \setminus X$, if $X \neq [n-1]$, and consider the following symmetric difference:
+\[\zeta (A) = A \,\Delta\, \{ \chi \}\]
+
 If no such $\chi $ exists, define $\zeta(A) = A$.
-This is an involution on subsets of $[n-1]$ that contain $X$, which corresponds to an involution in compositions in $[\mathbb{0} , \mathbb{1}]$.
-It can be seen that this is indeed sign-reversing, so we conclude that 
+This is an involution on $K$, % subsets of $[n-1]$ that contain $X$, which 
+which corresponds to a sign-reversing involution in compositions in $[\mathbb{0} , \mathbb{1}]$:
+%It can be seen that this is indeed sign-reversing, so we conclude that 
 $$\sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell(\alpha)} =  \mathbb{1}[[n-1] \setminus X \text{ is empty } ] = \mathbb{1}[\mathbb{1} = \mathbb{0}] \, .$$
 This concludes the proof.
 \end{proof}
@@ -1735,13 +1773,18 @@ This concludes the proof.
 
 %Notice that because $X \neq [n-1]$, we can use the Newton identity with exponent $n-|X| - 1$.
 
-The consequence is, for pattern algebras, that computing the antipode corresponds to find which$ \mathcal I_{\III}^{x, y}$ have a unique minimal element.
-In this case, the antipode formula reduces to counting how many of these minimal elements is the composition $\mathbb{1}$.
+\
+
+The consequence is, for pattern algebras, that computing the antipode corresponds to find which $\mathcal I_{\III}^{x, y}$ have a unique minimal element.
+In this case, the antipode formula reduces to counting how many of these minimal elements are the composition $\mathbb{1}$.
 These will contribute with $(-1)^n$ to the total coefficient of $\pat_y$.
+
+\
+
 \section{The antipode formula on special cases\label{sec:formula_pp}}
-\subsection{The antipode formula for the pattern algebra on packed words \label{sec:formula_packed}}
+\subsection{The antipode formula for the pattern algebra on packed words\label{sec:formula_packed}}
 %Let $\rho = (\leq_P, \leq_V)$ be a packed word.
-For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, recall that we say that $A \lneq B$ if $a \lneq b$ for any $a \in A$ and $b \in B$.
+For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, recall that we say that $A \lneq B$ if $A\cap B = \emptyset$ and $a \leq b$ for any $a \in A$ and $b \in B$.
 We recall the definition of non-interlacing QSS on packed words.
 
 
@@ -1751,12 +1794,17 @@ Let $\III = (I_1, \dots, I_n)$ be a QSS of $\rho$ from $\omega_1, \dots, \omega_
 We say that this QSS is \textbf{non-interlacing} if there exists some $i = 1, \dots, n-1$ such that $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
 If no such $i$ exists, we say that the QSS is \textbf{interlacing}.
 
+\
+
 Additionally, let $ \bigl[\!\begin{smallmatrix} \rho  \\ \omega_1, \dots, \omega_n \end{smallmatrix}\!\bigr]$ be the number of interlacing QSS of $\rho$ from $\omega_1, \dots, \omega_n$.
 \end{defin}
 
 \
 
-Recall that we write the composition $\mu_i = (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$.
+Our goal in this section is to analyse $\mathcal I^{\omega, \rho}_{\III}$, show that it always has a unique minimal element, and that it is precisely $\mathbb{1}$ whenever $\III$ is interlacing.
+Recall that $\mu_i = (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$.
+
+\
 
 \begin{lm}\label{lm:QSSpackedWords}
 Let $\omega, \rho = (\leq_P, \leq_V)$ be packed words, such that $\omega = \omega_1 \oplus \dots \oplus \omega_n$ is its factorization into $\oplus$-indecomposibles.
@@ -1768,23 +1816,25 @@ Then $\III$ is $\mu_i$-stable if and only if $I_i \lneq_P I_{i+1}$ and $I_i \lne
 \begin{proof}
 Let us take care of the \textbf{forward direction} first.
 From \cref{obs:pwords-characterisation}, we have that $I_i \lneq_P I_{i+1}$, therefore $I_i$ and $I_{i+1}$ are disjoint and $I_i$ is the unique ideal of $(\leq_P)|_{I_i \cup I_{i+1}}$ of size $|I_i|$.
-We have that $\rho|_{I_i \cup I_{i+1}} \sim \omega_i \oplus \omega_{i+1}$, so the unique ideal of $(\leq_V)|_{I_i \cup I_{i+1}}$ of size $|I_i|$ is also an ideal of $(\leq_P)|_{I_i \cup I_{i+1}}$,so it has to be $I_i$.
+We have that $\rho|_{I_i \cup I_{i+1}} \sim \omega_i \oplus \omega_{i+1}$, so the unique ideal of $(\leq_V)|_{I_i \cup I_{i+1}}$ of size $|I_i|$ is also an ideal of $(\leq_P)|_{I_i \cup I_{i+1}}$, so it has to be $I_i$.
 We conclude that $I_i$ is an ideal of $(\leq_V)|_{I_i \cup I_{i+1}}$, so $I_i \lneq I_{i+1}$, concluding this part of the proof.
 
+\
+
 For the \textbf{backwards direction}, if $I_i \lneq_P I_{i+1}$ then $I_i$ and $I_{i+1}$ are disjoint.
-Therefore, by the definition of $\ast $ in linear orders (or partial orders, in more generality), 
+Therefore, by the definition of $\ast $ in partial orders, 
 $$((\leq_P)|_{I_i \cup I_{i+1}}) = ((\leq_P)|_{I_i} \ast (\leq_P)|_{I_{i+1}})\, . $$
-Similarly for $\leq_V$, which is a partial linear order.
+Similarly for $\leq_V$.
 So we conclude that 
 $$\rho|_{I_i \cup I_{i+1}} = ((\leq_P)|_{I_i} \ast (\leq_P)|_{I_{i+1}}, (\leq_V)|_{I_i} \ast (\leq_V)|_{I_{i+1}}) = \rho|_{I_i} \oplus \rho|_{I_{i+1}}\, .  $$
 If $\omega_i \sim \omega_{i+1}$, we also have that $I_i \lneq_P I_{i+1}$, so $\III$ is $\mu_i$-stable.
 \end{proof}
 
+\
+
 \begin{lm}\label{lm:minpacked}
 Let $\omega$ be  packed word, along with $\omega = \omega_1 \oplus \dots \oplus \omega_n$, its unique factorization into $\oplus$-indecomposible packed words.
-Let $\rho$ be another packed word, and $\III$ a QSS of $\rho$ from $\omega_1, \dots , \omega_n$.
-
-Then $\mathcal I^{\omega, \rho}_{\III}$ has a unique minimal element and, therefore, it is an interval in $\mathcal C_n$.
+Let $\rho$ be another packed word, and $\III$ a QSS of $\rho$ from $\omega_1, \dots , \omega_n$. Then $\mathcal I^{\omega, \rho}_{\III}$ has a unique minimal element and, therefore, it is an interval in $\mathcal C_n$.
 \end{lm}
 
 \begin{proof}
@@ -1799,19 +1849,31 @@ We claim that $\beta \in \mathcal I^{\omega, \rho}_{\III}$ and that this is its 
 
 \
 \begin{itemize}
-    \item {\bf That $\beta$ is the smallest element in $\mathcal I^{\omega, \rho}_{\III}$} we prove now. \\
-Let $\alpha $ be a composition of $n$ such that $\alpha < \beta$. Then $J \setminus \mathbf{CS}(\alpha)\neq \emptyset $, so pick some $i \in  J \setminus \mathbf{CS}(\alpha) $ such that $ I_i \lneq_P I_{i+1} \text{ and } I_i \lneq_V I_{i+1} $.
-In particular, one can see that $\rho|_{I_i \cup I_{i+1}} \neq \omega_i \oplus \omega_{i+1}$, so we can never have $\rho|_{I^{\alpha}_j} = \omega^{\alpha}_j$ for $j$ such that $\omega^{\alpha}_j$ includes both $\omega_i \oplus \omega_{i+1}$ in its factorization.
-This is the contradiction that we are aiming for.
+\item {\bf That $\beta$ is in $\mathcal I^{\omega, \rho}_{\III}$} we prove now.\\
+Indeed, we just need to establish that for each $I^{\beta}_i$ we have that $\rho|_{I^{\beta}_i} = x^{\beta}_i$.
+Because $I^{\beta}_i = I_{f_{i-1} + 1} \cup \dots \cup I_{f_i}$, and $I_{f_{i-1} + 1} \lneq_P \dots \lneq_P I_{f_i}$, $I_{f_{i-1} + 1} \lneq_V \dots \lneq_V I_{f_i}$, we get that 
+$$\rho|_{I^{\beta}_i} = \rho|_{I_{f_{i-1} + 1}} \oplus \dots \oplus \rho|_{I_{f_i}} = x_{f_{i-1} + 1} \oplus \dots\oplus x_{f_i} = x^{\beta}_i\,  ,$$
 
 \
 
-\item {\bf That $\beta$ is in $\mathcal I^{\omega, \rho}_{\III}$} we prove now.\\
-Indeed, we just need to establish that for each $I^{\beta}_i$ we have that $\rho|_{I^{\beta}_i} = x^{\beta}_i$.
-Because $I^{\beta}_i = I_{f_{i-1} + 1} \cup \dots \cup I_{f_i}$, and $I_{f_{i-1} + 1} <_P \dots <_P I_{f_i}$, $I_{f_{i-1} + 1} <_V \dots <_V I_{f_i}$, we get that 
-$$\rho|_{I^{\beta}_i} = \rho|_{I_{f_{i-1} + 1}} \oplus \dots \oplus \rho|_{I_{f_i}} = x_{f_{i-1} + 1} \oplus \dots\oplus x_{f_i} = x^{\alpha}_i\,  ,$$
+    \item {\bf That $\beta$ is the smallest element in $\mathcal I^{\omega, \rho}_{\III}$} we prove now. \\
+Let $\alpha $ be a composition of $n$ such that $\alpha \not \geq \beta$.
+Assume that $\alpha \neq \beta$. 
+Then $J^c \cap \mathbf{CS}(\alpha)\neq \emptyset $, so pick some $i \in  J^c \cap \mathbf{CS}(\alpha) $.
+Because $i \not\in J$, is such that $ I_i \not\lneq_P I_{i+1} \text{ or } I_i \not\lneq_V I_{i+1} $.
+
+\
+
+If $\omega_i \not\sim \omega_{i+1}$, one can see that $\rho|_{I_i \cup I_{i+1}} \neq \omega_i \oplus \omega_{i+1}$.
+If $\omega_i \sim \omega_{i+1}$, stability would require $I_i \lneq_P I_{i+1}$, so $I_i \not\lneq_V I_{i+1}$, and we conclude again that $\rho|_{I_i \cup I_{i+1}} \neq \omega_i \oplus \omega_{i+1}$.
+
+\
+
+So we can never have $\rho|_{I^{\alpha}_j} = \omega^{\alpha}_j$ for $j$ such that $\omega^{\alpha}_j$ includes both $\omega_i \oplus \omega_{i+1}$ in its factorization.
+If $\omega_i \sim \omega_{i+1}$, stability would require $I_i \lneq_P I_{i+1}$, so $I_i \not\lneq_V I_{i+1}$, and we conclude again that $\rho|_{I_i \cup I_{i+1}} \neq \omega_i \oplus \omega_{i+1}$.
+This is the contradiction that we are aiming for.
 \end{itemize}
-as desired.
+With the construction of the minimal element, we have that $\mathcal I^{\omega, \rho}_{\III}$.
 \end{proof}
 
 \
@@ -1819,28 +1881,36 @@ as desired.
 \begin{thm}\label{thm:antipode_packed}
 Let $\omega $ be a packed word, and $\omega = \omega_1 \oplus \dots \oplus \omega_n$ be its decomposition into $\oplus$-indecomposible packed words.
 Then, on the pattern Hopf algebra of packed words, we have the following cancellation free and grouping free formula:
-$$S(\pat_{\omega}) = (-1)^n  \sum_{\rho} \pat_{\rho} \bigl[\!\begin{smallmatrix} \rho  \\ \omega_1, \dots, \omega_n \end{smallmatrix}\!\bigr] \, .$$
+$$S(\pat_{\omega}) = (-1)^n  \sum_{\rho} \bigl[\!\begin{smallmatrix} \rho  \\ \omega_1, \dots, \omega_n \end{smallmatrix}\!\bigr] \pat_{\rho}  \, .$$
 \end{thm}
 
 
 \begin{proof}
 From \cref{thm:general_antipode}, we only need to establish that
+
 \begin{equation}\label{eq:packed_alternating_sum}
 \sum_{\alpha\in \mathcal I^{\rho, \omega}_{\III}} (-1)^{\ell (\alpha)} = (-1)^n \mathbb{1}[\III \text{ is interlacing QSS of $\rho$ from } \omega_1, \dots, \omega_n]\, .      
 \end{equation}
 
 \
 
-From \cref{lm:minpacked}, we know that $\mathcal I^{\rho, \omega}_{\III}$ is an interval, so the sum on the LHS of \eqref{eq:packed_alternating_sum} is zero except when $\mathbb{1} = \mathbf{CS}^{-1}([n-1]\setminus J)$, that is, when 
-$$\{i \in [n-1] | I_i <_P I_{i+1} \text{ and } I_i <_V I_{i+1} \} = \emptyset \, .$$
-
-This is precisely when $\III$ is an interlacing QSS.
+Further, from \cref{prop:filter_structure_I} we know that the sum $\sum_{\alpha\in \mathcal I^{\rho, \omega}_{\III}}  (-1)^{\ell (\alpha)} $ vanishes whenever $\mathcal I^{\rho, \omega}_{\III}$ is an interval with more than one element.
+From \cref{lm:minpacked}, we know that $\mathcal I^{\rho, \omega}_{\III}$ is indeed an interval.
+The minimal interval is $\mathbb{1}$ if and only if $\III$ is an interlacing QSS from \cref{lm:minpacked}.
+This concludes the proof.
 \end{proof}
 
 \
 
+%From \cref{lm:minpacked}, we know that $\mathcal I^{\rho, \omega}_{\III}$ is indeed an interval, so the sum on the LHS of \eqref{eq:packed_alternating_sum} is zero except when $\mathbb{1} = \mathbf{CS}^{-1}([n-1]\setminus J)$, that is, when 
+%$$\{i \in [n-1] | I_i <_P I_{i+1} \text{ and } I_i <_V I_{i+1} \} = \emptyset \, .$$
+
+%This is precisely when $\III$ is an interlacing QSS.
+
+\
+
 Notice that this proof hides a sign-reversing involution in it.
-Specifically, we can define an involution in $\mathcal I^{\rho, \omega}_{\III}$ that helps us establish \eqref{eq:packed_alternating_sum}.
+Specifically, it was used in establishing \cref{prop:filter_structure_I}.
 
 \
 
@@ -1848,12 +1918,15 @@ Specifically, we can define an involution in $\mathcal I^{\rho, \omega}_{\III}$ 
 We start by recalling the definition of interlaced QSS on permutations.
 
 \begin{defin}[Interlacing QSS on permutations]
-Let $\sigma, \pi_1, \dots, \pi_n$ be permutations, where $\pi = (\leq_P, \leq_V)$ is a permutation on $I$.
-Let $\III = (I_1, \dots, I_n)$ be a QSS.
-We say that this QSS is \textbf{non-interlacing} if there exists $i = 1, \dots, n-1$ such that $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
+Let $\sigma, \pi_1, \dots, \pi_n$ be permutations, where $\sigma = (\leq_P, \leq_V)$ is a permutation on $I$.
+Let $\III = (I_1, \dots, I_n)$ be a QSS of $\sigma$ from $\pi_1, \dots, \pi_n$.
+We say that $\III$ is \textbf{non-interlacing} if there exists $i = 1, \dots, n-1$ such that $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
 If no such $i$ exists, we say that the QSS is \textbf{interlacing}.
 
-Additionally, let $ \bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ be the number of interlacing QSS of $\sigma$ from $\pi_1, \dots, \pi_n$
+\
+
+Additionally, let 
+$ \bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ be the number of interlacing QSS of $\sigma$ from $\pi_1, \dots, \pi_n$
 \end{defin}
 
 \
@@ -1866,7 +1939,7 @@ $$S(\pat_{\pi}) = (-1)^n \sum_{\sigma} \bigl[\!\begin{smallmatrix} \sigma \\ \pi
 
 \
 
-Although we can obtain the antipode formula by showing that a relevant poset of compositions is an interval (see \cref{lm:minpacked}), we present here are a different proof.
+Although we can obtain the antipode formula by showing that a relevant poset of compositions is an interval (see \cref{lm:minpacked}), we present here a different proof.
 Specifically, we will be leveraging a map $\mathcal A[\mathrm{inc}]: \mathcal A(\mathtt{PW}) \to \mathcal A(\mathtt{Per})$ and the previous result on packed words.
 
 \
@@ -1880,7 +1953,7 @@ Therefore, this gives us a surjective Hopf algebra morphism $\mathcal A[\mathrm{
 From \cref{thm:antipode_packed}, we know that for any permutation $\pi$ seen as a packed word we have that
 $$S(\pat_{\pi}) = (-1)^n \sum_{\omega} \bigl[\!\begin{smallmatrix} \omega \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr] \pat_{\omega}\, . $$
 
-However, if $\omega$ is a packed word that is not a permutation, it is easy to compute $\mathcal A[\mathrm{inc}] (\pat_{\omega}) = 0$.
+If $\omega$ is a packed word, we compute $\mathcal A[\,\mathrm{inc}] (\pat_{\omega}) = \pat_{\omega}\mathbb{1}[\omega \text{ is a permutation }]$.
 Thus, applying $\mathcal A[\mathrm{inc}]$ to both sides of the equation above, we get the desired result.
 Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:functoriality}, so it commutes with the antipode.
 \end{proof}
@@ -2106,10 +2179,14 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 %\end{proof}
 %
 
+
+\
+
 \section*{Acknowledgments}
 
-The first author would like to thank fruitful conversations with Valentin F\'eray, that helped this project start.
-The first author is also grateful to the SNF grant P2ZHP2 191301.
+Both author would like to thank Valentin F\'eray and Christophe Reutenauer, that helped this project start.
+The first author is also grateful to the SNF grant P2ZHP2 191301, while the second one is grateful to the Austrian Science Fund FWF, grant I
+5788 PAGCAP.
 
 
 \bibliographystyle{alpha}
