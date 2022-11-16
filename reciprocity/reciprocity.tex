@@ -46,7 +46,9 @@
   }%
   \ORGeqfloat
 }
-\newcommand{\raul}[1]{\todo[color=green!30,inline]{CH, #1}}
+\newcommand{\raul}[1]{\todo[color=green!30,inline]{Raul: #1}}
+
+\newcommand{\yannic}[1]{\todo[color=violet!30,inline]{YV, #1}}
 
 
 \theoremstyle{definition}
@@ -232,6 +234,11 @@
 \newcommand{\Qc}{\mathcal{Q}} %indecomposables
 \newcommand{\Uc}{\mathcal{U}} %universal enveloping algebra
 
+%objects
+\newcommand{\xx}{\mathrm{x}}
+\newcommand{\yy}{\mathrm{y}}
+\newcommand{\zz}{\mathrm{z}}
+
 
 
 %% natbib.sty is loaded by default. However, natbib options can be
@@ -270,11 +277,11 @@
 %\author{Raul Penaguiao\footnote{\href{mailto:raulpenaguiao@sfsu.edu}{raulpenaguiao@sfsu.edu}}\footnote{Institute of Mathematics, University of Zurich, Winterthurerstrasse 190, Zurich, CH - 8057.}\footnote{{\bf Keywords:} marked permutations, presheaves, species, Hopf algebras, free algebras}\footnote{2010 AMS Mathematics Subject Classification 2010: 05E05, 16T05, 18D10}}
 
 \author{Raul Penaguiao, Yannic Vargas}
-\email{raulpenaguiao@sfsu.edu}
+\email{raul.penaguiao@mis.mpg.de}
 \email{vargas@wias-berlin.de}
-\address{San Francisco State University}
+\address{Max Planck Institute for Mathematics in the Sciences, Leipzig}
 \address{Weierstrass Institute for Applied Analysis and Stochastics}
-\keywords{permutations, presheaves, species, Hopf algebras, free algebras, antipode}
+\keywords{permutations, presheaves, species, Hopf algebras, free algebras, antipode, polynomials}
 \subjclass[2010]{05E05, 16T05, 18D10}
 \date{\today} % Date
 
@@ -283,8 +290,8 @@ The permutation pattern Hopf algebra is a commutative filtered and connected Hop
 Its product structure stems from counting patterns of a permutation, and the Hopf algebra was shown to be free and to fit into a general framework of pattern Hopf algebras.
 
 In this paper we discuss a polynomial invariant on permutations that arises from this Hopf algebra structure.
-Because this Hopf algebra is not graded, a ready made polynomial invariant does not arise from the work of Aguiar, Bergeron and Sotille.
-We are still however able to obtain this polynomail invariant in full generality for pattern Hopf algebras.
+Because this Hopf algebra is not graded, a ready made polynomial invariant does not arise from the work of Aguiar, Bergeron and Sotille \yannic{The Hopf algebra of quasisymmetric functions is also the initial object in the category of combinatorial Hopf algebras, without assumption of the graduation (see Remark 4.2 in \cite{ABS2006}). I will ask to Marcelo about this result.}.
+We are still however able to obtain this polynomial invariant in full generality for pattern Hopf algebras.
 
 Leveraging the motivating work on pattern Hopf algebras, the resulting polynomial invariant is a Hopf algebra morphism.
 On the particular case of permutations, we explore the consequences of the recently discovered cancellation-free and grouping-free antipode formula to obtain reciprocity results.
@@ -297,76 +304,108 @@ On the particular case of permutations, we explore the consequences of the recen
 
 \section{Introduction}
 
+Polynomial invariants are pervasive in the study of combinatorial objects.
+Central figure is the chromatic polynomial on graphs, first defined in \cite{}.
 
-\begin{defin}[Polynomial invariant on a species with restrictions $\mathtt{h}$]
-Let $\mathrm{y}$ be an object in the species with restrictions $\mathtt{h}$.
-Then we define the following invariant on $\mathtt{h}$: let $\mathrm{x}$ be an object, then
+Our central invariant in this paper is the following polynomial invariant:
+
+\begin{defin}[Polynomial invariant on a species with restrictions $\mathtt{R}$]
+Let $\mathrm{y}$ be an object in the connected associative species with restrictions $\mathtt{R}$.
+Then we define the following invariant on $\mathtt{R}$: fix $\mathrm{x}$ an object, then
 $$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
 \end{defin}
 
-\section{Properties of the invariant}
-
-\begin{lm}[Coefficients]
-Let $x$ be an object in $\mathrm{x}$ with factorization into irreducibles $\mathrm{x} = x_1 \star \dots \star x_m$.
-For a composition $\alpha \models m$
-
-\end{lm}
-
-\begin{thm}
-Let $\mathtt{h}$ be a associative species with restrictions, and $\mathrm{x}$ an object in it.
-Then the following defines a Hopf algebra morphism $\chi^{\mathrm{x}}: \mathcal{A}(\mathtt{h}) \to \mathbb{K}[n]$:
-$$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
+One of the main results in this paper is the following:
+\begin{thm}[Polynomial invariants in pattern algebras]\label{thm:polynomiality}
+If $\mathtt{R}$ is a connected associative species with restrictions and $\mathrm{x}$ on of its objects, then $\chi^{\mathrm{x}}$ is a Hopf algebra morphism $\mathcal A(\mathtt{R}) \to \mathbb{K}[x]$.
 \end{thm}
 
 
+This article is organized as follows: in \cref{sec:}, we introduce relevant notation.
+In \cref{sec:proof}, we present a proof of the polynomiality of $\chi^{\mathrm{x}}_{\mathrm{y}}$.
+We also show that this is a Hopf algebra morphism.
+In \cref{sec:recip} we explore some particular cases in permutations, where we present some significant consequences of the antipode formula presented in \cite{penaguiao2022antipode}.
 
-\begin{lm}
-In the polynomial Hopf algebra $\mathbb{K}[x]$, one has
-$$\Delta \binom{x}{l} = \sum_{a+b=l} \binom{x}{a}\otimes \binom{x}{b}\, .$$
+
+\section{Properties of the invariant\label{sec:proof}}
+
+
+We recall from \cite{Penaguiao2020} that for each object $\yy$ in a connected associative species with restrictions, any factorization into $\ast$-indecomposible elements has the same multiset of factors and, therefore, the same size, which we call $\ell(\yy)$.
+
+\begin{lm}\label{lm:polynomial}
+The invariant $\chi^{\xx}_{\yy}(n)$ is a polynomial in $n$.
+The degree of this polynomial is at most $\ell(\yy)$, the number of $\ast$-indecomposible factors of $\yy$ (with repetition).
+\end{lm}
+
+
+\begin{proof}
+We act by induction on $|\yy|$.
+If $|\yy| = 0$, recall that $\mathtt{R}$ is connected, so $\chi^{\xx}_{\yy}(n) = 1$ for all $n$, which is a polynomial of degree zero.
+
+For the induction hypothesis, observe that 
+$$\Delta \pat_{\yy} = 1\otimes \pat_{\yy} + \pat_{\yy} \otimes 1 + \sum_{\substack{a \ast b = y\\\ell(a), \ell(b) < \ell(\yy)}} \pat_a \otimes \pat_b \, ,$$
+thus we have for $n > 1$ 
+
+\begin{equation*}
+    \begin{split}
+        \pat_{\yy}(\xx^{\ast n}) &= \pat_{\yy}(\xx^{\ast n-1}) + \pat_{\yy}(\xx) + \sum_{\substack{a \ast b = y\\|a|, |b| < |\yy|}} \pat_a (\xx) \otimes \pat_b (\xx^{\ast n-1}) \\
+         \pat_{\yy}(\xx^{\ast n}) &- \pat_{\yy}(\xx^{\ast n-1}) = \pat_{\yy}(\xx) + \sum_{\substack{a \ast b = y\\|a|, |b| < |\yy|}} \pat_a (\xx) \chi^{\xx}_b ( n-1)
+    \end{split}
+\end{equation*}
+
+The right hand side is, by induction hypothesis, a polynomial of degree at most $\ell(\yy) -1$.
+The left hand side is $\chi^{\xx}_{\yy}(n) - \chi^{\xx}_{\yy}(n-1)$, which shows that $\chi^{\xx}_{\yy}(n)$ has degree at most $\ell(\yy)$.
+\end{proof}
+
+
+\begin{lm}\label{lm:HA_morphism}
+The map $\pat_{\yy} \mapsto \chi^{\xx}_{\yy}$ is a Hopf algebra morphism.
 \end{lm}
 
 \begin{proof}
-We recall that we have $\Delta x = 1 \otimes x + x \otimes 1$.
-We act by strong induction, with the base case $l = 0$ being dealt by the reader.
+   Observe that if $\pat_{\yy_1} \pat_{\yy_2} = \sum_{\zz} \binom{\zz}{\yy_1, \yy_2}_{\mathtt{R}} \pat_{\zz}$, then passing in the argument $x^{\ast n}$ of both sides yields $\chi^{\xx}_{\yy_1}(n) \chi^{\xx}_{\yy_2}(n) = \sum_{\zz} \binom{\zz}{\yy_1, \yy_2}_{\mathtt{R}} \chi^{\xx}_{\zz}(n)  $.
+    This is precisely what we want from the product structure.
 
-Then
-\begin{equation*}
-\begin{split}
-\Delta \binom{x}{l+1}&= \Delta \binom{x}{l} \frac{x-l-1}{l+1}\\
-                     &= \left(\sum_{a+b=l} \binom{x}{a}\otimes \binom{x}{b}\right) \Delta \frac{x-l-1}{l+1}\\
-                     &= \sum_{a+b=l} \binom{x}{a}\otimes \binom{x}{b}\left(\frac{1}{l+1}(1\otimes x + x\otimes 1) - 1\otimes 1\right)\\
-                     &= \sum_{a+b=l} 
-\end{split}
-\end{equation*}
+    For the coproduct, we want to show that $\Delta \chi^{\xx}_{\yy} = \chi^{\xx} \otimes \chi^{\xx}(\Delta \pat_{\yy})$.
+    It is enough to show that $\Delta \chi^{\xx}_{\yy} (m \otimes n) = \chi^{\xx} \otimes \chi^{\xx}(\Delta \pat_{\yy})(m\otimes n) $ for any non-negative integers $m, n$.
 
-\end{proof}
+    Write $\chi^{\xx}_{\yy} = \sum_{k\geq 0 } a_k x^k$.
+    On the left hand side, we get $\Delta \chi^{\xx}_{\yy} (m \otimes n) = \sum_{k \geq 0} a_k \sum_{j=0}^k \binom{k}{j} x^j\otimes x^{k-j} (m \otimes n) = \sum_{k \geq 0} a_k (m+n)^k = \chi^{\xx}_{\yy}(m+n) $.
 
-\begin{proof}
-We need to show that $\chi^{\mathrm{x}}$ is a polynomial, that it preserves products and coproducts.
-We start with the polynomiality, by describing 
-
-For that, we appeal to the following 
-
-
-
-Furthermore, we need to show that $\chi$ preserves the product structure.
-Indeed, for each $n$, we have that
+    On the right hand side we have 
+    
+    
+    \begin{equation*}
+        \begin{split}
+        \chi^{\xx} \otimes \chi^{\xx}\Delta \pat_{\yy}(m\otimes n) =& \sum_{a \ast b = \yy} \chi^{\xx}_a(m) \otimes \chi^{\xx}_a(n)\\
+        =& \sum_{a \ast b = \yy} \pat_a(x^{\ast m})\pat_b(x^{\ast n})\\
+        =& \sum_{a \ast b = \yy} \pat_a\otimes \pat_b ( x^{\ast m} \otimes x^{\ast n})\\
+        =& \Delta \pat_{\yy}(x^{\ast n} \ast x^{\ast b}) = \Delta \pat_{\yy}(x^{\ast m+n}) = \chi^{\xx}_{\yy}(n+m)\, .
+        \end{split}
+    \end{equation*}
+    This is exactly what we obtained earlier, so this map preserves coproducts.
 \end{proof}
 
 
-\section{Polynomial invariant in some species with restrictions}
-
-\subsection{In graphs}
-
-\subsection{In permutations}
-
-\subsection{In marked permutations}
+\begin{proof}[Proof of \cref{thm:polynomiality}]
+This is a consequence of \cref{lm:polynomial} and \cref{lm:HA_morphism}.
+\end{proof}
 
 
-\section{Reciprocity results}
+\section{Reciprocity results\label{sec:recip}}
 
 In this section we answer the following question:
 What is the combinatorial interpretation of $\chi^{\tau}_{\pi}(-1)$?
+
+
+\begin{thm}
+Let $\rho$ be a packed word, and let $\pi = \pi_1 \oplus\dots \oplus \pi_n$ be the decomposition of a packed word $\pi$ into $\oplus$-indecomposibles, then
+    $$\chi^{\rho}_{\pi}(-x) = (-1)^n \sum_{\sigma}
+    \begin{bmatrix}
+    \sigma \\ \pi_1, \dots, \pi_n
+    \end{bmatrix}
+     \chi^{\rho}_{\omega}(x).$$
+\end{thm}
 
 \bibliographystyle{alpha}
 \bibliography{Bibliography}
