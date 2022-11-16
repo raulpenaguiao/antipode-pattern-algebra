@@ -11,7 +11,7 @@
 
 %\usepackage{natbib}
 %\usepackage{graphicx}
-\usepackage{amsmath}%To use text
+\usepackage{amsmath}%To use \text 
 %\usepackage{amssymb}
 %\usepackage{amsthm}
 \usepackage[utf8]{inputenc}
@@ -275,9 +275,9 @@
 %\author{Raul Penaguiao\footnote{\href{mailto:raulpenaguiao@sfsu.edu}{raulpenaguiao@sfsu.edu}}\footnote{Institute of Mathematics, University of Zurich, Winterthurerstrasse 190, Zurich, CH - 8057.}\footnote{{\bf Keywords:} marked permutations, presheaves, species, Hopf algebras, free algebras}\footnote{2010 AMS Mathematics Subject Classification 2010: 05E05, 16T05, 18D10}}
 
 \author{Raul Penaguiao, Yannic Vargas}
-\email{raulpenaguiao@sfsu.edu}
+\email{raul.penaguiao@mis.mpg.de}
 \email{yvargaslozada@tugraz.at}
-\address{San Francisco State University}
+\address{MPI-MiS Leipzig}
 \address{Technische Universit\"at Graz}
 \keywords{permutations, presheaves, species with restrictions, species, Hopf algebras, free algebras, antipode, cancellation-free, chromatic, reciprocity}
 \subjclass[2010]{05E05, 16T05, 18D10}
@@ -458,7 +458,7 @@ In the following we present some examples that help discern QSS and interlacing 
 
 \begin{figure}[h]
     \centering
-    \includegraphics{images/interlacing_25314.pdf}
+    \includegraphics{../images/interlacing_25314.pdf}
     \caption{\textbf{Left:} the permutation 2314, along with a labelling of two of its QSS from $1, 21, 1, 1$. In orange the two sets that do not interlace. \textbf{Right:} the permutation 123, along with its two interlacing QSS from $1, 12$.\label{fig:interlacingQSSsmpl}}
 \end{figure}
 
@@ -826,7 +826,7 @@ This is also schematically presented in \cref{fig:bimonoid}.
 
 
 \begin{figure}
-\includegraphics[scale=0.5]{images/diagram_bialgebra}
+\includegraphics[scale=0.5]{../images/diagram_bialgebra}
 \caption{The bimonoid compatibility axiom.\label{fig:bimonoid}}
 \end{figure}
 
@@ -834,7 +834,7 @@ This is also schematically presented in \cref{fig:bimonoid}.
 
 We can define the convolution algebra $\text{End}_{\Ssk}(\thh)$ as the set of natural transformations $l: \thh \to \thh$ with the product $\star$.
 
-A morphism of species $s: \thh \to \thh$, is callen and {\bf antipode} of $\thh$, if $\thh[\emptyset]$ is a Hopf algebra with antipode $s_\emptyset: \thh[\emptyset] \to \thh[\emptyset]$, and for each nonempty set $I$, we have
+A morphism of species $s: \thh \to \thh$, is called and {\bf antipode} of $\thh$, if $\thh[\emptyset]$ is a Hopf algebra with antipode $s_\emptyset: \thh[\emptyset] \to \thh[\emptyset]$, and for each nonempty set $I$, we have
 \begin{equation}
     \sum_{S \sqcup T = I} \mu_{S,T}(\text{id}_S \otimes s_T)\Delta_{S,T} = 0 = \sum_{S \sqcup T = I} \mu_{S,T}(s_S \otimes \text{id}_T)\Delta_{S,T}.
 \end{equation}
@@ -1259,7 +1259,7 @@ We abuse notation and also call the integer $m$ the rank of the order $\leq$.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]{images/packedWordOrder.pdf}
+	\includegraphics[scale=1]{../images/packedWordOrder.pdf}
 	\caption{\textbf{Left:} The description of the function $f$. \textbf{Right:} The Hasse diagram of the linear order inherited by $f$. \label{fig:packedWordOrder}}
 \end{figure}
 
@@ -1360,7 +1360,7 @@ Because there are three elements in the first block, namely $245$, in the parkin
 
 \begin{figure}
     \centering
-    \includegraphics{images/correspondence_parking.pdf}
+    \includegraphics{../images/correspondence_parking.pdf}
     \caption{This is an example of a Dyck path labelled by the set $I =\{1, 2, 3, 4, 5\}$. We enrich this set with the usual order on the integers.}
     \label{fig:construction_parking}
 \end{figure}
@@ -1378,9 +1378,9 @@ One can see in \cref{fig:restriction_parking} how this works on the example give
 
 \begin{figure}[h]
 \centering
-    \subfloat[\centering The parking function 31411 and its restriction]{{\includegraphics[height=4.8cm]{images/restrictions_parking.pdf} }}%
+    \subfloat[\centering The parking function 31411 and its restriction]{{\includegraphics[height=4.8cm]{../images/restrictions_parking.pdf} }}%
     \qquad
-    \subfloat[\centering The parking function 41511 and its restriction]{{\includegraphics[height=4.8cm]{images/restrictions_parking_other.pdf}}}%
+    \subfloat[\centering The parking function 41511 and its restriction]{{\includegraphics[height=4.8cm]{../images/restrictions_parking_other.pdf}}}%
     \caption{\label{fig:restriction_parking}}%
 \end{figure}
 
@@ -1417,7 +1417,7 @@ predicted from \eqref{eq:prodrule}.
 
 \begin{figure}
 \centering
-\includegraphics[scale=1]{images/parking_functions_3}
+\includegraphics[scale=1]{../images/parking_functions_3}
 \caption{\label{fig:PF3}}
 \end{figure}
 
@@ -2184,9 +2184,20 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 
 \section*{Acknowledgments}
 
-Both author would like to thank Valentin F\'eray and Christophe Reutenauer, that helped this project start.
-The first author is also grateful to the SNF grant P2ZHP2 191301, while the second one is grateful to the Austrian Science Fund FWF, grant I
+Both authors would like to thank Valentin F\'eray and Christophe Reutenauer, for helping this project to start.
+The first author is also grateful to the SNF grant P2ZHP2 191301 and the MAx Planck Institute, while the second one is grateful to the Austrian Science Fund FWF, grant I
 5788 PAGCAP.
+
+
+\
+
+\section{Remarks before submission}
+
+\begin{itemize}
+    \item The pattern Hopf algebras on permutations and packed words can be obtained by the universal constructions discussed in \cite{AM2010}.
+    \item Mention works of P. Tamaroff and J. Kock.
+    \item Discuss marked permutations.
+\end{itemize}
 
 
 \bibliographystyle{alpha}
