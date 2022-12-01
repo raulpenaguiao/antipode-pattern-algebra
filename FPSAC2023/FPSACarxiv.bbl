@@ -1,0 +1,585 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{adeniran2022pattern}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AA}{%
+         family={Adeniran},
+         familyi={A\bibinitperiod},
+         given={Ayomikun},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Pudwell},
+         familyi={P\bibinitperiod},
+         given={Lara},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AAPL1}
+    \strng{fullhash}{AAPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Pattern Avoidance in Parking Functions}
+    \field{journaltitle}{arXiv:2209.04068}
+    \field{year}{2022}
+  \endentry
+
+  \entry{aguiar2017hopf}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Aguiar},
+         familyi={A\bibinitperiod},
+         given={Marcelo},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=AF}{%
+         family={Ardila},
+         familyi={A\bibinitperiod},
+         given={Federico},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMAF1}
+    \strng{fullhash}{AMAF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Hopf monoids and generalized permutahedra}
+    \field{journaltitle}{arXiv:1709.07504}
+    \field{year}{2017}
+  \endentry
+
+  \entry{AM2010}{book}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Aguiar},
+         familyi={A\bibinitperiod},
+         given={Marcelo},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Mahajan},
+         familyi={M\bibinitperiod},
+         given={Swapneel},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society, Providence, RI}%
+    }
+    \strng{namehash}{AMMS1}
+    \strng{fullhash}{AMMS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1090/crmm/029
+    \endverb
+    \field{isbn}{978-0-8218-4776-3}
+    \field{note}{With forewords by Kenneth Brown and Stephen Chase and
+  Andr\'{e} Joyal}
+    \field{pages}{lii+784}
+    \field{series}{CRM Monograph Series}
+    \field{title}{Monoidal functors, species and {H}opf algebras}
+    \verb{url}
+    \verb https://doi.org/10.1090/crmm/029
+    \endverb
+    \field{volume}{29}
+    \field{year}{2010}
+  \endentry
+
+  \entry{albert2020two}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AM}{%
+         family={Albert},
+         familyi={A\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bouvel},
+         familyi={B\bibinitperiod},
+         given={Mathilde},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FV}{%
+         family={F{\'e}ray},
+         familyi={F\bibinitperiod},
+         given={Valentin},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{AMBMFV1}
+    \strng{fullhash}{AMBMFV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{pages}{105158}
+    \field{title}{Two first-order logics of permutations}
+    \field{volume}{171}
+    \field{journaltitle}{Journal of Combinatorial Theory, Series A}
+    \field{year}{2020}
+  \endentry
+
+  \entry{BS2017}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BC}{%
+         family={Benedetti},
+         familyi={B\bibinitperiod},
+         given={Carolina},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SBE}{%
+         family={Sagan},
+         familyi={S\bibinitperiod},
+         given={Bruce\bibnamedelima E.},
+         giveni={B\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BCSBE1}
+    \strng{fullhash}{BCSBE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1016/j.jcta.2016.12.005
+    \endverb
+    \field{issn}{0097-3165}
+    \field{pages}{275\bibrangedash 315}
+    \field{title}{Antipodes and involutions}
+    \verb{url}
+    \verb https://doi.org/10.1016/j.jcta.2016.12.005
+    \endverb
+    \field{volume}{148}
+    \field{journaltitle}{J. Combin. Theory Ser. A}
+    \field{year}{2017}
+  \endentry
+
+  \entry{BGLPV2021}{article}{}
+    \name{author}{5}{}{%
+      {{hash=BN}{%
+         family={Bergeron},
+         familyi={B\bibinitperiod},
+         given={Nantel},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=DRSG}{%
+         family={D'Le{\'o}n},
+         familyi={D\bibinitperiod},
+         given={Rafael S\bibnamedelima Gonz{\'a}lez},
+         giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  G\bibinitperiod},
+      }}%
+      {{hash=LSX}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shu\bibnamedelima Xiao},
+         giveni={S\bibinitperiod\bibinitdelim X\bibinitperiod},
+      }}%
+      {{hash=PCA}{%
+         family={Pang},
+         familyi={P\bibinitperiod},
+         given={CY\bibnamedelima Amy},
+         giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=VY}{%
+         family={Vargas},
+         familyi={V\bibinitperiod},
+         given={Yannic},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{BNDRSGLSXPCAVY1}
+    \strng{fullhash}{BNDRSGLSXPCAVY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{102436}
+    \field{title}{Hopf algebras of parking functions and decorated planar
+  trees}
+    \field{volume}{143}
+    \field{journaltitle}{Advances in Applied Mathematics}
+    \field{year}{2023}
+  \endentry
+
+  \entry{elizalde2003simple}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ES}{%
+         family={Elizalde},
+         familyi={E\bibinitperiod},
+         given={Sergi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={Deutsch},
+         familyi={D\bibinitperiod},
+         given={Emeric},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{ESDE1}
+    \strng{fullhash}{ESDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{number}{3}
+    \field{pages}{281\bibrangedash 297}
+    \field{title}{A simple and unusual bijection for Dyck paths and its
+  consequences}
+    \field{volume}{7}
+    \field{journaltitle}{Annals of Combinatorics}
+    \field{year}{2003}
+  \endentry
+
+  \entry{Foissy}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FL}{%
+         family={Foissy},
+         familyi={F\bibinitperiod},
+         given={Lo{\"\i}c},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FL1}
+    \strng{fullhash}{FL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Bialgebras in cointeraction, the antipode and the eulerian
+  idempotent}
+    \field{journaltitle}{arXiv:2201.11974}
+    \field{year}{2022}
+  \endentry
+
+  \entry{humpert2012incidence}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HB}{%
+         family={Humpert},
+         familyi={H\bibinitperiod},
+         given={Brandon},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MJL}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={Jeremy\bibnamedelima L},
+         giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {SIAM}%
+    }
+    \strng{namehash}{HBMJL1}
+    \strng{fullhash}{HBMJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{2}
+    \field{pages}{555\bibrangedash 570}
+    \field{title}{The incidence Hopf algebra of graphs}
+    \field{volume}{26}
+    \field{journaltitle}{SIAM Journal on Discrete Mathematics}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Knuth}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KDE}{%
+         family={Knuth},
+         familyi={K\bibinitperiod},
+         given={Donald\bibnamedelima E},
+         giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KDE1}
+    \strng{fullhash}{KDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{The art of computer programming, vol 1: Fundamental}
+    \field{journaltitle}{Algorithms. Reading, MA: Addison-Wesley}
+    \field{year}{1968}
+  \endentry
+
+  \entry{linton2010permutation}{book}{}
+    \name{author}{3}{}{%
+      {{hash=LS}{%
+         family={Linton},
+         familyi={L\bibinitperiod},
+         given={Steve},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Ru{\v{s}}kuc},
+         familyi={R\bibinitperiod},
+         given={Nik},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=VV}{%
+         family={Vatter},
+         familyi={V\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{LSRNVV1}
+    \strng{fullhash}{LSRNVV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Permutation Patterns}
+    \field{volume}{376}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Penaguiao2020}{article}{}
+    \name{author}{1}{}{%
+      {{hash=PR}{%
+         family={Penaguiao},
+         familyi={P\bibinitperiod},
+         given={Raul},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{PR1}
+    \strng{fullhash}{PR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{pages}{1\bibrangedash 47}
+    \field{title}{Pattern {H}opf Algebras}
+    \field{journaltitle}{Annals of Combinatorics}
+    \field{year}{2022}
+  \endentry
+
+  \entry{PV2022}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PR}{%
+         family={Penaguiao},
+         familyi={P\bibinitperiod},
+         given={Ra{\'u}l},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=VY}{%
+         family={Vargas},
+         familyi={V\bibinitperiod},
+         given={Yannic},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PRVY1}
+    \strng{fullhash}{PRVY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Antipode formulas for pattern Hopf algebras}
+    \field{journaltitle}{arXiv:2210.15778}
+    \field{year}{2022}
+  \endentry
+
+  \entry{penaguiao2023polynomial}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PR}{%
+         family={Penaguiao},
+         familyi={P\bibinitperiod},
+         given={Raul},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=VY}{%
+         family={Vargas},
+         familyi={V\bibinitperiod},
+         given={Yannic},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PRVY2}
+    \strng{fullhash}{PRVY2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Polynomial invariants in permutation pattern algebras}
+    \field{journaltitle}{in preparation}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Schmitt1993}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SWR}{%
+         family={Schmitt},
+         familyi={S\bibinitperiod},
+         given={William\bibnamedelima R.},
+         giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SWR1}
+    \strng{fullhash}{SWR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.4153/CJM-1993-021-5
+    \endverb
+    \field{issn}{0008-414X}
+    \field{number}{2}
+    \field{pages}{412\bibrangedash 428}
+    \field{title}{Hopf algebras of combinatorial structures}
+    \verb{url}
+    \verb https://doi.org/10.4153/CJM-1993-021-5
+    \endverb
+    \field{volume}{45}
+    \field{journaltitle}{Canad. J. Math.}
+    \field{year}{1993}
+  \endentry
+
+  \entry{stanley1975combinatorial}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=SRP}{%
+         family={Stanley},
+         familyi={S\bibinitperiod},
+         given={Richard\bibnamedelima P},
+         giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{SRP1}
+    \strng{fullhash}{SRP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Combinatorics}
+    \field{pages}{307\bibrangedash 318}
+    \field{title}{Combinatorial reciprocity theorems}
+    \field{year}{1975}
+  \endentry
+
+  \entry{Takeuchi1971}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TM}{%
+         family={Takeuchi},
+         familyi={T\bibinitperiod},
+         given={Mitsuhiro},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TM1}
+    \strng{fullhash}{TM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \verb{doi}
+    \verb 10.2969/jmsj/02340561
+    \endverb
+    \field{issn}{0025-5645}
+    \field{pages}{561\bibrangedash 582}
+    \field{title}{Free {H}opf algebras generated by coalgebras}
+    \verb{url}
+    \verb https://doi.org/10.2969/jmsj/02340561
+    \endverb
+    \field{volume}{23}
+    \field{journaltitle}{J. Math. Soc. Japan}
+    \field{year}{1971}
+  \endentry
+
+  \entry{Vargas}{article}{}
+    \name{author}{1}{}{%
+      {{hash=VY}{%
+         family={Vargas},
+         familyi={V\bibinitperiod},
+         given={Yannic},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Episciences. org}%
+    }
+    \strng{namehash}{VY1}
+    \strng{fullhash}{VY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Hopf algebra of permutation pattern functions}
+    \field{journaltitle}{Discrete Mathematics \& Theoretical Computer Science}
+    \field{year}{2014}
+  \endentry
+
+  \entry{xu2022cancellation}{article}{}
+    \name{author}{2}{}{%
+      {{hash=XD}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Da},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=YH}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Houyi},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XDYH1}
+    \strng{fullhash}{XDYH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \field{title}{On the cancellation-free antipode formula for the
+  Malvenuto-Reutenauer Hopf Algebra}
+    \field{journaltitle}{arXiv:2208.06841}
+    \field{year}{2022}
+  \endentry
+\enddatalist
+\endinput
