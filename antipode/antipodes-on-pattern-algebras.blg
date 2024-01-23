@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: antipodes-on-pattern-algebras.aux
+The style file: alpha.bst
+Database file #1: Bibliography.bib
+You've used 30 entries,
+            2543 wiz_defined-function locations,
+            760 strings with 8617 characters,
+and the built_in function-call counts, 10995 in all, are:
+= -- 1120
+> -- 488
+< -- 13
++ -- 160
+- -- 153
+* -- 770
+:= -- 1857
+add.period$ -- 92
+call.type$ -- 30
+change.case$ -- 172
+chr.to.int$ -- 30
+cite$ -- 30
+duplicate$ -- 438
+empty$ -- 796
+format.name$ -- 192
+if$ -- 2199
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 33
+newline$ -- 155
+num.names$ -- 90
+pop$ -- 133
+preamble$ -- 1
+purify$ -- 205
+quote$ -- 0
+skip$ -- 371
+stack$ -- 0
+substring$ -- 638
+swap$ -- 42
+text.length$ -- 13
+text.prefix$ -- 10
+top$ -- 0
+type$ -- 228
+warning$ -- 0
+while$ -- 114
+width$ -- 35
+write$ -- 386
