@@ -54,7 +54,7 @@
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{prop}[thm]{Proposition}
-\newtheorem{lm}[thm]{Lemma}
+\newtheorem{lm}[thm]{Lemma}	
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{obs}[thm]{Observation}
 \newtheorem{defin}[thm]{Definition}
@@ -310,15 +310,7 @@ Other pattern algebras are discussed here, notably on parking functions, which r
 
 In his now celebrated  ``Lemma 14'', Takeuchi (see \cite{Takeuchi1971}, Lemma 14) obtained a quite general formula for the antipode of a Hopf algebra. 
 This is an antipode formula for any filtered Hopf algebra, which can be applied in much generality and fits the framework of \textbf{pattern Hopf algebras}, introduced below.
-However, it has been observed that it is not the most economical formula, as it leaves some cancellations to be made.
-
-\begin{figure}
-\centering
-\includegraphics[scale=.6]{../images/comuting_diagram_algebras.png}
-\caption{Diagram reflecting the context of the pattern Hopf algebra. 
-Given a restriction species $\tr$, its linearisation is denoted $\mathbf{r} = \mathbb{K}\tr$. 
-The product $\ast$ in the top-right corner corresponds to the pointwise product of functions in the dual space $\overline{\mathcal{K}}(\mathbf{r})$. The coproduct $\Delta_{\square} $ of the pattern Hopf algebra corresponds to the dual of the concatenation product $\square$, after applying the Fock functor $\overline{\mathcal{K}}$.}
-\end{figure}
+However, it has been observed that it is not the most economical formula, in the sense that it leaves some cancellations to be made.
 
 \
 
@@ -353,16 +345,15 @@ This is a classical method in enumerative combinatorics, that has found applicat
 In Hopf algebras, this method requires careful treatment of the antipode formula of Takeuchi.
 However, it varies widely depending on the combinatorial Hopf algebra at hand.
 %Therefore, for each Hopf algebra, a new and original application of the method is needed.
-Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs and the Hopf algebras of quasisymmetric functions and multi-quasisymmetric functions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that fit our purposes in some cases.
-For instance, in \cite{MalvenutoReutenauer,xu2022cancellation} the antipode of the Malvenuto–Reutenauer Hopf algebra was only partially computed.
+Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs and the Hopf algebras of quasisymmetric functions and multi-quasisymmetric functions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that yield cancellation-free formulas.
+For instance, in \cite{MalvenutoReutenauer,xu2022cancellation} the antipode of the Malvenuto–Reutenauer Hopf algebra was computed, but only for a restricted family of permutations.
 
 \
 
-In \cite{aguiar2017hopf}, a cancellation-free antipode formula for a Hopf structure on generalized permutahedra was found. 
-This has striking consequences, because several interesting combinatorial structures can be embedded in the Hopf algebra of the generalized permutahedra.
+Another method for finding cancellation-free formulas arose in \cite{aguiar2017hopf}.
+There, a cancellation-free antipode formula for a Hopf structure on generalized permutahedra was found. 
+Because several interesting combinatorial structures can be embedded in the Hopf algebra of the generalized permutahedra, this also yields a cancellation-free formula for these Hopf subalgebras.
 Specific examples are graphs, matroids, posets and set partitions.
-Thus, this allows us to readily determine a cancellation-free formula for all these Hopf algebras.
-
 
 \
 
@@ -372,7 +363,7 @@ In the meantime, permutation patterns has become a well established area of expe
 
 \
 
-The second author, in \cite{Vargas}, introduced yet another tool to study permutation patterns, by building the permutation pattern Hopf algebra.
+The second author, in \cite{Vargas}, introduced yet another tool to study permutation patterns, by constructing the permutation pattern Hopf algebra.
 Specifically, if we consider finite sums of functions $\pat_{\pi}$ of the form 
 $$ \binom{\tau}{\pi} \coloneqq \pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}\, ,$$
 the central functions in the study of permutation patterns, we span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}.
@@ -380,11 +371,11 @@ The algebra corresponding to this pointwise product is the \textbf{permutation p
 
 \
 
-The construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, as long as these objects have a notion of restriction.
-For instance graphs or marked permutations can be restricted to subsets.
-Such combinatorial objects enriched with restriction functions form \textbf{species with restrictions}, a generalization of the classical algebraic structure of combinatorial species from Joyal. 
-The constructed algebras are called \textbf{pattern Hopf algebras}.
-It is conjectured that all pattern Hopf algebras are free.
+The construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, for instance graphs or marked permutations.
+Such combinatorial objects should be enriched with restriction functions and form \textbf{species with restrictions}, a generalization of the classical algebraic structure of combinatorial species from Joyal. 
+From each species with restrictions one can construct a Hopf algebra, called \textbf{pattern Hopf algebras}.
+This construction is presented in \cref{thm:conHopfalgebra}.
+
 
 \
 
@@ -397,19 +388,16 @@ We also present an original species with restrictions structure on parking funct
 This is part of a project to interpret common combinatorial objects as species with restrictions.
 Crucially, objects that do not have an inherent labelling are not amenable to an interpretation as species, so this codifies an important step in this project.
 The extra step here is done with a help of a bijection between labelled Dyck paths and parking functions, presented in \cite{Loehr,BGLPV2021}.
-
-\
-
 The notion of patterns in parking functions here presented recovers the one presented recently in \cite{adeniran2022pattern}.
 There, the authors study the number of parking functions that avoid a set of five parking functions of size three, recovering sequences like the Catalan numbers.
-The original introduction of patterns in parking functions hearkens back to \cite{qiu2018patterns}.
-Parking functions themselves were introduced for the first time in \cite{konheim1966occupancy}, where it was shown that there are $(n+1)^{n-1}$ parking functions of length $n$.
+%The original introduction of patterns in parking functions hearkens back to \cite{qiu2018patterns}.
+%Parking functions themselves were introduced for the first time in \cite{konheim1966occupancy}, where it was shown that there are $(n+1)^{n-1}$ parking functions of length $n$.
 
 \
 
 In \cref{sec:antipode_computing}, we present an application of the sign-reversing involution method to the easiest non-trivial Hopf algebra, the polynomial algebra.
 Although there are many easier ways to compute the antipode of this Hopf algebra, we believe this helps introduce the method for in use in the remaining.
-We also present some examples of some antipode computations via \textit{ad hoc} methods. An introduction to the basic notions of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained.
+We also present some examples of some antipode computations via \textit{ad hoc} methods. An introduction to the basic notions of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, result that is summarised in \cref{thm:conHopfalgebra}.
 In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
 %We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
 In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed words and in $\mathcal{A}(\mathtt{Per})$.
@@ -681,6 +669,17 @@ This will follow closely \cite{AM2010} and \cite{Schmitt1993}.
 Specifically, we introduce species with vector spaces and sets.
 We also introduce species with restrictions, and we will clarify the meaning of a monoid, comonoid, bimonoid and Hopf monoid in each of these monoidal categories.
 We finally present some examples of species with restrictions that will be important in the remaining paper.
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=.6]{../images/comuting_diagram_algebras.png}
+\caption{Diagram reflecting the context of the pattern Hopf algebra. 
+Given a restriction species $\tr$, its linearisation is denoted $\mathbf{r} = \mathbb{K}\tr$. 
+The product $\ast$ in the top-right corner corresponds to the pointwise product of functions in the dual space $\overline{\mathcal{K}}(\mathbf{r})$. The coproduct $\Delta_{\square} $ of the pattern Hopf algebra corresponds to the dual of the concatenation product $\square$, after applying the Fock functor $\overline{\mathcal{K}}$.}
+\end{figure}
+
+\
 
 \subsection{Species}
 In this section we recall the basic definitions of the general theory of \emph{combinatorial species}. Following \cite{AM2010}, we will focus first in \emph{vectorial species} and \emph{set species}.
@@ -2338,6 +2337,7 @@ Let $\rho$ be a packed word, and let $\pi = \pi_1 \oplus\dots \oplus \pi_n$ be t
 \section*{Acknowledgments}
 
 Both authors would like to thank Valentin F\'eray and Christophe Reutenauer, for helping this project to start.
+Both authors are also grateful for the efforts from the referee assigned to this paper, as many mistakes and unclear statements were heplfully pointed out.
 The first author is also grateful to the SNF grant P2ZHP2 191301 and the Max Planck Institute, while the second one is grateful to the Austrian Science Fund FWF, grant I 5788 PAGCAP.
 
 
