@@ -238,6 +238,11 @@
 
 \newcommand{\sq}{{{\scriptstyle{\square}}}}
 
+%objects
+\newcommand{\xx}{\mathrm{x}}
+\newcommand{\yy}{\mathrm{y}}
+\newcommand{\zz}{\mathrm{z}}
+
 
 %% natbib.sty is loaded by default. However, natbib options can be
 %% provided with \biboptions{...} command. Following options are
@@ -312,7 +317,7 @@ However, it has been observed that it is not the most economical formula, as it 
 \includegraphics[scale=.6]{../images/comuting_diagram_algebras.png}
 \caption{Diagram reflecting the context of the pattern Hopf algebra. 
 Given a restriction species $\tr$, its linearisation is denoted $\mathbf{r} = \mathbb{K}\tr$. 
-The product $\ast$ in the top-right corner corresponds to the pointwise product of functions in the dual space $\overline{\mathcal{K}}(\mathbf{r})$. The coproduct $\Delta_{\square} $ of the pattern Hopf algebra corresponds to the dual of the concatenation product $\square$, after applying the Fock function $\overline{mathcal{K}}$.}
+The product $\ast$ in the top-right corner corresponds to the pointwise product of functions in the dual space $\overline{\mathcal{K}}(\mathbf{r})$. The coproduct $\Delta_{\square} $ of the pattern Hopf algebra corresponds to the dual of the concatenation product $\square$, after applying the Fock functor $\overline{\mathcal{K}}$.}
 \end{figure}
 
 \
@@ -348,7 +353,7 @@ This is a classical method in enumerative combinatorics, that has found applicat
 In Hopf algebras, this method requires careful treatment of the antipode formula of Takeuchi.
 However, it varies widely depending on the combinatorial Hopf algebra at hand.
 %Therefore, for each Hopf algebra, a new and original application of the method is needed.
-Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs and the Hopf algebras of quasisymmetric functions and multi-quasisymmetricfunctions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that fit our purposes in some cases.
+Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs and the Hopf algebras of quasisymmetric functions and multi-quasisymmetric functions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that fit our purposes in some cases.
 For instance, in \cite{MalvenutoReutenauer,xu2022cancellation} the antipode of the Malvenuto–Reutenauer Hopf algebra was only partially computed.
 
 \
@@ -377,7 +382,7 @@ The algebra corresponding to this pointwise product is the \textbf{permutation p
 
 The construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, as long as these objects have a notion of restriction.
 For instance graphs or marked permutations can be restricted to subsets.
-Such combinatorial objects enriched with restriction functions form \textbf{species with restrictions}, a generalization of the topical algebraic structure of combinatorial species from Joyal. 
+Such combinatorial objects enriched with restriction functions form \textbf{species with restrictions}, a generalization of the classical algebraic structure of combinatorial species from Joyal. 
 The constructed algebras are called \textbf{pattern Hopf algebras}.
 It is conjectured that all pattern Hopf algebras are free.
 
@@ -426,7 +431,7 @@ where the sum runs over all permutations $\sigma$ of any size.
 It can be seen that if $|\sigma| > |\pi_1| + |\pi_2|$ we have $\binom{\sigma}{\pi_1, \pi_2} = 0$.
 
 The coefficients $\binom{\sigma}{\pi_1, \pi_2}$ that arise in this product formula count the so called \textbf{quasi-shuffle signatures}, or \textbf{QSS}, of $\sigma$ from $\pi_1, \pi_2$.
-Let us precise this definition:
+Let us make this definition precise:
 
 \begin{defin}[QSS on permutations]
 A QSS of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set in such a way that the restricted permutations $\sigma|_{I_i}$ are exactly patterns of $\pi_i$.
@@ -471,10 +476,25 @@ where the sum runs over all permutations $\sigma$, and the coefficients count th
 Note that for $|\sigma| > \sum_i |\pi_i|$, the coefficient $\bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ vanishes, so this sum is finite.
 
 We point out that the notion of \emph{bialgebra in cointeraction} (c.f. \cite{Foissy}) can be used to obtain antipode formulas for the pattern Hopf algebra.
-This antipode formula has consequences in polynomial invariants. 
-Specifically for each permutation $\tau$, we can define $\chi^{\tau}: \mathcal{A}(\mathtt{Per}) \to \mathbb{k}[x]$ the polynomial invariant associated to the character $eval^{\tau}$ of $\mathcal{A}(\mathtt{Per})$.
+
+\begin{defin}[Polynomial invariant on a species with restrictions $\mathtt{R}$]
+Let $\mathrm{y}$ be an object in the connected associative species with restrictions $\mathtt{R}$.
+Then we define the following invariant on $\mathtt{R}$: fix $\mathrm{x}$ an object, then
+$$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
+\end{defin}
+
+
+\begin{thm}[Polynomial invariants in pattern algebras]\label{thm:polynomiality}
+If $\mathtt{R}$ is a connected associative species with restrictions and $\mathrm{x}$ on of its objects, then $\chi^{\mathrm{x}}$ is a Hopf algebra morphism $\mathcal A(\mathtt{R}) \to \mathbb{K}[x]$.
+\end{thm}
+The antipode formula proved here has consequences in any polynomial invariant, specifically in the one above.
+We explore the case of the permutation pattern Hopf algebra, where for each permutation $\tau$, we can define $\chi^{\tau}: \mathcal{A}(\mathtt{Per}) \to \mathbb{k}[x]$ the polynomial invariant associated to the character $eval^{\tau}$ of $\mathcal{A}(\mathtt{Per})$.
+
 Very much like in the case of graphs, a cancellation-free formula allows us to give a combinatorial description of the values of $\chi^{\tau}(\pi)(-n)$ as counting $n$-covers of $\pi$.
-These results are discussed in an article to be published, in \cite{penaguiao2023polynomial}.
+These results are discussed in this paper in \cref{ch:reciprocity}.
+There, we establish the following result:
+
+
 
 \
 
@@ -1060,7 +1080,7 @@ x&\mapsto x|_J \qquad &x&\mapsto x/_{I\setminus J}
 \end{align*} 
 for $x \in \tp[I]$. Each restriction map $\text{res}^{(1)}$ or $\text{res}^{(2)}$ turns $\tp$ into a species with restriction. When $\tp$ is cocommutative, then both restriction maps coincide. We have then the following characterization of species with restrictions (see \cite{AM2010}, Proposition 8.29, for other characterizations).
 
-\begin{thm}[Scmitt, Aguiar-Mahajan]\label{thm:swr_lcc}
+\begin{thm}[Schmitt, Aguiar-Mahajan]\label{thm:swr_lcc}
 There is an equivalence between the category of species with restrictions and the category of linearized cocommutative comonoids.
 \end{thm}
 
@@ -2234,6 +2254,86 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 
 
 \
+
+\section{Reciprocity results\label{sec:recip}}
+
+
+
+We recall that for each object $\yy$ in a connected associative species with restrictions, any factorization into $\ast$-indecomposible elements has the same multiset of factors and, therefore, the same size, which we call $\ell(\yy)$.
+
+\begin{lm}\label{lm:polynomial}
+The invariant $\chi^{\xx}_{\yy}(n)$ is a polynomial in $n$.
+The degree of this polynomial is at most $\ell(\yy)$, the number of $\ast$-indecomposible factors of $\yy$ (with repetition).
+\end{lm}
+
+
+\begin{proof}
+We act by induction on $|\yy|$.
+If $|\yy| = 0$, recall that $\mathtt{R}$ is connected, so $\chi^{\xx}_{\yy}(n) = 1$ for all $n$, which is a polynomial of degree zero.
+
+For the induction hypothesis, observe that 
+$$\Delta \pat_{\yy} = 1\otimes \pat_{\yy} + \pat_{\yy} \otimes 1 + \sum_{\substack{a \ast b = y\\\ell(a), \ell(b) < \ell(\yy)}} \pat_a \otimes \pat_b \, ,$$
+thus we have for $n > 1$ 
+
+\begin{equation*}
+    \begin{split}
+        \pat_{\yy}(\xx^{\ast n}) &= \pat_{\yy}(\xx^{\ast n-1}) + \pat_{\yy}(\xx) + \sum_{\substack{a \ast b = y\\|a|, |b| < |\yy|}} \pat_a (\xx) \otimes \pat_b (\xx^{\ast n-1}) \\
+         \pat_{\yy}(\xx^{\ast n}) &- \pat_{\yy}(\xx^{\ast n-1}) = \pat_{\yy}(\xx) + \sum_{\substack{a \ast b = y\\|a|, |b| < |\yy|}} \pat_a (\xx) \chi^{\xx}_b ( n-1)
+    \end{split}
+\end{equation*}
+
+The right hand side is, by induction hypothesis, a polynomial of degree at most $\ell(\yy) -1$.
+The left hand side is $\chi^{\xx}_{\yy}(n) - \chi^{\xx}_{\yy}(n-1)$, which shows that $\chi^{\xx}_{\yy}(n)$ has degree at most $\ell(\yy)$.
+\end{proof}
+
+
+\begin{lm}\label{lm:HA_morphism}
+The map $\pat_{\yy} \mapsto \chi^{\xx}_{\yy}$ is a Hopf algebra morphism.
+\end{lm}
+
+\begin{proof}
+   Observe that if $\pat_{\yy_1} \pat_{\yy_2} = \sum_{\zz} \binom{\zz}{\yy_1, \yy_2}_{\mathtt{R}} \pat_{\zz}$, then passing in the argument $x^{\ast n}$ of both sides yields $\chi^{\xx}_{\yy_1}(n) \chi^{\xx}_{\yy_2}(n) = \sum_{\zz} \binom{\zz}{\yy_1, \yy_2}_{\mathtt{R}} \chi^{\xx}_{\zz}(n)  $.
+    This is precisely what we want from the product structure.
+
+    For the coproduct, we want to show that $\Delta \chi^{\xx}_{\yy} = \chi^{\xx} \otimes \chi^{\xx}(\Delta \pat_{\yy})$.
+    It is enough to show that $\Delta \chi^{\xx}_{\yy} (m \otimes n) = \chi^{\xx} \otimes \chi^{\xx}(\Delta \pat_{\yy})(m\otimes n) $ for any non-negative integers $m, n$.
+
+    Write $\chi^{\xx}_{\yy} = \sum_{k\geq 0 } a_k x^k$.
+    On the left hand side, we get $\Delta \chi^{\xx}_{\yy} (m \otimes n) = \sum_{k \geq 0} a_k \sum_{j=0}^k \binom{k}{j} x^j\otimes x^{k-j} (m \otimes n) = \sum_{k \geq 0} a_k (m+n)^k = \chi^{\xx}_{\yy}(m+n) $.
+
+    On the right hand side we have 
+    
+    
+    \begin{equation*}
+        \begin{split}
+        \chi^{\xx} \otimes \chi^{\xx}\Delta \pat_{\yy}(m\otimes n) =& \sum_{a \ast b = \yy} \chi^{\xx}_a(m) \otimes \chi^{\xx}_a(n)\\
+        =& \sum_{a \ast b = \yy} \pat_a(x^{\ast m})\pat_b(x^{\ast n})\\
+        =& \sum_{a \ast b = \yy} \pat_a\otimes \pat_b ( x^{\ast m} \otimes x^{\ast n})\\
+        =& \Delta \pat_{\yy}(x^{\ast n} \ast x^{\ast b}) = \Delta \pat_{\yy}(x^{\ast m+n}) = \chi^{\xx}_{\yy}(n+m)\, .
+        \end{split}
+    \end{equation*}
+    This is exactly what we obtained earlier, so this map preserves coproducts.
+\end{proof}
+
+
+\begin{proof}[Proof of \cref{thm:polynomiality}]
+This is a consequence of \cref{lm:polynomial} and \cref{lm:HA_morphism}.
+\end{proof}
+
+
+In this section we answer the following question:
+What is the combinatorial interpretation of $\chi^{\tau}_{\pi}(-1)$?
+
+
+\begin{thm}
+Let $\rho$ be a packed word, and let $\pi = \pi_1 \oplus\dots \oplus \pi_n$ be the decomposition of a packed word $\pi$ into $\oplus$-indecomposibles, then
+    $$\chi^{\rho}_{\pi}(-x) = (-1)^n \sum_{\sigma}
+    \begin{bmatrix}
+    \sigma \\ \pi_1, \dots, \pi_n
+    \end{bmatrix}
+     \chi^{\rho}_{\omega}(x).$$
+\end{thm}
+
 
 \section*{Acknowledgments}
 
