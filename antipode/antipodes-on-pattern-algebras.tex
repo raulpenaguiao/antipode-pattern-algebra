@@ -282,7 +282,7 @@
 \author{Raul Penaguiao, Yannic Vargas}
 \email{raul.penaguiao@mis.mpg.de}
 \email{yvargaslozada@tugraz.at}
-\address{Max Planck Institute for Mathematics in Sciences, Leipzig}
+\address{HAEUSLER AG, Basel}
 \address{Technische Universit\"at Graz}
 \keywords{permutations, presheaves, species with restrictions, species, Hopf algebras, free algebras, antipode, cancellation-free, chromatic, reciprocity}
 \subjclass[2010]{05E05, 16T05, 18D10}
@@ -290,8 +290,8 @@
 
 \begin{abstract}
 The permutation pattern Hopf algebra is a commutative filtered and connected Hopf algebra.
-Its product structure stems from counting patterns of a permutation, interpreting the coefficients as permutation quasi-shuffles.
-The Hopf algebra was shown to be a free commutative algebra and to fit a general framework of pattern Hopf algebras, via species with restrictions.
+Its product structure stems from counting patterns of a permutation, interpreting the coefficients as counting permutation quasi-shuffles.
+This Hopf algebra was shown to be a free commutative algebra and to fit a general framework of pattern Hopf algebras, via species with restrictions.
 
 In this paper we introduce the cancellation-free and grouping-free formula for the antipode of the permutation pattern Hopf algebra.
 To obtain this formula, we use the popular sign-reversing involution method, introduced by Benedetti and Sagan.
@@ -299,6 +299,7 @@ This formula has applications on polynomial invariants on permutations, in parti
 On our way, we also introduce the packed word pattern Hopf algebra and present a formula for its antipode.
 
 Other pattern algebras are discussed here, notably on parking functions, which recovers notions recently studied by Adeniran and Pudwell, and by Qiu and Remmel.
+Our methods may give a new cancellation-free and groupping-free formula for the antipode in the parking functions Hopf algebra.
 \end{abstract}
 
 
@@ -315,26 +316,31 @@ However, it has been observed that it is not the most economical formula, in the
 \
 
 Economical formulas for antipodes in Hopf algebras in combinatorics have played an important role in extracting old and new combinatorial equations, see \cite{Schmitt1993, humpert2012incidence, BS2017, aguiar2017hopf, xu2022cancellation}.
-In particular, Humpert and Martin were able to explain, in \cite{humpert2012incidence}, an elusive \textit{reciprocity relation} on graphs first presented by Stanley in \cite{stanley1975combinatorial}.
-We introduce this reciprocity relation now.
+In particular, we argue Humpert and Martin stand out, as they were able to explain, in \cite{humpert2012incidence}, an elusive \textit{reciprocity relation} on graphs first presented by Stanley in \cite{stanley1975combinatorial}, where the number of acyclic orientations plays a role.
 
 \
 
-On a graph $G$, we define its chromatic function by counting, for each $n\geq 1$, the number of \textit{stable colourings} of its vertices.
-That is, functions $f:V(G) \to [n]$ such that each edge is not monochromatic.
-This function, $\chi_G$, turns out to be a polynomial, and its degree is the number of vertices of $G$.
-It makes sense to explore the specialization $\chi_G(-1)$, and Stanley proved that this counts the \textit{acyclic orientations} of $G$.
-The observation of Humpert and Martin is that $\chi$ is in fact a Hopf algebra morphism from the \textbf{incidence Hopf algebra on graphs} to the polynomial Hopf algebra, so it commutes with the antipodes of each Hopf algebra.
-The antipode of the polynomial Hopf algebra is $S(x) = -x$, so combinatorial interpretations of the chromatic polynomial on negative numbers can be elicited, via
-$$\chi_G(-x) = \chi_{S(G)}(x)\, .$$
+The method for applying new antipode formulas to obtain reciprocity results is worth describing.
+Given a character of a Hopf algebra $H$, that is a multiplicative map $\eta: H \to \mathbb{K}$, and an element $h\in H$, one can define the \textbf{characteristic polynomial} $\chi_{\eta, h}(x): \mathbb{K} \to \mathbb{K}$, a polynomial invariant that can be assocaited to each element $h\in H$.
+The classical example is the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$, that arise from the characters $\eta(G) = \mathbb{1}[\text{graph $G$ has no edges}]$ and $\mathbb{1}[\text{matroid $M$  has a unique basis}]$.
 
-A cancellation-free formula for the antipode $S(G)$ on the incidence Hopf algebra on graphs was also presented by Humpert and Martin, where the number of acyclic orientations plays a role and explains the previous result from Stanley.
-This antipode formula was also used to obtain new relations involving the Tutte polynomial.
+\
+
+%On a graph $G$, we define its chromatic function by counting, for each $n\geq 1$, the number of \textit{stable colourings} of its vertices.
+%That is, functions $f:V(G) \to [n]$ such that each edge is not monochromatic.
+%This function, $\chi_G$, turns out to be a polynomial, and its degree is the number of vertices of $G$.
+%It makes sense to explore the specialization $\chi_G(-1)$, and Stanley proved that this counts the \textit{acyclic orientations} of $G$.
+%The observation of Humpert and Martin is that $\chi$ is in fact a Hopf algebra morphism from the \textbf{incidence Hopf algebra on graphs} to the polynomial Hopf algebra, so it commutes with the antipodes of each Hopf algebra.
+%The antipode of the polynomial Hopf algebra is $S(x) = -x$, so combinatorial interpretations of the chromatic polynomial on negative numbers can be elicited, via
+%$$\chi_G(-x) = \chi_{S(G)}(x)\, .$$
+
+%A cancellation-free formula for the antipode $S(G)$ on the incidence Hopf algebra on graphs was also presented by Humpert and Martin, where the number of acyclic orientations plays a role and explains the previous result from Stanley.
+%This antipode formula was also used to obtain new relations involving the Tutte polynomial.
 
 
 \
 
-A method for obtaining cancellation-free formulas that seem to work with a large family of Hopf algebras, was brought forth by Sagan and Benedetti in \cite{BS2017}, called \textit{sign-reversing involution method}.
+A method for obtaining cancellation-free formulas that has had success with a large family of Hopf algebras was brought forth by Sagan and Benedetti in \cite{BS2017}, called \textit{sign-reversing involution method}.
 This is a classical method in enumerative combinatorics, that has found applications in fields as far as number theory e.g. in \cite{zagier2009one}.
 %There, it was shown that $x^2+y^2 = p$ has integer solutions for $p$ prime whenever $p\equiv_4 1$.
 %This is a classical fact, but this new proof uses an involution method.
@@ -342,10 +348,9 @@ This is a classical method in enumerative combinatorics, that has found applicat
 
 \
 
-In Hopf algebras, this method requires careful treatment of the antipode formula of Takeuchi.
-However, it varies widely depending on the combinatorial Hopf algebra at hand.
+Sign-reversing involution methods require careful treatment of the antipode formula of Takeuchi, and they vary widely depending on the combinatorial Hopf algebra at hand.
 %Therefore, for each Hopf algebra, a new and original application of the method is needed.
-Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs and the Hopf algebras of quasisymmetric functions and multi-quasisymmetric functions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that yield cancellation-free formulas.
+Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs, the Hopf algebras of quasisymmetric functions, and the Hopf algebra of multi-quasisymmetric functions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that yield cancellation-free formulas.
 For instance, in \cite{MalvenutoReutenauer,xu2022cancellation} the antipode of the Malvenuto–Reutenauer Hopf algebra was computed, but only for a restricted family of permutations.
 
 \
@@ -364,37 +369,45 @@ In the meantime, permutation patterns has become a well established area of expe
 \
 
 The second author, in \cite{Vargas}, introduced yet another tool to study permutation patterns, by constructing the permutation pattern Hopf algebra.
-Specifically, if we consider finite sums of functions $\pat_{\pi}$ of the form 
+Specifically, we consider finite sums of functions $\pat_{\pi}$ of the form 
 $$ \binom{\tau}{\pi} \coloneqq \pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}\, ,$$
-the central functions in the study of permutation patterns, we span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}.
+the central functions in the study of permutation patterns.
+These functions span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}.
 The algebra corresponding to this pointwise product is the \textbf{permutation pattern Hopf algebra} $\mathcal{A}(\mathtt{Per})$, and is shown to be free in \cite{Vargas}.
 
 \
 
-The construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, for instance graphs or marked permutations.
-Such combinatorial objects should be enriched with restriction functions and form \textbf{species with restrictions}, a generalization of the classical algebraic structure of combinatorial species from Joyal. 
-From each species with restrictions one can construct a Hopf algebra, called \textbf{pattern Hopf algebras}.
-This construction is presented in \cref{thm:conHopfalgebra}.
+The permutation pattern Hopf algebra construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, for instance graphs, marked permutations or packed words.
+This was done in such a way that any combinatorial object enriched with restriction functions, a structure that we call a \textbf{species with restrictions}, yelds a \textbf{pattern Hopf algebra} (construction presented in \cref{thm:conHopfalgebra}).
+The algebraic structure of species with restrictions is a generalization of the classical algebraic structure of combinatorial species from Joyal, see \cite{AM2010}.
 
 
 \
 
 In this paper we provide a cancellation-free and grouping-free antipode formula for the pattern Hopf algebras on permutations and on packed words.
 This is an application of the sign-reversing involution method.
+Furthermore, we apply the formula to interpret the coefficients arising in a reciprocity result in permutations.
 
 \
 
-We also present an original species with restrictions structure on parking functions.
-This is part of a project to interpret common combinatorial objects as species with restrictions.
-Crucially, objects that do not have an inherent labelling are not amenable to an interpretation as species, so this codifies an important step in this project.
-The extra step here is done with a help of a bijection between labelled Dyck paths and parking functions, presented in \cite{Loehr,BGLPV2021}.
-The notion of patterns in parking functions here presented recovers the one presented recently in \cite{adeniran2022pattern}.
+A parallel question iniciated in \cite{Penaguiao2020} is, which combinatorial objects can be faithfully represented by species with restrictions.
+In that paper, naturally labelled objects like graphs and set partitions are trivially interpreted as species with restrictions.
+Crucially, objects that do not have an inherent labelling are not \textit{directly} amenable to an interpretation as species.
+Therefore, some unlabelled objects need original ideas to be codified into species with restrictions. 
+For instance the permutation species with restriction needs to use an interpretation of permutations as double orders.
+
+\
+
+In contribution to this question, we present in this paper an original species with restrictions structure on parking functions.
+The idea used here is a bijection between labelled Dyck paths and parking functions, presented in \cite{Loehr,BGLPV2021}.
+The underlying notion of patterns in parking functions here presented recovers the one recently presented in \cite{adeniran2022pattern}.
 There, the authors study the number of parking functions that avoid a set of five parking functions of size three, recovering sequences like the Catalan numbers.
 %The original introduction of patterns in parking functions hearkens back to \cite{qiu2018patterns}.
 %Parking functions themselves were introduced for the first time in \cite{konheim1966occupancy}, where it was shown that there are $(n+1)^{n-1}$ parking functions of length $n$.
 
 \
 
+We now discuss the structure of the paper.
 In \cref{sec:antipode_computing}, we present an application of the sign-reversing involution method to the easiest non-trivial Hopf algebra, the polynomial algebra.
 Although there are many easier ways to compute the antipode of this Hopf algebra, we believe this helps introduce the method for in use in the remaining.
 We also present some examples of some antipode computations via \textit{ad hoc} methods. An introduction to the basic notions of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, result that is summarised in \cref{thm:conHopfalgebra}.
