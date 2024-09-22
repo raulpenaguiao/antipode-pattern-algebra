@@ -320,9 +320,9 @@ In particular, we argue Humpert and Martin stand out, as they were able to expla
 
 \
 
-The method for applying new antipode formulas to obtain reciprocity results is worth describing.
-Given a character of a Hopf algebra $H$, that is a multiplicative map $\eta: H \to \mathbb{K}$, and an element $h\in H$, one can define the \textbf{characteristic polynomial} $\chi_{\eta, h}(x): \mathbb{K} \to \mathbb{K}$, a polynomial invariant that can be assocaited to each element $h\in H$.
-The classical example is the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$, that arise from the characters $\eta(G) = \mathbb{1}[\text{graph $G$ has no edges}]$ and $\mathbb{1}[\text{matroid $M$  has a unique basis}]$.
+The method for applying new antipode formulas to obtain reciprocity results is worth describing here.
+Given a character of a Hopf algebra $H$, that is a multiplicative map $\eta: H \to \mathbb{K}$, and an element $h\in H$, one can define the \textbf{characteristic polynomial} $\chi_{\eta, h}: \mathbb{K} \to \mathbb{K}$, a polynomial invariant that can be assocaited to each element $h\in H$.
+The classical example is the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$, that arise from the characters $\eta(G) = \mathbb{1}[\text{graph $G$ has no edges}]$ and $\mathbb{1}[\text{matroid $M$  has a unique basis}]$, respectively.
 
 \
 
@@ -384,9 +384,11 @@ The algebraic structure of species with restrictions is a generalization of the 
 
 \
 
-In this paper we provide a cancellation-free and grouping-free antipode formula for the pattern Hopf algebras on permutations and on packed words.
+In this paper our main result is summed up in its most general statement in \cref{thm:general_antipode}, and presents an antipode formula for any pattern Hopf algebra.
 This is an application of the sign-reversing involution method.
-Furthermore, we apply the formula to interpret the coefficients arising in a reciprocity result in permutations.
+This will be applied to packed words in \cref{thm:antipode_packed} and to permutations in \cref{thm:antipode_perms}, where we provide a cancellation-free and grouping-free antipode formula for the respective pattern Hopf algebras.
+Furthermore, we apply the formula to interpret the coefficients arising in a reciprocity result in permutations, lending a direct application of this antipode formula to a combinatorial interpretation.
+Specifically, we define a character in pattern Hopf algebras, see \cref{defin:char_specieswrest}, and show that the resulting polynomial invariant yields a reciprocity result in permutations, and that the value at $x = -1$ counts so called \textbf{interlacing QSS} of permutations.
 
 \
 
@@ -408,14 +410,17 @@ There, the authors study the number of parking functions that avoid a set of fiv
 \
 
 We now discuss the structure of the paper.
-In \cref{sec:antipode_computing}, we present an application of the sign-reversing involution method to the easiest non-trivial Hopf algebra, the polynomial algebra.
-Although there are many easier ways to compute the antipode of this Hopf algebra, we believe this helps introduce the method for in use in the remaining.
+In \cref{sec:antipode_computing}, we present Takeuchi's formula, as well as the antipode on the permutation pattern Hopf algebra, and an application of the sign-reversing involution method to the easiest non-trivial Hopf algebra, the polynomial algebra.
 We also present some examples of some antipode computations via \textit{ad hoc} methods. An introduction to the basic notions of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, result that is summarised in \cref{thm:conHopfalgebra}.
 In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
 %We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
 In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed words and in $\mathcal{A}(\mathtt{Per})$.
 %In this section we start by describing the sign-reversing involution method to obtain a cancellation-free formula for the antipode of a Hopf algebra.
 %Then we present the main result of this section in \cref{thm:antipode_perms_intro}, a cancellation-free formula for the antipode of $\mathcal{A}(\mathtt{Per})$.
+Finally, in \cref{sec:reciprocity}, we present an application of hte cancellation-free and groupping-free formula on permutations by obtaining a reciprocity result in a polynomial invariant.
+
+
+
 \subsection{The permutation pattern Hopf algebra and the main result}
 
 In this section we introduce the Hopf algebra structure on permutation patterns, and present the main result on this paper.
@@ -2269,9 +2274,15 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 
 \section{Reciprocity results\label{sec:recip}}
 
-
+For a species with restrictions we define the following character
+\begin{defin}\label{defin:char_specieswrest}
+The eval character %TODO
+\end{defin}
 
 We recall that for each object $\yy$ in a connected associative species with restrictions, any factorization into $\ast$-indecomposible elements has the same multiset of factors and, therefore, the same size, which we call $\ell(\yy)$.
+
+
+
 
 \begin{lm}\label{lm:polynomial}
 The invariant $\chi^{\xx}_{\yy}(n)$ is a polynomial in $n$.
