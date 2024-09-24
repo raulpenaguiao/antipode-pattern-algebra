@@ -307,7 +307,7 @@ Our methods may give a new cancellation-free and groupping-free formula for the 
 
 \tableofcontents
 
-\section{Introduction}
+\section{Introduction\label{sec:intro}}
 
 In his now celebrated  ``Lemma 14'', Takeuchi (see \cite{Takeuchi1971}, Lemma 14) obtained a quite general formula for the antipode of a Hopf algebra. 
 This is an antipode formula for any filtered Hopf algebra, which can be applied in much generality and fits the framework of \textbf{pattern Hopf algebras}, introduced below.
@@ -321,8 +321,12 @@ In particular, we argue Humpert and Martin stand out, as they were able to expla
 \
 
 The method for applying new antipode formulas to obtain reciprocity results is worth describing here.
-Given a character of a Hopf algebra $H$, that is a multiplicative map $\eta: H \to \mathbb{K}$, and an element $h\in H$, one can define the \textbf{characteristic polynomial} $\chi_{\eta, h}: \mathbb{K} \to \mathbb{K}$, a polynomial invariant that can be assocaited to each element $h\in H$.
-The classical example is the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$, that arise from the characters $\eta(G) = \mathbb{1}[\text{graph $G$ has no edges}]$ and $\mathbb{1}[\text{matroid $M$  has a unique basis}]$, respectively.
+Generally speaking, a reciprocity result is a combinatorial interpretation of evaluations of a polynomial at negative integer values.
+The classical examples are the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$.
+Given a character of a Hopf algebra $H$ --- that is a multiplicative map $\eta: H \to \mathbb{K}$ --- and an element $h\in H$, one can define the \textbf{characteristic polynomial} $\chi_{\eta, h}: \mathbb{K} \to \mathbb{K}$, a polynomial invariant that can be assocaited to each element $h\in H$.
+This in fact defines a Hopf algebra morphism $\chi_{\eta, \cdot } : H \to \mathbb{K}[x]$, so it commutes with the antipode, that is:
+$$\chi_{\eta, h } (-x) = \chi_{\eta, S(h) } \, . $$
+In this way, a combinatorial interpretation of the antipode $S(h)$ ellicits a combinatorial interpretation of the polynomial at negative values.
 
 \
 
@@ -359,36 +363,43 @@ Another method for finding cancellation-free formulas arose in \cite{aguiar2017h
 There, a cancellation-free antipode formula for a Hopf structure on generalized permutahedra was found. 
 Because several interesting combinatorial structures can be embedded in the Hopf algebra of the generalized permutahedra, this also yields a cancellation-free formula for these Hopf subalgebras.
 Specific examples are graphs, matroids, posets and set partitions.
+We also point out that in \cite{Foissy}, the notion of \emph{bialgebra of cointeraction} was used to obtain antipode formulas for the permutation pattern Hopf algebra.
 
 \
 
 Parallel to this development is the study of permutation patterns.
-This is a study with roots in computer science, pioneered by Knuth in \cite{Knuth}, where a description for the \textit{stack sortable} permutations was presented via permutation patterns.
+This is a study with roots in computer science, pioneered by Knuth in \cite{Knuth}, where a description of the \textit{stack sortable} permutations was presented via permutation patterns.
 In the meantime, permutation patterns has become a well established area of expertise in combinatorics, see \cite{linton2010permutation}.
 
 \
 
-The second author, in \cite{Vargas}, introduced yet another tool to study permutation patterns, by constructing the permutation pattern Hopf algebra.
+The second author, in \cite{Vargas}, introduced an algebraic tool to study permutation patterns, by constructing the permutation pattern Hopf algebra.
 Specifically, we consider finite sums of functions $\pat_{\pi}$ of the form 
 $$ \binom{\tau}{\pi} \coloneqq \pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}\, ,$$
 the central functions in the study of permutation patterns.
 These functions span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}.
 The algebra corresponding to this pointwise product is the \textbf{permutation pattern Hopf algebra} $\mathcal{A}(\mathtt{Per})$, and is shown to be free in \cite{Vargas}.
+For a definition of patterns in permutations, or of \say{ways to fit $\pi$ in $\sigma$}, see \cite{penaguiao2020algebraic}
 
 \
 
-The permutation pattern Hopf algebra construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, for instance graphs, marked permutations or packed words.
+The permutation pattern Hopf algebra construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, for instance graphs, marked permutations or set partitions.
 This was done in such a way that any combinatorial object enriched with restriction functions, a structure that we call a \textbf{species with restrictions}, yelds a \textbf{pattern Hopf algebra} (construction presented in \cref{thm:conHopfalgebra}).
 The algebraic structure of species with restrictions is a generalization of the classical algebraic structure of combinatorial species from Joyal, see \cite{AM2010}.
 
 
 \
 
-In this paper our main result is summed up in its most general statement in \cref{thm:general_antipode}, and presents an antipode formula for any pattern Hopf algebra.
-This is an application of the sign-reversing involution method.
-This will be applied to packed words in \cref{thm:antipode_packed} and to permutations in \cref{thm:antipode_perms}, where we provide a cancellation-free and grouping-free antipode formula for the respective pattern Hopf algebras.
-Furthermore, we apply the formula to interpret the coefficients arising in a reciprocity result in permutations, lending a direct application of this antipode formula to a combinatorial interpretation.
-Specifically, we define a character in pattern Hopf algebras, see \cref{defin:char_specieswrest}, and show that the resulting polynomial invariant yields a reciprocity result in permutations, and that the value at $x = -1$ counts so called \textbf{interlacing QSS} of permutations.
+Our most general result is summed up in \cref{thm:general_antipode}, and presents an antipode formula for any pattern Hopf algebra.
+This is an application of the sign-reversing involution method, although it is not a cancellation-free and groupping-free formula for a general pattern Hopf algebra.
+However, this will be applied to packed words in \cref{thm:antipode_packed} and to permutations in \cref{thm:antipode_perms}, where we indeed obtain a cancellation-free and grouping-free antipode formula for the respective pattern Hopf algebras.
+
+\
+
+Onwards we introduce a new polynomial invariant in permutations, by considering the evaluation character in the permutation pattern Hopf algebra, see \cref{defin:char_specieswrest}.
+As far as we know, this is a new family of invariants in permutations.
+We apply the cancellation-free formula to interpret this polynomial in negative values, leading to a reciprocity result via the antipode formula.
+Specifically, we show that the value of this polynomial at $x = -1$ counts so called \textbf{interlacing QSS} of specific permutations.
 
 \
 
@@ -410,46 +421,42 @@ There, the authors study the number of parking functions that avoid a set of fiv
 \
 
 We now discuss the structure of the paper.
-In \cref{sec:antipode_computing}, we present Takeuchi's formula, as well as the antipode on the permutation pattern Hopf algebra, and an application of the sign-reversing involution method to the easiest non-trivial Hopf algebra, the polynomial algebra.
-We also present some examples of some antipode computations via \textit{ad hoc} methods. An introduction to the basic notions of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, result that is summarised in \cref{thm:conHopfalgebra}.
+In what remains of \cref{sec:intro}, we introduce the product and coproduct structure on the permutation pattern Hopf algebra and give more details on the main result of this paper, the new formula for the antipode in permutation patterns.
+In \cref{sec:antipode_computing}, we present Takeuchi's formula, a general discussion of the antipode --- and how to compute it iteratively --- as well as the easiest non-trivial Hopf algebra, the polynomial algebra.
+An introduction to the basic notion of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, result that is summarised in \cref{thm:conHopfalgebra}.
 In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
 %We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
 In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed words and in $\mathcal{A}(\mathtt{Per})$.
 %In this section we start by describing the sign-reversing involution method to obtain a cancellation-free formula for the antipode of a Hopf algebra.
 %Then we present the main result of this section in \cref{thm:antipode_perms_intro}, a cancellation-free formula for the antipode of $\mathcal{A}(\mathtt{Per})$.
-Finally, in \cref{sec:reciprocity}, we present an application of hte cancellation-free and groupping-free formula on permutations by obtaining a reciprocity result in a polynomial invariant.
+Finally, in \cref{sec:reciprocity}, we present an application of the cancellation-free and groupping-free formula on permutations by obtaining a reciprocity result in a new polynomial invariant.
 
 
 
 \subsection{The permutation pattern Hopf algebra and the main result}
 
-In this section we introduce the Hopf algebra structure on permutation patterns, and present the main result on this paper.
+In this section we introduce the Hopf algebra structure on permutation patterns, and present the main result on this paper: a cancellation-free and groupping-free antipode formula on permutation patterns Hopf algebra.
 
 \
 
 Let $\pat_{\pi}$ be a function on permutations, so that $\pat_{\pi}(\sigma)$ counts the number of restrictions of the permutation $\sigma$ that fit the pattern $\pi$.
 In this way, the collection of permutation pattern functions $\{\pat_{\pi}\}$ is linearly independent, so it is a basis of a vector space $\mathcal A (\mathtt{Per})$.
-However, in \cite{Vargas}, it was shown that the pointwise product of two such functions can be expressed as a sum of other permutation pattern functions:
+Further, in \cite{Vargas}, it was shown that the pointwise product of two such functions can be expressed as a sum of other permutation pattern functions:
 \begin{equation}\label{eq:prodperm}
 \pat_{\pi_1} \pat_{\pi_2} = \sum_{\sigma} \binom{\sigma}{\pi_1, \pi_2} \pat_{\sigma} \, ,
 \end{equation}
 where the sum runs over all permutations $\sigma$ of any size.
-It can be seen that if $|\sigma| > |\pi_1| + |\pi_2|$ we have $\binom{\sigma}{\pi_1, \pi_2} = 0$.
-
-The coefficients $\binom{\sigma}{\pi_1, \pi_2}$ that arise in this product formula count the so called \textbf{quasi-shuffle signatures}, or \textbf{QSS}, of $\sigma$ from $\pi_1, \pi_2$.
-Let us make this definition precise:
+If $|\sigma| > |\pi_1| + |\pi_2|$ we have $\binom{\sigma}{\pi_1, \pi_2} = 0$, in fact, the coefficients $\binom{\sigma}{\pi_1, \pi_2}$ that arise in this product formula count the so called \textbf{quasi-shuffle signatures}, or \textbf{QSS}, of $\sigma$ from $\pi_1, \pi_2$.
+Let us make this concept precise:
 
 \begin{defin}[QSS on permutations]
-A QSS of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set in such a way that the restricted permutations $\sigma|_{I_i}$ are exactly patterns of $\pi_i$.
+A quasi-shuffle signature, or QSS, of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set in such a way that each $I_i$ is a pattern of $\pi_i$ in $\sigma$ --- that is the restricted permutations $\sigma|_{I_i}$ are patterns of $\pi_i$.
 
-Note that the sets $I_1, \ldots, I_l$ are not necessarily disjoint but they must satisfy $\bigcup_i I_i = I$, where $I$ is the ground set of $\sigma $.
+The sets $I_1, \ldots, I_l$ are not necessarily disjoint but they must satisfy $\bigcup_i I_i = I$, where $I$ is the ground set of $\sigma $.
 We let $\binom{\sigma}{\pi_1, \dots, \pi_n}$ denote the number of such QSS.
-
-\
-
-Note that any reordering of a QSS is also a QSS (from $\pi_1, \ldots, \pi_n$ in a possibly different order).
 It was shown in \cite{Penaguiao2020} that $\binom{\sigma}{\pi_1, \dots, \pi_n}$ is precisely the coefficient that arises in the iterated product of $n$ elements.
 This fact justifies the notation choice in \eqref{eq:prodperm}.
+
 \end{defin}
 
 \
@@ -468,11 +475,12 @@ Otherwise, we say that the QSS is \textbf{interlacing}.
 \
 
 Note that, unlike in the case on QSS, reordering an interlacing QSS does not in general give an interlacing QSS.
+We let $\bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ denote the number of interlacing QSS.
 \end{defin}
 
 
 \begin{thm}[Antipode formula for Permutation pattern Hopf algebra]\label{thm:antipode_perms_intro}
-Let $\pi = \pi_1\oplus \dots \oplus \pi_n$ be the decomposition of a permutation $\pi$ into $\oplus$-indecomposable permutations.
+Let $\pi$ be a permutation that factors $\pi = \pi_1\oplus \dots \oplus \pi_n$ into $\oplus$-indecomposable permutations.
 Then, we have the following formula for the antipode of $\pat_{\pi}$:
 
 $$S(\pat_{\pi}) = (-1)^n \sum_{\sigma} \bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr] \pat_{\sigma}\, ,$$
@@ -480,27 +488,6 @@ where the sum runs over all permutations $\sigma$, and the coefficients count th
 \end{thm}
 
 Note that for $|\sigma| > \sum_i |\pi_i|$, the coefficient $\bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ vanishes, so this sum is finite.
-
-We point out that the notion of \emph{bialgebra in cointeraction} (c.f. \cite{Foissy}) can be used to obtain antipode formulas for the pattern Hopf algebra.
-
-\begin{defin}[Polynomial invariant on a species with restrictions $\mathtt{R}$]
-Let $\mathrm{y}$ be an object in the connected associative species with restrictions $\mathtt{R}$.
-Then we define the following invariant on $\mathtt{R}$: fix $\mathrm{x}$ an object, then
-$$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
-\end{defin}
-
-
-\begin{thm}[Polynomial invariants in pattern algebras]\label{thm:polynomiality}
-If $\mathtt{R}$ is a connected associative species with restrictions and $\mathrm{x}$ on of its objects, then $\chi^{\mathrm{x}}$ is a Hopf algebra morphism $\mathcal A(\mathtt{R}) \to \mathbb{K}[x]$.
-\end{thm}
-The antipode formula proved here has consequences in any polynomial invariant, specifically in the one above.
-We explore the case of the permutation pattern Hopf algebra, where for each permutation $\tau$, we can define $\chi^{\tau}: \mathcal{A}(\mathtt{Per}) \to \mathbb{k}[x]$ the polynomial invariant associated to the character $eval^{\tau}$ of $\mathcal{A}(\mathtt{Per})$.
-
-Very much like in the case of graphs, a cancellation-free formula allows us to give a combinatorial description of the values of $\chi^{\tau}(\pi)(-n)$ as counting $n$-covers of $\pi$.
-These results are discussed in this paper in \cref{ch:reciprocity}.
-There, we establish the following result:
-
-
 
 \
 
@@ -2272,9 +2259,30 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 
 \
 
-\section{Reciprocity results\label{sec:recip}}
+\section{Reciprocity results\label{sec:reciprocity}}
 
 For a species with restrictions we define the following character
+
+
+\begin{defin}[Polynomial invariant on a species with restrictions $\mathtt{R}$]
+Let $\mathrm{y}$ be an object in the connected associative species with restrictions $\mathtt{R}$.
+Then we define the following invariant on $\mathtt{R}$: fix $\mathrm{x}$ an object, then
+$$\chi^{\mathrm{x}}(\pat_{\mathrm{y}})(n) \coloneqq \pat_{\mathrm{y}}(\mathrm{x}^{\star n})\, . $$
+\end{defin}
+
+
+\begin{thm}[Polynomial invariants in pattern algebras]\label{thm:polynomiality}
+If $\mathtt{R}$ is a connected associative species with restrictions and $\mathrm{x}$ on of its objects, then $\chi^{\mathrm{x}}$ is a Hopf algebra morphism $\mathcal A(\mathtt{R}) \to \mathbb{K}[x]$.
+\end{thm}
+The antipode formula proved here has consequences in any polynomial invariant, specifically in the one above.
+We explore the case of the permutation pattern Hopf algebra, where for each permutation $\tau$, we can define $\chi^{\tau}: \mathcal{A}(\mathtt{Per}) \to \mathbb{k}[x]$ the polynomial invariant associated to the character $eval^{\tau}$ of $\mathcal{A}(\mathtt{Per})$.
+
+Very much like in the case of graphs, a cancellation-free formula allows us to give a combinatorial description of the values of $\chi^{\tau}(\pi)(-n)$ as counting $n$-covers of $\pi$.
+These results are discussed in this paper in \cref{ch:reciprocity}.
+There, we establish the following result:
+
+
+
 \begin{defin}\label{defin:char_specieswrest}
 The eval character %TODO
 \end{defin}
