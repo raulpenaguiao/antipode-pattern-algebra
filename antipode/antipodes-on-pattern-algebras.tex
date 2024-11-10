@@ -296,10 +296,9 @@ This Hopf algebra was shown to be a free commutative algebra and to fit a genera
 In this paper we introduce the cancellation-free and grouping-free formula for the antipode of the permutation pattern Hopf algebra.
 To obtain this formula, we use the popular sign-reversing involution method, introduced by Benedetti and Sagan.
 This formula has applications on polynomial invariants on permutations, in particular for obtaining reciprocity theorems.
-On our way, we also introduce the packed word pattern Hopf algebra and present a formula for its antipode.
+Along the way, we also introduce the packed word pattern Hopf algebra and present a formula for its antipode.
 
-Other pattern algebras are discussed here, notably on parking functions, which recovers notions recently studied by Adeniran and Pudwell, and by Qiu and Remmel.
-Our methods may give a new cancellation-free and groupping-free formula for the antipode in the parking functions Hopf algebra.
+Other pattern algebras are discussed here, notably on parking functions, which recovers a notion recently studied by Adeniran and Pudwell, and by Qiu and Remmel.
 \end{abstract}
 
 
@@ -310,8 +309,8 @@ Our methods may give a new cancellation-free and groupping-free formula for the 
 \section{Introduction\label{sec:intro}}
 
 In his now celebrated  ``Lemma 14'', Takeuchi (see \cite{Takeuchi1971}, Lemma 14) obtained a quite general formula for the antipode of a Hopf algebra. 
-This is an antipode formula for any filtered Hopf algebra, which can be applied in much generality and fits the framework of \textbf{pattern Hopf algebras}, introduced below.
-However, it has been observed that it is not the most economical formula, in the sense that it leaves some cancellations to be made.
+This is an antipode formula for any filtered Hopf algebra, which can be applied in much generality and fits the framework of \textbf{pattern Hopf algebras}, introduced in \cite{penaguiao2020algebraic} and recovered below.
+However, it has been observed that it is not the most economical formula, in the sense that it leaves some cancellations and groupings to be made.
 
 \
 
@@ -321,10 +320,9 @@ In particular, we argue Humpert and Martin stand out, as they were able to expla
 \
 
 The method for applying new antipode formulas to obtain reciprocity results is worth describing here.
-Generally speaking, a reciprocity result is a combinatorial interpretation of evaluations of a polynomial at negative integer values.
+Generally speaking, a reciprocity result is a combinatorial interpretation of specialisations of a polynomial at negative integer values.
 The classical examples are the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$.
-Given a character of a Hopf algebra $H$ --- that is a multiplicative map $\eta: H \to \mathbb{K}$ --- and an element $h\in H$, one can define the \textbf{characteristic polynomial} $\chi_{\eta, h}: \mathbb{K} \to \mathbb{K}$, a polynomial invariant that can be assocaited to each element $h\in H$.
-This in fact defines a Hopf algebra morphism $\chi_{\eta, \cdot } : H \to \mathbb{K}[x]$, so it commutes with the antipode, that is:
+These in fact define Hopf algebra morphisms $\chi_{\eta, \cdot } : H \to \mathbb{K}[x]$, so they commute with the antipode, that is:
 $$\chi_{\eta, h } (-x) = \chi_{\eta, S(h) } \, . $$
 In this way, a combinatorial interpretation of the antipode $S(h)$ ellicits a combinatorial interpretation of the polynomial at negative values.
 
@@ -345,7 +343,7 @@ In this way, a combinatorial interpretation of the antipode $S(h)$ ellicits a co
 \
 
 A method for obtaining cancellation-free formulas that has had success with a large family of Hopf algebras was brought forth by Sagan and Benedetti in \cite{BS2017}, called \textit{sign-reversing involution method}.
-This is a classical method in enumerative combinatorics, that has found applications in fields as far as number theory e.g. in \cite{zagier2009one}.
+This is a classical method in enumerative combinatorics and has found applications in fields as far as number theory e.g. in \cite{zagier2009one}.
 %There, it was shown that $x^2+y^2 = p$ has integer solutions for $p$ prime whenever $p\equiv_4 1$.
 %This is a classical fact, but this new proof uses an involution method.
 
@@ -363,12 +361,12 @@ Another method for finding cancellation-free formulas arose in \cite{aguiar2017h
 There, a cancellation-free antipode formula for a Hopf structure on generalized permutahedra was found. 
 Because several interesting combinatorial structures can be embedded in the Hopf algebra of the generalized permutahedra, this also yields a cancellation-free formula for these Hopf subalgebras.
 Specific examples are graphs, matroids, posets and set partitions.
-We also point out that in \cite{Foissy}, the notion of \emph{bialgebra of cointeraction} was used to obtain antipode formulas for the permutation pattern Hopf algebra.
+Yet another method was found in \cite{Foissy}, where the notion of \emph{bialgebra of cointeraction} was used to obtain antipode formulas for the permutation pattern Hopf algebra.
 
 \
 
 Parallel to this development is the study of permutation patterns.
-This is a study with roots in computer science, pioneered by Knuth in \cite{Knuth}, where a description of the \textit{stack sortable} permutations was presented via permutation patterns.
+This is a study with roots in computer science, pioneered by Knuth in \cite{Knuth}, where a description of \textit{stack sortable} permutations was presented via permutation patterns.
 In the meantime, permutation patterns has become a well established area of expertise in combinatorics, see \cite{linton2010permutation}.
 
 \
@@ -377,14 +375,14 @@ The second author, in \cite{Vargas}, introduced an algebraic tool to study permu
 Specifically, we consider finite sums of functions $\pat_{\pi}$ of the form 
 $$ \binom{\tau}{\pi} \coloneqq \pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}\, ,$$
 the central functions in the study of permutation patterns.
-These functions span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}.
-The algebra corresponding to this pointwise product is the \textbf{permutation pattern Hopf algebra} $\mathcal{A}(\mathtt{Per})$, and is shown to be free in \cite{Vargas}.
+These functions span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}, and a compatible coproduct, see \eqref{eq:coprodperm}.
+The corresponding Hopf algebra is the \textbf{permutation pattern Hopf algebra} $\mathcal{A}(\mathtt{Per})$, and is shown to be free in \cite{Vargas}.
 For a definition of patterns in permutations, or of \say{ways to fit $\pi$ in $\sigma$}, see \cite{penaguiao2020algebraic}
 
 \
 
-The permutation pattern Hopf algebra construction was generalized to other combinatorial objects, in \cite{Penaguiao2020}, for instance graphs, marked permutations or set partitions.
-This was done in such a way that any combinatorial object enriched with restriction functions, a structure that we call a \textbf{species with restrictions}, yelds a \textbf{pattern Hopf algebra} (construction presented in \cref{thm:conHopfalgebra}).
+The permutation pattern Hopf algebra construction was generalized to other combinatorial objects, in the second authors' thesis \cite{Penaguiao2020}, for instance graphs, marked permutations or set partitions.
+This was done in such a way that any combinatorial object enriched with restriction functions, a structure that we call a \textbf{species with restrictions}, yields a \textbf{pattern Hopf algebra} (a construction presented in \cite{Penaguiao2020}, that we recover here in \cref{thm:conHopfalgebra}).
 The algebraic structure of species with restrictions is a generalisation of the classical algebraic structure of combinatorial species from Joyal, see \cite{AM2010}.
 
 
@@ -407,7 +405,7 @@ A parallel question iniciated in \cite{Penaguiao2020} is, which combinatorial ob
 In that paper, naturally labelled objects like graphs and set partitions are trivially interpreted as species with restrictions.
 Crucially, objects that do not have an inherent labelling are not \textit{directly} amenable to an interpretation as species.
 Therefore, some unlabelled objects need original ideas to be codified into species with restrictions. 
-For instance the permutation species with restriction needs to use an interpretation of permutations as double orders.
+For instance the permutation species with restrictions needs to use an interpretation of permutations as double orders.
 
 \
 
@@ -422,11 +420,11 @@ There, the authors study the number of parking functions that avoid a set of fiv
 
 We now discuss the structure of the paper.
 In what remains of \cref{sec:intro}, we introduce the product and coproduct structure on the permutation pattern Hopf algebra and give more details on the main result of this paper, the new formula for the antipode in permutation patterns.
-In \cref{sec:antipode_computing}, we present Takeuchi's formula, a general discussion of the antipode --- and how to compute it iteratively --- as well as the easiest non-trivial Hopf algebra, the polynomial algebra.
-An introduction to the basic notion of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, result that is summarised in \cref{thm:conHopfalgebra}.
+In \cref{sec:antipode_computing}, we present Takeuchi's formula along with some examples of applications of this formula.
+An introduction to the basic notion of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, summarised in \cref{thm:conHopfalgebra}.
 In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
 %We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
-In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed words and in $\mathcal{A}(\mathtt{Per})$.
+In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed word patterns and in permutation patterns.
 %In this section we start by describing the sign-reversing involution method to obtain a cancellation-free formula for the antipode of a Hopf algebra.
 %Then we present the main result of this section in \cref{thm:antipode_perms_intro}, a cancellation-free formula for the antipode of $\mathcal{A}(\mathtt{Per})$.
 Finally, in \cref{sec:reciprocity}, we present an application of the cancellation-free and grouping-free formula on permutations by obtaining a reciprocity result in a new ``pattern-sensitive'' polynomial invariant, called the \emph{multiple occurrence polynomial} on a species with restrictions (MOP for short, see definition \eqref{MOPDef}).
@@ -450,7 +448,7 @@ If $|\sigma| > |\pi_1| + |\pi_2|$ we have $\binom{\sigma}{\pi_1, \pi_2} = 0$, in
 Let us make this concept precise:
 
 \begin{defin}[QSS on permutations]
-A quasi-shuffle signature, or QSS, of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set in such a way that each $I_i$ is a pattern of $\pi_i$ in $\sigma$ --- that is the restricted permutations $\sigma|_{I_i}$ are patterns of $\pi_i$.
+A quasi-shuffle signature, or QSS, of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set in such a way that each $I_i$ is a pattern of $\pi_i$ in $\sigma$ --- that is the restricted permutations $\sigma|_{I_i}$ are the permutation $\pi_i$ for any $i$.
 
 The sets $I_1, \ldots, I_l$ are not necessarily disjoint but they must satisfy $\bigcup_i I_i = I$, where $I$ is the ground set of $\sigma $.
 We let $\binom{\sigma}{\pi_1, \dots, \pi_n}$ denote the number of such QSS.
@@ -463,10 +461,13 @@ This fact justifies the notation choice in \eqref{eq:prodperm}.
 
 This algebra $\mathcal A(\mathtt{Per})$ can be endowed with a Hopf algebra structure with the help of the diagonal sum of permutations, $\oplus$, also called shifted concatenation of permutations.
 If one lets $\pi = \pi_1 \oplus \dots \oplus \pi_n$ be the decomposition of $\pi$ into $\oplus$-indecomposable permutations under the $\oplus$ product, we define the shifted deconcatenation coproduct
-$$\Delta \pat_{\pi} = \sum_{k=0}^n \pat_{\pi_1\oplus \dots \oplus \pi_k} \otimes \pat_{\pi_{k+1}\oplus \dots \oplus \pi_n} \in \mathcal A (\mathtt{Per}) \otimes \mathcal A (\mathtt{Per})\, .$$
+
+\begin{equation}\label{eq:coprodperm}
+\Delta \pat_{\pi} = \sum_{k=0}^n \pat_{\pi_1\oplus \dots \oplus \pi_k} \otimes \pat_{\pi_{k+1}\oplus \dots \oplus \pi_n} \in \mathcal A (\mathtt{Per}) \otimes \mathcal A (\mathtt{Per})\, .
+\end{equation}
 
 To present a cancellation-free antipode formula we need to refine the notion of QSS.
-For sets $A, B$ if integers, we write $A <B$ if $a<b $ for any $a\in A, b \in B$.
+For sets $A, B$ of integers, we write $A <B$ if $a<b $ for any $a\in A, b \in B$.
 
 \begin{defin}[Interlacing QSS on permutations]
 A QSS $\III = (I_1, \dots, I_n)$ is said to be \textbf{non-interlacing} if there is some $i=1, \dots, n-1$ such that $I_i < I_{i+1}$ and $\sigma(I_i) < \sigma(I_{i+1})$.
@@ -479,7 +480,7 @@ We let $\bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatr
 \end{defin}
 
 
-\begin{thm}[Antipode formula for Permutation pattern Hopf algebra]\label{thm:antipode_perms_intro}
+\begin{thm}[Antipode formula for permutation pattern Hopf algebra]\label{thm:antipode_perms_intro}
 Let $\pi$ be a permutation that factors $\pi = \pi_1\oplus \dots \oplus \pi_n$ into $\oplus$-indecomposable permutations.
 Then, we have the following formula for the antipode of $\pat_{\pi}$:
 
@@ -519,12 +520,8 @@ In \cref{fig:interlacingQSSsmpl}, one can see these two interlacing QSS.
 
 \section{Computing the antipode\label{sec:antipode_computing}}
 
-In this section we explore \textit{ad hoc} methods to obtain the antipode, using basic axioms and the Takeuchi formula, on the polynomial algebra and on the permutation pattern Hopf algebra.
-These methods fail to give a general cancellation-free and grouping-free formula for the antipode.
-Afterwards we employ the sign-reversing involution method to compute the antipode on the polynomial Hopf algebra.
-This serves as a display of how the method works.
-
-\subsection{\textit{Ad hoc} methods}
+In this section we explore the antipode of a Hopf algebra using Takeuchi formula.
+We explore examples on the polynomial algebra and on the permutation pattern Hopf algebra.
 We start by recalling Takeuchi's formula, in the form that is presented in \cite{GrinbergReiner}, as well as some convenient notation.
 %This is the beginning of any cancellation-free formula.
 Let us define the $\star$ notation on linear maps $a, b: C \to A$.
@@ -555,7 +552,7 @@ $$S(x^3) = \underbrace{0}_{k = 0} - \underbrace{x^3}_{k = 1} + \underbrace{3 x^2
 We now present another example, this time on the permutation pattern Hopf algebra $\mathcal A(\mathtt{Per})$.
 Consider $\pi = 132 = 1 \oplus 21$. Then Takeuchi's formula gives us:
 \begin{align*}
-S(\pat_{132}) =& \sum_{k=0}^2 (-1)^k \mu^{\circ k-1} \circ (\id_{\mathcal A(\mathtt{Per})} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ k-1}(\pat_{132})\\
+S(\pat_{132}) =& \sum_{k=0}^2 (-1)^k \mu^{\circ (k-1)} \circ (\id_{\mathcal A(\mathtt{Per})} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ (k-1)}(\pat_{132})\\
 =& -(\id_{\mathbb{K}[x]} - \iota \circ \epsilon)(\pat_{132}) + \mu \circ (\id_{\mathbb{K}[x]} - \iota\circ\epsilon)^{\otimes 2}(\pat_1 \otimes \pat_{12}) \\
 =& - \underbrace{\pat_{132}}_{k=1} + \underbrace{\pat_1 \pat_{21}}_{k=2} \\
 =& 3 \pat_{321} + 2 \pat_{231} + 2 \pat_{312} + \pat_{213} + 2 \pat_{21} \, .
@@ -1082,7 +1079,7 @@ for each $x \in \rP[I]$ and for each decomposition $I = S \sqcup T$. We may then
 \text{res}^{(1)}_{I,J}: \tp[I] &\to \tp[J] \qquad \qquad  \text{or}  &\text{res}^{(2)}_{I,J}: \tp[I] &\to \tp[J],\\
 x&\mapsto x|_J \qquad &x&\mapsto x/_{I\setminus J}
 \end{align*} 
-for $x \in \tp[I]$. Each restriction map $\text{res}^{(1)}$ or $\text{res}^{(2)}$ turns $\tp$ into a species with restriction. When $\tp$ is cocommutative, then both restriction maps coincide. We have then the following characterisation of species with restrictions (see \cite{AM2010}, Proposition 8.29, for other characterisations).
+for $x \in \tp[I]$. Each restriction map $\text{res}^{(1)}$ or $\text{res}^{(2)}$ turns $\tp$ into a species with restrictions. When $\tp$ is cocommutative, then both restriction maps coincide. We have then the following characterisation of species with restrictions (see \cite{AM2010}, Proposition 8.29, for other characterisations).
 
 \begin{thm}[Schmitt, Aguiar-Mahajan]\label{thm:swr_lcc}
 There is an equivalence between the category of species with restrictions and the category of linearized cocommutative comonoids.
@@ -1181,13 +1178,13 @@ By definition $\pat_b \in \mathcal{F}(\mathcal{G}(\prR), \mathbb{K})$, where $\m
 \
 
 \begin{defin}[Pattern spaces]
-If $\prR$ is a species with restriction, then the linear span of the pattern functions is denoted by
+If $\prR$ is a species with restrictions, then the linear span of the pattern functions is denoted by
 \begin{equation}
     \mathcal{A}(\prR):=\mathbb{K}\{\pat_a \, : \, a\in \mathcal{G}(\prR)\}.
 \end{equation}
 \end{defin}
 
-We called $\mathcal{A}(\prR)$ the {\bf pattern space} associated to the species $\prR$. By definition, $\mathcal{A}(\prR)$ is a linear subspace of the space of linear functions $\Kcb(\prR)^*$ from $\Kcb(\prR)$ to $\mathbb{K}$. The following was proven in \cite{Penaguiao2020}.
+We write $\mathcal{A}(\prR)$ for the {\bf pattern space} associated to the species $\prR$. By definition, $\mathcal{A}(\prR)$ is a linear subspace of the space of linear functions $\Kcb(\prR)^*$ from $\Kcb(\prR)$ to $\mathbb{K}$. The following was proven in \cite{Penaguiao2020}.
 
 \begin{thm}
 The subspace $\mathcal{A}(\prR)$ of $\Kcb(\prR)^*$ is closed under pointwise multiplication and has a unit.
@@ -1245,7 +1242,7 @@ We end this section with a relevant theorem on functors of species with restrict
 
 \section{Examples of species with restrictions \label{sec:species_restrictions}}
 
-\subsection{Species on linear orders.\label{sec:specieslinearorders}}
+\subsection{Species on total orders.\label{sec:specieslinearorders}}
 
 The first relevant species with restrictions to define is the species of total orders $\mathtt{L}$.
 This has $\mathtt{L}[I] = \{\text{ total orders in $I$ }\}$, a set with $|I|!$ total orders.
@@ -1402,7 +1399,7 @@ Examples of parking functions are $12$, $131$ and $3114$.
 
 \begin{defin}[Dyck path]
 Given an $n\times n$ square grid, a \textbf{Dyck path} on this square is an edge path, from the lower left corner to the upper right corner, that is always above the main diagonal.
-It is a classical result that the number of Dyck paths is enumerated by Catalan numbers.
+It is a classical result that Dyck paths are enumerated by Catalan numbers.
 \end{defin}
 
 
@@ -1581,7 +1578,7 @@ By induction hypothesis, this tells us that $x_2 \sim y_2, \cdots , x_n \sim y_n
 
 
 \begin{cor}\label{cor:freeNCF}
-If $\mathtt{R}$ is an ordered species with restriction, then $\mathcal A(\mathtt{R})$ is free.
+If $\mathtt{R}$ is an ordered species with restrictions, then $\mathcal A(\mathtt{R})$ is free.
 \end{cor}
 This follows from \cite[Theorem 5.2]{Vargas}, as this proof only uses the fact that $\mathtt{Per}$ is NCF.
 
@@ -1668,7 +1665,7 @@ If $\III = (I_1, \dots, I_n)$  is a $\mu_i$-stable QSS, then $y|_{I_1 \cup I_{i+
 This motivates the following lemma:
 
 \begin{lm}\label{obs:pwords-characterisation}
-Let $\mathtt{R}$ be an ordered species with restriction.
+Let $\mathtt{R}$ be an ordered species with restrictions.
 Consider $x, y$ objects in $\mathtt{R}$, such that $y = (\leq_y, m)$ and $x = x_1\ast \dots \ast x_n$ a factorisation into indecomposibles.
 If $\III = (I_1, \dots, I_n)$ is a QSS of $y$ from $x_1, \dots x_n$ that is $\mu_i$-stable, then $I_i \lneq_y I_{i+1}$.
 \end{lm}
@@ -1800,7 +1797,7 @@ The maps $\Psi_{\alpha}$ and $\Phi_{\alpha}$ are easily seen to be inverses of e
 %\end{smpl}
 
 \begin{prop}[Filtered structure of $\mathcal I$]\label{prop:filter_structure_I}
-For an ordered species with restrictions $\mathtt{R}$, and an elements $x\in  \mathtt{R}[J], y\in \mathtt{R}[I]$, along with a factorisation into $\ast$-indecomposibles $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
+For an ordered species with restrictions $\mathtt{R}$, and elements $x\in  \mathtt{R}[J], y\in \mathtt{R}[I]$, along with a factorisation into $\ast$-indecomposibles $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
 That is, if $\alpha \in \mathcal I^{ x, y}_{\III}$ and $\beta \geq \alpha$ then $\beta \in \mathcal I^{ x, y}_{\III}$.
 
 \
@@ -1852,9 +1849,8 @@ This concludes the proof.
 
 \
 
-The consequence is, for pattern algebras, that computing the antipode corresponds to find which $\mathcal I_{\III}^{x, y}$ have a unique minimal element.
-In this case, the antipode formula reduces to counting how many of these minimal elements are the composition $\mathbb{1}$.
-These will contribute with $(-1)^n$ to the total coefficient of $\pat_y$.
+The consequence is, if $\mathcal I_{\III}^{x, y}$ has a unique minimal elemet for any two objects $x, y$ and QSS $\III$, the antipode formula reduces to counting how many of these minimal elements are the composition $\mathbb{1}$.
+Indeed, these will contribute with $(-1)^n$ to the total coefficient of $\pat_y$, giving us a cancellation-free formula.
 
 \
 
