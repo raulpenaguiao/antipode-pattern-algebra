@@ -1,0 +1,142 @@
+
+\section{Reciprocity results\label{sec:reciprocity}}
+
+In this section, let $\mathtt{R}$ be a connected associative species with restrictions.
+On this setting, we define a new polynomial invariant associated to any object in $\mathtt{R}$, the \textbf{multiple occurrences polynomial}, or MOP for short.
+The MOP construction in this section is rather general and corresponds to an infinite family of polynomial maps $\mathcal{A}(\mathtt{R}) \to \mathbb{K}[x]$.
+
+After the definition of the MOP, we present a motivation for this construction.
+Our main theorem is that this construction is in fact a Hopf algebra morphism, and we leave the proof of this result to the end of the section.
+We also display an application of the cancellation free formula above, \cref{thm:antipode_perms} to produce a reciprocity result, following the steps in \cite{humpert2012incidence}, on the permutation pattern Hopf algebra.
+
+
+\begin{defin}[Multiple occurrence polynomial on a species with restrictions $\mathtt{R}$]\label{MOPDef}
+Fix an object $\mathrm{z}$ of the connected associative species with restrictions $\mathtt{R}$.
+We construct a map $\chi^{\mathrm{Z}}: \mathcal{A}(\mathtt{R}) \to \mathbb{K}[x]$.
+For that, fix a positive integer $x$ and an object $\mathrm{y}$ in $\mathtt{R}$, $\chi^{\mathrm{Z}}$ has
+$$\chi^{\mathrm{z}}(\pat_{\mathrm{y}})(x) \coloneqq \pat_{\mathrm{y}}(\mathrm{z}^{\star x})\, . $$
+\end{defin}
+
+That this indeed defines a polynomial, and that this is a Hopf algebra morphism, is the content of the main theorem below \cref{thm:polynomiality}.
+Let us now see what values this invariant takes.
+For notation simplicity we write $\chi^{\mathrm{x}}_{\mathtt{y}} \coloneqq \chi^{\mathrm{x}}(\pat_{\mathtt{y}})$.
+
+\begin{smpl}
+We compute this invariant on particular objects for $\mathtt{R} = \mathtt{Per}$, defined above in \cref{sec:speciespermutation}.
+Take $\mathtt{z} = 1$, the unique permutation of size one.
+It is easy to see that $\chi^{\mathrm{z}}_{\mathrm{y}}(x) = 0$ whenever $\mathrm{y}$ is not an increasing permutation, and $\chi^{\mathrm{z}}(\pat_{\mathrm{z}^{\star k}})(x) = \binom{x}{k}$, a polynomial of degree $k$.
+In fact, we can observe something much more general: if $\pi, \tau$ have no common $\oplus$-indecomposible factor, then $\chi^{\tau}_{\pi} = 0$
+
+Let's now take $\mathtt{z} = 21$, the unique indecomposible permutation of size two.
+In this case, $\ker \chi^{\mathrm{z}} = \spn \{ \pat_{\pi} | \text{$\oplus$-factorisation of $\pi$ contains a permutation $\tau$ with $|\tau| > 2$} \}$ from the observation above.
+If $\pi $ decomposes into $k_1$ copies of $\tau_1 = 1$ and $k_{21}$ copies of $\tau_2 = 21$, then $\chi^{\mathrm{z}}_{\pi}(x) = 2^{k_1} \binom{x}{k_1 + k_{21}}$.
+\end{smpl}
+
+The MOP encapsulates the complexity of the species with restrictions quite well.
+One can easily observe that, for the species with restrictions $\mathtt{R} = \mathtt{Gr}$ on graphs, a general formula for $\chi^{\mathrm{z}}_{\mathrm{y}}(x)$ can be found for indecomposible $\mathrm{y}$, depending only on $\pat_{\mathrm{y}}(\mathrm{z})$.
+This is not so simple for the permutation case.
+On $\mathtt{R} = \mathtt{MPer}$, the species with restrictions of marked permutations, the story is even more complicated as one does not have a unique factorisation into indecomposables.
+In this way, we ask the following question.
+
+\begin{conj}
+    For any marked permutations $\mathtt{y}, \mathtt{z}$, the polynomial $\chi^{\mathrm{z}}_{\mathrm{y}}$ is a binomial multiplied by some constant, that is it maps $x \mapsto a \binom{x}{b}$ for $a, b$ independent of $x$.
+\end{conj}
+
+\begin{obs}
+    Fixing $x = 1$ we get a multiplicative map $\mathcal{A}(\mathtt{R}) \to \mathbb{K}$.
+    This map is in fact a \textbf{character}, that is an algebra morphism that maps identity to identity.
+    
+    In \cite{aguiar2006combinatorial}, a Hopf algebra morphism was constructed from any connected graded Hopf algebra to $QSym$ using only a character.
+    The astute reader may note that there is a classical \textit{specialisation} map $QSym \to \mathbb{K}[x]$, so one should wonder if this $\chi^{\mathrm{z}}$ arises from lifting a character $\mathcal{A}(\mathtt{R}) \to \mathbb{K}$ to a map $QSym \to \mathbb{K}[x]$, followed by composing with said specialisation.
+    
+    Indeed, the map $\mathrm{eval}_{\mathrm{z}} : \pat_{\mathrm{y}} \mapsto \pat_{\mathrm{y}}(\mathrm{z}) $ is this character.
+    We leave the proof of this fact to the interested reader, because it is mostly tedious unwravelling of definitions that closely relates to the proof of \cref{lm:polynomial} below.
+\end{obs}
+
+We now apply \cref{thm:antipode_perms} to extract a reciprocity result for permutations.
+
+\begin{smpl}
+    Let us get back to the case $\mathrm{z} = 21$.
+    Because the antipode on polynomials simply flips the sign of the variable, we have
+$$\chi^{21}_{\pi}(-x) = S(\chi^{21}(\pat_{\pi})(x)) =\chi^{21}(S(\pat_{\pi}))(x) $$
+
+Setting $x = 1$ and using \cref{thm:antipode_perms}, we get
+$$\chi^{21}_{\pi}(-1) = S(\pat_{\pi})(21) = (-1)^n \sum_{\sigma} 
+    \begin{bmatrix}
+    \sigma \\ \pi_1, \dots, \pi_n
+    \end{bmatrix}\pat_{\sigma}(21) $$
+
+    This allows us to quickly compute simple cases for $\pi = 12$, for instance $\chi^{21}_{\pi}(-1) = 1 \times \pat_{21}(21) = 1$.
+\end{smpl}
+
+
+
+\subsection{Proof of polynomiality and Hopf morphism}
+
+We present and prove the main theorem of this section.
+
+\begin{thm}[MOPs in pattern algebras]\label{thm:polynomiality}
+Let $\mathtt{R}$ be a connected associative species with restrictions and $\mathrm{x}$ an object.
+The map $\chi^{\mathrm{x}}$ takes patterns to polynomials and is a Hopf algebra morphism $\mathcal A(\mathtt{R}) \to \mathbb{K}[x]$.
+\end{thm}
+
+We recall that for each object $\yy$ in a connected associative species with restrictions, any factorisation into $\ast$-indecomposible elements has the same multiset of factors and, therefore, the same size, which we call $\ell(\yy)$.
+
+\begin{thm}\label{lm:polynomial}
+The invariant $\chi^{\xx}_{\yy}(n)$ is a polynomial in $n$.
+The degree of this polynomial is at most $\ell(\yy)$, the number of $\ast$-indecomposible factors of $\yy$ (with repetition).
+\end{thm}
+
+
+\begin{proof}
+We act by induction on $|\yy|$.
+If $|\yy| = 0$, recall that $\mathtt{R}$ is connected, so $\chi^{\xx}_{\yy}(n) = 1$ for all $n$, which is a polynomial of degree zero.
+
+For the induction hypothesis, observe that 
+$$\Delta \pat_{\yy} = 1\otimes \pat_{\yy} + \pat_{\yy} \otimes 1 + \sum_{\substack{a \ast b = y\\\ell(a), \ell(b) < \ell(\yy)}} \pat_a \otimes \pat_b \, ,$$
+thus we have for $n > 1$ 
+
+\begin{equation*}
+    \begin{split}
+        \pat_{\yy}(\xx^{\ast n}) &= \pat_{\yy}(\xx^{\ast n-1}) + \pat_{\yy}(\xx) + \sum_{\substack{a \ast b = y\\|a|, |b| < |\yy|}} \pat_a (\xx) \otimes \pat_b (\xx^{\ast n-1}) \\
+         \pat_{\yy}(\xx^{\ast n}) &- \pat_{\yy}(\xx^{\ast n-1}) = \pat_{\yy}(\xx) + \sum_{\substack{a \ast b = y\\|a|, |b| < |\yy|}} \pat_a (\xx) \chi^{\xx}_b ( n-1)
+    \end{split}
+\end{equation*}
+
+The right hand side is, by induction hypothesis, a polynomial of degree at most $\ell(\yy) -1$.
+The left hand side is $\chi^{\xx}_{\yy}(n) - \chi^{\xx}_{\yy}(n-1)$, which shows that $\chi^{\xx}_{\yy}(n)$ has degree at most $\ell(\yy)$.
+\end{proof}
+
+
+\begin{lm}\label{lm:HA_morphism}
+The map $\pat_{\yy} \mapsto \chi^{\xx}_{\yy}$ is a Hopf algebra morphism.
+\end{lm}
+
+\begin{proof}
+   Observe the product is preserved precisely because the product on $\mathcal{A}(\mathtt{R})$ is the pointwise product: that is, if $\pat_{\yy_1} \pat_{\yy_2} = \sum_{\zz} \binom{\zz}{\yy_1, \yy_2}_{\mathtt{R}} \pat_{\zz}$, then passing in the argument $x^{\ast n}$ of both sides yields a true equality $\chi^{\xx}_{\yy_1}(n) \chi^{\xx}_{\yy_2}(n) = \sum_{\zz} \binom{\zz}{\yy_1, \yy_2}_{\mathtt{R}} \chi^{\xx}_{\zz}(n)  $.
+
+    For the coproduct, we want to show that $\Delta \chi^{\xx}_{\yy} = \chi^{\xx} \otimes \chi^{\xx}(\Delta \pat_{\yy})$.
+    It is enough to show that $\Delta \chi^{\xx}_{\yy} (m \otimes n) = \chi^{\xx} \otimes \chi^{\xx}(\Delta \pat_{\yy})(m\otimes n) $ for any non-negative integers $m, n$.
+
+    Write $\chi^{\xx}_{\yy} = \sum_{k\geq 0 } a_k x^k$.
+    On the left hand side, we get $\Delta \chi^{\xx}_{\yy} (m \otimes n) = \sum_{k \geq 0} a_k \sum_{j=0}^k \binom{k}{j} x^j\otimes x^{k-j} (m \otimes n) = \sum_{k \geq 0} a_k (m+n)^k = \chi^{\xx}_{\yy}(m+n) $.
+
+    On the right hand side we have 
+    
+    
+    \begin{equation*}
+        \begin{split}
+        (\chi^{\xx} \otimes \chi^{\xx})\Delta \pat_{\yy}(m\otimes n) =& \sum_{a \ast b = \yy} \chi^{\xx}_a(m) \otimes \chi^{\xx}_a(n)\\
+        =& \sum_{a \ast b = \yy} \pat_a(x^{\ast m})\pat_b(x^{\ast n})\\
+        =& \sum_{a \ast b = \yy} \pat_a\otimes \pat_b ( x^{\ast m} \otimes x^{\ast n})\\
+        =& \Delta \pat_{\yy}(x^{\ast n} \ast x^{\ast b}) = \Delta \pat_{\yy}(x^{\ast m+n}) = \chi^{\xx}_{\yy}(n+m)\, .
+        \end{split}
+    \end{equation*}
+    This is exactly what we obtained earlier, so this map preserves coproducts.
+\end{proof}
+
+
+\begin{proof}[Proof of \cref{thm:polynomiality}]
+This is a consequence of \cref{lm:polynomial} and \cref{lm:HA_morphism}.
+\end{proof}
+

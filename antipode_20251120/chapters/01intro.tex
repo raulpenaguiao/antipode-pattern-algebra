@@ -1,0 +1,212 @@
+
+\section{Introduction\label{sec:intro}}
+
+In his now celebrated  ``Lemma 14'', Takeuchi (see \cite{Takeuchi1971}, Lemma 14) obtained a quite general formula for the antipode of a Hopf algebra. 
+This is an antipode formula for any filtered Hopf algebra, which can be applied in much generality and fits the framework of \textbf{pattern Hopf algebras}, introduced in \cite{penaguiao2020algebraic} and recovered below.
+However, it has been observed that it is not the most economical formula, in the sense that it leaves some cancellations and groupings to be made.
+
+\
+
+Economical formulas for antipodes in Hopf algebras in combinatorics have played an important role in extracting old and new combinatorial equations, see \cite{Schmitt1993, humpert2012incidence, BS2017, aguiar2017hopf, xu2022cancellation}.
+In particular, we argue Humpert and Martin stand out, as they were able to explain, in \cite{humpert2012incidence}, an elusive \textit{reciprocity relation} on graphs first presented by Stanley in \cite{stanley1975combinatorial}, where the number of acyclic orientations plays a role.
+
+\
+
+The method for applying new antipode formulas to obtain reciprocity results is worth describing here.
+Generally speaking, a reciprocity result is a combinatorial interpretation of specialisations of a polynomial at negative integer values.
+The classical examples are the characteristic polynomial of a graph $\chi_G$ or matroid $\chi_M$.
+These in fact define Hopf algebra morphisms $\chi_{\eta, \cdot } : H \to \mathbb{K}[x]$, so they commute with the antipode, that is:
+$$\chi_{\eta, h } (-x) = \chi_{\eta, S(h) } \, . $$
+In this way, a combinatorial interpretation of the antipode $S(h)$ elicits a combinatorial interpretation of the polynomial at negative values.
+
+\
+
+%On a graph $G$, we define its chromatic function by counting, for each $n\geq 1$, the number of \textit{stable colourings} of its vertices.
+%That is, functions $f:V(G) \to [n]$ such that each edge is not monochromatic.
+%This function, $\chi_G$, turns out to be a polynomial, and its degree is the number of vertices of $G$.
+%It makes sense to explore the specialisation $\chi_G(-1)$, and Stanley proved that this counts the \textit{acyclic orientations} of $G$.
+%The observation of Humpert and Martin is that $\chi$ is in fact a Hopf algebra morphism from the \textbf{incidence Hopf algebra on graphs} to the polynomial Hopf algebra, so it commutes with the antipodes of each Hopf algebra.
+%The antipode of the polynomial Hopf algebra is $S(x) = -x$, so combinatorial interpretations of the chromatic polynomial on negative numbers can be elicited, via
+%$$\chi_G(-x) = \chi_{S(G)}(x)\, .$$
+
+%A cancellation-free formula for the antipode $S(G)$ on the incidence Hopf algebra on graphs was also presented by Humpert and Martin, where the number of acyclic orientations plays a role and explains the previous result from Stanley.
+%This antipode formula was also used to obtain new relations involving the Tutte polynomial.
+
+
+\
+
+A method for obtaining cancellation-free formulas that has had success with a large family of Hopf algebras was brought forth by Sagan and Benedetti in \cite{BS2017}, called \textit{sign-reversing involution method}.
+This is a classical method in enumerative combinatorics and has found applications in fields as far as number theory e.g. in \cite{zagier2009one}.
+%There, it was shown that $x^2+y^2 = p$ has integer solutions for $p$ prime whenever $p\equiv_4 1$.
+%This is a classical fact, but this new proof uses an involution method.
+
+
+\
+
+Sign-reversing involution methods require careful treatment of the antipode formula of Takeuchi, and they vary widely depending on the combinatorial Hopf algebra at hand.
+%Therefore, for each Hopf algebra, a new and original application of the method is needed.
+Notwithstanding, this has been shown to work in the shuffle Hopf algebra, the incidence Hopf algebra on graphs, the Hopf algebras of quasisymmetric functions, and the Hopf algebra of multi-quasisymmetric functions (see \cite{BS2017}). It is still a challenging problem to find sign-reversing involutions that yield cancellation-free formulas.
+For instance, in \cite{MalvenutoReutenauer,xu2022cancellation} the antipode of the Malvenuto–Reutenauer Hopf algebra was computed, but only for a restricted family of permutations.
+
+\
+
+Another method for finding cancellation-free formulas arose in \cite{aguiar2017hopf}.
+There, a cancellation-free antipode formula for a Hopf structure on generalized permutahedra was found. 
+Because several interesting combinatorial structures can be embedded in the Hopf algebra of the generalized permutahedra, this also yields a cancellation-free formula for these Hopf subalgebras.
+Specific examples are graphs, matroids, posets and set partitions.
+Yet another method was found in \cite{Foissy}, where the notion of \emph{bialgebra of cointeraction} was used to obtain antipode formulas for the permutation pattern Hopf algebra.
+
+\
+
+Parallel to this development is the study of permutation patterns.
+This is a study with roots in computer science, pioneered by Knuth in \cite{Knuth}, where a description of \textit{stack sortable} permutations was presented via permutation patterns.
+In the meantime, permutation patterns has become a well established area of expertise in combinatorics, see \cite{linton2010permutation}.
+
+\
+
+The second author, in \cite{Vargas}, introduced an algebraic tool to study permutation patterns, by constructing the permutation pattern Hopf algebra.
+Specifically, we consider finite sums of functions $\pat_{\pi}$ of the form 
+$$ \binom{\tau}{\pi} \coloneqq \pat_{\pi}(\tau)\coloneqq  \#\{\text{ ways to fit $\pi$ in $\tau$ }\}\, ,$$
+the central functions in the study of permutation patterns.
+These functions span a vector space that is closed for pointwise product, see \eqref{eq:prodperm}, and a compatible coproduct, see \eqref{eq:coprodperm}.
+The corresponding Hopf algebra is the \textbf{permutation pattern Hopf algebra} $\mathcal{A}(\mathtt{Per})$, and is shown to be free in \cite{Vargas}.
+For a definition of patterns in permutations, or of \say{ways to fit $\pi$ in $\sigma$}, see \cite{penaguiao2020algebraic}
+
+\
+
+The permutation pattern Hopf algebra construction was generalized to other combinatorial objects by the first author \cite{Penaguiao2020}, for instance graphs, marked permutations or set partitions.
+This was done in such a way that any combinatorial object enriched with restriction functions, a structure that we call a \textbf{species with restrictions}, yields a \textbf{pattern Hopf algebra} (a construction presented in \cite{Penaguiao2020}, that we recover here in \cref{thm:conHopfalgebra}).
+The algebraic structure of species with restrictions is a generalisation of the classical algebraic structure of combinatorial species from Joyal, see \cite{AM2010}.
+
+
+\
+
+Our most general result is summed up in \cref{thm:general_antipode}, and presents an antipode formula for any pattern Hopf algebra.
+This is an application of the sign-reversing involution method, although it is not a cancellation-free and grouping-free formula for a general pattern Hopf algebra.
+However, this will be applied to packed words in \cref{thm:antipode_packed} and to permutations in \cref{thm:antipode_perms}, where we indeed obtain a cancellation-free and grouping-free antipode formula for the respective pattern Hopf algebras.
+
+\
+
+Onwards we introduce a new polynomial invariant in permutations, by considering the evaluation character in the permutation pattern Hopf algebra, see \cref{MOPDef}.
+As far as we know, this is a new family of invariants in permutations.
+We apply the cancellation-free formula to interpret this polynomial in negative values, leading to a reciprocity result via the antipode formula.
+Specifically, we show that the value of this polynomial at $x = -1$ counts so called \textbf{interlacing quasi-shuffle signatures} of specific permutations.
+
+\
+
+A parallel question posed in \cite{Penaguiao2020} is, which combinatorial objects can be faithfully represented by species with restrictions.
+In that paper, naturally labelled objects like graphs and set partitions are trivially interpreted as species with restrictions.
+Crucially, objects that do not have an inherent labelling are not \textit{directly} amenable to an interpretation as species.
+Therefore, some unlabelled objects need original ideas to be codified into species with restrictions. 
+For instance the permutation species with restrictions needs to use an interpretation of permutations as double orders.
+
+\
+
+In contribution to this question, we present in this paper an original species with restrictions structure on parking functions.
+The idea used here is a bijection between labelled Dyck paths and parking functions, presented in \cite{Loehr,BGLPV2021}.
+The underlying notion of patterns in parking functions here presented recovers the one recently presented in \cite{adeniran2022pattern}.
+There, the authors study the number of parking functions that avoid a set of five parking functions of size three, recovering sequences like the Catalan numbers.
+%The original introduction of patterns in parking functions hearkens back to \cite{qiu2018patterns}.
+%Parking functions themselves were introduced for the first time in \cite{konheim1966occupancy}, where it was shown that there are $(n+1)^{n-1}$ parking functions of length $n$.
+
+\
+
+We now discuss the structure of the paper.
+In what remains of \cref{sec:intro}, we introduce the product and coproduct structure on the permutation pattern Hopf algebra and give more details on the main result of this paper, the new formula for the antipode in permutation patterns.
+In \cref{sec:antipode_computing}, we present Takeuchi's formula along with some examples of applications of this formula.
+An introduction to the basic notion of Joyal species and algebraic structures related to these is presented in \cref{sec:species}. In \cref{sec:pattern_algebra_contruction}, we present the algebra and category theory background for pattern Hopf algebras. We recall the pattern Hopf algebra construction from \cite{Penaguiao2020} from a species with restrictions, so that this article is self contained, summarised in \cref{thm:conHopfalgebra}.
+In \cref{sec:species_restrictions}, we present several examples of species with restrictions, centrally the one on permutations, but also an original one in parking functions.
+%We also present here species with restrictions on Dyck paths and on parking functions, and present simple examples of patterns in parking functions.
+In \cref{sec:formula_general,sec:formula_pp}, we present the main result, the cancellation-free and grouping-free formula for the antipode in packed word patterns and in permutation patterns.
+%In this section we start by describing the sign-reversing involution method to obtain a cancellation-free formula for the antipode of a Hopf algebra.
+%Then we present the main result of this section in \cref{thm:antipode_perms_intro}, a cancellation-free formula for the antipode of $\mathcal{A}(\mathtt{Per})$.
+Finally, in \cref{sec:reciprocity}, we present an application of the cancellation-free and grouping-free formula on permutations by obtaining a reciprocity result in a new ``pattern-sensitive'' polynomial invariant, called the \emph{multiple occurrence polynomial} on a species with restrictions (MOP for short, see definition \eqref{MOPDef}).
+
+
+
+\subsection{The permutation pattern Hopf algebra and the main result}
+
+In this section we introduce the Hopf algebra structure on permutation patterns, and present the main result on this paper: a cancellation-free and grouping-free antipode formula on permutation patterns Hopf algebra.
+
+\
+
+Let $\pat_{\pi}$ be a function on permutations, so that $\pat_{\pi}(\sigma)$ counts the number of restrictions of the permutation $\sigma$ that fit the pattern $\pi$.
+In this way, the collection of permutation pattern functions $\{\pat_{\pi}\}$ is linearly independent, so it is a basis of a vector space $\mathcal A (\mathtt{Per})$.
+Further, in \cite{Vargas}, it was shown that the pointwise product of two such functions can be expressed as a sum of other permutation pattern functions:
+\begin{equation}\label{eq:prodperm}
+\pat_{\pi_1} \pat_{\pi_2} = \sum_{\sigma} \binom{\sigma}{\pi_1, \pi_2} \pat_{\sigma} \, ,
+\end{equation}
+where the sum runs over all permutations $\sigma$ of any size.
+If $|\sigma| > |\pi_1| + |\pi_2|$ we have $\binom{\sigma}{\pi_1, \pi_2} = 0$, in fact, the coefficients $\binom{\sigma}{\pi_1, \pi_2}$ that arise in this product formula count the so called \textbf{quasi-shuffle signatures}, or \textbf{QSS}, of $\sigma$ from $\pi_1, \pi_2$.
+Let us make this concept precise:
+
+\begin{defin}[QSS on permutations]
+A quasi-shuffle signature, or QSS, of $\sigma$ from $\pi_1, \dots, \pi_n$ is a tuple $\III = (I_1, \dots, I_n)$ of sets on the ground set of the permutation $\sigma$, that cover this ground set in such a way that each $I_i$ is a pattern of $\pi_i$ in $\sigma$ --- that is the restricted permutations $\sigma|_{I_i}$ are the permutation $\pi_i$ for any $i$.
+
+The sets $I_1, \ldots, I_l$ are not necessarily disjoint but they must satisfy $\bigcup_i I_i = I$, where $I$ is the ground set of $\sigma $.
+We let $\binom{\sigma}{\pi_1, \dots, \pi_n}$ denote the number of such QSS.
+It was shown in \cite{Penaguiao2020} that $\binom{\sigma}{\pi_1, \dots, \pi_n}$ is precisely the coefficient that arises in the iterated product of $n$ elements.
+This fact justifies the notation choice in \eqref{eq:prodperm}.
+
+\end{defin}
+
+\
+
+This algebra $\mathcal A(\mathtt{Per})$ can be endowed with a Hopf algebra structure with the help of the diagonal sum of permutations, $\oplus$, also called shifted concatenation of permutations.
+If one lets $\pi = \pi_1 \oplus \dots \oplus \pi_n$ be the decomposition of $\pi$ into $\oplus$-indecomposable permutations under the $\oplus$ product, we define the shifted deconcatenation coproduct
+
+\begin{equation}\label{eq:coprodperm}
+\Delta \pat_{\pi} = \sum_{k=0}^n \pat_{\pi_1\oplus \dots \oplus \pi_k} \otimes \pat_{\pi_{k+1}\oplus \dots \oplus \pi_n} \in \mathcal A (\mathtt{Per}) \otimes \mathcal A (\mathtt{Per})\, .
+\end{equation}
+
+To present a cancellation-free antipode formula we need to refine the notion of QSS.
+For sets $A, B$ of integers, we write $A <B$ if $a<b $ for any $a\in A, b \in B$.
+
+\begin{defin}[Interlacing QSS on permutations]
+A QSS $\III = (I_1, \dots, I_n)$ is said to be \textbf{non-interlacing} if there is some $i=1, \dots, n-1$ such that $I_i < I_{i+1}$ and $\sigma(I_i) < \sigma(I_{i+1})$.
+Otherwise, we say that the QSS is \textbf{interlacing}. 
+
+\
+
+Note that, unlike in the case on QSS, reordering an interlacing QSS does not in general give an interlacing QSS.
+We let $\bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ denote the number of interlacing QSS.
+\end{defin}
+
+
+\begin{thm}[Antipode formula for permutation pattern Hopf algebra]\label{thm:antipode_perms_intro}
+Let $\pi$ be a permutation that factors $\pi = \pi_1\oplus \dots \oplus \pi_n$ into $\oplus$-indecomposable permutations.
+Then, we have the following formula for the antipode of $\pat_{\pi}$:
+
+$$S(\pat_{\pi}) = (-1)^n \sum_{\sigma} \bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr] \pat_{\sigma}\, ,$$
+where the sum runs over all permutations $\sigma$, and the coefficients count the number of \textbf{interlacing QSS} of $\sigma$ from $\pi_1, \dots, \pi_n$.
+\end{thm}
+
+Note that for $|\sigma| > \sum_i |\pi_i|$, the coefficient $\bigl[\!\begin{smallmatrix} \sigma \\ \pi_1, \dots, \pi_n \end{smallmatrix}\!\bigr]$ vanishes, so this sum is finite.
+
+\
+
+In the following we present some examples that help explain QSS and interlacing QSS.
+%We also present an antipode formula for the packed words pattern Hopf algebra, with a similar characterisation.
+
+\
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{../images/interlacing_25314_square.pdf}
+    \caption{\textbf{Left:} the permutation 2314, along with a labelling of two of its QSS from $1, 21, 1, 1$. In orange the two sets that do not interlace. \textbf{Right:} the permutation 123, along with its two interlacing QSS from $1, 12$.\label{fig:interlacingQSSsmpl}}
+\end{figure}
+
+
+\begin{smpl}[Interlacing QSS]
+The permutation $2314$ has several QSS from $1, 21, 1, 1$, for instance $(4, 13, 2, 1)$ and $(1, 13, 4, 2)$, but from these two, only the first is interlacing.
+In \cref{fig:interlacingQSSsmpl}, one can see these two QSS.
+Further computations can show that $\binom{2314}{1, 21, 1, 1} = 36$ and $\bigl[\!\begin{smallmatrix} 2314 \\ 1, 21, 1, 1 \end{smallmatrix}\!\bigr] = 8$.
+
+\
+
+One can observe that there are three QSS of $123$ from $1$, $12$, but one of them is non-interlacing (the QSS $(1,23)$), so
+$\bigl[\!\begin{smallmatrix} 123 \\ 1, 21 \end{smallmatrix}\!\bigr] = 2$.
+In \cref{fig:interlacingQSSsmpl}, one can see these two interlacing QSS.
+\end{smpl}
+

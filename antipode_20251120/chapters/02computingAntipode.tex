@@ -1,0 +1,145 @@
+
+\section{Computing the antipode\label{sec:antipode_computing}}
+
+In this section we explore the antipode of a Hopf algebra using Takeuchi formula.
+We explore examples on the polynomial algebra and on the permutation pattern Hopf algebra.
+We start by recalling Takeuchi's formula, in the form that is presented in \cite{GrinbergReiner}, as well as some convenient notation.
+%This is the beginning of any cancellation-free formula.
+Let us define the $\star$ notation on linear maps $a, b: C \to A$.
+Whenever $A$ is an algebra, and $C$ is a coalgebra, we define:
+$$a \star b \coloneqq \mu_A \circ (a \otimes b) \circ \Delta_C\, ,$$
+which is an associative and unitary product on linear maps from $C$ to $A$. We will be focused on the case when $C=A=H$ is a Hopf algebra, so this defines a convolution operation on $\End(H)$.
+
+The following result is from \cite[Lemma 14]{Takeuchi1971}.
+
+\begin{prop}[Takeuchi's formula]\label{lm:takeuchi}
+If $H = (H, \mu, \iota, \Delta, \epsilon, S)$ is a Hopf algebra such that $(\iota\circ \epsilon - \id_H)$ is $\star$-nilpotent (such as in any filtered Hopf algebra), then 
+\begin{equation}\label{eq:eq1}
+S = \sum_{k\geq 0 }  ( \iota  \circ\epsilon- \id_H)^{\star k} = \sum_{k\geq 0} (-1)^k \mu^{\circ (k-1)} \circ (\id_{H} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ (k-1)}\, ,
+\end{equation}
+where we use the convention that $\Delta^{\circ (-1)} = \epsilon $ and $\mu^{\circ (-1)} = \iota$.
+Notice that the $\star$-nilpotent property ensures that this sum is finite.
+\end{prop}
+
+Note that, any pattern algebra is a filtered Hopf algebra, so for our objects of study we can always apply Takeuchi's formula.
+%This is summarized in \cref{thm:conHopfalgebra}.
+
+\
+
+In the Hopf algebra of polynomials, this gives us the following:
+$$S(x^3) = \underbrace{0}_{k = 0} - \underbrace{x^3}_{k = 1} + \underbrace{3 x^2 \cdot x + 3 x \cdot x^2}_{k=2} - \underbrace{6 x \cdot x \cdot x}_{k = 3} = - x^3 \, .$$
+
+
+We now present another example, this time on the permutation pattern Hopf algebra $\mathcal A(\mathtt{Per})$.
+Consider $\pi = 132 = 1 \oplus 21$. Then Takeuchi's formula gives us:
+\begin{align*}
+S(\pat_{132}) =& \sum_{k=0}^2 (-1)^k \mu^{\circ (k-1)} \circ (\id_{\mathcal A(\mathtt{Per})} - \iota \circ \epsilon)^{\otimes k} \circ \Delta^{\circ (k-1)}(\pat_{132})\\
+=& -(\id_{\mathbb{K}[x]} - \iota \circ \epsilon)(\pat_{132}) + \mu \circ (\id_{\mathbb{K}[x]} - \iota\circ\epsilon)^{\otimes 2}(\pat_1 \otimes \pat_{12}) \\
+=& - \underbrace{\pat_{132}}_{k=1} + \underbrace{\pat_1 \pat_{21}}_{k=2} \\
+=& 3 \pat_{321} + 2 \pat_{231} + 2 \pat_{312} + \pat_{213} + 2 \pat_{21} \, .
+\end{align*}
+
+\
+
+These coefficients can be seen as enumerating quasi-shuffle signatures of $132$ from $1$ and $12$ that are \textbf{interlacing}, according to \cref{thm:antipode_perms_intro}.
+
+
+
+\
+
+\subsection{The sign-reversing involution method}
+
+The application of the sign-reversing involution method to compute antipodes of Hopf algebras was first presented in \cite{BS2017}.
+This is a method to find cancellation-free formulas for the antipode of a Hopf algebra.
+It starts in the formula given by Takeuchi, and results in a $\pm1$ sum that runs over a collection of objects, say $\mathcal O$.
+An involution $\zeta $ is an endomorphism such that $\zeta \circ \zeta$ is the identity.
+A sign-reversing involution $\zeta $, is an involution on $\mathcal O$ such that if $\zeta(x) \neq x$, then $x$ and $\zeta(x)$ contribute with opposite signs to the sum over $\mathcal O$ that results in the antipode.
+As a consequence, when applying Takeuchi's formula, we can cancel terms that are not fixed points of $\zeta$.
+
+%keeps track of all the terms to be summed, usually by means of compositions, that arise in this formula.
+%Thus, the sum obtained runs over a collection of objects, say $\mathcal O$, that is partitioned into families indexed by compositions.
+%These compositions play an important role in the sum, as their length determines the sign of the corresponding objects.
+
+%\
+%
+%Recall that an involution $\zeta $ is an endomorphism such that $\zeta \circ \zeta$ is the identity.
+%We describe an involution in $\mathcal O$, call it $\zeta $, in such a way that if $\zeta(x) \neq x$, then $x$ and $\zeta(x)$ contribute with opposite signs to the antipode.
+
+\
+
+%We give an example of how this method is applied in the Hopf algebra $\mathbb{K}[x]$.
+%The following is a computation from \cite{BS2017}.
+%There are easier ways to obtain an antipode formula for the polynomial Hopf algebra: the interested reader can find some for instance in \cite{GrinbergReiner}.
+%However, this example shows the power of sign-reversing involutions, as the whole process can be done with little recourse to intuition after picking the right involution.
+
+An example of how this method is applied in the Hopf algebra $\mathbb{K}[x]$ is given in \cite{BS2017}.
+
+
+\begin{thm}[The antipode formula for the polynomial Hopf algebra]\label{thm:polyHA}
+The antipode $S$ for $\mathbb{K}[x] $ is 
+$$ S(x^n) =(-x)^n\, . $$
+\end{thm}
+%
+%To prove this formula, we first introduce \textit{weak compositions}.
+%A \textbf{weak composition} $\alpha$ of an integer $n$ is a list of non-negative integers $\alpha = (\alpha_1, \dots , \alpha_l)$ such that $\sum_i \alpha_i = n$.
+%We denote the length of the weak composition by $\ell = \ell(\alpha)$, and use the shorthand notation $\alpha \models^0 n$.
+%If $\alpha $ has no zero entries, we say that $\alpha$ is a \textbf{composition}, and write $\alpha \in \mathcal C_n$.
+%
+%\
+%
+%A \textbf{weak set composition} $\opi$ of a set $A$ is a list of pairwise disjoint sets $\opi = (A_1, \dots , A_{\ell})$ such that $\bigcup_i A_i = A$.
+%Note that some sets may be empty.
+%We denote the length of the weak composition by $\ell = \ell(\opi)$, and use the shorthand notation $\opi \models^0 A$ to indicate that $\opi$ is a weak set composition of the set $A$.
+%If the weak set composition does not contain any empty set, we say that this is a \textbf{set composition}, and we denote $\opi \models A$ to indicate that $\opi$ is a set composition of the set $A$.
+%There are finitely many set compositions of a given set $A$, whereas there are infinitely many weak set compositions of $A$.
+%Let $\mathbf{C}_A$ be the collection of set composition of $A$.
+%We abbreviate to $\mathbf{C}_n$ when $A = [n]$.
+%
+%\begin{proof}[Proof of \cref{thm:polyHA}]
+%We use Takeuchi formula, given in \eqref{eq:eq1}, which holds for graded Hopf algebras,
+%$$S(x^n) = \sum_{k = 0} (-1)^k \mu^{\circ (k-1)} \circ (\id_{\mathbb K[x]} - \iota \circ \epsilon )^{\otimes k} \circ \Delta^{\circ (k-1)} (x^n) \, .$$
+%
+%The following results from induction on $k$:
+%$$ \Delta^{\circ (k-1) } (x^n) = \sum_{(A_1, \dots , A_k) \models^0 [n] } x^{|A_1|} \otimes \dots \otimes x^{|A_k|} \, ,$$
+%where the sum runs over weak set compositions of the set $[n]$ with lenght $k$.
+%Thus, the antipode formula can be rewritten as
+%
+%\begin{align*}
+%S(x^n)&= \sum_{k=0}^n(-1)^k \sum_{(A_1, \dots , A_k) \models^0 [n]} \mu^{\circ (k-1)} \circ (\id_{\mathbb K[x]} - \iota \circ \epsilon )^{\otimes k} (x^{|A_1|} \otimes \dots \otimes x^{|A_k|})   \\
+%	  &= \sum_{k=0}^n(-1)^k \sum_{(A_1, \dots , A_k) \models [n]} \mu^{\circ (k-1)} (x^{|A_1|} \otimes \dots \otimes x^{|A_k|})   \\
+%	  &= \sum_{k=0}^n(-1)^k \sum_{(A_1, \dots , A_k) \models [n]} x^n   \\
+%	  &= x^n \sum_{\opi \models [n]} (-1)^{\ell(\opi)}\, .
+%\end{align*}
+%
+%Consider the following involution $\zeta: \oPi_{n} \to \oPi_{n} $.
+%For $\opi = (A_1, \dots , A_k) $, let $j_{\opi}$ be the smallest index such that $|A_{j_{\opi}}| \neq 1$ or $\max A_{j_{\opi}} > \max A_{j_{\opi}+1} $.
+%Then, there are three cases:
+%
+%\begin{enumerate}
+%
+%\item The set $A_{j_{\opi}} $ is a singleton with $j_{\opi}\leq k-1$, then let $\zeta(\opi ) $ be the set composition resulting from merging $A_{j_{\opi}} $ and $A_{j_{\opi}+1}$.
+%Note how, in this case, $\max ( A_{j_{\opi}} \cup A_{j_{\opi} + 1} ) $ is the only element in $A_{j_{\opi}}$.
+%
+%\item The set $A_{j_{\opi}} $ is not a singleton, then we define $\zeta(\opi ) $ to be the set composition resulting from splitting $A_{j_{\opi}} $ into $\{ \max A_{j_{\opi}} \} $ and $A_{j_{\opi}} \setminus \{\max A_{j_{\opi}} \}$, in this order.
+%
+%\item There is no such $j_{\opi}$. Then $\opi = (\{1\}, \dots , \{n\})$ and we define $\zeta(\opi )= \opi $.
+%
+%\end{enumerate}
+%
+%It is a direct observation that $\zeta $ is an involution.
+%In fact, the only fixed point is $\opi = (\{1\}, \dots , \{n\})$, and for any other set composition $\opi$, whenever the index $j_{\opi}$ in $\opi $ behaves as described in case 1, then the index $j_{\zeta(\opi)}$ in $\zeta ( \opi ) $ behaves as described in case 2, in which case we have $l(\opi) = 1+\ell(\zeta (\opi))$ and we can easily see that $\zeta(\zeta(\opi )) = \opi$.
+%%We also have the converse statement. 
+%Thus, we have that 
+%\[x^n \sum_{\opi \in \oPi_n} (-1)^{\ell(\opi)} = x^n (-1)^{\ell(\{1\}, \dots, \{n\} )}= (-x)^n,\] 
+%as desired.
+%\end{proof}
+%
+%
+%In this way we see that a formula for the antipode depends simply on an understanding of the structure of the length of compositions of $[n]$.
+%This is a general feature whenever we apply Takeuchi's formula.
+%
+%
+
+
+
+\

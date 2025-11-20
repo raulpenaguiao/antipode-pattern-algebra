@@ -1,0 +1,341 @@
+\documentclass[12pt, reqno]{amsart}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{lineno}
+\usepackage[margin=3cm]{geometry}
+\usepackage[all,cmtip, color,matrix,arrow]{xy}
+\usepackage{subfig}
+
+%\usepackage{natbib}
+%\usepackage{graphicx}
+\usepackage{amsmath}%To use \text 
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+%\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage[capitalize]{cleveref}  
+\crefname{thm}{Theorem}{Theorems}
+\usepackage{bbold}
+\usepackage[export]{adjustbox}
+%\usepackage{tikz-cd}
+%\usepackage{xr}
+%\usetikzlibrary{babel}
+\usepackage{todonotes}
+\usepackage{bm}
+\usepackage{wrapfig}
+\usepackage{bbold}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{aliascnt}
+\newaliascnt{eqfloat}{equation}
+\newfloat{eqfloat}{h}{eqflts}
+\floatname{eqfloat}{Equation}
+\usepackage{dirtytalk}
+
+\newcommand*{\ORGeqfloat}{}
+\let\ORGeqfloat\eqfloat
+\def\eqfloat{%
+  \let\ORIGINALcaption\caption
+  \def\caption{%
+    \addtocounter{equation}{-1}%
+    \ORIGINALcaption
+  }%
+  \ORGeqfloat
+}
+\newcommand{\raul}[1]{\todo[color=green!30,inline]{CH, #1}}
+
+\newcommand{\yannic}[1]{\todo[color=violet!30,inline]{YV, #1}}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lm}[thm]{Lemma}	
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem{defin}[thm]{Definition}
+\newtheorem{smpl}[thm]{Example}
+\newtheorem{quest}[thm]{Question}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{rem}[thm]{Remark}
+\crefname{lm}{Lemma}{Lemmas}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{prop}{Proposition}{Propositions}
+\crefname{defin}{Definition}{Definitions}
+\crefname{rem}{Remark}{Remarks}
+
+\newcommand{\oPi}{\mathbf{C}}
+\newcommand{\opi}{\vec{\boldsymbol{\pi}}}
+\newcommand{\otau}{\vec{\boldsymbol{\tau}}}
+\newcommand{\olambda}{\vec{\boldsymbol{\gamma}}}
+\newcommand{\msum}{\sideset{^M}{}\sum}
+\newcommand{\nestohedra}{nestohThisedra}
+\newcommand{\gpHa}{\mathbf{GP}}
+\newcommand{\gHa}{\mathbf{G}}
+\newcommand{\citestan}{\cite[Proposition 3.2]{gebhard99}}
+\newcommand{\parpi}{\boldsymbol{\pi}}
+\newcommand{\partau}{\boldsymbol{\tau}}
+\newcommand{\makepar}{\boldsymbol{\lambda}}
+\newcommand{\uhsm}{\boldsymbol{\Psi}}
+\newcommand{\uHsm}{\boldsymbol{\Psi}}
+\newcommand{\sqbinom}{\genfrac{[}{]}{0pt}{}}
+
+
+\newcommand{\bfpsigrf}{$\mathbf{\Psi}_{\mathbf{Q}}$}
+
+\newcommand{\pper}{marked permutation }
+\newcommand{\ppers}{marked permutations }
+\newcommand{\pperp}{marked permutation.}
+\newcommand{\ppersp}{marked permutations.}
+
+\newcommand{\stirling}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}%binomial coefficients
+\newcommand{\III}{\vec{\mathbf{I}}}
+\newcommand{\JJJ}{\vec{\mathbf{J}}}
+
+
+\DeclareMathOperator{\w}{\mathcal{W}}
+\DeclareMathOperator{\pos}{\mathrm{pos}}
+\DeclareMathOperator{\s}{\mathrm{mset}}
+\DeclareMathOperator{\ms}{\mathrm{mset}}
+\DeclareMathOperator{\Alg}{\mathrm{Alg}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\comu}{comu}
+\DeclareMathOperator{\rest}{\mathbf{res}}
+\DeclareMathOperator{\Orth}{Orth}
+\DeclareMathOperator{\cano}{cano}
+\DeclareMathOperator{\Ppatp}{\mathbf{Ppat}^*}
+\DeclareMathOperator{\dpt}{\mathbf{depth}}
+\DeclareMathOperator{\pat}{\mathbf{pat}}
+\DeclareMathOperator{\Pat}{\mathrm{Pat}}
+\DeclareMathOperator{\Func}{\mathrm{Func}}
+\DeclareMathOperator{\spn}{\mathrm{span}}
+\DeclareMathOperator{\inc}{\mathrm{inc}}
+\DeclareMathOperator{\Ch}{\mathrm{Ch}}
+\DeclareMathOperator{\tvs}{\textvisiblespace}
+\DeclareMathOperator{\sFunc}{\mathrm{SurFunc}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+%\usepackage{lipsum}
+
+\newcommand{\bfa}{\mathbf{a}}
+
+%combinatorial concepts
+\newcommand{\Sr}{\mathrm{S}} %symmetric group
+\newcommand{\opp}[1]{\overline{#1}} %for opposite
+\newcommand{\len}{l} % for length (degree) of a composition or partition
+%\newcommand{\maxflat}{\hat{1}}
+\newcommand{\maxflat}{\widehat{I}}
+\newcommand{\minflat}{\{I\}}
+\newcommand{\ifac}{
+\begin{picture}(3,5)(0,0)
+\put(0,0){\textup{!}}\put(1.5,4.8){\circle{3}}
+\end{picture}
+} %cyclic factorial
+\newcommand{\acyc}[1]{#1 !} %acyclic orientations
+
+%linear operators
+
+
+%categories
+\newcommand{\Fset}{\mathsf{Set^{\times}}}
+\newcommand{\Veck}{\mathsf{Vec}_\Kb} 
+\newcommand{\Vect}{\mathsf{Vect}}
+\newcommand{\gVec}{\mathsf{gVec}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\Ss}{\mathsf{Sp}} % set species
+\newcommand{\Ssk}{\mathsf{Sp}_\Kb} %vector species
+\newcommand{\Spr}{\mathsf{Spr}} % set species with restrictions
+
+\newcommand{\Mo}[1]{\mathsf{Mon}(#1)} %monoids
+\newcommand{\Co}[1]{\mathsf{Comon}(#1)} %comonoids
+\newcommand{\Bo}[1]{\mathsf{Bimon}(#1)} %bimonoids
+\newcommand{\Kb}{\mathbb{K}} 
+
+
+
+%generic set species
+\newcommand{\rP}{\mathrm{P}}
+\newcommand{\rQ}{\mathrm{Q}}
+\newcommand{\rH}{\mathrm{H}}
+\newcommand{\rR}{\mathrm{R}}
+
+
+%generic species with restrictions
+\newcommand{\prP}{\mathtt{P}}
+\newcommand{\prQ}{\mathtt{Q}}
+\newcommand{\prH}{\mathtt{H}}
+\newcommand{\prR}{\mathtt{R}}
+
+
+%set species
+\newcommand{\rE}{\mathrm{E}}
+\newcommand{\rL}{\mathrm{L}}
+%\newcommand{\rX}{\mathrm{X}}
+\let\rPi=\Pi %flats
+\let\rSig=\Sigma
+\newcommand{\rSigh}{\widehat{\rSig}} %decompositions = weak compositions
+\newcommand{\rG}{\mathrm{G}} %graphs
+\newcommand{\rGP}{\mathrm{GP}} %generalized permutahedra
+\newcommand{\SP}{\mathfrak{p}} %standard permutahedron
+
+%generic species
+\newcommand{\thh}{\mathbf{h}} 
+\newcommand{\tg}{\mathbf{g}}
+\newcommand{\tk}{\mathbf{k}}
+\newcommand{\tp}{\mathbf{p}} 
+\newcommand{\tq}{\mathbf{q}}
+\newcommand{\tr}{\mathbf{r}}
+\newcommand{\ta}{\mathbf{a}}
+\newcommand{\tb}{\mathbf{b}} 
+\newcommand{\tc}{\mathbf{c}}
+\newcommand{\td}{\mathbf{d}}
+\newcommand{\trr}{\mathbf{r}} 
+\newcommand{\tm}{\mathbf{m}} %module
+\newcommand{\brac}{\nu} %Lie bracket
+
+%examples of species
+\newcommand{\tone}{\mathbf{1}}
+\newcommand{\wU}{\mathbf{U}}
+\newcommand{\wX}{\mathbf{X}}
+\newcommand{\wE}{\mathbf{E}} %exponential species
+\newcommand{\wL}{\mathbf{L}} %linear orders
+\newcommand{\wI}{\mathbf{I}}%used in macro \tLL
+\newcommand{\tLL}{\wI\hspace*{-2pt}\wL} %pairs of chambers
+\newcommand{\tLie}{\mathbf{Lie}} %Lie species
+\newcommand{\tPi}{\mathbf{\Pi}} %flats
+\newcommand{\tSig}{\mathbf{\Sigma}} %faces
+\newcommand{\tSigh}{\mathbf{\widehat{\Sigma}}} % decompositions
+\newcommand{\te}{\mathbf{e}} %elements
+\newcommand{\tG}{\mathbf{G}} %graphs
+\newcommand{\tcG}{\mathbf{cG}} %connected graphs
+\newcommand{\tGP}{\mathbf{GP}} 
+
+%some isomorphisms
+\let\isoflat=\psi
+\let\isolinear=\psi
+\let\isograph=\varphi
+
+
+%Fock functors
+\newcommand{\contra}[1]{#1^{\vee}} 
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Kcb}{\overline{\Kc}}
+\newcommand{\cKc}{\contra{\Kc}}
+\newcommand{\cKcb}{\contra{\Kcb}}
+
+%functors
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Tcq}{\Tc_q}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Pc}{\mathcal{P}} %primitive element functor
+\newcommand{\Qc}{\mathcal{Q}} %indecomposables
+\newcommand{\Uc}{\mathcal{U}} %universal enveloping algebra
+
+\newcommand{\sq}{{{\scriptstyle{\square}}}}
+
+%objects
+\newcommand{\xx}{\mathrm{x}}
+\newcommand{\yy}{\mathrm{y}}
+\newcommand{\zz}{\mathrm{z}}
+
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+
+%\usepackage[backend=bibtex]{biblatex}
+%\addbibresource{biblio.bib}
+
+\usepackage{amsaddr}
+
+\begin{document}
+
+%% Title, authors and addresses
+\title{Antipode formulas for pattern Hopf algebras} % Subtitle
+
+
+%\author{Raul Penaguiao\footnote{\href{mailto:raulpenaguiao@sfsu.edu}{raulpenaguiao@sfsu.edu}}\footnote{Institute of Mathematics, University of Zurich, Winterthurerstrasse 190, Zurich, CH - 8057.}\footnote{{\bf Keywords:} marked permutations, presheaves, species, Hopf algebras, free algebras}\footnote{2010 AMS Mathematics Subject Classification 2010: 05E05, 16T05, 18D10}}
+
+\author{Raul Penaguiao, Yannic Vargas}
+\email{raul.penaguiao@mis.mpg.de}
+\email{yannic.vargas@cunef.edu}
+\address{HAEUSLER AG}
+\address{CUNEF University}
+\keywords{permutations, presheaves, species with restrictions, species, Hopf algebras, free algebras, antipode, cancellation-free, chromatic, reciprocity}
+\subjclass[2010]{05E05, 16T05, 18D10}
+\date{\today} % Date
+
+\begin{abstract}
+The permutation pattern Hopf algebra is a commutative filtered and connected Hopf algebra.
+Its product structure stems from counting patterns of a permutation, interpreting the coefficients as counting permutation quasi-shuffles.
+This Hopf algebra was shown to be a free commutative algebra and to fit a general framework of pattern Hopf algebras, via species with restrictions.
+
+In this paper we introduce the cancellation-free and grouping-free formula for the antipode of the permutation pattern Hopf algebra.
+To obtain this formula, we use the popular sign-reversing involution method, introduced by Benedetti and Sagan.
+This formula has applications on polynomial invariants on permutations, in particular for obtaining reciprocity theorems.
+Along the way, we also introduce the packed word pattern Hopf algebra and present a formula for its antipode.
+
+Other pattern algebras are discussed here, notably on parking functions, which recovers a notion recently studied by Adeniran and Pudwell, and by Qiu and Remmel.
+\end{abstract}
+
+
+\maketitle
+
+\tableofcontents
+\input{chapters\\01intro.tex}
+\input{chapters\\02computingAntipode.tex}
+\input{chapters\\03species.tex}
+\input{chapters\\04patternHopfAlgebras.tex}
+\input{chapters\\05speciesExamples.tex}
+\input{chapters\\06antipodeFormulaGeneral.tex}
+\input{chapters\\07antipodeFormulaSpecial.tex}
+\input{chapters\\08reciprocity.tex}
+
+
+\section*{Acknowledgments}
+
+Both authors would like to thank Valentin F\'eray and Christophe Reutenauer, for helping this project to start.
+Both authors are also grateful for the efforts from the referee assigned to this paper, as many mistakes and unclear statements were heplfully pointed out.
+The first author is also grateful to the SNF grant P2ZHP2 191301 and the Max Planck Institute, while the second one is grateful to the Austrian Science Fund FWF, grant I 5788 PAGCAP.
+
+
+%\
+%
+%\section{Remarks before submission}
+%
+%\begin{itemize}
+%    \item The pattern Hopf algebras on permutations and packed words can be obtained by the universal constructions discussed in \cite{AM2010}.
+%    \item Mention works of P. Tamaroff and J. Kock.
+%    \item Discuss marked permutations.
+%\end{itemize}
+
+
+\bibliographystyle{alpha}
+\bibliography{Bibliography}
+
+
+
+\end{document}
