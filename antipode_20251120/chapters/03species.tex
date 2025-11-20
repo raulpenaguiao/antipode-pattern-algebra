@@ -3,9 +3,9 @@
 \section{Combinatorial species\label{sec:species}}
 
 
-In this section we give the preliminaries on monoids in species.
+In this section we provide the preliminaries on monoids in species.
 This will follow closely \cite{AM2010} and \cite{Schmitt1993}.
-Specifically, we introduce species with vector spaces and sets.
+Specifically, we introduce both vector species and set species.
 We also introduce species with restrictions, and we will clarify the meaning of a monoid, comonoid, bimonoid and Hopf monoid in each of these monoidal categories.
 We finally present some examples of species with restrictions that will be important in the remaining paper.
 
@@ -21,11 +21,11 @@ The product $\ast$ in the top-right corner corresponds to the pointwise product 
 \
 
 \subsection{Species}
-In this section we recall the basic definitions of the general theory of \emph{combinatorial species}. Following \cite{AM2010}, we will focus first in \emph{vectorial species} and \emph{set species}.
+In this section we recall the basic definitions of the general theory of \emph{combinatorial species}. Following \cite{AM2010}, we will focus first on \emph{vector species} and \emph{set species}.
 
 \
 
-Let $\mathbb{K}$ be a field of arbitrary characteristic. Let $\Fset$ be the category of finite sets and bijections between finite sets, and $\Vect_{\mathbb{K}}$ be the category of $\mathbb{K}$-vector spaces and linear maps between vector spaces. A {\bf vector species}, or simply a \textbf{species}, is a functor $\tp: \Fset \to \Vect_{\mathbb{K}}$. A morphism between species $\tp$ and $\tq$ is a natural transformation between the functors $\tp$ and $\tq$.
+Let $\mathbb{K}$ be a field of arbitrary characteristic. Let $\Fset$ be the category of finite sets and bijections between finite sets, and $\Vect_{\mathbb{K}}$ be the category of $\mathbb{K}$-vector spaces and linear maps between vector spaces. A {\bf vector species}, or simply a \textbf{species}, is a functor $\tp: \Fset \to \Vect_{\mathbb{K}}$. A morphism between species $\tp$ and $\tq$ is a natural transformation between the functors $\tp$ and $\tq$; that is, a collection of linear maps $\tp[I] \to \tq[I]$ that are natural with respect to bijections of finite sets.
 For clarity, we denote the vector species with a bold lowercase Latin letter, with few exceptions.
 
 \
@@ -225,15 +225,14 @@ This is also schematically presented in \cref{fig:bimonoid}.
 \
 
 
+We define the convolution algebra $\text{End}_{\Ssk}(\thh)$ as the monoid of natural transformations $l: \thh \to \thh$ with the product $\star$.
+Note how $\iota \circ \epsilon $ is the identity, by definition of bialgebra.
+
 A morphism of species $s: \thh \to \thh$, is called and {\bf antipode} of $\thh$, if $\thh[\emptyset]$ is a Hopf algebra with antipode $s_\emptyset: \thh[\emptyset] \to \thh[\emptyset]$, and for each nonempty set $I$, we have
 \begin{equation}\label{eq:antipode_species}
     \sum_{S \sqcup T = I} \mu_{S,T}(\text{id}_S \otimes s_T)\Delta_{S,T} = 0 = \sum_{S \sqcup T = I} \mu_{S,T}(s_S \otimes \text{id}_T)\Delta_{S,T}.
 \end{equation}
-
-
-We define the convolution algebra $\text{End}_{\Ssk}(\thh)$ as the monoid of natural transformations $l: \thh \to \thh$ with the product $\star$.
-Note how $\iota \circ \epsilon $ is the identity.
-In this case, \eqref{eq:antipode_species} can be rephrased as $s = \id_{\thh}^{\star -1}$.
+In this case, \eqref{eq:antipode_species} can be rephrased as the star inverse of the identity $s = \id_{\thh}^{-1}$.
 
 A {\bf Hopf monoid} in $(\Ssk, \cdot)$ is a bimonoid along with an antipode $s:\thh \to \thh $.
 Recall that this is also the case in the classical Hopf algebras.

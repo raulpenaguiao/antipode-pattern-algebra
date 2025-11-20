@@ -4,8 +4,8 @@
 \subsection{Species on total orders.\label{sec:specieslinearorders}}
 
 The first relevant species with restrictions to define is the species of total orders $\mathtt{L}$.
-This has $\mathtt{L}[I] = \{\text{ total orders in $I$ }\}$, a set with $|I|!$ total orders.
-The restriction of an order $\leq $ of $\mathtt{L}[I]$ to a subset $J$ is the induced order, which is a total order.
+This has $\mathtt{L}[I] = \{\text{ total orders on $I$ }\}$, a set with $|I|!$ total orders.
+The restriction of an order $\leq$ of $\mathtt{L}[I]$ to a subset $J$ is the induced order, which is a total order.
 This defines a species with restrictions.
 
 \
@@ -20,7 +20,7 @@ If $\mathsf{p}$ is a total order in $I$ and $\mathsf{r}$ is a total order in $J$
 
 \item if $a \in I$ and $b \in J$, then $a \, (\mathsf{p} \ast \mathsf{r}) \, b$.
 \end{itemize}
-This is invariant up to restrictions and relabellings, so this builds a connected associative species with restrictions. 
+This definition is independent of the choice of labeling and respects restriction to subsets, so this builds a connected associative species with restrictions. 
 
 \
 
@@ -37,17 +37,17 @@ That is, if $a\in I$ and $b (\mathsf{p} \ast \mathsf{r}) a$, then $b\in I$.
 \subsection{Species on permutations\label{sec:speciespermutation}}
 
 To fit the framework of species with restrictions, we use a rather unusual definition of permutations introduced in \cite{albert2020two}.
-There, a permutation on a set $I$ is seen as a pair of total orders $(\leq_P, \leq_V)$ in $I$.
-Write $\mathbb{X}(\pi) = I$
-This relates to the usual notion of a permutation as a bijection in the following way: if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \} = \{ b_1 \leq_V \dots \leq_V b_k \}$, then this defines a bijection via $a_i \mapsto b_i $ in $I$.
-Conversely, for any bijection $f$ on $I$, there are several pairs of orders $(\leq_P, \leq_V)$ that correspond to the bijection $f$, all of which are isomorphic.
+There, a permutation on a set $I$ is seen as a pair of total orders $(\leq_P, \leq_V)$ on $I$.
+Write $\mathbb{X}(\pi) = I$.
+This relates to the usual notion of a permutation as a bijection in the following way: if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \} = \{ b_1 \leq_V \dots \leq_V b_k \}$, then this defines a bijection via $a_i \mapsto b_i$.
+Conversely, for any bijection $f$ on $I$, there exist multiple pairs of orders $(\leq_P, \leq_V)$ that correspond to the same bijection $f$, all of which are isomorphic as permutations.
 If $I \hookrightarrow J$, by restricting the orders on $I$ to orders on $J$ via the injective map $\hookrightarrow $, we obtain a restriction to a permutation on $J$.
 The resulting species with restrictions structure is denoted by $\mathtt{Per}$.
 
 \
 
 It will be useful to represent permutations in $I$ as square diagrams labeled by $I$.
-This is done in the following way: we place the elements of $I$ in an $|I| \times |I|$ grid so that the elements are placed horizontally according to the $\leq_P$ order, and vertically according to the $\leq_V$ order.
+This is done in the following way: we place each element $a \in I$ at grid position $(i, j)$ where $i$ is the position of $a$ in the $\leq_P$ order and $j$ is the position of $a$ in the $\leq_V$ order.
 We always start counting from the bottom left, following the Cartesian coordinates style.
 
 For instance, the permutation $\pi = \{1<_P2<_P3 , 2<_V1<_V3\}$ in $\{1, 2, 3\}$ can be represented as 

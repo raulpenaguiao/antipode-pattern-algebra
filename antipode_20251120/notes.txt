@@ -1,0 +1,20 @@
+In this version we will improve the clarity of exposition one task at a time
+
+- [x] TASK0
+Go thought feedback of reviewer
+
+- [ ] TASK1
+For that we will tackle a couple of concrete problems:
+ - Missing or broken references: please make sure all references and citations are correctly linked and there is no "??" or "(??)" or "[?]"
+ - Broken English: Please make sure there is no incorrect English words. A spell checker will flag a lot of mathematical words but these are fine, we are looking for typoes and common English errors
+ - Broken or incorrectly typed latex commands, like "chi" instead of "\chi"
+ - Undefined notation: Any notation that is not standard in the Algebraic Combinatorics world should be correctly defined, for instance the \oplus is not defined correctly, but in this case an example fits very well
+
+- [ ] TASK2
+ - Then we go for the mathematics: are there any equations that are wrong? 
+ - Definitions that do not make sense or that require intuition or unwritten details?
+ - Theorems that lack necessary definitions
+
+- [ ] TASK3
+Then we go for the clarity:
+ - The introduction needs more panache and motivation, to have a good spirit instead of the boring tone that we are giving it.
