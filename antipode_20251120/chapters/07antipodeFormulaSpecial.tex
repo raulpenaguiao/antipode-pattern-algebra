@@ -1,15 +1,13 @@
 
-\section{The antipode formula on special cases\label{sec:formula_pp}}
+\section{Antipode formulas for packed words and permutations\label{sec:formula_pp}}
 \subsection{The antipode formula for the pattern algebra on packed words\label{sec:formula_packed}}
 %Let $\rho = (\leq_P, \leq_V)$ be a packed word.
 For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, recall that we say that $A \lneq B$ if $A\cap B = \emptyset$ and $a \leq b$ for any $a \in A$ and $b \in B$.
-We recall the definition of non-interlacing QSS on packed words.
+We recall the definition of non-interlacing QSS on packed words (see \cref{sec:formula_general} for context).
 
 
 \begin{defin}[Interlacing QSS on packed words]
-Let $\rho, \omega_1, \dots, \omega_n$ be packed words, where $\rho = (\leq_P, \leq_V)$ is a packed word on $I$.
-Let $\III = (I_1, \dots, I_n)$ be a QSS of $\rho$ from $\omega_1, \dots, \omega_n$.
-We say that this QSS is \textbf{non-interlacing} if there exists some $i = 1, \dots, n-1$ such that $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
+Generalizing the notion of interlacing QSS from \cref{sec:intro}, we say that a QSS $\III = (I_1, \dots, I_n)$ of a packed word $\rho = (\leq_P, \leq_V)$ from packed words $\omega_1, \dots, \omega_n$ is \textbf{non-interlacing} if there exists some $i = 1, \dots, n-1$ such that $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
 If no such $i$ exists, we say that the QSS is \textbf{interlacing}.
 
 \
@@ -25,7 +23,7 @@ Recall that $\mu_i = (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots,
 \
 
 \begin{lm}\label{lm:QSSpackedWords}
-Let $\omega, \rho = (\leq_P, \leq_V)$ be packed words, such that $\omega = \omega_1 \oplus \dots \oplus \omega_n$ is its factorisation into $\oplus$-indecomposibles.
+Let $\omega, \rho = (\leq_P, \leq_V)$ be packed words, such that $\omega = \omega_1 \oplus \dots \oplus \omega_n$ is its factorization into $\oplus$-indecomposables.
 Let $\III$ be a QSS of $\rho$ from $\omega_1, \dots , \omega_n$.
 Then $\III$ is $\mu_i$-stable if and only if $I_i \lneq_P I_{i+1}$ and $I_i \lneq_V I_{i+1}$.
 \end{lm}
@@ -51,13 +49,13 @@ If $\omega_i \sim \omega_{i+1}$, we also have that $I_i \lneq_P I_{i+1}$, so $\I
 \
 
 \begin{lm}\label{lm:minpacked}
-Let $\omega$ be  packed word, along with $\omega = \omega_1 \oplus \dots \oplus \omega_n$, its unique factorisation into $\oplus$-indecomposible packed words.
+Let $\omega$ be  packed word, along with $\omega = \omega_1 \oplus \dots \oplus \omega_n$, its unique factorization into $\oplus$-indecomposable packed words.
 Let $\rho$ be another packed word, and $\III$ a QSS of $\rho$ from $\omega_1, \dots , \omega_n$. Then $\mathcal I^{\omega, \rho}_{\III}$ has a unique minimal element and, therefore, it is an interval in $\mathcal C_n$.
 \end{lm}
 
 \begin{proof}
 %Recall that $\rho$ is a pair of orders in $I$.
-%Notice that from the factorisation $\omega = \omega_1 \oplus \dots \oplus \omega_n$
+%Notice that from the factorization $\omega = \omega_1 \oplus \dots \oplus \omega_n$
 We give a concrete description of $\mathcal I^{\omega, \rho}_{\III}$.
 Consider the following set:
 $$J = \{i \in [n-1] | I_i \lneq_P I_{i+1} \text{ and } I_i \lneq_V I_{i+1} \} = \{i \in [n-1] | \, \III \text{ is $\mu_i$-stable } \} \, ,$$
@@ -87,7 +85,7 @@ If $\omega_i \sim \omega_{i+1}$, stability would require $I_i \lneq_P I_{i+1}$, 
 
 \
 
-So we can never have $\rho|_{I^{\alpha}_j} = \omega^{\alpha}_j$ for $j$ such that $\omega^{\alpha}_j$ includes both $\omega_i \oplus \omega_{i+1}$ in its factorisation.
+So we can never have $\rho|_{I^{\alpha}_j} = \omega^{\alpha}_j$ for $j$ such that $\omega^{\alpha}_j$ includes both $\omega_i \oplus \omega_{i+1}$ in its factorization.
 If $\omega_i \sim \omega_{i+1}$, stability would require $I_i \lneq_P I_{i+1}$, so $I_i \not\lneq_V I_{i+1}$, and we conclude again that $\rho|_{I_i \cup I_{i+1}} \neq \omega_i \oplus \omega_{i+1}$.
 This is the contradiction that we are aiming for.
 \end{itemize}
@@ -97,7 +95,7 @@ With the construction of the minimal element, we have that $\mathcal I^{\omega, 
 \
 
 \begin{thm}\label{thm:antipode_packed}
-Let $\omega $ be a packed word, and $\omega = \omega_1 \oplus \dots \oplus \omega_n$ be its decomposition into $\oplus$-indecomposible packed words.
+Let $\omega $ be a packed word, and $\omega = \omega_1 \oplus \dots \oplus \omega_n$ be its decomposition into $\oplus$-indecomposable packed words.
 Then, on the pattern Hopf algebra of packed words, we have the following cancellation free and grouping free formula:
 $$S(\pat_{\omega}) = (-1)^n  \sum_{\rho} \bigl[\!\begin{smallmatrix} \rho  \\ \omega_1, \dots, \omega_n \end{smallmatrix}\!\bigr] \pat_{\rho}  \, .$$
 \end{thm}
@@ -158,11 +156,11 @@ $$S(\pat_{\pi}) = (-1)^n \sum_{\sigma} \bigl[\!\begin{smallmatrix} \sigma \\ \pi
 \
 
 Although we can obtain the antipode formula by showing that a relevant poset of compositions is an interval (see \cref{lm:minpacked}), we present here a different proof.
-Specifically, we will be leveraging a map $\mathcal A[\mathrm{inc}]: \mathcal A(\mathtt{PW}) \to \mathcal A(\mathtt{Per})$ and the previous result on packed words.
+Specifically, we will use a surjective Hopf algebra morphism $\mathcal A[\mathrm{inc}]: \mathcal A(\mathtt{PW}) \to \mathcal A(\mathtt{Per})$ and the previous result on packed words.
 
 \
 
-First, observe that any permutation is a packed word, because any pair of total orders $(\leq_P, \leq_V)$ is a packed word, that is, a pair of partial orders such that $\leq_P$ is a total order and $\leq_V$ is partial linear order.
+First, observe that any permutation (a pair of total orders) is a packed word, since a packed word is a pair of partial orders such that $\leq_P$ is a total order and $\leq_V$ is a partial linear order.
 This gives us an inclusion map $\mathrm{inc} : \mathtt{Per} \to \mathtt{PW}$ that preserves restrictions and the monoidal structure.
 Therefore, this gives us a surjective Hopf algebra morphism $\mathcal A[\mathrm{inc}]: \mathcal A(\mathtt{PW}) \to \mathcal A(\mathtt{Per})$.
 
@@ -185,7 +183,7 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 %\todo[inline]{what follows is the old proof, kept here for legacy purposes, and because some definitions needed above are still buried in this section, a keen eye will need to be used to parse them}
 %
 %
-%Fix a permutation $\pi $, such that $\pi = \pi_1 \oplus \dots \oplus \pi_k $ is its $\oplus$-factorisation into $\oplus$-indecomposable permutations.
+%Fix a permutation $\pi $, such that $\pi = \pi_1 \oplus \dots \oplus \pi_k $ is its $\oplus$-factorization into $\oplus$-indecomposable permutations.
 %We will assume this notation for the remaining of this section.
 %
 %The intermediate step to conclude \cref{thm:cancellationformAPer} is \cref{lm:interlacingcefsformula}, which is a description of the interlacing coefficients via an inclusion-exclusion sum.
@@ -216,7 +214,7 @@ Note that $\mathcal A[\mathrm{inc}]$ is a Hopf algebra morphism from \cref{thm:f
 %$$ \mathbf{CS}(\alpha ) =\{ \mathbf{CS}(\alpha )_1 ,  \mathbf{CS}(\alpha )_2 ,  \dots ,  \mathbf{CS}(\alpha )_{j-1} \}\, . $$
 %and set $\mathbf{CS}(\alpha )_0 = 0 $ and $ \mathbf{CS}(\alpha )_j = n $.
 %
-%Furthermore, this map is a poset isomorphism, where it maps $\leq $, the partial order in $\mathcal C_n$ introduced in \cref{defin:ordercomps}, to the inclusion of sets.
+%Furthermore, this map is a poset isomorphism, where it maps $\leq $, the partial order on $\mathcal C_n$ introduced in \cref{defin:ordercomps}, to the inclusion of sets.
 %Details on this map are given in \cite{stanley00}.
 %
 %Recall that we fix a permutation $\pi $ with $\pi = \pi_1 \oplus \dots \oplus \pi_k $.

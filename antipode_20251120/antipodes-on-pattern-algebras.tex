@@ -289,16 +289,13 @@
 \date{\today} % Date
 
 \begin{abstract}
-The permutation pattern Hopf algebra is a commutative filtered and connected Hopf algebra.
-Its product structure stems from counting patterns of a permutation, interpreting the coefficients as counting permutation quasi-shuffles.
-This Hopf algebra was shown to be a free commutative algebra and to fit a general framework of pattern Hopf algebras, via species with restrictions.
+Computing antipodes in Hopf algebras is notoriously difficult. Takeuchi's classical formula applies broadly but is computationally unwieldy, riddled with unnecessary cancellations and groupings. This work develops systematically \textbf{cancellation-free and grouping-free} antipode formulas for a rich family of Hopf algebras constructed from combinatorial structures---the pattern Hopf algebras.
 
-In this paper we introduce the cancellation-free and grouping-free formula for the antipode of the permutation pattern Hopf algebra.
-To obtain this formula, we use the popular sign-reversing involution method, introduced by Benedetti and Sagan.
-This formula has applications on polynomial invariants on permutations, in particular for obtaining reciprocity theorems.
-Along the way, we also introduce the packed word pattern Hopf algebra and present a formula for its antipode.
+The key object is the \textbf{permutation pattern Hopf algebra}, where the product counts permutation patterns (via quasi-shuffle signatures) and the coproduct respects decomposition. This algebra fits a general framework via species with restrictions, unifying permutation patterns, graphs, parking functions, and beyond.
 
-Other pattern algebras are discussed here, notably on parking functions, which recovers a notion recently studied by Adeniran and Pudwell, and by Qiu and Remmel.
+Our main contribution is a cancellation-free and grouping-free antipode formula for the permutation pattern Hopf algebra, derived via the sign-reversing involution method. Rather than merely theoretical, this formula has concrete power: it directly yields a new polynomial invariant on permutations---the Multiple Occurrences Polynomial---and reveals reciprocity interpretations when evaluating this polynomial at negative integers.
+
+We also develop formulas for the packed word pattern Hopf algebra and introduce an original species with restrictions structure on parking functions, recovering recent results on parking function avoidance. Throughout, the interplay between algebraic structure and combinatorial form creates an elegant and powerful framework.
 \end{abstract}
 
 
@@ -314,6 +311,32 @@ Other pattern algebras are discussed here, notably on parking functions, which r
 \input{chapters\\07antipodeFormulaSpecial.tex}
 \input{chapters\\08reciprocity.tex}
 
+
+\section*{Glossary of Key Terms and Abbreviations}
+
+This glossary provides brief definitions of frequently used terms and abbreviations throughout the paper.
+
+\begin{itemize}
+
+\item \textbf{QSS} (Quasi-Shuffle Signature): A tuple $\III = (I_1, \dots, I_n)$ of subsets whose union covers the ground set of a permutation (or more generally, an object in a species with restrictions), where each subset represents a pattern occurrence. Unlike standard shuffles, the sets may overlap. See \cref{sec:intro}.
+
+\item \textbf{MOP} (Multiple Occurrences Polynomial): A polynomial invariant associated to objects in a species with restrictions, defined by evaluating pattern elements at repeated copies of a fixed object. This invariant is a Hopf algebra morphism. See \cref{MOPDef}.
+
+\item \textbf{NCF} (Non-Commuting Factorization): A property of species with restrictions where every element has a unique factorization into indecomposable elements. This property is crucial for obtaining cancellation-free antipode formulas. See \cref{sec:formula_general}.
+
+\item \textbf{Cancellation-free formula}: An antipode formula expressed as a sum where each term contributes its full value without intermediate cancellations. Formally, a formula where the combinatorial objects can be partitioned such that non-fixed-point pairs cancel completely. See introduction of this paper.
+
+\item \textbf{Grouping-free formula}: An antipode formula where each combinatorial object contributes independently, without requiring aggregation or grouping of multiple objects for simplification. See introduction of this paper.
+
+\item \textbf{Interlacing QSS}: A restricted subclass of quasi-shuffle signatures where the sets do not maintain a consistent ordering across both position and value orders. This constraint is essential for cancellation-free antipode formulas. See \cref{sec:intro}.
+
+\item \textbf{Species with restrictions}: A contravariant functor from the category of finite sets with injections to the category of sets, equipped with restriction maps that allow systematic decomposition of objects. This structure unifies the construction of all pattern Hopf algebras discussed in this paper.
+
+\item \textbf{Pattern Hopf algebra}: A Hopf algebra constructed from combinatorial objects via species with restrictions, where the product counts pattern occurrences (via quasi-shuffles) and the coproduct respects the decomposition of objects.
+
+\item \textbf{Sign-reversing involution method}: A combinatorial technique for obtaining cancellation-free antipode formulas using involutions that reverse the signs of non-fixed-point elements in a sum, allowing terms to cancel completely. See \cref{sec:antipode_computing}.
+
+\end{itemize}
 
 \section*{Acknowledgments}
 

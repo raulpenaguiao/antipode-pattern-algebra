@@ -11,7 +11,7 @@ This defines a species with restrictions.
 \
 
 We also define an associative product on $\mathtt{L}$.
-If $\mathsf{p}$ is a total order in $I$ and $\mathsf{r}$ is a total order in $J$, and if $I, J$ are disjoint, then we can define a total order $\mathsf{p} \ast\mathsf{r}$ a total order on $I \sqcup J$ as:
+If $\mathsf{p}$ is a total order on $I$ and $\mathsf{r}$ is a total order on $J$, and if $I, J$ are disjoint, then we can define a total order $\mathsf{p} \ast\mathsf{r}$ a total order on $I \sqcup J$ as:
 
 \begin{itemize}
 \item if $a, b \in I$ such that $a \, \mathsf{p} \, b$, then $a \, (\mathsf{p} \ast \mathsf{r}) \, b$.
@@ -20,7 +20,7 @@ If $\mathsf{p}$ is a total order in $I$ and $\mathsf{r}$ is a total order in $J$
 
 \item if $a \in I$ and $b \in J$, then $a \, (\mathsf{p} \ast \mathsf{r}) \, b$.
 \end{itemize}
-This definition is independent of the choice of labeling and respects restriction to subsets, so this builds a connected associative species with restrictions. 
+This definition is independent of the choice of labeling and respects restriction to subsets. In particular, the product $\ast$ on orders depends only on the order structures, not on the specific labels chosen, and it respects restrictions to subsets, so this builds a connected associative species with restrictions. 
 
 \
 
@@ -37,17 +37,20 @@ That is, if $a\in I$ and $b (\mathsf{p} \ast \mathsf{r}) a$, then $b\in I$.
 \subsection{Species on permutations\label{sec:speciespermutation}}
 
 To fit the framework of species with restrictions, we use a rather unusual definition of permutations introduced in \cite{albert2020two}.
-There, a permutation on a set $I$ is seen as a pair of total orders $(\leq_P, \leq_V)$ on $I$.
-Write $\mathbb{X}(\pi) = I$.
-This relates to the usual notion of a permutation as a bijection in the following way: if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \} = \{ b_1 \leq_V \dots \leq_V b_k \}$, then this defines a bijection via $a_i \mapsto b_i$.
-Conversely, for any bijection $f$ on $I$, there exist multiple pairs of orders $(\leq_P, \leq_V)$ that correspond to the same bijection $f$, all of which are isomorphic as permutations.
-If $I \hookrightarrow J$, by restricting the orders on $I$ to orders on $J$ via the injective map $\hookrightarrow $, we obtain a restriction to a permutation on $J$.
+
+This definition is motivated by the fundamental need to represent permutations as a combinatorial species with restrictions—that is, we need a definition where we can systematically understand how smaller permutation patterns fit into larger ones via restriction maps. Rather than viewing a permutation as a bijection (which doesn't naturally support a restriction structure because a bijection's "pattern" is not obviously defined as a sub-bijection), we represent it as a pair of total orders.
+
+Specifically, a permutation on a set $I$ is seen as a pair of total orders $(\leq_P, \leq_V)$ on $I$, called the "position" and "value" orders respectively. Write $\mathbb{X}(\pi) = I$.
+
+This relates to the usual notion of a permutation as a bijection in the following way: if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \} = \{ b_1 \leq_V \dots \leq_V b_k \}$, then the natural pairing $a_i \leftrightarrow b_i$ defines a bijection via the mapping $a_i \mapsto b_i$. Conversely, for any bijection $f$ on $I$, there exist multiple pairs of orders $(\leq_P, \leq_V)$ that correspond to the same bijection $f$; all of these pairs are isomorphic as permutations in the sense that they differ only by relabeling of the set $I$.
+
+Crucially, the pair-of-orders representation allows restriction in a natural way: if $J \subseteq I$ is an injection, we can restrict both the position and value orders to $J$, yielding a permutation on $J$. This restriction structure is what enables permutations to form a species with restrictions.
 The resulting species with restrictions structure is denoted by $\mathtt{Per}$.
 
 \
 
 It will be useful to represent permutations in $I$ as square diagrams labeled by $I$.
-This is done in the following way: we place each element $a \in I$ at grid position $(i, j)$ where $i$ is the position of $a$ in the $\leq_P$ order and $j$ is the position of $a$ in the $\leq_V$ order.
+This is done in the following way: we place each element $a \in I$ at grid position $(i, j)$ where $i$ is the position of $a$ in the $\leq_P$ (position) order and $j$ is the position of $a$ in the $\leq_V$ (value) order. This visual representation directly encodes the bijection: the row index shows where an element comes from (position), and the column index shows where it goes (value).
 We always start counting from the bottom left, following the Cartesian coordinates style.
 
 For instance, the permutation $\pi = \{1<_P2<_P3 , 2<_V1<_V3\}$ in $\{1, 2, 3\}$ can be represented as 
@@ -62,7 +65,7 @@ For instance, the permutation $\pi = \{1<_P2<_P3 , 2<_V1<_V3\}$ in $\{1, 2, 3\}$
 
 In this way, there are $(n!)^2 $ elements in $\mathtt{Per}[n]$.
 Up to relabelling, we can represent a permutation as a diagram with one dot in each column and row.
-Thus, $\mathtt{Per}[n]/_{\mathfrak S_n}$, the set of objects up to isomorphism, has $n!$ isomorphism classes of permutations of size $n$, as expected.
+Thus, $\mathtt{Per}[n]/_{\mathfrak S_n}$ (the set of isomorphism classes), has $n!$ isomorphism classes of permutations of size $n$, as expected.
 \
 
 %\label{defin:per}
@@ -73,7 +76,7 @@ Thus, $\mathtt{Per}[n]/_{\mathfrak S_n}$, the set of objects up to isomorphism, 
 
 \
 
-The $\ast $ operation on orders can be extended to a \textbf{diagonal sum} operation $\oplus $ on permutations.
+The $\ast $ operation on orders can be extended to a \textbf{diagonal sum} operation $\oplus $ on permutations, which places all elements of the first permutation before all elements of the second permutation in both the position and value orders.
 This is usually referred as the shifted concatenation of permutations.
 This endows $\mathtt{Per}$ with an  associative species with restrictions structure.
 
@@ -84,6 +87,9 @@ This endows $\mathtt{Per}$ with an  associative species with restrictions struct
 
 For packed words, we will mimic the framework produced above for permutations.
 First, recall that a linear partial order $\leq$ on a set $I$ is the pullback order of a surjective map $I \to [m]$, called the \textbf{rank function} of $\leq$, or $rk_{\leq}$.
+Equivalently, it is an order $\leq$ where for any two distinct elements $a, b\in I$ such that $a \leq b$, there is a disjoint partition $I = A \uplus B$ such that all elements $x$ in $A$ and all elements $y$ in $B$ satisfy $x \leq y$.
+
+
 We call the integer $m$ the rank of the order $\leq$.
 
 \begin{figure}[h]
@@ -94,9 +100,9 @@ We call the integer $m$ the rank of the order $\leq$.
 
 For instance, if $f = \{ a\mapsto 3, b\mapsto 1, c\mapsto 3, d\mapsto 2\}$ is a surjective map $\{a, b, c, d\}\to[3]$, the pullback order is $\{b < d < \{a, c \}\}$ and has rank three.
 Its Hasse diagram is presented in \cref{fig:packedWordOrder}.
-In this way, a packed word $\omega$ on $I$ is a pair of orders $(\leq_P, \leq_V)$ where $\leq_P$ is a total order in $I$, and $\leq_V$ is a linear partial order on $I$.
+In this way, a packed word $\omega$ on $I$ is a pair of orders $(\leq_P, \leq_V)$ where $\leq_P$ is a total order on $I$, and $\leq_V$ is a linear partial order on $I$. This generalizes permutations by allowing ties (incomparabilities) in the value order, represented as ties in the vertical direction of the visual representation.
 In particular, note that any permutation on $I$ can be seen as a packed word on $I$, as any total order is a partial linear order.
-This relates to the usual notion of packed words as a word in $[m]$ in the following way:
+This relates to the usual notion of packed words (a word in $[m]$ where $m \leq |I|$ represents the rank) in the following way:
 if we order the elements of $I = \{a_1 \leq_P \dots \leq_P a_k \}$, then the corresponding packed word is 
 $$rk_{\leq_V}(a_1)rk_{\leq_V}(a_2) \dots rk_{\leq_V}(a_k) \, .$$
 
@@ -130,7 +136,7 @@ For instance, the packed word $\omega_1 = 13123 = ( d < e < c < a < b, \{d, c\})
 
 
 
-In this way, there are $(n!) \times \sum_{m = 1}^n \sFunc(I, [m])$ elements in $\mathtt{PWo}[n]$, where $\sFunc(A, B)$ counts the surjective functions from $A$ to $B$.
+In this way, there are $(n!) \times \sum_{m = 1}^n \sFunc(I, [m])$ elements in $\mathtt{PWo}[n]$, where $\sFunc(I, [m])$ denotes the number of surjections (surjective functions) from $I$ to $[m]$.
 Because each packed word $\omega $ has an isomorphism class of size $n!$, there are $ \sum_{m = 1}^n \sFunc(I, [m])$ many packed words, which is expected.
 
 \
@@ -154,10 +160,12 @@ Before we make the goal of this section explicit, let us first recall the defini
 A parking function $\mathfrak{p} = a_1 \dots a_n$ is a sequence of integers in $[n]$ such that, after reordering $a^{(1)} \leq a^{(2)} \leq \dots \leq a^{(n)}$, we have $a^{(i)} \leq i$ for all $i$.
 \end{defin}
 
+Intuitively, parking functions model the following scenario: $n$ cars arrive at a street with $n$ parking spots labeled $1, \ldots, n$. Each car $i$ has a preferred spot $a_i$. Cars park greedily: car $i$ parks at its preferred spot if available, otherwise it parks at the next available spot to the right. A sequence is a parking function if and only if all cars can find a parking spot using this greedy algorithm.
+
 Examples of parking functions are $12$, $131$ and $3114$.
 
 \begin{defin}[Dyck path]
-Given an $n\times n$ square grid, a \textbf{Dyck path} on this square is an edge path, from the lower left corner to the upper right corner, that is always above the main diagonal.
+Given an $n\times n$ square grid, a \textbf{Dyck path} is an edge path from $(0,0)$ to $(n,n)$ staying weakly above the line $y = x$ (the main diagonal).
 It is a classical result that Dyck paths are enumerated by Catalan numbers.
 \end{defin}
 
@@ -165,7 +173,7 @@ It is a classical result that Dyck paths are enumerated by Catalan numbers.
 To describe species on parking functions we need to use the construction of parking functions as labelled Dyck paths.
 % (see for instance \cite{Loehr}).
 %This notion of species with restrictions will recover a notion of patterns in parking functions studied in \cite{adeniran2022pattern}.
-Specifically, if $I$ is a set of size $n$, we label a Dyck path $\mathcal D$ on an $n\times n$ square grid by a function $f$ that assigns unique values on the set $I$ to each of the \textbf{up} segments of the Dyck path.
+Specifically, if $I$ is a set of size $n$, we label a Dyck path $\mathcal D$ on an $n\times n$ square grid by a function $f$ that assigns unique values on the set $I$ to each of the \textbf{up} segments of the Dyck path. An 'up' segment is an edge from $(i, i)$ to $(i+1, i+1)$; a 'down' segment is an edge from $(i, i+1)$ to $(i+1, i)$.
 If we enrich $I$ with a total order $\leq$ in such a way that in each sequence of \textbf{up} segments, the labels arise in \textbf{increasing} order, Bergeron et al.\ construct in \cite{BGLPV2021} a parking function $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \leq)$.
 We recover here such construction, adapted to the language in this article, for convenience.
 
@@ -198,7 +206,7 @@ Because there are three elements in the first block, namely $245$, in the parkin
 The species of \textbf{parking functions}, $\mathtt{PF}$, arises by letting $\mathtt{PF}[I]$ be the collection of all parking functions $\mathfrak{p} = \mathfrak{p}(I, \mathcal D, f, \leq)$, that is Dyck paths $\mathcal D$ in an $|I|\times |I|$ grid, labelled by elements of $I$ along with an order $\leq$ of $I$.
 We can give it a notion of species with restrictions: for each inclusion $\iota : I \hookrightarrow J $ and a labelled Dyck path $(J, \mathcal D, f, \leq)$ on $J$, the restriction $\mathtt{PF}[\iota](J, \mathcal D, f, \leq) = (I, \mathcal D|_I, f|_I, \leq|_I)$ has an intuitive meaning, except perhaps for
 $\mathcal D|_I$, which we clarify in the following.
-This is done via a notion of \textbf{tunnels}, introduced by Deutsch and Elizalde in \cite{elizalde2003simple}.
+This is done via a notion of \textbf{tunnels} --- pairs of an up and down segment at the same level, that have no other segment at that level in between --- introduced by Deutsch and Elizalde in \cite{elizalde2003simple}.
 Specifically, the corresponding Dyck path is defined to be the restricted Dyck path by taking the \textbf{tunnels} labelled by elements in $I$, relabelling sequences of \textbf{up} segments if necessary to preserve the increasing property.
 One can see in \cref{fig:restriction_parking} how this works on the example given above, as well as the corresponding parking function.
 
@@ -213,18 +221,18 @@ One can see in \cref{fig:restriction_parking} how this works on the example give
 
 \
 
-One defines a shifted concatenation $\oplus$ on parking functions, that results from a diagonal sum of its orders and Dyck paths.
+One defines a shifted concatenation $\oplus$ on parking functions, defined via concatenation of the underlying Dyck paths and orders (similar to the diagonal sum operation for permutations).
 The following claim can be established by the same methods presented in \cite{Penaguiao2020}.
 
 \begin{prop}[Species with restrictions on parking functions]
-This forms a species with restrictions structure.
+$\mathtt{PF}$ forms a species with restrictions structure. The proof follows the same approach as for permutations: the operations on Dyck paths and orders respect the restriction to subsets.
 Furthermore, the shifted concatenation $\oplus $ endows $\mathtt{PF}$ with a monoid structure, and the resulting Hopf algebra $\mathcal A(\mathtt{PF})$ is free.
 \end{prop}
 
 For the last part, we observe that because $\mathtt{PF}$ is NCF (see below in \cref{defin:ncf}), we have from \cref{cor:freeNCF} that this algebra is free.
 
 \begin{smpl}
-The five smallest parking functions are $\emptyset, 1, 11, 12$ and $21$.
+The five smallest parking functions are $\emptyset, 1, 11, 12$ and $21$, where the empty sequence $\emptyset$ is the unique parking function of size 0.
 The sixteen parking functions of size three are displayed in \cref{fig:PF3}, along with its corresponding labelled Dyck paths.
 
 For any parking function $\mathfrak p$ of size three, we have $\pat_{\emptyset}(\mathfrak p) = 1$ and $\pat_1(\mathfrak p) = 3$.

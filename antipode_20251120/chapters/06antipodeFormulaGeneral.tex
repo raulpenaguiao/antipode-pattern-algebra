@@ -3,9 +3,9 @@
 \section{The antipode formula for pattern algebras \label{sec:formula_general}}
 \
 
-In this section we give a general formula for the antipode of a pattern algebra, whenever our connected species with restrictions is of the form $\mathtt{L} \times -$. 
+In this section we give a general formula for the antipode of a pattern algebra, whenever our connected species with restrictions is of the form $\mathtt{L} \times -$, that is, species that factor as the Hadamard product (see \cref{sec:species}) of total orders $\mathtt{L}$ with another species.
 This antipode formula is a dual analogue of the antipode formula in \cite{BergeronBenedetti}, where a similar formula was obtained for linearized Hopf species.
-We note explicitly that species on parking functions and packed words, as well as $\mathtt{Per}$, are of the form $\mathtt{L} \times -$.
+We note explicitly that species on parking functions and packed words, as well as $\mathtt{Per}$, are of the form $\mathtt{L} \times -$ (see examples in \cref{sec:species_restrictions}).
 
 \
 
@@ -24,14 +24,16 @@ Recall that for any pattern Hopf algebra $\mathcal A (\mathtt{h})$, $(\iota\circ
 \subsection{$\mathtt{L}\times -$ species with restrictions}
 
 
-In \cite[Corollary 4.4.]{Penaguiao2020} it was shown that in species with restrictions $\mathtt{h}$, any factorisation into $\ast$-indecomposibles is unique possibly up to order of the factors.
-In some species with restrictions, we can also drop the ``up to order'' adjective, as there is exactly one factorisation into $\ast$-indecomposibles. We make this precise in the \textit{non-commuting factorisation} definition.
-For clarity, we use $\star$ for the operation on $\End (H)$ and use $\ast $ for the associative structure on a species.
+In \cite[Corollary 4.4.]{Penaguiao2020} it was shown that in species with restrictions $\mathtt{h}$, any factorization into $\ast$-indecomposables is unique possibly up to order of the factors.
+In some species with restrictions, we can also drop the ``up to order'' requirement: some species have a unique factorization, not just unique up to reordering of the factors. We make this precise in the \textit{non-commuting factorization} definition.
 
 
+\begin{rem}[Product notation clarification]
+For clarity, we use $\star$ for the convolution operation on $\End (H)$ (the antipode operations) and $\ast $ for the associative operation on a species (the combinatorial operation). This distinction is important to avoid confusion between operations in different contexts.
+\end{rem}
 
-\begin{defin}[Non-Commuting factorisation on pattern Hopf algebras]\label{defin:ncf}
-A monoidal species with restrictions is called a \textbf{non-commuting factorisation} species, or simply an NCF species, if any element $x$ has a unique factorisation into $\ast$-indecomposibles elements $x = x_1 \ast \dots \ast x_n$.
+\begin{defin}[Non-Commuting factorization on pattern Hopf algebras]\label{defin:ncf}
+A monoidal species with restrictions is called a \textbf{non-commuting factorization} species, or simply an NCF species, if any element $x$ has a unique factorization into $\ast$-indecomposables elements $x = x_1 \ast \dots \ast x_n$. This property is crucial for obtaining cancellation-free antipode formulas.
 \end{defin}
 
 
@@ -40,18 +42,18 @@ Let $\mathtt{S}$ be a connected species with restrictions.
 Then $\mathtt{L} \times \mathtt{S}$ has NCF.
 \end{lm}
 
-In the following, we will refer to associative and connected species of the form $\mathtt{L} \times \mathtt{S}$ as \textbf{ordered species with restrictions}.
+We call species of the form $\mathtt{L} \times \mathtt{S}$ an \textbf{ordered species with restrictions}. In what follows, we will focus on associative and connected ordered species with restrictions.
 
 \begin{proof}
-Let $x = x_1 \ast \dots \ast x_k $ and $ y =  y_1 \ast \dots \ast y_n$ such that $x \sim y$.
+Let $x = x_1 \ast \dots \ast x_k \in (\mathtt{L} \times \mathtt{S})[I]$ and $ y =  y_1 \ast \dots \ast y_n \in (\mathtt{L} \times \mathtt{S})[J]$ such that $x \sim y$.
 From \cite[Corollary 3.4.]{Penaguiao2020}, we know that $k = n$ and the multisets $\{x_i\}_{i=1}^k,  \{y_i\}_{i=1}^n$ are the same.
-It remains to show that the factorisations order coincide and that we have $x_i \sim y_i$ for $i = 1, \dots , n$.
+It remains to show that the factorizations order coincide and that we have $x_i \sim y_i$ for $i = 1, \dots , n$.
 To that effect we act by induction, where $n = 1$ is trivial.
 
 \
 
 %For the induction step, let us consider the bijection $\sigma:[n] \to [n]$ such that $y_{\sigma(i)} \sim x_i$ given by \cite[Corollary 3.4.]{Penaguiao2020}.
-We write $x_i = (l_i, p_i)\in (\mathtt{L}\times \mathtt{S})[I_i]$ and $y_i = (m_i, q_i)\in (\mathtt{L}\times \mathtt{S})[J_i]$.
+We write $x_i = (l_i, p_i)\in (\mathtt{L}\times \mathtt{S})[I_i]$ and $y_i = (m_i, q_i)\in (\mathtt{L}\times \mathtt{S})[J_i]$, where $(l_i, p_i)$ denotes the pair of a total order and the object in the original species.
 Write $x = (l, p) \in (\mathtt{L}\times \mathtt{S})[I] $ and $y = (m, q) \in (\mathtt{L}\times \mathtt{S})[J]$.
 Assume wlog that $|I_1 | \geq |J_1|$.
 
@@ -61,7 +63,7 @@ By hypothesis, we have that $x \sim y$, so there exists some bijection $\phi: J 
 This bijection yields a correspondence between two linear orders $\mathtt{L} [\phi] (l_1 \ast \dots \ast l_n) = m_1\ast \dots \ast m_n $.
 Observe that $I_1$ and $J_1$ are ideals in $l_1 \ast \dots \ast l_n$ and $m_1 \ast \dots \ast m_n$, respectively, as seen in \cref{prop:linorderideals}.
 So either $J_1 = \phi (I_1)$ or $J_1 \subsetneq  \phi(I_1) $.
-Assume for sake of contradiction that $J_1 \subsetneq  \phi(I_1)$, and consider the following factorisation of $x_1 $:
+Assume for sake of contradiction that $J_1 \subsetneq  \phi(I_1)$, and consider the following factorization of $x_1 $:
 \begin{equation}\label{eq:linearpats:non_trivial_fact}
 x_1 = x|_{I_1} \sim y|_{\phi(I_1)} = y_1|_{\phi(I_1) \cap J_1} \ast (y_2 \ast \dots \ast y_n)|_{(J\setminus J_1) \cap \phi(I_1)}\, . 
 \end{equation}
@@ -71,7 +73,7 @@ On the other hand, $\phi(I_1) \cap J_1 = J_1$ is also non-empty.
 
 \
 
-Going back to \eqref{eq:linearpats:non_trivial_fact}, we get a non-trivial factorisation of $x_1$, which contradicts the fact that we started with a factorisation into indecomposables. Thus $|I_1 | = |J_1|$, which shows that $\phi(I_1) = J_1$.
+Going back to \eqref{eq:linearpats:non_trivial_fact}, we get a non-trivial factorization of $x_1$, which contradicts the fact that we started with a factorization into indecomposables. Thus $|I_1 | = |J_1|$, which shows that $\phi(I_1) = J_1$.
 Therefore,  $\phi(I\setminus I_1) = J \setminus  J_1$, $ \mathtt{R}[\phi] (p|_{I_1}) = q|_{J_1} $ and $ \mathtt{R}[\phi] (p|_{I \setminus I_1}) = q|_{J \setminus J_1} $.
 We get that $x_1 \sim y_1$ and $x_2 \ast \cdots \ast x_n \sim y_2 \ast \cdots \ast y_n$, via $\phi$.
 By induction hypothesis, this tells us that $x_2 \sim y_2, \cdots , x_n \sim y_n$, as desired.
@@ -92,21 +94,22 @@ This property allows for an easy manipulation of the coproduct, and results in a
 \begin{defin}[Composition poset and cumulative sum]
 Recall that we write $\mathcal C_n$ for the set of compositions of size $n$.
 We define $\mathbf{CS}$, a bijection between $\mathcal C_n $ and $2^{[n-1]}$, as follows.
-If $\alpha =(\alpha_1, \dots, \alpha_{\ell} ) \in \mathcal C_n$, define $f_i = \sum_{j=1}^i \alpha_j$ and 
+If $\alpha =(\alpha_1, \dots, \alpha_{\ell} ) \in \mathcal C_n$, define $f_i = \sum_{j=1}^i \alpha_j$ and
 \begin{equation}
     \mathbf{CS}(\alpha) \coloneqq \{f_i\, | \, i = 1, \dots, \ell - 1\} \, .
 \end{equation}
+Intuitively, the cumulative sum bijection maps compositions to subsets by recording where ``cuts'' occur in the composition — each element of $\mathbf{CS}(\alpha)$ represents a position where the composition could be split.
 This bijection allows us to define an order $\leq $ in $\mathcal C_n$, via the pullback from the boolean poset in $2^{[n-1]}$.
 This order can also be defined as follows: we say that $\alpha \leq \beta$ if $\alpha$ arises from $\beta $ after merging and adding consecutive entries.
 \end{defin}
 
 \
-Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in \mathtt{R}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} \sim x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$.
+Recall that a QSS $\III = (I_1, \dots , I_n)$ of $y\in \mathtt{R}[I]$ from $x_1, \dots, x_n$ satisfies $y|_{I_i} \sim x_i$ for all $i = 1, \dots , n$, and $I = \bigcup_i I_i$ (see \cref{sec:intro} for the definition of QSS).
 
 \begin{defin}[Compositions and QSS]
 Consider again $\mathtt{R}$ an ordered species with restrictions.
-Let $x \in \mathtt{R}[J], y \in  \mathtt{R}[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorisation of $x$ into indecomposables.
-Further say that $y = (\leq_y, \iota)$, where $\leq_y$ is a linear order in $I$.
+Let $x \in \mathtt{R}[J], y \in  \mathtt{R}[I]$, and $x = x_1\ast \dots \ast x_n$ be the unique factorization of $x$ into indecomposables.
+Further say that $y = (\leq_y, \iota)$, where $\leq_y$ is a linear order on $I$.
 Let $\III = (I_1, \dots , I_n)$ be a QSS of $y$ from $x_1, \dots, x_n$ and consider a composition $\alpha \models n$.
 
 \
@@ -117,12 +120,14 @@ Then we define for $i = 1, \dots, \ell(\alpha)$:
 
 \
 
-For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, we say that $A \lneq B$ if $A, B$ are disjoint and $a \leq b$ for any $a \in A$ and $b \in B$.
+For a partial order $\leq$ on a set $I$, and two sets $A, B \subseteq I$, we write $A \lneq_{\leq} B$ to mean that $A, B$ are disjoint and $a \leq b$ for any $a \in A$ and $b \in B$.
 
 \
 
 Two indices $i< j$ are said to be \textbf{merged} by $\alpha$ if there is some $k$ in $\{1, \dots, n\}$ such that $ f_{k-1} < i < j \leq f_k$.
-We say that a QSS $\III$ of $y$ from $x_1, \dots , x_n$ is $\alpha $-stable if $(I^{\alpha}_i)_i \text{ is a QSS of $y$ from } (x^{\alpha}_i)_i$ and, whenever $x_i \sim x_j$ and $i < j$ are merged with $\alpha $, then $I_i \lneq_y I_j$.
+
+Intuitively, a QSS is $\alpha$-stable if merging its components according to $\alpha$ respects the underlying structure and pattern relationships.
+Formally, we say that a QSS $\III$ of $y$ from $x_1, \dots , x_n$ is $\alpha $-stable if $(I^{\alpha}_i)_i \text{ is a QSS of $y$ from } (x^{\alpha}_i)_i$ and, whenever $x_i \sim x_j$ and $i < j$ are merged with $\alpha $, then $I_i \lneq_y I_j$.
 
 \
 
@@ -142,8 +147,8 @@ All three are $(1, 1, 1)$-stable.
 \
 
 We now observe that $\III_1, \III_2$ and $\III_3$ are $(2, 1)$-stable, but not $(1, 2)$-stable.
-Indeed, $\III_1^{(1, 2)} = \III_2^{(1, 2)} = \III_3^{(1, 2)} = (12, 345)$, and $\rho|_{345} = 111$ is not $\rho|_{I_2} \oplus \rho|_{I_3}$ for any of the QSS.
-On the other hand, $\III_1^{(2, 1)} = (123, 45)$, $\III_2^{(2, 1)} = (124, 35)$ and $\III_3^{(2, 1)} = (125, 34)$, in each case is easy to note that $\rho|_{I_1^{(2, 1)}} = 21\oplus 1$ and $\rho|_{I_2^{(2, 1)}} = 11$ for each of the QSS.
+For $(1, 2)$-stability: The composition $(1, 2)$ merges indices $2$ and $3$. We compute $\III_1^{(1, 2)} = \III_2^{(1, 2)} = \III_3^{(1, 2)} = (12, 345)$. However, $\rho|_{345} = 111$ is not $\rho|_{I_2} \oplus \rho|_{I_3}$ for any of the QSS, so $(1, 2)$-stability fails for all three.
+For $(2, 1)$-stability: The composition $(2, 1)$ merges indices $1$ and $2$. We have $\III_1^{(2, 1)} = (123, 45)$, $\III_2^{(2, 1)} = (124, 35)$ and $\III_3^{(2, 1)} = (125, 34)$. In each case, it is straightforward to verify that $\rho|_{I_1^{(2, 1)}} = 21\oplus 1$ and $\rho|_{I_2^{(2, 1)}} = 11$, making all three QSS $(2, 1)$-stable.
 
 Therefore, in each case we can see that
 $$\mathcal I_{\III}^{21\oplus 1\oplus 11, 21333} = \{(1, 1, 1), (2, 1)\}\, . $$
@@ -162,12 +167,13 @@ Indeed, because $2 \leq_P 4$, we have that $\III_1$ is $(1, 2)$-stable, whereas 
 
 
 Define the composition $\mu_i \coloneqq (\underbrace{1, \dots , 1}_\text{$i-1$ times}, 2, 1, \dots, 1)$.
+The composition $\mu_i$ is important because it represents merging positions $i$ and $i+1$.
 If $\III = (I_1, \dots, I_n)$ is a $\mu_i$-stable QSS, then $y|_{I_1 \cup I_{i+1}} = y|_{I_i} \ast y|_{I_{i+1}}$.
 This motivates the following lemma:
 
 \begin{lm}\label{obs:pwords-characterisation}
 Let $\mathtt{R}$ be an ordered species with restrictions.
-Consider $x, y$ objects in $\mathtt{R}$, such that $y = (\leq_y, m)$ and $x = x_1\ast \dots \ast x_n$ a factorisation into indecomposibles.
+Consider $x, y$ objects in $\mathtt{R}$, such that $y = (\leq_y, m)$ and $x = x_1\ast \dots \ast x_n$ a factorization into indecomposables.
 If $\III = (I_1, \dots, I_n)$ is a QSS of $y$ from $x_1, \dots x_n$ that is $\mu_i$-stable, then $I_i \lneq_y I_{i+1}$.
 \end{lm}
 
@@ -200,7 +206,7 @@ Observe that
     \end{split}
 \end{equation}
 
-However, $\mathtt{R}[\phi](y|_{I_i}) \sim y|_{I_i} \sim x_i$, which is $\ast$-indecomposible, we conclude that either $|X_i \cap \phi^{-1}(I_i)| = 0 $ or $|X_{i+1} \cap \phi^{-1}(I_i)| = 0$.
+However, $\mathtt{R}[\phi](y|_{I_i}) \sim y|_{I_i} \sim x_i$, which is $\ast$-indecomposable, we conclude that either $|X_i \cap \phi^{-1}(I_i)| = 0 $ or $|X_{i+1} \cap \phi^{-1}(I_i)| = 0$.
 Assume the first for sake of contradiction, and because $\phi^{-1}(I_i) \subseteq X_i \cap X_{i+1}$, we have that $\phi^{-1}(I_i) \subseteq X_{i+1}$.
 But $|\phi^{-1}(I_i)| = |I_i| \geq |I_{i+1}| = |X_{i+1}|$, therefore we have equality, that is $\phi^{-1}(I_i) = X_{i+1}$
 
@@ -225,10 +231,10 @@ Call $x \coloneqq x_1 \ast \dots \ast x_n$.
 Then, $\mathcal I^{x, y}_{\III}$ has a unique maximal element, $\mathbb{1} = (1, \dots, 1)$.
 \end{obs}
 
-The following is the main theorem in this section
+The following is the main theorem in this section. The antipode is given by summing over all possible objects $y$, all quasi-shuffle signatures of $y$, and all $\alpha$-stable compositions, with an alternating sign determined by the composition length.
 
 \begin{thm}\label{thm:general_antipode}
-For a species with restrictions $\mathtt{R}$ that is a multiple of $\mathtt{L}$, and an element $x$, along with its factorisation $x=x_1 \ast \dots \ast x_n$, we have the following antipode formula in $\mathcal A (\mathtt{R})$:
+For a species with restrictions $\mathtt{R}$ that is a multiple of $\mathtt{L}$, and an element $x$, along with its factorization $x=x_1 \ast \dots \ast x_n$, we have the following antipode formula in $\mathcal A (\mathtt{R})$:
 
 $$S(\pat_x) = \sum_y \pat_y \sum_{\substack{\III \text{ QSS of $y$}\\ \text{from }x_1, \dots , x_n}}  \sum_{\alpha \in \mathcal I^{x, y}_{\III}} (-1)^{\ell ( \alpha)} \, .$$
 \end{thm}
@@ -238,8 +244,8 @@ $$S(\pat_x) = \sum_y \pat_y \sum_{\substack{\III \text{ QSS of $y$}\\ \text{from
 \Delta^{\circ (k-1)} (\pat_x)
     =& \sum_{x = \chi_1 \ast \dots \ast \chi_k} \pat_{\chi_1}\otimes \dots \otimes \pat_{\chi_k}
 \end{align*}
-Because the species with restrictions $\mathtt{R}$ has NCF, the only ways to factorize $x$ into $k$ factors is to start from the original factorisation $x = x_1 \ast \dots \ast x_n$ and bracket these factors into $k$ blocks, possibly empty, of $n$.
-Therefore, we can enumerate these factorisations using weak compositions, as follows:
+Because the species with restrictions $\mathtt{R}$ has NCF, the only ways to factorize $x$ into $k$ factors is to start from the original factorization $x = x_1 \ast \dots \ast x_n$ and bracket these factors into $k$ blocks, possibly empty, of $n$.
+Therefore, we can enumerate these factorizations using weak compositions, as follows:
 
 \begin{align*}
 (\iota \circ \epsilon -  \id_{\mathcal A (\mathtt{R})})^{\star k} (\pat_x)
@@ -270,7 +276,8 @@ To motivate the last equality, we will construct a series of bijections, for eac
 
 \
 
-Recall that $y = (\leq_y, \iota)$ induces a linear order $m$ in $I$.
+Recall that $y = (\leq_y, \iota_y)$ for certain objects $\leq_y$ and $\iota_y$.
+Note that $\leq_y$ induces a linear order $m$ in $I$.
 The sets $(I_i)_i$ are defined so that $J_s = I_{f_{s-1}+1} \uplus \dots \uplus I_{f_s}$, that $|I_i | = |x_i|$ and that $I_i \lneq_y I_j $ whenever $f_{s-1} < i < j \leq f_{s}$.
 There is clearly a unique way to choose such $(I_i)_i$.
 This is easily seen to be an $\alpha$-stable QSS of $y$ from $x_1, \dots, x_n$.
@@ -298,7 +305,7 @@ The maps $\Psi_{\alpha}$ and $\Phi_{\alpha}$ are easily seen to be inverses of e
 %\end{smpl}
 
 \begin{prop}[Filtered structure of $\mathcal I$]\label{prop:filter_structure_I}
-For an ordered species with restrictions $\mathtt{R}$, and elements $x\in  \mathtt{R}[J], y\in \mathtt{R}[I]$, along with a factorisation into $\ast$-indecomposibles $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
+For an ordered species with restrictions $\mathtt{R}$, and elements $x\in  \mathtt{R}[J], y\in \mathtt{R}[I]$, along with a factorization into $\ast$-indecomposables $x = x_1 \ast \dots \ast x_n$ and a QSS $\III$ of $y$ from $x_1, \dots, x_n$, we have that $\mathcal I^{ x, y}_{\III}$ is a filter.
 That is, if $\alpha \in \mathcal I^{ x, y}_{\III}$ and $\beta \geq \alpha$ then $\beta \in \mathcal I^{ x, y}_{\III}$.
 
 \
@@ -350,7 +357,7 @@ This concludes the proof.
 
 \
 
-The consequence is, if $\mathcal I_{\III}^{x, y}$ has a unique minimal elemet for any two objects $x, y$ and QSS $\III$, the antipode formula reduces to counting how many of these minimal elements are the composition $\mathbb{1}$.
+The consequence is, if $\mathcal I_{\III}^{x, y}$ has a unique minimal element for any two objects $x, y$ and QSS $\III$, the antipode formula reduces to counting how many of these minimal elements are the composition $\mathbb{1}$.
 Indeed, these will contribute with $(-1)^n$ to the total coefficient of $\pat_y$, giving us a cancellation-free formula.
 
 \

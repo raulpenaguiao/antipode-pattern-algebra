@@ -2,11 +2,14 @@
 \section{The pattern Hopf algebra \label{sec:pattern_algebra_contruction}}
 
 \subsection{Species with restrictions}
+
+To construct Hopf algebras from combinatorial objects, we need a framework that combines the algebraic structure of species with the ability to extract components from larger objects. Species with restrictions provide this essential unifying structure, serving as the central foundation for all pattern Hopf algebras presented in this paper. They introduce restriction maps that allow us to systematically decompose objects, a capability that is particularly important for studying patterns, where we need to understand how smaller patterns appear within larger ones. This framework also naturally accommodates the monoidal structure and coproduct operations needed to give Hopf algebra structures to pattern algebras.
+
 The general setting for our approach to patterns is given by the notion of \emph{species with restrictions}, a terminology due to Schmitt (see \cite{Schmitt1993}) and used by the first author in \cite{Penaguiao2020}, where these were called combinatorial presheaves.
 
 \
 
-Let $\Fset_{\!\!\!\!\!\hookrightarrow}$ be the category of finite sets with injections as morphisms. A (set) {\bf species with restrictions} is a contravariant functor $\prR:\Fset_{\!\!\!\!\!\hookrightarrow} \to \Set$. Given a species with restrictions $\prR$ and a couple of finite sets $I,J$ such that $J \subseteq I$, the {\bf restriction map} $\text{res}_{I,J}:=\text{res}[\hookrightarrow]$ is the image under the functor $\prR$ of the inclusion $J \hookrightarrow I$:
+Let $\Fset_{\!\!\!\!\!\hookrightarrow}$ be the category of finite sets with injections as morphisms. A (set) {\bf species with restrictions} is a contravariant functor $\prR:\Fset_{\!\!\!\!\!\hookrightarrow} \to \Set$. Given a species with restrictions $\prR$ and a couple of finite sets $I,J$ such that $J \subseteq I$, the {\bf restriction map} $\text{res}_{I,J}$ is the image under the functor $\prR$ of the inclusion $J \hookrightarrow I$. We will use the notation $\text{res}_{I,J}$ exclusively when $J$ is a subset of $I$, and drop the more general species notation:
 \[\text{res}_{I,J}: \prR[I]\to \prR[J].\]
 
 By functoriality, these maps satisfy the contravariant axioms
@@ -15,14 +18,14 @@ By functoriality, these maps satisfy the contravariant axioms
 \end{equation}
 for any finite sets $I \supseteq J \supseteq K$. 
 Since any arbitrary injection equals a bijection followed by an inclusion, any species with restrictions is equivalent to a set species together with restriction maps satisfying the axioms \eqref{Axrestr}.
-Going forward, we use the notation $a|_J = \rest_{I, J}(a)$ for simplicity.
+Going forward, we use the notation $a|_J = \text{res}_{I, J}(a)$ for simplicity.
 
 %REVIEWNov19
 %added definition of restriction here
 
 \
 
-Species with restrictions form a category $\Spr$, where the arrows are natural transformations between functors.
+Species with restrictions form a category $\Spr$, where the morphisms are natural transformations between species.
 For clarity, we denote species with restrictions with a typewriter typescript.
 Note how a species with restrictions is also a set species.
 
@@ -51,10 +54,12 @@ The vector species $\trr$ is a linearized comonoid in $(\Ss, \cdot)$. In particu
 \end{lm}
 
 
-Consider now the converse, a linearized comonoid $\tp=\mathbb{K}\rP$ in $(\Ss, \cdot)$. 
+Consider now the converse, a linearized comonoid $\tp=\mathbb{K}\rP$ in $(\Ss, \cdot)$.
 In this case, the coproduct gives a pure tensor
-\[\Delta_{S.T}(x)=x|_S \otimes x/_S,\]
-for each $x \in \rP[I]$ and for each decomposition $I = S \sqcup T$. We may then define restriction maps on $\tp$ either by
+\[\Delta_{S,T}(x)=x|_S \otimes x/_S,\]
+for each $x \in \rP[I]$ and for each decomposition $I = S \sqcup T$. In the examples below (sets, graphs, matroids) the maps $x \mapsto x|_S$ and $x \mapsto x/_S$ will correspond to the usual notions of restrictions and contractions.
+
+We may then define restriction maps on $\tp$ either by
 
 \begin{align*}
 \text{res}^{(1)}_{I,J}: \tp[I] &\to \tp[J] \qquad \qquad  \text{or}  &\text{res}^{(2)}_{I,J}: \tp[I] &\to \tp[J],\\
@@ -90,13 +95,13 @@ A monoid $(\prP, \mu, 1)$ in species with restrictions is a monoid in set specie
 \rP[S]\times \rP[T]\ar[d]_-{\mu_{S,T}} \ar[rrr]^-{\text{res}_{S, S\cap J} \times \text{res}_{T, T\cap J}}&&&\rP[S \cap J]\times \rP[T\cap J]\ar[d]^-{\mu_{S \cap J, S\cap J}}\\
 \rP[I]\ar[rrr]_-{\text{res}_{I,J}}&&& \rP[J]
 }\]
-commutes.
+commutes, ensuring that restrictions respect the monoid structure.
 
 \
 
 Given a monoid $\prP$ in the monoidal category of species with restrictions $(\Spr, \cdot)$, let $\tp:=\mathbb{K}\prP$ be the linearisation of the underlying set species of $\prP$. 
 By \cref{thm:swr_lcc}, $\tp$ is a cocommutative comonoid. Since $\prP$ is a monoid, then $\tp$ is a monoid in the category of vector species. Moreover, the above diagram implies that the product and coproduct of $\prP$ are compatible, meaning that $\prP$ is a cocommutative bimonoid. 
-This proves the following (originally from \cite{AM2010}:
+This proves the following, which was proved by Aguiar-Mahajan (see \cite{AM2010}):
 
 \begin{thm}[Aguiar-Mahajan]\label{MonRestr1}
 There is an equivalence between the category of monoids in $(\Spr, \cdot)$ and the category of linearized cocommutative bimonoids.
@@ -104,7 +109,7 @@ There is an equivalence between the category of monoids in $(\Spr, \cdot)$ and t
 
 
 \begin{thm}[Aguiar-Mahajan]\label{MonRestr2}
-If $\prP$ is a connected monoid in species with restrictions, then $\mathbb{K}\prP$ is a Hopf monoid in vector species.
+If $\prP$ is a connected monoid in species with restrictions (i.e., $\prP[\emptyset]$ is a singleton), then $\mathbb{K}\prP$ is a Hopf monoid in vector species.
 \end{thm}
 
 \
@@ -141,7 +146,7 @@ We define the {\bf pattern coefficient} of $b$ in $a$ as
 
 \
 
-This definition only depends on the isomorphism classes of $b \in \prR[J]$ and $a \in \prR[I]$; see \cite{Penaguiao2020}. This motivates the following notion.
+This definition only depends on the isomorphism classes of $b \in \prR[J]$ and $a \in \prR[I]$; it can be directly seen from the definition that the number of patterns only depends on the isomorphism class (see \cite{Penaguiao2020}). This motivates the following notion.
 
 \begin{defin}[Patterns functions]\label{defin:pattern}
 Let $\prR$ be a species with restrictions. Given a finite set $I$, we define the {\bf pattern function associated to} $b \in \prR[I]$ as the function
@@ -180,7 +185,7 @@ $$ \binom{c}{a, b}_{\!\prR} = \left| \{(I, J) \, \text{ such that } \, \,  I \cu
 
 %For details on quasi-shuffles of combinatorial objects, the interested reader can see \cite{hoffman00,aguiar10,foissy16}.
 
-Consider now a positive species with restrictions $\prR$ endowed with an associative product $(\prR, \sq)$. Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above. Recall by Theorem \eqref{MonRestr2} that 
+Consider now a positive species with restrictions $\prR$ endowed with an associative product $(\prR, \sq)$. We require $\prR$ to be positive (meaning $\prR[\emptyset] = 0$) to ensure that the resulting Hopf algebra has a well-defined unit element. Specifically, this restriction ensures that the empty set corresponds to "no object," which naturally identifies with the multiplicative identity in the Hopf algebra structure. Examples of associative operations on species with restrictions are the direct sum of permutations $\oplus$, introduced above. Recall by Theorem \eqref{MonRestr2} that 
 $(\prR, \sq)$ is equivalent to the linearized cocommutative Hopf monoid $(\trr, \sq, \Delta)$, where $\trr=\mathbb{K}\prR$ and $\Delta$ is defined as in \eqref{CoprodRestr}. If $*$ denotes the pointwise product in $\Kcb(\trr^*)$, then the space of pattern function $\mathcal{A}(\prR)$ is a subalgebra of $\Kcb(\trr^*, *, \Delta_{\sq})$, where $\Delta_{\sq}$ denotes the dual map of $\sq$.
 
 %\raul{I don't see why we want a positive species here}
@@ -193,20 +198,20 @@ This is shown in \cref{thm:conHopfalgebra}. Therefore, we have the following cop
 \begin{equation}\label{eq:coprodformula}
 \Delta_{\sq} \pat_ a = \sum_{\substack{ b, c \, \in \, \mathcal G (\prR) \\ a = b \, \sq \, c}} \pat_b \otimes \pat_c \, .
 \end{equation}
-where the sum runs over coinvariants $b, c$ such that $a = b \,\sq \,c$. 
+where the sum runs over isomorphism classes $b, c$ that factor into $a$ via the operation $\sq$. 
 The relation \eqref{eq:coproddefin} is central in establishing that the coproduct $\Delta_{\sq} $ is compatible with the product in $\mathcal A (\prR)$.
 
 
 \begin{thm}\label{thm:conHopfalgebra}
 Let $(\prR, \sq, 1) $ be an associative species with restrictions.
-Then the pattern algebra of $\prR$ together with the coproduct $\Delta_{\sq}$, and a natural choice of counit, forms a bialgebra.
-If additionally $| \prR[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra.
+Then the pattern algebra of $\prR$ together with the coproduct $\Delta_{\sq}$, and a natural choice of counit, forms a bialgebra (a structure with compatible product and coproduct, see \cite{AM2010}).
+If additionally $| \prR[\emptyset ] | = 1 $, the pattern algebra forms a filtered Hopf algebra (with respect to the size of objects).
 \end{thm}
 
 %Presheaves that satisfy $|h[\emptyset ]| = 1$ are called \textit{connected}.
 %Connected algebraic structures are a classical resource in graded Hopf algebras, as in this way we can find an antipode through the so called \textit{Takeuchi formula}, introduced in \cite{takeuchi71}.
 
-Some known Hopf algebras can be constructed as the pattern algebra of a species with restrictions.
+Well-studied Hopf algebras, including some classical ones, can be constructed as the pattern algebra of a species with restrictions.
 An example is $Sym$, the Hopf algebra of \textit{symmetric functions}.
 This Hopf algebra has a basis indexed by partitions, and corresponds to the pattern Hopf algebra of the species on set partitions.
 %The pattern Hopf algebra corresponding to the presheaf on permutations described above was introduced by Vargas in \cite{vargas14}.
@@ -217,5 +222,5 @@ This Hopf algebra has a basis indexed by partitions, and corresponds to the patt
 We end this section with a relevant theorem on functors of species with restrictions.
 
 \begin{thm}[Theorem 3.8. in \cite{Penaguiao2020}]\label{thm:functoriality}
-    If $\mathtt{f} : \prR \Rightarrow \mathtt{S}$ is a morphism of associative species with restrictions, between connected species, then $\mathcal A(\mathtt{f})$ is a Hopf algebra morphism that maps $\mathcal A(\mathtt{S}) \to \mathcal A(\mathtt{R})$.
+    If $\mathtt{f} : \prR \Rightarrow \mathtt{S}$ is a morphism of associative species with restrictions, between connected species, then $\mathcal A(\mathtt{f})$ is a Hopf algebra morphism that maps $\mathcal A(\mathtt{S}) \to \mathcal A(\mathtt{R})$. Note the reversal of direction due to the contravariant nature of restrictions.
 \end{thm}
